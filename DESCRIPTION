@@ -1,0 +1,7 @@
+Package: placeholder
+Type: Book
+Title: Apunts d'Àlgebra Lineal
+Version: 1.0
+Imports: bookdown
+Needs: bookdown
+Remotes: rstudio/bookdown

@@ -1,0 +1,61 @@
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\titlepage}[2]{
+	\thispagestyle{empty} % Suppress headers and footers on the title page
+
+	\begin{tikzpicture}[remember picture, overlay]
+		\node [inner sep=0pt] at (current page.center) {#1}; % Background image
+		\node [anchor=center, inner sep=1.25cm, rectangle, text opacity=1, minimum height=\paperheight, minimum width=\paperwidth, text width=0.8\paperwidth] at (current page.center) {#2}; % Title highlight box with title(s) and author(s)
+	\end{tikzpicture}
+
+	\newpage
+}
+\titlepage % Output the title page
+	{\includegraphics[width=\paperwidth,height=\paperheight]{images/cover.png}} % Code to output the background image, which should be the same dimensions as the paper to fill the page entirely; leave empty for no background image
+	{ % Title(s) and author(s)
+
+		\centering\sffamily % Font styling
+		\par
+		\vspace{10pt}
+		\par
+		{\Huge\bfseries Apunts d'Àlgebra Lineal\par} % Book title
+		\vspace{16pt} % Vertical whitespace
+		{\LARGE\bfseries Marc Masdeu, Albert Ruiz\par} % Author
+		\vspace{20pt} % Vertical whitespace
+		{\LARGE\bfseries UAB\par}
+	}
+
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent Copyright \copyright\ 2023 Marc Masdeu, Albert Ruiz\\ % Copyright notice
+
+% \noindent \textsc{Published by Publisher}\\ % Publisher
+
+% \noindent \textsc{book-website.com}\\ % URL
+
+\noindent Aquesta obra està subjecta a una llicència de Reconeixement 3.0 No adaptada de Creative Commons
+
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with 
+
+\pagestyle{empty} % Disable headers and footers for the following pages
+
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right side of the book
+
+\pagestyle{fancy} % Enable headers and footers again

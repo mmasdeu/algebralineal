@@ -1,0 +1,23 @@
+book_filename: "algebralineal"
+output_dir: "_book"
+language:
+  label:
+    fig: 'Figura '
+    tab: 'Taula '
+    eq: 'Equació '
+    thm: 'Teorema '
+    lem: 'Lema '
+    cor: 'Corol·lary '
+    prp: 'Proposició '
+    cnj: 'Conjectura '
+    def: 'Definició '
+    exm: 'Exemple '
+    exr: 'Exercici '
+    hyp: 'Hipòtesi '
+    proof: 'Prova. '
+    remark: 'Observació '
+    solution: 'Solució. '
+  ui:
+    chapter_name: !expr function(i) paste0('Capítol ', i, '. ')
+delete_merged_file: false
+rmd_subdir: 'src/'

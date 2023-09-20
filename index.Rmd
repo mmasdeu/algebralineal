@@ -1,0 +1,118 @@
+---
+title: "Apunts d'Àlgebra Lineal"
+author: "Marc Masdeu, Albert Ruiz"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+fontsize: 11pt
+bibliography: ["src/bibliografia.bib"]
+header-includes:
+  - \AtBeginDocument{\let\maketitle\relax}
+csl: bib.csl
+link-citations: yes
+github-repo: mmasdeu/algebralineal
+description: "Apunts d'un curs d'Àlgebra Lineal a la UAB"
+nocite: '@*'
+output:
+  bookdown::gitbook:
+    split_by: chapter
+    css: style.css
+    includes:
+      in_header: src/mathjaxheader.html
+    config:
+      toolbar:
+        position: static
+      toc:
+        before: |
+          <li><a href="./">Àlgebra Lineal</a></li>
+        after: |
+          <li><a href="https://github.com/mmasdeu/algebralineal" target="blank">Publicat amb bookdown</a></li>
+        collapse: section
+      edit: https://github.com/mmasdeu/algebralineal/edit/main/%s
+      download: ["pdf"]
+      sharing:
+        facebook: false
+        github: true
+        twitter: true
+        linkedin: false
+        weibo: false
+        instapaper: false
+        vk: false
+        whatsapp: true
+        all: []
+
+  bookdown::pdf_book:
+    toc: no
+    includes:
+      in_header: ["src/preamble.tex"]
+      before_body: ["src/body.tex"]
+    latex_engine: pdflatex
+    keep_tex: yes
+    extra_dependencies:
+      textcomp: null
+    mainfont: Latin Modern Math
+    sansfont: Bitstream Vera Sans
+    monofont: Bitstream Vera Sans Mono
+    mathfont: Latin Modern Math
+
+
+---
+
+# Introducció {-}
+
+Aquests apunts corresponen a l'assignatura d'Àlgebra Lineal que s'ha fet
+als cursos 2018/2019 i 2019/2020 del Grau en Matemàtica Computacional i
+Analítica de Dades a la UAB. És un curs de 52 hores docents on es
+barregen les classes teòriques i pràctiques. Per a les classes teòriques
+(i aquests apunts) s'han utilitzat les referències [@Bret] i [@NaXa].
+Cada capítol acaba amb una selecció d'exercicis proposats, agafant la
+numeració de [@Bret]. A més a més, aquest curs s'ha complementat amb
+tres sessions de **Sage** que mostren aplicacions d'aquests resultats.
+
+Encara que aquests apunts intenten ser força autocontinguts, es
+requereix que l'alumne conegui la resolució de sistemes d'equacions
+lineals, l'aritmètica bàsica de números i polinomis, i que tingui
+destresa de càlcul amb expressions algebraiques simbòliques.
+
+A tot aquest curs suposem que treballem sobre un cos commutatiu $\K$
+fixat, que podeu pensar és $\Q$, $\R$ o $\CC$. Els elements de $\K$ els
+anomenarem nombres o escalars. Les propietats que utilitzarem són:
+
+-   És commutatiu amb la suma: $a+b=b+a$ $\forall a,b\in \K$.
+
+-   És commutatiu amb el producte: $ab=ba$ $\forall a,b\in \K$.
+
+-   La suma té un element neutre que anomenem zero: $0+a=a$
+    $\forall a\in\K$.
+
+-   El producte té un elements neutre que anomenem u: $1a=a$
+    $\forall a\in\K$.
+
+-   Tot element $a\in\K$ té un invers per la suma que anomenem $-a$:
+    $a+(-a)=0$.
+
+-   Tot element $a$ diferent de zero té un invers per la multiplicació
+    que anomenem $1/a$ o bé $a^{-1}$: $a a^{-1}=1$.
+
+-   Hi ha les propietats associatives a la suma i al producte:
+    $(a+b)+c=a+(b+c)$ i $(ab)c=a(bc)$ $\forall a,b,c \in \K$.
+
+-   Hi ha la propietat distributiva: $a(b+c)=ab+ac$
+    $\forall a,b,c \in \K$.
+
+També suposem certa familiaritat amb el llenguatge dels conjunts. Si $A$
+és un conjunt, escriurem $B\subset A$ per denotar que $B$ és un
+subconjunt d'$A$. Escriurem $a\in A$ per dir que $a$ és un element
+d'$A$. També escriurem $A\setminus B=\{a \in A \mid a \not\in B\}$ i
+llegirem els $a$ que pertanyen a $A$ i que no pertanyen a $B$ (o bé el
+complementari de $B$ en $A$).
+
+
+`r if (knitr:::is_html_output())"
+**Important:** Si aquí sota no hi veieu un $O-K$, heu d'activar l'opció HTML-CSS de *MathJax* al vostre navegador:
+$$
+\\begin{xy}
+\\xymatrix@C=5pt{O\\ar@{-}[r]&K}
+\\end{xy}
+$$
+"`

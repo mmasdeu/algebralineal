@@ -1,0 +1,1381 @@
+# Diagonalització
+El contingut d'aquesta secció és pot trobar a [@Bret Temes 6, 7] i a
+[@NaXa Tema 4].
+
+## Motivació {#subsec:motiv-diag}
+
+Considerem les matrius següents: $$A=\begin{pmatrix}
+-1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 0
+\end{pmatrix}
+\text{ i }
+B=\begin{pmatrix}
+5 & -15 & -21 \\ -3 & 9 & 13 \\ 3 & -9 & -13
+\end{pmatrix}$$ i suposem que volem calcular $A^5$, $\Rang(A)$,
+$\Ker(f_A)$ o una base de $\Ima(f_A)$; i exactament els mateixos càlculs
+per $B$.
+
+Per $A$, aquests càlculs són quasi immediats: $$A^5=\begin{pmatrix}
+(-1)^5 & 0 & 0 \\ 0 & 2^5 & 0 \\ 0 & 0 & 0
+\end{pmatrix} \,$$ $\Rang(A)=2$,
+$\Ker(f_A)=\langle \left( \begin{smallmatrix} 0 \\ 0 \\ 1 \end{smallmatrix} \right) \rangle$
+i una base de $\Ima(f_A)$ pot ser
+$\calb=( \left( \begin{smallmatrix} -1 \\ 0 \\ 0 \end{smallmatrix} \right) , \left( \begin{smallmatrix} 0 \\ 2 \\ 0 \end{smallmatrix} \right))$.
+
+Per la matriu $B$, podem fer $B^5$, però ens porta més càlculs, igual
+que calcular-ne el rang, el nucli de $f_B$ o una base de la imatge de
+$f_B$.
+
+Observem ara que hi ha una relació entre $A$ i $B$: $$B=S A S^{-1}$$ on
+$$S=\begin{pmatrix} 1 & 2 & 3 \\ -1 & -1 & 1 \\ 1 & 1 & 0
+\end{pmatrix}$$ i això permet aprofitar els càlculs que hem fet per $A$
+per deduir els de $B$:
+$$B^5=S A S^{-1} S A S^{-1} \cdots S A S^{-1}=S A^5 S^{-1} \, ,$$ tenim
+la igualtat $\Rang(B)=\Rang(A)=2$, $\Ker(f_B)=S\Ker(f_A)$ i una base de
+$\Ima(f_B)$ s'aconsegueix amb la base de $\Ima(f_A)$ multiplicada (per
+l'esquerra) per la matriu $S^{-1}$.
+
+A aquest exemple, el que hem vist és que encara que les matrius $A$ i
+$B$ corresponen a una mateixa transformació lineal $f$ expressada en
+dues bases diferents, els càlculs han quedat molt més fàcils amb la
+matriu $A$ pel simple fet de ser una matriu diagonal. A aquest capítol,
+l'objectiu principal és: donada una aplicació lineal $f\colon E \to E$
+(amb $E$ un espai vectorial de dimensió finita), trobar una base $\calb$
+d'$E$ tal que $[f]_\calb$ sigui una matriu diagonal. També veurem que, a
+vegades, no existeix cap base amb aquesta propietat.
+
+## Determinants
+
+Probablement ja coneixem el determinant de matrius $2\times 2$ i
+$3\times 3$ definits directament com: $$\begin{aligned}
+(\#eq:det2)
+\begin{vmatrix}
+a & b \\ c & d  
+\end{vmatrix}= ad -bc
+\end{aligned}$$ i $$\begin{aligned}
+(\#eq:det3)
+\begin{vmatrix}
+a_{11} & a_{12} & a_{13}\\
+a_{21} & a_{22} & a_{23}\\
+a_{31} & a_{32} & a_{33}
+\end{vmatrix} = a_{11}a_{22}a_{33}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{13}a_{22}a_{31}.
+\end{aligned}$$ Una de les propietats principals és la següent: el
+determinant val zero si i només si els vectors columna de la matriu són
+linealment dependents.
+
+Si pensem les columnes de les matrius com a vectors de $\K^n$, podem
+considerar el determinant com una aplicació: $$\begin{array}{rcl}
+\det \colon M_n(\K)=(\K^n)^n & \longrightarrow & \K \\
+(\vec v_1, \dots , \vec v_n) & \mapsto & \det(\vec v_1, \dots , \vec v_n)
+\end{array}$$ i habitualment escriurem:
+$$\det(\vec v_1, \dots, \vec v_n)=\begin{vmatrix}
+\mid & \mid & & \mid \\
+\vec v_1 & \vec v_2 & \cdots & \vec v_n \\
+\mid & \mid & & \mid
+\end{vmatrix}$$ Demanarem que el determinant compleixi les propietats
+següents:
+
+1.  $\det(\vec v_1, \dots, \lambda \vec v_j, \dots,\vec v_n)=\lambda \det(\vec v_1, \dots, \vec v_j, \dots,\vec v_n)$
+    per a tots $\vec v_j\in \K^n$ i $\lambda \in \K$.
+
+2.  $\det(\vec v_1, \dots, \vec v_{j-1}, \vec v_j+\vec w_j, \vec v_{j+1} \dots,\vec v_n)= \det(\vec v_1, \dots, \vec v_{j-1},\vec v_j,\vec v_{j+1}, \dots,\vec v_n) +$\
+    $\det(\vec v_1, \dots, \vec v_{j-1},\vec w_j,\vec v_{j+1}, \dots,\vec v_n)$
+    per a tots $\vec v_j$ i $\vec w_j\in \K^n$.
+
+3.  $\det(\vec v_1,\dots , \vec v_j, \dots, \vec v_k, \dots ,\vec v_n)=0$
+    si $\vec v_j=\vec v_k$ amb $j\neq k$.
+
+4.  $\det(\1_n)=\det(\vec e_1, \dots, \vec e_n)=1$, on $\vec e_j$ són
+    els vectors estàndard.
+
+:::{.remark}
+Les propietats **D1** i **D2** es poden resumir dient que el determinant
+és lineal a cada columna. Es diu que el determinat és una aplicació
+*multilineal*.
+:::
+
+:::{.exercise}
+Demostreu que els determinants de matrius $2\times 2$ i $3\times 3$
+definits a les Equacions  \@ref(eq:det2) i  \@ref(eq:det3) respectivament compleixen aquestes propietats i que
+són les úniques aplicacions de $M_2(\K) \to \K$ i $M_3(\K)\to\K$
+respectivament que les compleixen.
+:::
+
+Fixem-nos que la propietat **D1** implica que si la matriu té una
+columna tota zero aleshores el determinant és zero:
+
+::: {.lemma #det0}
+ Tenim
+$\det(\vec v_1, \dots, \vec 0, \dots,\vec v_n)=0$.
+:::
+
+::: {.proof}
+En efecte, com que $\vec 0=0 \cdot \vec 0$, aleshores
+$$\begin{aligned}
+\det(\vec v_1, \dots, \vec 0, \dots,\vec v_n) & = \det(\vec v_1, \dots, 0\cdot\vec 0, \dots,\vec v_n) = \\
+& = 0 \det(\vec v_1, \dots, \vec 0, \dots,\vec v_n)=0.
+\end{aligned}$$
+:::
+
+::: {.lemma #det-i-trans-elem}
+ Si considerem
+les transformacions elementals per columnes corresponents a les
+transformacions **T1**, **T2** i **T3** definides a la Subsecció
+ \@ref(subsec:trans-el), el determinant es modifica com:
+
+-   **T1**: Si $B$ és la matriu resultant de multiplicar una columna per
+    $\lambda$ a la matriu $A$: $$\det(B)=\lambda \det(A).$$.
+
+-   **T2**: Si $B$ és la matriu resultant de sumar a una columna d'$A$
+    $\mu$ vegades una altra columna d'$A$: $$\det(B)=\det(A).$$
+
+-   **T3**: Si $B$ és la matriu resultant d'intercanviar dues columnes
+    diferents d'$A$, llavors: $$\det(B)=-\det(A).$$
+:::
+
+::: {.proof}
+**D1** ens diu com es transforma $\det$ per la transformació
+elemental **T1**, obtenint el resultat de l'enunciat.
+
+Estudiem ara el canvi **T2**: sumem a una columna $\mu$ vegades una
+altra: $$\begin{aligned}
+    \det(\dots, \vec v_j, \dots, \vec v_k+\mu\vec v_j,\dots) & =\det(\dots, \vec v_j, \dots, \vec v_k,\dots) + \det(\dots, \vec v_j, \dots,\mu\vec v_j,\dots)= \\ &
+    = \det(\dots, \vec v_j, \dots, \vec v_k,\dots) + \mu\det(\dots, \vec v_j, \dots,\vec v_j,\dots)= \\ &
+    = \det(\dots, \vec v_j, \dots, \vec v_k,\dots) + 0
+\end{aligned}$$ on primer hem aplicat **D2** (separar la suma de
+vectors), llavors **D1** (treure el $\mu$ fora del determinant) i
+finalment **D3** per veure que un dels determinants és zero.
+
+Mirem com es modifica el determinant per la transformació **T3**: vegem
+que si intercanviem dues columnes $j\neq k$, llavors
+$$\det(\vec v_1,\dots , \vec v_j, \dots, \vec v_k, \dots ,\vec v_n)=-\det(\vec v_1,\dots , \vec v_k, \dots, \vec v_j, \dots ,\vec v_n) .$$
+Per tal de simplificar la notació escrivim
+$\det(\dots , \vec v_j, \dots, \vec v_k, \dots)$: $$\begin{aligned}
+        0  & =  \det(\dots , \vec v_j+\vec v_k, \dots, \vec v_j+\vec v_k, \dots)  = \\
+          & =  \det(\dots , \vec v_j+\vec v_k, \dots, \vec v_j, \dots) + \det(\dots , \vec v_j+\vec v_k, \dots, \vec v_k, \dots) = \\
+          & =  \det(\dots , \vec v_j, \dots, \vec v_j, \dots) + \det(\dots , \vec v_k, \dots, \vec v_j, \dots) + \\
+           &  \quad + \det(\dots , \vec v_j, \dots, \vec v_k, \dots) + \det(\dots , \vec v_k, \dots, \vec v_k, \dots) = \\
+           & =  0 + \det(\dots , \vec v_k, \dots, \vec v_j , \dots) + \det(\dots , \vec v_j, \dots, \vec v_k , \dots) + 0
+\end{aligned}$$
+:::
+
+:::{.theorem}
+Si tenim dues aplicacions $\det\colon (\K^n)^n \to \K$ i
+$\det'\colon (\K^n)^n \to \K$ complint **D1**, **D2**, **D3** i **D4**,
+llavors $\det=\det'$.
+:::
+
+::: {.proof}
+Volem veure que si $\vec v_1, \dots , \vec v_n \in \K^n$,
+llavors
+$\det(\vec v_1, \dots , \vec v_n)=\det'(\vec v_1, \dots , \vec v_n)$: si
+considerem $A$ la matriu formada pels vectors
+$\vec v_1, \dots, \vec v_n$ per columna, podem aplicar transformacions
+elementals per columnes fins a tenir, o bé una matriu identitat, o bé
+una matriu amb l'última columna tot zeros. Pel Lema
+ \@ref(lem:det-i-trans-elem), veiem com es modifica qualsevol
+aplicació (tant $\det$, com $\det'$) que compleixi els axiomes **D1**,
+**D2**, **D3** i **D4**, obtenint que $\det(A)=\lambda\det(\rcef(A))$
+(*reduced column echelon form*) i $\det'(A)=\lambda\det'(\rcef(A))$ (amb
+el mateix $\lambda$), però o bé $\rcef(A)=\1_n$ (i tenim
+$\det(\rcef(A))=1=\det'(\rcef(A))$ per **D4**), o bé $\rcef(A)$ té una
+columna tot zeros i per la Observació
+ \@ref(lem:det0),
+$\det(A)=0=\det'(A)$.
+
+Per tant, com que $\det$ i $\det'$ estan determinats pels canvis
+elementals per columnes i pel seu valor a la identitat o a una matriu
+amb una columna tot zeros, han de valer el mateix.
+:::
+
+:::{.example}
+Calculem el determinant d'$A$, on:$$A=\begin{pmatrix}
+	1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
+	\end{pmatrix}$$ fent transformacions elementals: $$\begin{aligned}
+	\begin{vmatrix}
+	1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
+	\end{vmatrix} & =
+	\begin{vmatrix}
+	1 & 2 & 6 \\ 0 & -1 & -8 \\ 0 & -4 & -30
+	\end{vmatrix}= 
+	-\begin{vmatrix}
+	1 & 2 & 6 \\ 0 & 1 & 8 \\ 0 & -4 & -30
+	\end{vmatrix}= \\ &
+	= -\begin{vmatrix}
+	1 & 0 & 6 \\ 0 & 1 & 8 \\ 0 & 0 & 2
+	\end{vmatrix}=
+	-2\begin{vmatrix}
+	1 & 0 & 6 \\ 0 & 1 & 8 \\ 0 & 0 & 1
+	\end{vmatrix}= -2 \det(\1_3)=-2\,.
+\end{aligned}$$
+:::
+
+Amb tot això, el que no hem demostrat és que existeixi una aplicació
+$\det$ que tingui les propietats **D1**, **D2**, **D3** i **D4**.
+
+Per demostrar la existència, el que farem és construir-la explícitament.
+
+Considerem $A\in M_n(\K)$ i el producte de $n$ coeficients de la matriu
+$a_{i_1j_1} \cdots a_{i_nj_n}$ tals que no hi hagi dos coeficients d'una
+mateixa columna, ni d'una mateixa fila. Dit d'una altra manera, com que
+hi ha $n$ files i $n$ columnes,considerem $n$ parelles
+$\{(i_1,j_1),\dots,(i_n,j_n)\}$ que compleixin la igualtat de conjunts:
+$$\begin{aligned}
+(\#eq:patro)
+\{i_1, \dots, i_n\}=\{1, \dots, n\} = \{j_1, \dots, j_n\} \,.
+\end{aligned}$$
+
+::: {.definition #patro}
+ Anomenem un *patró* d'$n$ elements a un
+conjunt $\calp=\{(i_1,j_1),\dots,(i_n,j_n)\}\subset \{1,\dots,n\}^2$ que
+compleixi que $i_k\neq i_l$ i $j_k\neq j_l$ si $k\neq l$, o,
+equivalentment, que compleixi l'Equació
+ \@ref(eq:patro).\
+Donat un patró d'$n$ elements $\calp$ i una matriu $A\in M_n(\K)$,
+definim l'element $a_\calp$ com el producte:
+$$a_\calp=\prod_{(i,j)\in\calp} a_{ij} .$$
+:::
+
+:::{.example}
+En el cas de les matrius $3\times 3$, tenim $6$ patrons possibles i ens
+donen els productes: $$\begin{array}{ccccc}
+\begin{pmatrix} \boxed{a_{11}} & a_{12} & a_{13}\\ a_{21} & \boxed{a_{22}} & a_{23}\\ a_{31} & a_{32} & \boxed{a_{33}} \end{pmatrix} & \Longleftrightarrow & \calp=\{(1,1),(2,2),(3,3)\} &   \Longleftrightarrow & a_\calp=a_{11}a_{22}a_{33} \\
+\begin{pmatrix} \boxed{a_{11}} & a_{12} & a_{13}\\ a_{21} & a_{22} & \boxed{a_{23}}\\ a_{31} & \boxed{a_{32}} & a_{33} \end{pmatrix} & \Longleftrightarrow & \calp=\{(1,1),(2,3),(3,2)\} &   \Longleftrightarrow & a_\calp=a_{11}a_{23}a_{32} \\
+\begin{pmatrix} a_{11} & \boxed{a_{12}} & a_{13}\\ \boxed{a_{21}} & a_{22} & a_{23}\\ a_{31} & a_{32} & \boxed{a_{33}} \end{pmatrix} & \Longleftrightarrow & \calp=\{(1,2),(2,1),(3,3)\} &   \Longleftrightarrow & a_\calp=a_{12}a_{21}a_{33} \\
+\begin{pmatrix} a_{11} & \boxed{a_{12}} & a_{13}\\ a_{21} & a_{22} & \boxed{a_{23}}\\ \boxed{a_{31}} & a_{32} & a_{33} \end{pmatrix} & \Longleftrightarrow & \calp=\{(1,2),(2,3),(3,1)\} &   \Longleftrightarrow & a_\calp=a_{12}a_{23}a_{31} \\
+\begin{pmatrix} a_{11} & a_{12} & \boxed{a_{13}}\\ \boxed{a_{21}} & a_{22} & a_{23}\\ a_{31} & \boxed{a_{32}} & a_{33} \end{pmatrix} & \Longleftrightarrow & \calp=\{(1,3),(2,1),(3,2)\} &   \Longleftrightarrow & a_\calp=a_{13}a_{21}a_{32} \\
+\begin{pmatrix} a_{11} & a_{12} & \boxed{a_{13}}\\ a_{21} & \boxed{a_{22}} & a_{23}\\ \boxed{a_{31}} & a_{32} & a_{33} \end{pmatrix} & \Longleftrightarrow & \calp=\{(1,3),(2,2),(3,1)\} &   \Longleftrightarrow & a_\calp=a_{13}a_{22}a_{31} 
+    \end{array}$$
+:::
+
+I podeu veure que coincideixen amb els sumands de l'Equació
+ \@ref(eq:det3). Ara
+tant sols cal decidir si cada element suma o resta, i per això
+necessitem el *signe d'un patró*:
+
+::: {.definition #signepatro}
+ Fixat un enter positiu $n$ i
+un patró $\calp=\{(i_1,j_1),\dots,(i_n,j_n)\}\subset \{1,\dots,n\}^2$,
+definim $\sign(\calp)$, el *signe de $\calp$*, com $(-1)^\epsilon$, on
+$\epsilon$ és el nombre de parelles $[(i,j),(i',j')]\in\calp$ tals que
+$i<i'$ i $j>j'$.
+:::
+
+:::{.example}
+En el cas $3\times 3$, els patrons tenen el signe següent:
+$$\begin{array}{|c|c|c|c|}
+    \hline \text{Patró} & \text{Parelles} & \epsilon & \text{Signe} \\ \hline
+    \{(1,1),(2,2),(3,3)\} & & 0 & (-1)^0=1 \\
+    \{(1,1),(2,3),(3,2)\} & \{[(2,3),(3,2)]\} & 1 & (-1)^1=-1 \\
+    \{(1,2),(2,1),(3,3)\} & \{[(1,2),(2,1)]\} & 1 & (-1)^1=-1 \\
+    \{(1,2),(2,3),(3,1)\} & \{[(1,2),(3,1)],[(2,3),(3,1)]\} & 2 & (-1)^2=1 \\
+    \{(1,3),(2,1),(3,2)\} & \{[(1,3),(2,1)],[(1,3),(3,2)\} & 2 & (-1)^2=1 \\
+    \{(1,3),(2,2),(3,1)\} & \{[(1,3),(2,2)],[(1,3),(3,1)],[(2,2),(3,1)]\} & 3 & (-1)^3=-1 \\ \hline
+    \end{array}$$
+:::
+
+Els patrons tenen les propietats següents:
+
+::: {.lemma #permutacions}
+ Considerem
+$A\in M_n(\K)$, amb $n$ fixada.
+
+1.  Cada patró $\calp$ es correspon amb una aplicació bijectiva
+    $\sigma\colon \{1,2,\dots,n\} \to \{1,2,\dots,n\}$ (s'anomena
+    *permutació*).
+
+2.  Hi ha $1\cdot 2 \dots n = n!$ (factorial d'$n$) patrons diferents a
+    $A$.
+
+3.  Definim el *signe d'una permutació*
+    $\sigma\colon \{1,\dots,n\}\to\{1,\dots,n\}$ com
+    $$\sign(\sigma)=\prod_{i<j} \frac{\sigma(j)-\sigma(i)}{j-i} .$$ Si
+    $\sigma$ és la permutació corresponent a $\calp$, llavors
+    $\sign(\sigma)=\sign(\calp)$.
+
+4.  Si $\Id\colon \{1,\dots,n\}\to\{1,\dots,n\}$ és l'aplicació
+    $\Id(i)=i$ (identitat), llavors $\sign(\Id)=1$.
+
+5.  Si $\sigma$ i $\tau$ són dues permutacions de $\{1,\dots, n\}$,
+    llavors $$\sign(\sigma\circ\tau)=\sign(\sigma)\sign(\tau)$$.
+
+6.  $\sign(\sigma)=\sign(\sigma^{-1})$.
+
+7.  Si $\tau_{k\ell}$ correspon a la permutació:
+    $$\tau_{k\ell}(m)=\left\{\begin{array}{ll} m & \text{si $m\not\in\{k,\ell\}$}\\ \ell & \text{si $m=k$} \\ k & \text{si $m=\ell$} \end{array} \right.$$
+    amb $k\neq \ell$, llavors $\sign(\tau_{k\ell})=-1$.
+:::
+
+::: {.proof}
+Els patró $\calp$ té $n$ parelles $(i,j)$ on, si mirem tant
+sols la primera coordenada, hi ha exactament un $1$, un $2$, ...i un
+$n$. Definim $\sigma(i)=j$ si $(i,j)\in\calp$. Aquesta aplicació és
+injectiva i exhaustiva perquè a la segona coordenada de les parelles de
+$\calp$ també hi ha un únic $1$, un únic $2$, ...i un únic $n$.\
+Si tenim una aplicació bijectiva
+$\sigma\colon \{1,2,\dots,n\} \to \{1,2,\dots,n\}$, definim els patró
+corresponent com $\calp=\{(1,\sigma(1)), \ldots, (n,\sigma(n))\}$.
+
+Per demostrar (b) comptem quantes aplicacions bijectives $\sigma$ hi ha
+de $\{1,2,\dots, n\}$ en ell mateix: $\sigma(1)$ pot ser qualsevol
+element de $\{1,2,\dots, n\}$, per tant en podem escollir $n$;
+$\sigma(2)$ pot ser qualsevol element de $\{1,2,\dots, n\}$ excepte
+$\sigma(1)$, per tant en podem escollir $n-1$; iterant aquest
+procediment, tindrem $n(n-1)(n-2) \cdots 2\cdot 1$ aplicacions
+bijectives, i aquesta és la definició de factorial d'$n$.
+
+A l'expressió de (c) veiem que tant al denominador hi ha el producte
+$(2-1)(3-1)\cdots (n-1)(3-2) \cdots$, mentre que al numerador hi ha els
+mateixos factors, on es canvien de signe els que compleixen
+$\sigma(i)>\sigma(j)$ amb $i<j$, pel que el quocient serà $\pm 1$, i el
+signe ve determinat pel nombre de vegades que passa
+$\sigma(i)>\sigma(j)$ amb $i<j$, que és la definició de signe d'un
+patró.
+
+Calculem el signe de la identitat per demostrar (d):
+$$\sign(\Id)=\prod_{i<j} \frac{\Id(j)-\Id(i)}{j-i}=\prod_{i<j} \frac{j-i}{j-i}=1 .$$
+
+La demostració d'(e) ve de considerar: $$\begin{aligned}
+    \sign(\sigma\circ\tau) & =\prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{j-i}  =
+    \prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{\tau(j)-\tau(i)}\frac{\tau(j)-\tau(i)}{j-i}=\\
+     & =\prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{\tau(j)-\tau(i)}\prod_{i<j}\frac{\tau(j)-\tau(i)}{j-i}= \sign(\sigma)\sign(\tau),
+\end{aligned}$$ on observem que:
+$$\prod_{i<j}\frac{\sigma(j)-\sigma(i)}{j-i}=\prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{\tau(j)-\tau(i)}$$
+ja que hi ha els mateixos factors al numerador i denominador, i si un
+factor del numerador ha canviat de signe, el corresponent factor del
+denominador també.
+
+La demostració d'(f) es dedueix de que
+$1=\sign(\Id)=\sign(\sigma\circ \sigma^{-1})=\sign(\sigma)\sign(\sigma^{-1})$,
+i que el signe de qualsevol permutació és $\pm1$.
+
+Finalment, la demostració de (g) és molt semblant a la de (d): primer
+considerem $k<\ell$ (com que $\tau_{k\ell}=\tau_{\ell k}$, si cal, les
+intercanviem). Llavors el signe de $\tau_{k\ell}$ serà com el de $\Id$,
+però hi haurà un factor diferent a quan $(i,j)=(k,\ell)$, que sortirà
+$\frac{k-\ell}{\ell-k}=-1$, per tant $\sign(\tau_{k\ell})=-1$.
+:::
+
+Ara ja podem definir el determinant d'una matriu:
+
+::: {.definition #determinant}
+ Sigui $A\in M_n(\K)$ una
+matriu quadrada. Considerem $P_n$ el conjunt de tots els patrons d'$n$
+elements ($P_n$ té $n!$ elements) i per cada $\calp\in P_n$, considerem
+$a_\calp$ com a la Definició
+ \@ref(def:patro).
+Definim el *determinant d'$A$* com: $$\begin{aligned}
+ (\#eq:def-det)
+    \det(A)=\sum_{\calp \in P_n} \sign(\calp) a_\calp \,.
+\end{aligned}$$
+:::
+
+:::{.theorem}
+El determinant de la Definició
+ \@ref(def:determinant) compleix les propietats **D1**, **D2**,
+**D3** i **D4**.
+:::
+
+::: {.proof}
+Fixem $A\in M_n(\K)$ i $a_{ij}$ els seus coeficients.
+
+**D1**: si fixem una columna $j$, cada sumand de l'Equació
+ \@ref(eq:def-det) té exactament un coeficient $a_{ij}$. Si el
+substituïm per $\lambda a_{ij}$, tots els sumands de l'Equació
+ \@ref(eq:def-det) queden multiplicats per $\lambda$, pel que es
+compleix **D1**.
+
+**D2**: si la columna $j$ es pot escriure com la suma de dues columnes:
+$a_{ij}=a'_{ij}+a''_{ij}$, com que a l'Equació
+ \@ref(eq:def-det) cada sumand té exactament un d'aquests
+coeficients, podem separar la suma, obtenint **D2**.
+
+**D3**: Si tenim la columna $j$ i la columna $k$ d'$A$ que són iguals
+(amb $j\neq k$), tenim que cada sumand de l'Equació
+ \@ref(eq:def-det) apareix dues vegades, una pel patró $\calp_1$ i
+$\calp_2$. Hem de veure que apareix amb signe diferent, i llavors la
+suma serà zero. Si $\sigma_1$ és la permutació que correspon al patró
+$\calp_1$ i $\sigma_2$ la que correspon al patró $\calp_2$, llavors
+$\sigma_1=\tau_{jk}\circ\sigma_2$ i, pel Lema
+ \@ref(lem:permutacions), tenen signe diferent.
+
+**D4**: l'únic patró $\calp$ tal que $(\1_n)_\calp\neq 0$ és el patró
+$\{(1,1),(2,2),\dots, (n,n)\}$, i és un producte d'uns amb signe
+positiu.
+:::
+
+Vegem ara més propietats dels determinants:
+
+:::{.proposition}
+Si $A, B\in M_{n\times n}(\K)$, llavors:
+
+1.  $A$ és invertible si i només si $\det(A)\neq 0$.
+
+2.  $\det(A)\neq 0$ si i només si les files (i les columnes) d'$A$ són
+    linealment independents.
+
+3.  $\det(A)=\det(A^T)$, on $A^T$ és la transposada d'$A$.
+
+4.  $\det(AB)=\det(A)\det(B)$.
+:::
+
+::: {.proof}
+Per demostrar (a), recordem que una matriu és invertible si i
+només si podem aconseguir la identitat mitjançant transformacions
+elementals. En aquest cas, cada transformació modifica el determinant
+canviant-li el signe o multiplicant per un $\lambda\neq 0$. Llavors:
+
+Si $A$ és invertible, $\det(A)=\lambda \det(\1_n)=\lambda \neq 0$.
+
+Si $A$ no és invertible, $\det(A)=\lambda \det(B)$, on $B$ és una matriu
+amb l'última fila tot zeros, per tant $\det(B)=0$ (cada sumand del
+determinant a l'Equació
+ \@ref(eq:def-det) té un coeficient de l'última fila), d'on es
+dedueix que $\det(A)=0$.
+
+Per demostrar (b), el raonament de files (o columnes) linealment
+independents és el mateix, tenint en compte que les files (o columnes)
+són linealment independents si i només si la matriu $A$ és equivalent a
+la identitat.
+
+Per demostrar (c), observem que si $B=A^T$, per l'Equació
+ \@ref(eq:def-det), $\det(A)$ i $\det(B)$ tenen els mateixos
+sumands, pel que cal veure que els signes dels patrons $\calp$ i
+$\calp'$ corresponents a coeficients iguals $a_\calp$ i $b_{\calp'}$,
+són els mateixos: observem que si $a_\calp$ és el coeficient
+corresponent a $\calp$, que és un patró que correspon a una permutació
+$\sigma$ (veure Lema
+ \@ref(lem:permutacions)), llavors, si $\calp'$ és el patró
+corresponent a $\sigma^{-1}$, tenim que $a_\calp=b_{\calp'}$, i amb el
+mateix signe, ja que pel Lema
+ \@ref(lem:permutacions),
+$\sign(\calp)=\sign(\sigma)=\sign(\sigma^{-1})=\sign(\calp')$.
+
+Falta demostrar la fórmula del producte de determinants
+$\det(AB)=\det(A)\det(B)$: comencem amb la matriu $A$ i li fem les
+transformacions elementals necessàries per obtenir $\rref(A)$. Aquestes
+transformacions elementals aniran modificant el determinant, i obtindrem
+$\det(A)=\lambda\det(\rref(A))$, on:
+
+-   Aquestes transformacions elementals es corresponen amb multiplicar
+    per una matriu invertible $P$: $\rref(A)=PA$.
+
+-   $\lambda$ només depèn de les transformacions elementals que hem fet,
+    per tant, si agafem $C\in M_n(\K)$ i hi fem les mateixes
+    transformacions que hem fet a $A$ i obtenim $C'=PC$, tindrem
+    $\det(C)=\lambda \det(C')$.
+
+-   Si $A$ és invertible, llavors $\rref(A)= PA=\1_n$ i
+    $\det(A)=\lambda\det(\1_n)=\lambda$.
+
+Considerem primer el cas en que $A$ no és invertible: llavors
+$\det(A)=0$ i les $n$ columnes d'$A$ no són linealment independents. Com
+que les columnes d'$AB$ són combinació lineal de les de $A$ i també en
+té $n$, tenim que les columnes de $AB$ tampoc són linealment
+independents i per tant $\det(AB)=0$ i en particular
+$\det(AB)=\det(A)\det(B)$.
+
+Suposem ara que $A$ és invertible, per tant $\rref(A)=PA=\1_n$.
+Considerem ara $C=AB$ i fem les mateixes transformacions elementals que
+hem fet a $A$ per obtenir $\rref(A)$. Amb els raonaments que hem vist,
+tenim:
+$$\det(AB)=\det(C)=\lambda \det(C')=\lambda \det(PAB)=\lambda \det(\1_n B)=\det(A)\det(B).$$
+:::
+
+Ara veurem una manera inductiva de calcular el determinant. També es
+podia haver definit com veurem ara, i s'hauria de demostrar que compleix
+les propietats **D1**, **D2**, **D3** i **D4**. Per això, necessitem una
+notació que utilitzarem a aquesta secció (es pot confondre amb una de
+les notacions utilitzades a les seccions anteriors, fixeu-vos amb la $c$
+del superíndex).
+
+:::{.notation}
+Si $A\in M_{n}(\K)$, notem per $A^c_{ij}\in M_{(n-1)}(\K)$ la matriu que
+resulta d'eliminar la fila $i$ i la columna $j$ d'$A$.
+:::
+
+::: {.proposition #defdet}
+ Si $A\in M_{n\times n}(\K)$, amb
+$n\geq2$, podem desenvolupar el determinant per qualsevol fila o columna
+segons les fórmules següents: $$\begin{array}{ll}
+	\det(A)=\sum_{j=1}^n (-1)^{i+j} a_{ij} \det(A^c_{ij}) & \text{(si desenvolupem per la fila $i$)},\\[3mm]
+	\det(A)=\sum_{i=1}^n (-1)^{i+j} a_{ij} \det(A^c_{ij}) & \text{(si desenvolupem per la columna $j$)}.
+	\end{array}$$
+:::
+
+::: {.proof}
+Per a demostrar això, mirem com són tots els sumands i els
+comparem amb els de l'Equació
+ \@ref(eq:def-det): l'hem calculat de manera recursiva, i cada cop
+que fem una iteració anem esborrant la fila i columna corresponent a
+aquell coeficient. Per tant, hi haurà un coeficient de la primera fila,
+un altre de la segona, ..., de tal manera que cada cop agafem una
+columna diferent, i per tant tindrem el sumand: $$\begin{aligned}
+(\#eq:sumanddet)
+	(-1)^\epsilon a_{1j_1} a_{2j_2} \cdots a_{nj_n}
+\end{aligned}$$ amb $j_k\neq j_l$ si $k\neq l$, i el signe ve determinat
+per la paritat de $\epsilon$, que es pot veure que és la mateixa que la
+de la permutació, obtenint el mateix que a l'Equació
+ \@ref(eq:def-det)
+
+Aquesta expressió no depèn de per quina fila o columna desenvolupem, pel
+que el resultat final serà el mateix.
+:::
+
+:::{.example}
+Calculem el determinant d'$A$, on:$$A=\begin{pmatrix}
+	1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
+	\end{pmatrix}$$ desenvolupant per la primera fila: $$\begin{aligned}
+	\begin{vmatrix}
+	1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
+	\end{vmatrix} & = 1 \begin{vmatrix} -1 & -8 \\ 6 & 0 \end{vmatrix} 
+	-2 \begin{vmatrix} 0 & -8 \\ 5 & 0  \end{vmatrix} +
+	6 \begin{vmatrix} 0 & -1 \\ 5 & 6  \end{vmatrix} = \\
+	 & = (0-(-48))-2(40)+6(5)=48-80+30=-2.
+\end{aligned}$$
+:::
+
+:::{.exercise}
+Si $\calp$ és un patró amb $n$ elements i $A_\calp\in M_n(\K)$ és una
+matriu que té tots els coeficients zero, excepte els elements
+$a_{ij}=1$, per a $(i,j)\in\calp$, llavors $\det(A_\calp)=\sign(\calp)$.
+:::
+
+:::{.exercise}
+Si $A\in M_n(\K)$ és una matriu triangular superior (o inferior),
+llavors $\det(A)$ és el producte d'elements de la diagonal.
+:::
+
+## Polinomi característic. Valors i vectors propis
+
+A la motivació d'aquest capítol
+(§[1](#subsec:motiv-diag){reference-type="ref"
+reference="subsec:motiv-diag"}) hem vist una aplicació lineal
+$f\colon \R^3\to \R^3$ que escrita en una base $\calb$ o en una altra
+$\calc$ tenia les expressions següents: $$[f]_\calb=\begin{pmatrix}
+-1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 0
+\end{pmatrix}
+\text{ i }
+[f]_\calc=\begin{pmatrix}
+5 & -15 & -21 \\ -3 & 9 & 13 \\ 3 & -9 & -13
+\end{pmatrix}$$ Veiem que la primera és diagonal, mentre que la segona
+no. Això vol dir que l'aplicació lineal envia les rectes generades per
+cada vector de la base $\calb$ a elles mateixes, mentre que les rectes
+generades pels vectors de la base $\calc$ es converteixen en altres
+rectes. Si fixem uns eixos de coordenades amb la base $\calb$, podrem
+veure com $f$ modifica els vectors d'$\R^3$ molt més fàcilment que si
+fixem els eixos a la base $\calc$. Per tant, estem dient que per la
+mateixa aplicació lineal $f\colon E \to E$, aprofitant que els
+coeficients de $[f]_\calb$ depenen de la base $\calb$, buscarem una base
+$\calb$ tal que la matriu $[f]_\calb$ sigui el més "*senzilla*"
+possible.
+
+:::{.definition}
+Sigui $A \in M_n(\K)$ i $f_A\colon \K^n\to\K^n$ l'aplicació lineal
+induïda. Diem que *$A$ és diagonalitzable* si es compleix una de les
+condicions equivalents següents:
+
+1.  $A$ és similar a una matriu diagonal.
+
+2.  Existeix una base $\calb$ de $\K^n$ tal que $[f_A]_\calb$ és
+    diagonal.
+
+3.  Existeix una matriu invertible $S\in M_n(\K)$ tal que el producte
+    $S^{-1}AS$ és diagonal.
+:::
+
+:::{.example}
+La matriu $B=\left(\begin{smallmatrix}
+5 & -15 & -21 \\ -3 & 9 & 13 \\ 3 & -9 & -13
+\end{smallmatrix}\right)$ és diagonalitzable (veure apartat
+[1](#subsec:motiv-diag){reference-type="ref"
+reference="subsec:motiv-diag"}).
+:::
+
+::: {.remark #diagonalitzables}
+ Si una matriu $A$
+és diagonalitzable i $\calb=[\vec v_1, \dots, \vec v_n]$ és una base en
+que $[f_A]_\calb$ és diagonal amb coeficients a la diagonal
+$\lambda_1, \dots, \lambda_n$, llavors es compleix que
+$A \vec v_j=\lambda_j \vec v_j$. Per tant, els vectors $\vec v_j$ de la
+base $\calb$ compleixen que $A\vec v_j$ és un múltiple de $\vec v_j$.
+:::
+
+Utilitzem aquest fet per veure que no totes les matrius són
+diagonalitzables:
+
+:::{.example}
+La matriu
+$A=\left(\begin{smallmatrix} 0 & -1 \\ 1 & 0\end{smallmatrix}\right)\in M_2(\R)$,
+que correspon a una rotació d'angle $\pi/2$, no és diagonalitzable:
+suposem que sí, i que $\vec v$ és un vector d'una base $\calb$ tal que
+$[f_A]_\calb$ és diagonal, llavors es complirà que
+$A\vec v=\lambda \vec v$ per a cert $\lambda\in \R$, però $\vec v$ i
+$A\vec v$ són perpendiculars per a tot $\vec v \in \R^2$, pel que no pot
+ser. Una altra manera de veure-ho és que si
+$\vec v=\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)$
+s'hauria de complir: $$\begin{pmatrix}
+0 & -1 \\ 1 & 0 
+\end{pmatrix}
+\begin{pmatrix}
+x \\ y 
+\end{pmatrix} =
+\begin{pmatrix}
+\lambda x \\ \lambda y 
+\end{pmatrix}$$ I queda el sistema homogeni: $$\begin{aligned}
+    -\lambda x - y =0 \\
+    x - \lambda y=0
+\end{aligned}$$ Com que estem treballant a $\R$, aquest sistema té rang
+$2$ per qualsevol $\lambda\in\R$, i per tant l'única solució és
+$\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)=\left(\begin{smallmatrix} 0 \\ 0 \end{smallmatrix}\right)$,
+que no pot formar part de cap base.
+:::
+
+Veiem, doncs, que per saber si una matriu $A\in M_n(\K)$ és
+diagonalitzable, hem de veure si existeix una base
+$\calb=[\vec v_1, \dots, \vec v_n]$ i escalars $\lambda_j\in\K$ tals que
+$A\vec v_j=\lambda_j \vec v_j$. Posem nom a aquests escalars i vectors:
+
+::: {.definition #vapivep}
+ Donada una matriu $A\in M_n(\K)$,
+diem que un vector no nul $\vec v\in \K^n$ és un *vector propi* de
+*valor propi* $\lambda \in \K$ si $A\vec v=\lambda \vec v$.\
+Els elements del conjunt format pels $\lambda\in \K$ tals que existeix
+un vector $\vec v\in\K^n$ no nul tal que $A\vec v=\lambda \vec v$
+s'anomenen *valors propis d'$A$*.
+:::
+
+:::{.example}
+Analitzem què és un vector propi de valor propi $0$ d'una matriu
+$A\in M_n(\K)$: serà $\vec v\neq \vec 0$ tal que $A\vec v=\vec 0$, per
+tant, serà un vector de $\Ker(f_A)$ (les solucions del sistema homogeni
+amb matriu associada $A$). Deduïm que $0$ és un valor propi d'$A$ si i
+només si $\Ker(f_A)\neq \{\vec 0\}$, si i només si $\det(A)=0$.
+:::
+
+::: {.example #nuclivap0}
+ Quins són els valors propis i
+els vectors propis de $\1_n$? Per a tot $\vec v\in\K^n$ es compleix que
+$\1_n\vec v=\vec v$, per tant, tot vector no nul és vector propi de
+valor propi $1$.
+:::
+
+:::{.example}
+Considerem la matriu de la reflexió a $\R^2$ respecte la recta $r$ que
+passa per l'origen amb vector director
+$\left(\begin{smallmatrix}1\\1\end{smallmatrix}\right)$. Segons la
+Proposició  \@ref(prp:reflexio), correspon a la matriu:
+$$\refl{}=\begin{pmatrix}
+0 & 1 \\ 1 & 0
+\end{pmatrix}$$ Per definició de la reflexió, els vectors $\vec v$ de la
+recta $r$ compliran $A\vec v=\vec v$, per tant són valors propis de
+vector propi $1$:
+$A\left(\begin{smallmatrix}1\\1\end{smallmatrix}\right)=\left(\begin{smallmatrix}1\\1\end{smallmatrix}\right)$.
+
+En canvi, els vectors $\vec w$ perpendiculars a $r$ (els generats per
+$\left(\begin{smallmatrix}1\\-1\end{smallmatrix}\right)$), compleixen
+que $A\vec w=-\vec w$, per tant, són vectors propis de valor propi $-1$.
+
+Això vol dir que, per a
+$\calb=[\left(\begin{smallmatrix}1\\1\end{smallmatrix}\right),\left(\begin{smallmatrix}1\\-1\end{smallmatrix}\right)]$,
+$$[\refl]_\calb=\begin{pmatrix}
+1 & 0 \\ 0 & -1
+\end{pmatrix}.$$
+:::
+
+Mirant l'Exemple
+ \@ref(exm:nuclivap0), podem deduir quan un valor $\lambda\in\K$
+és un valor propi d'una matriu:
+
+::: {.theorem #vapsA}
+ Un escalar $\lambda\in \K$ és un valor
+propi d'una matriu $A\in M_n(\K)$ si, i només si,
+$\det(A-\lambda\1_n)=0$.
+:::
+
+::: {.proof}
+L'escalar $\lambda$ és un valor propi d'$A$ si i només si
+existeix $\vec v\neq \vec 0$ tal que $A\vec v=\lambda \vec v$, i aquesta
+igualtat és equivalent a que $(A-\lambda \1_n)\vec v=\vec 0$. Per tant,
+és equivalent a que el sistema homogeni donat per la matriu
+$A-\lambda\1_n$ tingui solució diferent de $\vec 0$, i això és
+equivalent a que $\det(A-\lambda\1_n)=0$.
+:::
+
+Això ens porta a la definició següent:
+
+:::{.definition}
+Si $A\in M_n(\K)$, el *polinomi característic d'$A$* és
+$p_A(x)=\det(A-x \1_n)$, un polinomi de grau $n$.
+:::
+
+El que hem vist al Teorema
+ \@ref(thm:vapsA)
+és que $\lambda$ és un valor propi d'$A$ si i només si $p_A(\lambda)=0$,
+on $p_A(x)$ és el polinomi característic d'$A$ en la variable $x$.
+
+:::{.example}
+Calculem els valors propis de la matriu $B=\left(\begin{smallmatrix}
+5 & -15 & -21 \\ -3 & 9 & 13 \\ 3 & -9 & -13
+\end{smallmatrix}\right)$: hem de fer el determinant: $$0=
+\begin{vmatrix}
+5-x & -15 & -21 \\ -3 & 9-x & 13 \\ 3 & -9 & -13-x
+\end{vmatrix} = -x^3 +x^2+2x=-x(x+1)(x-2)$$ i per tant els valors propis
+són $\{0,-1,2\}$ (tal i com hem vist a l'apartat
+[1](#subsec:motiv-diag){reference-type="ref"
+reference="subsec:motiv-diag"}).
+:::
+
+:::{.remark}
+El Teorema  \@ref(thm:vapsA) redueix el problema de trobar els valors propis
+d'una matriu a un de trobar les arrels d'un polinomi de grau $n$. Per a
+$n\leq 4$ existeixen fórmules algebraiques explícites per trobar
+expressions d'aquestes arrels, mentre que per a $n\geq 5$ es pot
+demostrar que no n'hi ha (de fòrmula algebraica explícita general).
+:::
+
+:::{.exercise}
+Calculeu el polinomi característic d'una matriu $2\times 2$ general
+$\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix} \right)$.
+:::
+
+Hi ha casos, però, en que és fàcil calcular les arrels del polinomi
+característic:
+
+::: {.lemma #vap-triangsup}
+ Si $A\in M_n(\K)$ és
+una matriu triangular superior (o inferior), els valors propis d'$A$ són
+els valors de la diagonal d'$A$ (els elements $a_{ii}$).
+:::
+
+::: {.proof}
+Podem calcular l'expressió $\det(A-x\1_n)$ desenvolupant per
+l'última fila i anar tirant enrera, i tindrem:
+$$\det(A-x \1_n)=(a_{11}-x)(a_{22}-x)\cdots (a_{nn}-x),$$ i observem que
+aquesta expressió s'anul·la pels valors $x=a_{ii}$.
+:::
+
+::: {.example #mat2101}
+ Estudiem la diagonalització de la
+matriu $$A=\begin{pmatrix}
+2 &  1 \\ 0 & 1
+\end{pmatrix}.$$ Pel Lema
+ \@ref(lem:vap-triangsup), com que $A$ és triangular superior, els
+únics possibles valors propis són els elements $2$ i $1$.
+
+Un vector propi de valor propi $2$ és un vector
+$\vec v=\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)$ tal
+que: $$\begin{pmatrix}
+2 &  1 \\ 0 & 1
+\end{pmatrix}
+\begin{pmatrix} x \\ y \end{pmatrix} =
+\begin{pmatrix} 2x \\ 2y \end{pmatrix}$$ I per tant queda només
+l'equació $y  = 0$. Per tant la solució és
+$\vec v= x\left(\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right)$.
+
+Un vector propi de valor propi $1$ és un vector
+$\vec v=\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)$ tal
+que: $$\begin{pmatrix}
+2 &  1 \\ 0 & 1
+\end{pmatrix}
+\begin{pmatrix} x \\ y \end{pmatrix} =
+\begin{pmatrix} x \\ y \end{pmatrix}$$ i queda l'equació $x+y=0$, per
+tant la solució és
+$\vec v=x\left(\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right)$.
+
+Per tant, a la base
+$\calb=[\left(\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right),\left(\begin{smallmatrix} 1 \\ -1 \end{smallmatrix}\right)]$,
+tenim: $$[f_A]_\calb=\begin{pmatrix}
+2 & 0 \\ 0 & 1
+\end{pmatrix}.$$
+:::
+
+::: {.example #mat1101}
+ Estudiem la diagonalització de la
+matriu $$A=\begin{pmatrix}
+1 &  1 \\ 0 & 1
+\end{pmatrix}.$$ Pel Lema
+ \@ref(lem:vap-triangsup), com que $A$ és triangular superior,
+l'únic valor propi possible és l'$1$.
+
+Si fos diagonalitzable, $A$ hauria de ser similar a $\1_2$, la matriu
+identitat $2\times 2$, per tant, hauria d'existir $S$ una matriu
+invertible tal que $A=S\cdot\1_2\cdot S^{-1}$, però
+$S\cdot \1_2 \cdot S^{-1}=\1_2$, pel que $A$ no és diagonalitzable.
+:::
+
+El fet de que els valors propis d'$A$ siguin les arrels del polinomi
+característic d'$A$ dóna una limitació del nombre de valors propis
+diferents que pot tenir $A$:
+
+:::{.lemma}
+Si $A\in M_n(\K)$, el nombre de valors propis d'$A$ és com a molt $n$.
+:::
+
+::: {.proof}
+Els valors propis d'$A$ són els zeros de $p_A(x)$, que és un
+polinomi de grau $n$. Utilitzem ara que un polinomi de grau $n$ sobre un
+cos $\K$ pot tenir com a molt $n$ arrels diferents.
+:::
+
+També es poden calcular alguns coeficients del polinomi característic:
+
+:::{.lemma}
+Si $A\in M_n(\K)$,
+$$p_A(x)=(-1)^{n} x^n + (-1)^{n-1}\Tr(A) x^{n-1} + \cdots + \det(A) ,$$
+on $\Tr(A)$ s'anomena la traça d'$A$ i és la suma dels elements de la
+diagonal; i els termes que no estan escrits corresponen a $x$, $x^2$,
+...i $x^{n-2}$.
+:::
+
+::: {.proof}
+Quan calculem $p_A(x)=\det(A-x\1_n)$ a partir de l'Equació
+ \@ref(eq:def-det), l'únic sumand que conté $n$ o $n-1$ factors que
+contenen una $x$ és el corresponent al patró $(1,1),(2,2),\dots, (n,n)$
+(si fem fem el producte d'un patró a $A-x\1_n$ que té un element de fora
+de la diagonal, com a mínim en té dos fora de la diagonal, pel que el
+grau en $x$ és menor o igual a $n-2$), i per tant, tenim que:
+$$p_A(x)=(a_{11}-x)(a_{22}-x)\cdots(a_{nn}-x)+\text{polinomi de grau $n-2$ en $x$} ,$$
+i d'aquí veiem que el coeficient de $x^n$ és $(-1)^n$ i el de $x_{n-1}$
+és $(-1)^{n-1}(a_{11}+a_{22}+\cdots + a_{nn})$.
+
+Per veure que el terme independent de $p_A(x)$ és el determinant d'$A$,
+cal utilitzar que el terme independent de $p_A(x)$ és $p_A(0)$, i per
+tant és $\det(A-0\cdot\1_n)=\det(A)$.
+:::
+
+Demostrem ara que el polinomi característic és el mateix per matrius
+similars:
+
+:::{.proposition}
+Si $A$ i $B\in M_n(\K)$ són matrius similars, llavors $p_A(x)=p_B(x)$.
+:::
+
+::: {.proof}
+Si $A$ i $B$ són matrius similars, existeix $S\in M_n(\K)$ una
+matriu invertible tal que $S^{-1}AS=B$. Llavors: $$\begin{aligned}
+p_B(x) & =\det(B-x\1_n)=\det(S^{-1}AS-x\1_n)=\det(S^{-1}AS-S^{-1}(x\1)_nS)=\\ & = \det(S^{-1}(A-x\1_n)S)= \det(S^{-1})\det(A-x\1_n)\det(S)=\\
+ & = \det(S)^{-1}\det(S)\det(A-x\1_n) = p_A(x) \, .
+\end{aligned}$$ On a l'última igualtat hem utilitzat que
+$\det(S^{-1})=\det(S)^{-1}$.
+:::
+
+:::{.exercise}
+Demostreu que el recíproc no és cert: trobeu dues matrius $A$ i $B$ amb
+$p_A(x)=p_B(x)$ però tals que $A$ i $B$ no siguin similars.
+:::
+
+## Vectors propis associats a un valor propi
+
+L'objectiu d'aquesta secció és estudiar els vectors propis d'un valor
+propi donat. Aquestes tenen un nom:
+
+:::{.definition}
+Fixat $\lambda\in\K$, un valor propi d'una matriu $A\in M_n(\K)$, el
+subespai de vectors propis de valor propi $\lambda$ (més el vector
+$\vec 0$) s'anomena *subespai propi d'$A$ associat a $\lambda$* i el
+denotem per $E_\lambda$.
+:::
+
+En altres paraules:
+$$E_\lambda=\Ker(f_{A-\lambda\1_n})=\Ker(A-\lambda I_n) ,$$ quedant
+demostrat que és un subespai vectorial.
+
+Vegem que els subespais propis només s'intersequen al vector $\vec 0$:
+
+::: {.lemma #veps-vap-dif-LI}
+ Fixem
+$A\in M_n(\K)$ i $\lambda_1\neq\lambda_2$ dos valors propis diferents
+d'$A$. Llavors $$E_{\lambda_1}\cap E_{\lambda_2}=\{\vec 0\}.$$
+
+Més en general, vectors propis de valor propi diferent són linealment
+independents.
+:::
+
+::: {.proof}
+Sigui $\vec v\in E_{\lambda_1}\cap E_{\lambda_2}$, llavors
+$A\vec v=\lambda_1\vec v$ i $A\vec v=\lambda_2\vec v$, amb
+$\lambda_1\neq\lambda_2$, i això només pot passar si $\vec v=\vec 0$.
+
+Vegem ara el cas general: siguin $\{\vec v_1, \dots, \vec v_k\}$ vectors
+propis de valors propis $\{\lambda_1, \dots, \lambda_k\}$
+respectivament, amb tots els $\lambda_i$ diferents. Considerem un
+subconjunt de vectors de $\{\vec v_1, \dots, \vec v_k\}$ que siguin
+linealment independents i que sigui maximal. Aquest subconjunt tindrà
+$\ell$ vectors i podem considerar que són els primers (si és necessari,
+els reordenem). Per tant
+$\{\vec v_1, \dots, \vec v_\ell\}\subset\{\vec v_1, \dots, \vec v_k\}$
+amb els $\ell$ primers linealment independents. Volem veure $\ell=k$.
+Suposem que no, llavors $\ell<k$ i existeixen uns únics
+$\mu_1,\dots, \mu_\ell \in \K$ tals que: $$\begin{aligned}
+(\#eq:v-ellp1)
+\vec v_{\ell+1}=\mu_1\vec v_1+ \cdots+ \mu_\ell\vec v_\ell.
+\end{aligned}$$ També podem considerar que hi ha dues $\mu_i\neq0$: com
+que $\vec v_{\ell+1}\neq\vec 0$, com a mínim n'hi ha una. Si només n'hi
+hagués una, llavors
+$E_{\lambda_i}\cap E_{\lambda_{\ell+1}}\neq\{\vec 0\}$, contradient el
+primer apartat d'aquest lema. Suposem doncs (si cal, reordenem),
+$\mu_1\neq0\neq\mu_2$.
+
+Resumint, la situació és la següent: si $\ell<k$, podem considerar
+$\vec v_{\ell+1}$ és un vector propi de valor propi $\lambda_{\ell+1}$
+que es pot posar com
+$\vec v_{\ell+1}=\mu_1\vec v_1+ \cdots+ \mu_\ell\vec v_\ell$ amb
+$\mu_1\neq0\neq\mu_2$ i $\vec v_1$ i $\vec v_2$ són vectors propis de
+valor propi $\lambda_1$ i $\lambda_2$ respectivament, amb
+$\lambda_1\neq\lambda_2$. Apliquem $A$ a l'Equació
+ \@ref(eq:v-ellp1): $$\begin{aligned}
+\lambda_{\ell+1}\vec v_{\ell+1} & =A\vec v_{\ell+1}=A(\mu_1\vec v_1+ \cdots+ \mu_\ell\vec v_\ell)= \\ & = \lambda_1\mu_1\vec v_1+\lambda_2\mu_2\vec v_2+\dots+\lambda_\ell\mu_\ell\vec v_\ell
+\end{aligned}$$ I també: $$\begin{aligned}
+\lambda_{\ell+1}\vec v_{\ell+1} & = \lambda_{\ell+1}\mu_1\vec v_1+\lambda_{\ell+1}\mu_2\vec v_2+\dots+\lambda_{\ell+1}\mu_\ell\vec v_\ell
+\end{aligned}$$ Per tant, com que $\{\vec v_1, \dots, \vec v_\ell\}$ són
+linealment independents, tenim:
+$$\lambda_{\ell+1} \mu_1=\lambda_1\mu_1 \text{ i } \lambda_{\ell+1}\mu_2=\lambda_2\mu_2$$
+amb $\mu_1\neq0\neq\mu_2$, per tant
+$\lambda_1=\lambda_{\ell+1}=\lambda_2$, contradient que
+$\lambda_1\neq\lambda_2$.
+
+Per tant, la contradicció ve de suposar $\ell<k$, el que implica
+$\ell=k$ i els $k$ vectors són linealment independents.
+:::
+
+:::{.example}
+Si prenem la matriu $$A=\begin{pmatrix}2 & 1 \\ 0 & 1\end{pmatrix},$$
+als càlculs de l'Exemple
+ \@ref(exm:mat2101) hem vist que els subespais propis són:
+$$E_2=\langle\begin{pmatrix}
+1 \\ 0 
+\end{pmatrix}\rangle
+\text{ i }
+E_1=\langle\begin{pmatrix}
+1 \\ -1 
+\end{pmatrix}\rangle.$$ A més, com que tenim dos vectors propis
+linealment independents en un espai de dimensió $2$, tenim una base de
+vectors propis i la matriu $A$ diagonalitza.
+:::
+
+:::{.example}
+Si prenem ara la matriu
+$$A=\begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix},$$ als càlculs de
+l'Exemple  \@ref(exm:mat1101) hem vist que l'únic subespai propi és:
+$$E_1=\langle\begin{pmatrix}
+1 \\ 0 
+\end{pmatrix}\rangle.$$ En aquest cas, el subespai format pels vectors
+propis té dimensió $1$, pel que no tenim una base de vectors propis i la
+matriu $A$ no diagonalitza.
+:::
+
+Més en general, per saber si una matriu diagonalitza, cal estudiar el
+polinomi característic i els subespais propis. Per això, ens convé la
+definició següent:
+
+:::{.definition}
+Considerem $A\in M_n(\K)$ i $\lambda$ un valor propi d'$A$.
+
+-   Definim la *multiplicitat algebraica de $\lambda$ com a valor propi
+    d'$A$* com el valor $m\geq 1$ tal que $$p_A(x)=(x-\lambda)^m q(x)$$
+    amb $q(x)$ un polinomi de grau $n-m$ tal que $q(\lambda)\neq 0$.
+    Escriurem $\multalg_A(\lambda)$.
+
+-   Definim la *multiplicitat geomètrica de $\lambda$ com a valor propi
+    d'$A$* com la dimensió de $E_\lambda$. Escriurem
+    $\multgeom_A(\lambda)$.
+:::
+
+:::{.remark}
+A la definició de $\multalg_A(\lambda)$ utilitzem que si $\lambda$ és un
+valor propi, llavors, $p(\lambda)=0$. Si ara fem la divisió de polinomis
+$p(x)$ dividit per $(x-\lambda)$, existeixen polinomis $q_1(x)$
+(quocient) i $r_1(x)$ (la resta, que com que ha de ser de grau menor a
+$1$, ha de ser una constant, i per tant escrivim $r_1$) tals que:
+$$p(x)=(x-\lambda)q_1(x)+r.$$ Si avaluem a $\lambda$ ens queda:
+$$0=p(\lambda)=(\lambda-\lambda)q_1(\lambda)+r_1=r_1 ,$$ i per tant
+$r_1=0$, obtenint que: $$p(x)=(x-\lambda)q_1(x).$$ Aquest procediment es
+pot fer un altre cop si $q_1(\lambda)=0$, i tindríem que
+$p(x)=(x-\lambda)^2q_2(x)$.
+
+Iterem el procediment fins que $q_m(\lambda)\neq0$, no podem continuar
+el procediment, i definim la multiplicitat algebraica d'aquesta manera.
+:::
+
+Mirem ara un cas particular:
+
+::: {.proposition #n-vaps-diferents}
+ Si
+$A \in M_n(\K)$ té $n$ valor propis diferents, llavors:
+
+1.  Per a cada $\lambda$ valor propi d'$A$,
+    $\multalg_A(\lambda)=\multgeom_A(\lambda)=1$.
+
+2.  La matriu $A$ diagonalitza.
+:::
+
+::: {.proof}
+Com que tenim $n$ valors propis diferents, com a mínim tenim
+$n$ vectors propis de valor propi diferents, i pel Lema
+ \@ref(lem:veps-vap-dif-LI), seran linealment independents a
+$\K^n$, per tant una base. D'aquí obtenim que $A$ diagonalitza.
+
+Les $n$ multiplicitats $\multalg_A(\lambda)$ i $\multgeom_A(\lambda)$
+són com a mínim $1$ i, sumades, com a molt $n$ (la suma de les
+$\multalg$ és, com a molt, el grau de $p_A(x)$; la suma de les
+$\multgeom$ és, com a molt, el nombre màxim d'una família de vectors
+linealment independents a $\K^n$), per tant, han de ser $1$.
+:::
+
+En general, la situació no serà tant bona i el que tenim és:
+
+:::{.lemma}
+Si $A\in M_n(\K)$ i $\lambda$ és un valor propi d'$A$, llavors:
+
+1.  Si $\lambda$ és un valor propi d'$A$, llavors
+    $\multgeom(\lambda)\leq \multalg(\lambda)$.
+
+2.  $A$ diagonalitza si i només si
+
+    -   $p_A(x)$ es pot escriure com a producte de polinomis de grau $1$
+        $$\begin{aligned}
+        (\#eq:pAfaclineals)
+              p_A(x)=(-1)^n (x-\lambda_1)^{\multalg_A(\lambda_1)}\cdots(x-\lambda_k)^{\multalg_A(\lambda_k)} 
+\end{aligned}$$ amb $\lambda_i$ valors propis diferents i
+
+    -   $\multgeom_A(\lambda_i)=\multalg_A(\lambda_i)$ per a tot
+        $i=1,\dots, k$.
+:::
+
+::: {.proof}
+Vegem primer (a): sigui $\lambda$ un valor propi d'$A$ i
+considerem $m=\multgeom(\lambda)$, i per tant
+$\vec v_1, \dots, \vec v_m$ vectors linealment independents de
+$\Ker(A-\lambda\1_n)$. Ampliem la família $\vec v_1, \dots, \vec v_m$
+fins a tenir una base $\calb$ de $\K^n$. En aquesta base, la matriu
+$[f_A]_\calb$ tindrà a les primeres $m$ columnes tots els coeficients
+zero, excepte la diagonal, que valdrà $\lambda$, per tant,
+$p_A(x)=p_{[f_A]_\calb}=(-1)^n(x-\lambda)^m q(x)$ i per tant
+$m=\multgeom(A)\leq\multalg(A)$.
+
+Vegem ara (b): suposem primer que $A$ diagonalitza, llavors, la suma de
+les multiplicitats geomètriques d'$A$ serà $n$:
+$$\multgeom_A(\lambda_1)+\cdots+\multgeom_A(\lambda_k)=n$$ amb
+$\lambda_i$ valors propis diferents. Però com que
+$\multgeom(\lambda)\leq\multalg(\lambda)$,
+$$n\leq \multalg_A(\lambda_1)+\cdots+\multalg_A(\lambda_n) \leq n$$ on
+la segona desigualtat és perquè $p_A(x)$ té grau $n$, per tant, les
+multiplicitats geomètriques i algebraiques són iguals i el polinomi
+$p_A(x)$ es pot escriure com a producte de polinomis de grau $1$.
+
+El recíproc es fa desfent els arguments previs: si $p_A(x)$ factoritza
+com a producte de factors de grau $1$ com a l'Equació
+ \@ref(eq:pAfaclineals), per a que diagonalitzi, s'ha de complir
+que trobem una base de vectors propis. Com que per cada $\lambda$ valor
+propi, per hipòtesis, $\multgeom(\lambda)_A=\multalg_A(\lambda)$,
+tindrem $n$ vector propis linealment independents, i per tant una base
+en que $A$ diagonalitza.
+:::
+
+:::{.example}
+Volem estudiar si la matriu $A$ següent diagonalitza i, si ho fa, en
+quina base: $$A=\left(\begin{array}{rrrr}
+55 & 91 & -29 & 50 \\
+-27 & -47 & 15 & -24 \\
+-33 & -67 & 21 & -26 \\
+-33 & -57 & 18 & -29
+\end{array}\right).$$ Calculem primer el polinomi característic:
+$$p_A(x)=\left|\begin{array}{cccc}
+55-x & 91 & -29 & 50 \\
+-27 & -47-x & 15 & -24 \\
+-33 & -67 & 21-x & -26 \\
+-33 & -57 & 18 & -29-x
+\end{array}\right|=x^4-3x^2+2x=x(x-1)^2(x+2).$$ Llavors hem de calcular
+$E_0=\Ker(f_A)$, $E_1=\Ker(f_{A-\1_4})$ i
+$E_{-2}=\Ker(f_{A+2\cdot\1_4})$. Sense calcular-los explícitament, per
+comprovar si diagonalitza només cal calcular $\dim(E_1)$. Si
+$\dim(E_1)=2$, llavors diagonalitza, però si $\dim(E_1)=1$, no
+diagonalitza. En aquest cas surt $\dim(E_1)=2$ i per tant diagonalitza.
+Fem els càlculs:
+$$E_0=\langle\begin{pmatrix}4\\-3\\-7\\-3\end{pmatrix}\rangle \text{, }
+E_1=\langle\begin{pmatrix}4\\2\\-4\\-3\end{pmatrix},\begin{pmatrix}11\\-5\\-9\\-8\end{pmatrix}\rangle \text{ i }
+E_{-2}=\langle\begin{pmatrix}15\\-9\\-16\\-10\end{pmatrix}\rangle$$ Pel
+que podem confirmar que diagonalitza (hi ha 4 vectors propis linealment
+independents). Llavors es pot comprovar que: $$D=S^{-1}AS$$ on
+$$D=\left(\begin{array}{rrrr}
+0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -2
+\end{array}\right)
+\text{ i }
+S=\left(\begin{array}{rrrr}
+4 & 4 & 11 & 15  \\
+-3 & 2 & -5 & -9   \\
+-7 & -4 & -9 & -16  \\
+-3 & -3 & -8 & -10 
+\end{array}\right).$$
+:::
+
+:::{.example}
+Considerem ara la matriu: $$A=\left(\begin{array}{rrrr}
+107 & 151 & -49 & 106 \\
+-53 & -77 & 25 & -52 \\
+-85 & -127 & 41 & -82 \\
+-72 & -102 & 33 & -71
+\end{array}\right)$$ Podem fer els càlculs d'abans, obtenint el mateix
+polinomi característic: $$p_A(x)=\left|\begin{array}{cccc}
+107-x & 151 & -49 & 106 \\
+-53 & -77-x & 25 & -52 \\
+-85 & -127 & 41-x & -82 \\
+-72 & -102 & 33 & -71-x
+\end{array}\right|=x^4-3x^2+2x=x(x-1)^2(x+2).$$ En aquest cas, però,
+tenim que (després de fer els càlculs) $\dim(E_1)=1<2=\multalg_A(1)$,
+per tant no diagonalitza.
+:::
+
+:::{.example}
+Es defineix la successió de Fibonacci com:
+$$a_1=a_2=1 \text{ i } a_{n}=a_{n-1}+a_{n-2} \text{ per a $n\geq 2$}.$$
+Podem calcular-ne els seus primers termes:
+$$1, 1, 2, 3, 5, 8, 13, 21, 34, \dots$$ aquesta definició fa que per
+calcula el terme $n$, haguem de calcular tots els anteriors. L'objectiu
+és trobar una fórmula $f(n)$ tal que $a_n=f(n)$.
+
+Considerem els vectors $\smat{a_{n}\\a_{n-1}}$, i veiem que es compleix
+la relació següent: $$\begin{pmatrix}
+a_{n}\\a_{n-1}
+\end{pmatrix}=
+\begin{pmatrix}
+1 & 1\\1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+a_{n-1}\\a_{n-2}
+\end{pmatrix}=
+\begin{pmatrix}
+1 & 1\\1 & 0
+\end{pmatrix}^2
+\begin{pmatrix}
+a_{n-2}\\a_{n-3}
+\end{pmatrix}= \cdots =
+\begin{pmatrix}
+1 & 1\\1 & 0
+\end{pmatrix}^{n-2}
+\begin{pmatrix}
+a_{2}\\a_{1}
+\end{pmatrix}=
+\begin{pmatrix}
+1 & 1\\1 & 0
+\end{pmatrix}^{n-2}
+\begin{pmatrix}
+1\\ 1
+\end{pmatrix}$$
+:::
+
+Per tant, ens convé calcular: $$A^{n-2}=
+\begin{pmatrix}
+1 & 1\\1 & 0
+\end{pmatrix}^{n-2}$$ Si aconseguim escriure $A=SDS^{-1}$ ($D$ matriu
+diagonal, per tant, la diagonal de $D$ està formada pels valors propis
+de $A$), tenim que $A^{n-2}=SD^{n-2}S^{-1}$, i, si
+$D=\smat{\lambda_1 & 0 \\ 0 & \lambda_2}$, llavors:
+$$D^{n-2}=\begin{pmatrix}
+\lambda_1^{n-2} & 0 \\ 0 & \lambda_2^{n-2}
+\end{pmatrix}$$ Calculem els valor propis d'$A$. Calculem el polinomi
+característic: $$p(x)=\det(A-x\1_2)=\begin{vmatrix}
+1-x & 1 \\ 1 & -x
+\end{vmatrix}= x^2-x-1$$ I els valors propis són les solucions de
+l'equació $p(x)=0$, per tant:
+$$\lambda_i=\frac{1\pm \sqrt{1+4}}{2}=\frac{1\pm\sqrt{5}}{2}$$ Per tant,
+com que tenim dos valors propis diferents, ja sabem que diagonalitza i
+tenim: $$D=
+\begin{pmatrix} \lambda_1 & 0 \\ 0  & \lambda_2
+\end{pmatrix}=
+\begin{pmatrix}
+\frac{1+\sqrt{5}}{2} & 0 \\ 0 & \frac{1-\sqrt{5}}{2}
+\end{pmatrix}$$ Per calcular els vectors propis corresponents a cada
+valor propi, hem de resoldre els sistemes homogenis: $$\left.
+\begin{array}{rrr}
+    (1-\lambda_i) x + & y & =0 \\ x  - & \lambda_i y  &= 0
+\end{array} \right\} \Longleftrightarrow \begin{pmatrix}
+x \\ y 
+\end{pmatrix} \in \langle \begin{pmatrix}
+\lambda_i \\ 1
+\end{pmatrix} \rangle$$ Llavors, tenim que: $$S=
+\begin{pmatrix}
+\lambda_1 & \lambda_2 \\ 1 & 1
+\end{pmatrix}
+%\begin{pmatrix}
+%\frac{1+\sqrt{5}}{2} & \frac{1-\sqrt{5}}{2} \\ 1 & 1
+%\end{pmatrix}
+\text{ i }
+S^{-1}=
+\frac{1}{\lambda_1-\lambda_2}\begin{pmatrix}
+1 & -\lambda_2 \\
+-1 & \lambda_1
+\end{pmatrix}
+%\frac{1}{\sqrt{5}}\begin{pmatrix}
+%1 & \frac{-1+\sqrt{5}}{2} \\
+%-1 & \frac{1+\sqrt{5}}{2}
+%\end{pmatrix}$$ I per tant: $$A^{n-2}=SD^{n-2}S^{-1}=
+\begin{pmatrix}
+\lambda_1 & \lambda_2 \\ 1 & 1
+\end{pmatrix}
+\begin{pmatrix}
+\lambda_1^{n-2} & 0 \\
+0 & \lambda_2^{n-2}
+\end{pmatrix}
+\frac{1}{\lambda_1-\lambda_2}\begin{pmatrix}
+1 & -\lambda_2 \\
+-1 & \lambda_1
+\end{pmatrix}
+%\begin{pmatrix}
+%\frac{1+\sqrt{5}}{2} & \frac{1-\sqrt{5}}{2} \\ 1 & 1
+%\end{pmatrix}
+%\begin{pmatrix}
+%\left(\frac{1+\sqrt{5}}{2}\right)^{n-2} & 0 \\
+%0 & \left(\frac{1-\sqrt{5}}{2}\right)^{n-2}
+%\end{pmatrix}
+%\frac{1}{\sqrt{5}}\begin{pmatrix}
+%1 & \frac{-1+\sqrt{5}}{2} \\
+%-1 & \frac{1+\sqrt{5}}{2}
+%\end{pmatrix}$$ I si fem els càlculs: $$\begin{pmatrix}
+a_n\\a_{n-1}
+\end{pmatrix}=
+A^{n-2} \begin{pmatrix} 1 \\ 1 \end{pmatrix}=
+\frac{1}{\lambda_1-\lambda_2} \begin{pmatrix}
+\lambda_1^{n-1}-\lambda_2^{n-1} &
+\lambda_1^{n-2}-\lambda_2^{n-2} \\
+\lambda_1^{n-2}-\lambda_2^{n-2} &
+\lambda_1^{n-3}-\lambda_2^{n-3} 
+\end{pmatrix}\begin{pmatrix} 1 \\ 1 \end{pmatrix}
+%\frac{1}{\sqrt{5}} \begin{pmatrix}
+%\left(\frac{1+\sqrt{5}}{2}\right)^{n-1}-\left(\frac{1-\sqrt{5}}{2}\right)^{n-1} &
+%\left(\frac{1+\sqrt{5}}{2}\right)^{n-2}-\left(\frac{1-\sqrt{5}}{2}\right)^{n-2} \\
+%\left(\frac{1+\sqrt{5}}{2}\right)^{n-2}-\left(\frac{1-\sqrt{5}}{2}\right)^{n-2} &
+%\left(\frac{1+\sqrt{5}}{2}\right)^{n-3}-\left(\frac{1-\sqrt{5}}{2}\right)^{n-3} 
+%\end{pmatrix}$$ Llavors, després de simplificar:
+$$a_n= \frac{1}{\lambda_1-\lambda_2}(\lambda_1^n-\lambda_2^n)=\frac{1}{\sqrt{5}}\left(
+\left(\frac{1+\sqrt{5}}{2}\right)^n-\left(\frac{1-\sqrt{5}}{2}\right)^n
+\right).
+%=\frac{1}{\sqrt{5}} \left(\left(\frac{1+\sqrt{5}}{2}\right)^{n-1}-\left(\frac{1-\sqrt{5}}{2}\right)^{n-1} +
+%\left(\frac{1+\sqrt{5}}{2}\right)^{n-2}-\left(\frac{1-\sqrt{5}}{2}\right)^{n-2}\right)$$
+
+## Interludi: els nombres complexos {#sec:complexos}
+
+Introduïm aquí el cos dels nombres complexos, que ens seran útils a la
+secció següent, quan estudiem matrius sobre els nombres reals.
+
+Podem definir els nombres complexos com $$\C =\{a+bi ~|~ a,b\in\R\}.$$
+Com a espai vectorial sobre $\R$, podem identificar $\C$ amb $\R^2$, i
+per tant tenim definida una suma i una producte per reals:
+$$(a+bi) + (c+di) = (a+c) + (b+d)i, \quad \lambda(a+bi)=\lambda a + \lambda b i.$$
+Tenim però una operació addicional, el producte de nombres complexos:
+$$(a+bi)(c+di) = (ac-bd) + (ad+bc)i,$$ on la fórmula es recorda
+fàcilment si tenim en compte que $i^2=-1$, i fent servir la propietat
+distributiva.
+
+Definim la *part real* i la *part imaginària* d'un nombre complex com:
+$$\Re(a+bi) = a,\quad \Im(a+bi) = b.$$ També el *conjugat* d'un nombre
+complex es defineix com: $$\overline{(a+bi)} = a-bi,$$ i per tant tenim
+les fórmules
+$$\Re(z) = \frac{z+\bar z}{2},\quad \Im(z)=\frac{z-\bar z}{2i},\quad \forall z\in\C.$$
+La *norma* d'un element $z=a+bi$ és
+$$N(z) = z\bar z = (a+bi)(a-bi) = a^2+b^2\geq 0.$$ Observem que
+$z\bar z \geq 0$, i que $z\bar z = 0$ si i només si $z=0$. Això ens
+permet calcular fàcilment una fórmula per l'invers d'$a+bi$:
+$$(a+bi)^{-1} = \frac{1}{a+bi} = \frac{a-bi}{(a+bi)(a-bi)} = \frac{a}{a^2+b^2}+\frac{-b}{a^2+b^2}i.$$
+Pensat com un element de $\R^2$, $N(z)=|z|^2$, on $|z|=\sqrt{a^2+b^2}$
+és el mòdul de $z$ pensat com un element de $\R^2$. Les coordenades
+polars del punt $(a,b)\in\R^2$ es calculen fent servir que:
+$$a = r\cos(\theta),\quad b = r\sin(\theta),$$ i per tant:
+$$r = \sqrt{z\bar z}=\sqrt{a^2+b^2},\quad \theta = \arg(z) = \arctan(b/a) (+\pi),$$
+on haurem de sumar $\pi$ a $\arctan(b/a)\in[-\pi/2,\pi/2]$ si $a<0$.
+
+Podem escriure (aquí ho podem pensar com una notació, encara que té una
+justificació algebraica) que $$a+bi = re^{i\theta},$$ i així podem
+recordar les fórmules
+$$|zw|=|z||w|,\quad \arg(zw)=\arg(z)+\arg(w)\pmod{2\pi}.$$ El següent
+resultat és el motiu pel què ens interessa treballar a $\C$:
+
+:::{.theorem}
+Tot polinomi $f(x)\in \C[x]$ de grau $n\geq 0$ es pot escriure com
+$$f(x) = c (x-\lambda_1)\cdots (x-\lambda_n),$$ on $c$ i
+$\lambda_1,\ldots,\lambda_n$ són nombres complexos (possiblement
+repetits).
+:::
+
+## Matrius sobre $\R$
+
+En aquest apartat suposarem donada una matriu $A\in M_n(\R)$. Una
+conseqüència del teorema fonamental de l'àlgebra és que $p_A(x)$
+descomposa en producte de factors de grau $1$ i $2$. Si hi ha algun
+factor de grau $2$, aleshores $A$ no diagonalitza sobre $\R$, tal i com
+hem vist.
+
+:::{.example}
+Considerem la matriu $R_{a,b}=\begin{pmatrix}a&-b\\b&a\end{pmatrix}$, on
+$a, b\in\R$ i $b\neq 0$. El seu polinomi característic és
+$$p_A(x) = x^2-2ax +a^2+b^2 = (x-(a+ib))(x-(a-ib)).$$ Escrivim
+$\lambda^+= a+bi$, i $\lambda^- = a-bi$. Podem calcular
+$$E_{\lambda^+} = \langle \begin{pmatrix}i\\1\end{pmatrix}\rangle, \quad E_{\lambda^-} = \langle \begin{pmatrix}-i\\1\end{pmatrix}\rangle.$$
+Per tant, obtenim $$\begin{pmatrix}
+i & -i\\1 & 1
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+a&-b\\b&a
+\end{pmatrix}
+\begin{pmatrix}
+i & -i\\1 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+a+bi&0\\0&a-bi
+\end{pmatrix}.$$
+:::
+
+:::{.example}
+Suposem que $A\in M_2(\R)$ té valors propis $a\pm bi$, amb $b\neq 0$.
+Com que els valors propis són diferents, la matriu $A$ és
+diagonalitzable i, per tant, és similar a $$D = \begin{pmatrix}
+a+bi&0\\0&a-bi
+\end{pmatrix}.$$ Com que la matriu $D$ és també similar a
+$$R_{a,b} = \begin{pmatrix}
+a&-b\\b&a
+\end{pmatrix},$$ la matriu $A$ és similar a $R_{a,b}$. De fet, tenim:
+$$D = S^{-1} A S,$$ on $S$ té per columnes $\vec u$ i $\bar \vec u$, on
+$\vec u = \vec v  + i \vec w$, amb $\vec v,\vec w\in \R^2$. Substituint
+$D = T^{-1} R_{a,b} T$ amb $T = \begin{pmatrix}
+i & -i\\1 & 1
+\end{pmatrix}$, tenim
+$$T^{-1} R_{a,b} T = S^{-1} A S\Longrightarrow R_{a,b} = TS^{-1} A ST^{-1}.$$
+Calculem directament que $$ST^{-1} = \begin{pmatrix}
+\vert&\vert\\
+\vec w&\vec v\\
+\vert&\vert
+\end{pmatrix}.$$
+:::
+
+### Exercicis recomanats 
+
+Els exercicis que segueixen són útils per practicar el material
+presentat. La numeració és la de [@Bret].
+
+Secció 6.2:
+
+:   4, 18.
+
+Secció 6.3:
+
+:   2, 6.
+
+Secció 7.1:
+
+:   10, 18, 34, 36.
+
+Secció 7.2:
+
+:   2, 10, 20.
+
+Secció 7.3:
+
+:   14, 22, 24.
+
+Secció 7.5:
+
+:   14, 24, 26.

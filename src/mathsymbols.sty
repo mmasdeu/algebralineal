@@ -1,0 +1,111 @@
+\newcommand{\bbdef}[1]{\expandafter\newcommand% 
+	\csname#1\endcsname{\mathbb{#1}}}
+% \bbdef{C} \bbdef{F} \bbdef{R} \bbdef{Z} \bbdef{Q} \bbdef{K} \bbdef{N}
+
+% %%% SCRIPT COMMANDS:  \cala=\mathcal{A}, ... \calz=\mathcal{Z}
+% \newcounter{let} \setcounter{let}{0}
+% \loop\stepcounter{let}
+% \expandafter\edef\csname cal\alph{let}\endcsname%
+% {\noexpand\mathcal{\Alph{let}}}
+% \ifnum\thelet<26\repeat
+
+
+\renewcommand{\1}{\mathbf{1}}
+\newcommand{\0}{\mathbf{0}}
+
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{r}|r@{}}
+}{%
+  \end{array}\right)
+}
+
+\newenvironment{llista-exercicis}{%
+\subsection*{Exercicis recomanats}
+Els exercicis que segueixen són útils per practicar el 
+material presentat. La numeració és la de~\cite{Bret}.
+\begin{description}}{\end{description}}
+
+\newcommand{\smat}[1]{\left(\begin{smallmatrix}#1\end{smallmatrix}\right)}
+
+\providecommand{\setminus}{\smallsetminus}
+\providecommand{\Rang}{\operatorname{Rang}}
+\providecommand{\rref}{\operatorname{rref}}
+\providecommand{\rcef}{\operatorname{rcef}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Ima}{\operatorname{Im}}
+\providecommand{\Id}{\operatorname{Id}}
+\providecommand{\Map}{\operatorname{Map}}
+\providecommand{\sign}{\operatorname{Sign}}
+\providecommand{\refl}{\operatorname{Refl}}
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\multalg}{\operatorname{MultAlg}}
+\providecommand{\multgeom}{\operatorname{MultGeom}}
+\providecommand{\proj}{\operatorname{Proj}}
+
+
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\N}{\mathbb{N}}
+
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\K}{\mathbb{K}}
+
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\F}{\mathbb{F}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\C}{\mathbb{C}}
+
+
+\providecommand{\fX}{\mathfrak{X}}
+
+\providecommand{\SL}{\operatorname{SL}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\PSL}{\operatorname{PSL}}
+\providecommand{\PGL}{\operatorname{PGL}}
+
+%Some common abreviations
+\providecommand{\lto}{\longrightarrow}
+\providecommand{\dfn}{\ensuremath{:=}}
+\providecommand{\surjects}{\twoheadrightarrow}
+\providecommand{\injects}{\hookrightarrow}
+\providecommand{\id}{\operatorname{Id}}
+\providecommand{\tns}[1][]{\otimes_{\!#1}}
+\providecommand{\mtx}[4]{\left(\begin{matrix}#1&#2\\#3&#4\end{matrix}\right)}
+\providecommand{\mat}[1]{\left(\begin{matrix}#1\end{matrix}\right)}
+\providecommand{\smat}[1]{\left(\begin{smallmatrix}#1\end{smallmatrix}\right)}
+\providecommand{\smtx}[4]{\left(\begin{smallmatrix}#1&#2\\#3&#4\end{smallmatrix}\right)}
+
+\providecommand{\slz}{\operatorname{SL}_2(\bZ)}
+\providecommand{\to}{\longrightarrow}
+\providecommand{\dlog}{\operatorname{dlog}}
+% \providecommand{\Im}{\operatorname{Im}}
+% \providecommand{\Re}{\operatorname{Re}}
+
+\providecommand{\abs}[1]{|#1|}
+\providecommand{\slsh}[1]{|_{#1}}
+\providecommand{\qed}{\blacksquare}
+\providecommand{\Irr}{\operatorname{Irr}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\Mor}{\operatorname{Mor}}
+\providecommand{\Hom}{\operatorname{Hom}}
+% \providecommand{\implies}{\Longrightarrow}
+
+% \providecommand{\char}{\operatorname{char}}
+\providecommand{\car}{\operatorname{char}}
+\providecommand{\mcd}{\operatorname{mcd}}
+\providecommand{\gcd}{\operatorname{mcd}}
+\providecommand{\Eq}{\operatorname{Eq}}
+\providecommand{\res}{\operatorname{res}}
+\providecommand{\normaleq}{\trianglelefteq}
+\providecommand{\disc}{\operatorname{disc}}
+
+\providecommand{\cala}{\mathcal{A}}
+\providecommand{\calb}{\mathcal{B}}
+\providecommand{\calc}{\mathcal{C}}
+\providecommand{\cald}{\mathcal{D}}
+\providecommand{\cale}{\mathcal{E}}
+\providecommand{\calp}{\mathcal{P}}
+\providecommand{\calq}{\mathcal{Q}}
+\providecommand{\calr}{\mathcal{R}}
+\providecommand{\cals}{\mathcal{S}}
+\providecommand{\calt}{\mathcal{T}}
