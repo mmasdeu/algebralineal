@@ -38,7 +38,8 @@ jobs:
             needs: |
              magick
              pdftools
-          
+
+
       - name: Install latex mk
         run: |
           sudo apt-get udpate & sudo apt-get install -y -q latexmk texlive-full texlive-lang-spanish  texlive-lang-cyrillic texlive-latex-extra texlive-xetex fonts-freefont-ttf texlive-fonts-recommended texlive-fonts-extra texlive-bibtex-extra biber imagemagick poppler-utils ttf-bitstream-vera
@@ -47,7 +48,7 @@ jobs:
         run: |
           Rscript -e 'install.packages(c("rmarkdown","bookdown","pdftools"))'
           ./build.sh
-        
+
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4.4.1
