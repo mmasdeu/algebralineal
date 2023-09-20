@@ -39,6 +39,7 @@ jobs:
              magick
              pdftools
 
+
       - name: Install latex mk
         run: |
           sudo apt-get udpate & sudo apt-get install -y -q latexmk texlive-full texlive-lang-spanish  texlive-lang-cyrillic texlive-latex-extra texlive-xetex fonts-freefont-ttf texlive-fonts-recommended texlive-fonts-extra texlive-bibtex-extra biber imagemagick poppler-utils ttf-bitstream-vera
