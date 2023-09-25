@@ -14,7 +14,11 @@ ens els donen les matrius:
 ::: {.example #Alineal}
  Considerem una matriu
 $A\in M_{m\times n}(\K)$. Aleshores l'aplicació associada a $A$ és
-$f_A$, definida com: $$f_A(\vec x) = A\vec x.$$ Tal i com hem remarcat
+$f_A$, definida com: 
+$$
+f_A(\vec x) = A\vec x.
+$$
+ Tal i com hem remarcat
 anteriorment, l'aplicació $f_A$ assigna a cada vector $\vec x$ una
 combinació lineal de les columnes d'$A$, on els coeficients venen donats
 per $\vec x$.
@@ -51,7 +55,9 @@ $A\in M_{m\times n}(\K)$ tal que $f=f_A$.
 ::: {.proof}
 Ja hem vist que si $f=f_A$ aleshores $f$ és lineal.
 Recíprocament, suposem que $f$ és lineal. Aleshores, com que
-$$\begin{pmatrix}
+
+$$
+\begin{pmatrix}
 	x_1\\x_2\\x_3\\\vdots\\x_n
 	\end{pmatrix}
 	=x_1\begin{pmatrix}
@@ -65,8 +71,12 @@ $$\begin{pmatrix}
 	x_n
 	\begin{pmatrix}
 	0\\0\\\vdots\\0\\1
-	\end{pmatrix},$$ el valor $f(\vec x)$ es pot calcular com
-$$f\begin{pmatrix}
+	\end{pmatrix},
+$$
+ el valor $f(\vec x)$ es pot calcular com
+
+$$
+f\begin{pmatrix}
 	x_1\\x_2\\x_3\\\vdots\\x_n
 	\end{pmatrix}
 	=x_1f\begin{pmatrix}
@@ -80,11 +90,17 @@ $$f\begin{pmatrix}
 	x_n
 	f\begin{pmatrix}
 	0\\0\\\vdots\\0\\1
-	\end{pmatrix}.$$ Definim la matriu $A$ com $$A=\begin{pmatrix}
+	\end{pmatrix}.
+$$
+ Definim la matriu $A$ com 
+$$
+A=\begin{pmatrix}
 	\mid & \mid &\mid & \mid\\
 	f(\vec e_1) & f(\vec e_2) &\cdots&f(\vec e_n)\\
 	\mid & \mid &\mid & \mid
-	\end{pmatrix}$$ on escrivim $e_i$ com el vector format per zeros excepte
+	\end{pmatrix}
+$$
+ on escrivim $e_i$ com el vector format per zeros excepte
 en la posició $i$, on hi ha un $1$. Aleshores, per la definició de
 producte d'una matriu per un vector, tenim $f(\vec x) = A\vec x$ per a
 tot $\vec x\in \K^n$, com volíem veure.
@@ -93,32 +109,52 @@ tot $\vec x\in \K^n$, com volíem veure.
 És important remarcar com hem construït la matriu associada a una
 aplicació lineal $f$ en la demostració anterior: donada
 $f\colon \K^n\rightarrow \K^m$, la seva matriu associada és
-$$A=\begin{pmatrix}
+
+$$
+A=\begin{pmatrix}
 \mid & \mid &\mid & \mid\\
 f(\vec e_1) & f(\vec e_2) &\cdots&f(\vec e_n)\\
 \mid & \mid &\mid & \mid
-\end{pmatrix}.$$ Els vectors $\vec e_i$ sovint s'anomenen *vectors
-estàndard*: $$\vec e_i = \begin{pmatrix}
+\end{pmatrix}.
+$$
+ Els vectors $\vec e_i$ sovint s'anomenen *vectors
+estàndard*: 
+$$
+\vec e_i = \begin{pmatrix}
 0\\\vdots\\0\\1\\0\\\vdots\\0
 \end{pmatrix}
 \begin{matrix}
 \phantom{0}\\\phantom{\vdots}\\\phantom{0}\\(\textrm{posició } i)\\\phantom{0}\\\phantom{\vdots}\\\phantom{0}
-\end{matrix}$$
+\end{matrix}
+$$
+
 
 Com a primera aplicació, considerem ara dues aplicacions lineals
-$$\K^n \stackrel{g}{\rightarrow} \K^r \stackrel{f}{\rightarrow} \K^m,$$
+
+$$
+\K^n \stackrel{g}{\rightarrow} \K^r \stackrel{f}{\rightarrow} \K^m,
+$$
+
 i suposem que $f$ té matriu $A$ i $g$ té matriu $B$. Considerem la
 composició $f\circ g$, que és l'aplicació que envia $\vec x\in \K^n$ a
 $(f\circ g)(\vec x) = f(g(\vec x))$. Per definició, sabem que per a tot
 $\vec x$ tenim
-$$(f\circ g)(\vec x) = f(g(\vec x)) = A(B\vec x) = (AB)\vec x.$$ Per
+
+$$
+(f\circ g)(\vec x) = f(g(\vec x)) = A(B\vec x) = (AB)\vec x.
+$$
+ Per
 tant, obtenim que $f\circ g$ és una aplicació lineal, amb matriu
 associada $AB$. Per tant, el producte de matrius "codifica" la
 composició d'aplicacions lineals.
 
 :::{.example}
 Donades tres aplicacions lineals
-$$\K^t\stackrel{h}{\rightarrow}\K^n \stackrel{g}{\rightarrow} \K^r \stackrel{f}{\rightarrow} \K^m$$
+
+$$
+\K^t\stackrel{h}{\rightarrow}\K^n \stackrel{g}{\rightarrow} \K^r \stackrel{f}{\rightarrow} \K^m
+$$
+
 amb matrius respectives $f=f_A$, $g=f_B$, $h=f_C$, el fet que la
 composició d'aplicacions és associativa (per definició) implica que el
 producte de matrius és associatiu, sense necessitat de fer cap càlcul:
@@ -136,7 +172,11 @@ matriu. Podem visualitzar aquestes transformacions per exemple a
 ### Homotècies 
 
 Considerem una matriu
-$$\begin{pmatrix} k & 0\\0 & k\end{pmatrix}, k\in \R.$$ Aquesta matriu
+
+$$
+\begin{pmatrix} k & 0\\0 & k\end{pmatrix}, k\in \R.
+$$
+ Aquesta matriu
 envia el vector $\vec x$ a $k\vec x$. Per tant, multiplica els vectors
 per un escalar. Si $|k|>1$, es tracta d'una dilació i, si $|k|< 1$ es
 tracta d'una contracció. Si $k$ és negatiu, aleshores també canvia el
@@ -162,7 +202,11 @@ perpendicular a $\ell$.
 :::{.definition}
 La *projecció ortogonal* respecte la recta $\ell$ és l'aplicació
 $\operatorname{proj}_\ell$ definida com
-$$\operatorname{proj}_\ell(\vec x) = \vec x^\parallel.$$
+
+$$
+\operatorname{proj}_\ell(\vec x) = \vec x^\parallel.
+$$
+
 :::
 
 Observem que $\operatorname{proj}_\ell$ és una aplicació lineal
@@ -170,7 +214,11 @@ Observem que $\operatorname{proj}_\ell$ és una aplicació lineal
 
 :::{.proposition}
 Sigui $\vec v$ un vector paral·lel a la recta $\ell$. Aleshores:
-$$\operatorname{proj}_\ell(\vec x) = \frac{\vec x\cdot \vec v}{\vec v\cdot \vec v} \vec v.$$
+
+$$
+\operatorname{proj}_\ell(\vec x) = \frac{\vec x\cdot \vec v}{\vec v\cdot \vec v} \vec v.
+$$
+
 :::
 
 També podem trobar una fórmula per la matriu de la projecció ortogonal.
@@ -179,7 +227,11 @@ També podem trobar una fórmula per la matriu de la projecció ortogonal.
  Sigui
 $\vec v = \begin{pmatrix}v_1\\v_2\end{pmatrix}$ un vector paral·lel a la
 recta $\ell$. Aleshores la matriu de $\operatorname{proj}_\ell$ és
-$$\frac{1}{v_1^2 + v_2^2}\begin{pmatrix}v_1^2&v_1v_2\\v_1v_2&v_2^2\end{pmatrix}$$
+
+$$
+\frac{1}{v_1^2 + v_2^2}\begin{pmatrix}v_1^2&v_1v_2\\v_1v_2&v_2^2\end{pmatrix}
+$$
+
 :::
 
 ### Reflexions  {#subsubsec:reflexio}
@@ -187,18 +239,34 @@ $$\frac{1}{v_1^2 + v_2^2}\begin{pmatrix}v_1^2&v_1v_2\\v_1v_2&v_2^2\end{pmatrix}$
 una recta $\ell$ que passi per l'origen. Volem definir la reflexió
 respecte la recta $\ell$. És fàcil veure que
 
-$$\operatorname{ref}_\ell(\vec x) = \vec x^\parallel - \vec x^\perp.$$
+
+$$
+\operatorname{ref}_\ell(\vec x) = \vec x^\parallel - \vec x^\perp.
+$$
+
 Com que $\vec x = \vec x^\parallel + \vec x^\perp$, podem escriure
-$$\vec x^\parallel - \vec x^\perp = 2\vec x^\parallel - \vec x.$$ Per
+
+$$
+\vec x^\parallel - \vec x^\perp = 2\vec x^\parallel - \vec x.
+$$
+ Per
 tant,
-$$\operatorname{ref}_\ell = 2\operatorname{proj}_\ell - \operatorname{id}.$$
+
+$$
+\operatorname{ref}_\ell = 2\operatorname{proj}_\ell - \operatorname{id}.
+$$
+
 La matriu corresponent és fàcil de trobar a partir d'aquesta fórmula:
 
 ::: {.proposition #reflexio}
  Sigui
 $\vec v = \begin{pmatrix}v_1\\v_2\end{pmatrix}$ un vector paral·lel a la
 recta $\ell$. Aleshores la matriu de $\operatorname{ref}_\ell$ és
-$$\frac{1}{v_1^2 + v_2^2}\begin{pmatrix}v_1^2-v_2^2&2v_1v_2\\2v_1v_2&v_2^2-v_1^2\end{pmatrix}.$$
+
+$$
+\frac{1}{v_1^2 + v_2^2}\begin{pmatrix}v_1^2-v_2^2&2v_1v_2\\2v_1v_2&v_2^2-v_1^2\end{pmatrix}.
+$$
+
 :::
 
 Fixem-nos que la matriu de $\operatorname{ref}_\ell$ té la forma
@@ -211,13 +279,21 @@ a la mateixa recta.](reflexio.png){#fig:reflexio height="5cm"}
 
 ### Rotacions  {#subsubsec:rotacio}
  Les matrius de la forma
-$$\begin{pmatrix}
+
+$$
+\begin{pmatrix}
 \cos\theta&-\sin\theta\\
 \sin\theta&\cos\theta
-\end{pmatrix}$$ corresponen a una rotació d'angle $\theta$. Observem
-que aquesta matriu és de la forma $$\begin{pmatrix}
+\end{pmatrix}
+$$
+ corresponen a una rotació d'angle $\theta$. Observem
+que aquesta matriu és de la forma 
+$$
+\begin{pmatrix}
 a&-b\\b&a
-\end{pmatrix},\quad a^2+b^2=1$$ i totes les matrius d'aquesta forma són
+\end{pmatrix},\quad a^2+b^2=1
+$$
+ i totes les matrius d'aquesta forma són
 rotacions.
 
 ![Una rotació de $30^\circ$.](rotacio.png){#fig:rotacio height="4cm"}
@@ -298,7 +374,11 @@ per $\{\vec v_1, \dots \vec v_m\}$* com els vectors de $\K^n$ que es
 poden escriure com a combinació lineal de
 $\{\vec v_1, \dots \vec v_m\}$. Denotem aquest subconjunt com
 $\langle \vec v_1, \dots \vec v_m \rangle$, i per tant tenim:
-$$\langle \vec v_1, \dots \vec v_m \rangle = \{\lambda_1 \vec v_1 + \cdots + \lambda_m\vec v_m \mid \lambda_i\in\K \}$$
+
+$$
+\langle \vec v_1, \dots \vec v_m \rangle = \{\lambda_1 \vec v_1 + \cdots + \lambda_m\vec v_m \mid \lambda_i\in\K \}
+$$
+
 :::
 
 :::{.remark}
@@ -308,20 +388,32 @@ $\langle \vec v_1, \dots \vec v_m \rangle$ és un subespai vectorial.
 
 ::: {.proof}
 Per simplificar la notació, definim
-$$W=\langle \vec v_1, \dots \vec v_m \rangle .$$ Cal veure que si
+
+$$
+W=\langle \vec v_1, \dots \vec v_m \rangle .
+$$
+ Cal veure que si
 $\vec u, \vec w$ pertanyen a $W$, llavors $\vec u+\vec w$ també hi
 pertany. Per definició d'$W$, tenim que existeixen escalars
 $\lambda_1, \dots ,\lambda_m$ i $\mu_1,\dots,\mu_m$ tals que
 $\vec u= \lambda_1 \vec v_1+\cdots +\lambda_m\vec v_m$ i
 $\vec w=\mu_1\vec v_1+\cdots +\mu_m\vec v_m$. Llavors, tenim que:
-$$\vec u+\vec w = (\lambda_1+\mu_1)\vec v_1 + \cdots + (\lambda_m+\mu_m)\vec v_m ,$$
+
+$$
+\vec u+\vec w = (\lambda_1+\mu_1)\vec v_1 + \cdots + (\lambda_m+\mu_m)\vec v_m ,
+$$
+
 obtenint que $\vec u+\vec v \in W$.
 
 Ara considerem $\lambda \in \K$ i $\vec u\in W$. Volem veure
 $\lambda \vec u \in W$: com que $\vec u\in W$, existeixen
 $\mu_1, \dots , \mu_m\in\K$ tals que
 $\vec u=\lambda_1\vec v_1 + \cdots + \lambda_m\vec v_m$. Llavors:
-$$\lambda \vec u = (\lambda \mu_1)\vec v_1 + \cdots + (\lambda \mu_m)\vec v_m ,$$
+
+$$
+\lambda \vec u = (\lambda \mu_1)\vec v_1 + \cdots + (\lambda \mu_m)\vec v_m ,
+$$
+
 pel que $\lambda \vec u \in W$.
 :::
 
@@ -356,7 +448,11 @@ Si $f \colon \K^n \to \K^m$ és una aplicació lineal, llavors:
 Comprovem primer que $\Ker(f)$ compleix les dues condicions de
 la Definició  \@ref(def:subespai): Considerem $\vec u, \vec v \in \Ker(f)$, per
 tant $f(\vec u)=f(\vec v)=\vec 0$. Llavors:
-$$f(\vec u+\vec v)=f(\vec u)+f(\vec v)=\vec 0+\vec 0 =\vec 0 ,$$ per
+
+$$
+f(\vec u+\vec v)=f(\vec u)+f(\vec v)=\vec 0+\vec 0 =\vec 0 ,
+$$
+ per
 tant $\vec u+\vec v \in \Ker(f)$.\
 També, si $\vec u \in \Ker(f)$ i $\lambda\in\K$, llavors
 $f(\lambda \vec u)=\lambda f(\vec u)=\lambda \vec 0=\vec 0$, per tant
@@ -400,7 +496,11 @@ $\{\vec v_1, \dots , \vec v_n\} \subset \K^m$ és *linealment
 independent* si l'única manera d'escriure el vector zero com a
 combinació lineal de $\vec v_1, \dots \vec v_n$ és amb tots els
 coeficients zero. És a dir, si:
-$$\vec 0 = \lambda_1 \vec v_1+\cdots +\lambda_n\vec v_n \text{ amb $\lambda_i\in\K$} \, \Longrightarrow \, \lambda_1=\cdots =\lambda_n=0 \,.$$
+
+$$
+\vec 0 = \lambda_1 \vec v_1+\cdots +\lambda_n\vec v_n \text{ amb $\lambda_i\in\K$} \, \Longrightarrow \, \lambda_1=\cdots =\lambda_n=0 \,.
+$$
+
 :::
 
 :::{.remark}
@@ -419,7 +519,11 @@ compleixen la definició d'independència lineal de la Definició
 com a combinació lineal dels altres. Com que els podem reordenar,
 considerem que $\vec v_1=\lambda_2\vec v_2+\cdots \lambda_n\vec v_n$.
 Llavors
-$$\vec 0 = \vec v_1- \lambda_2 \vec v_2 - \cdots -\lambda_n\vec v_n$$ i
+
+$$
+\vec 0 = \vec v_1- \lambda_2 \vec v_2 - \cdots -\lambda_n\vec v_n
+$$
+ i
 el vector zero es pot escriure com a combinació lineal de
 $\{\vec v_1, \dots , \vec v_n\}$ amb, com a mínim, un coeficient no nul
 (el de $\vec v_1$).
@@ -427,10 +531,18 @@ $\{\vec v_1, \dots , \vec v_n\}$ amb, com a mínim, un coeficient no nul
 Considerem $\{\vec v_1, \dots , \vec v_n\} \subset \K^n$ que no
 compleixen la definició de independència lineal de la Definició
  \@ref(def:indeplin), llavors podem escriure el vector zero:
-$$\vec 0 = \lambda_1\vec v_1+ \lambda_2 \vec v_2 + \cdots +\lambda_n\vec v_n$$
+
+$$
+\vec 0 = \lambda_1\vec v_1+ \lambda_2 \vec v_2 + \cdots +\lambda_n\vec v_n
+$$
+
 amb algun $\lambda_i\neq 0$. Com que els podem reordenar, considerem que
 $\lambda_1\neq 0$. Llavors:
-$$\vec v_1 = -(\lambda_2/\lambda_1) \vec v_2 - \cdots -(\lambda_n/\lambda_1)\vec v_n$$
+
+$$
+\vec v_1 = -(\lambda_2/\lambda_1) \vec v_2 - \cdots -(\lambda_n/\lambda_1)\vec v_n
+$$
+
 i el vector $\vec v_1$ és combinació lineal de la resta.
 :::
 
@@ -457,7 +569,7 @@ Observem que donar una combinació lineal
 $x_1\vec v_1+ \cdots+x_n \vec v_n$ és equivalent a multiplicar $Ax$, on
 $x$ és el vector columna que té per coeficients $x_1, \dots, x_n$.
 
-llavors, que $\{\vec v_1, \dots, \vec v_n\}$ siguin linealment
+Llavors, que $\{\vec v_1, \dots, \vec v_n\}$ siguin linealment
 independents vol dir que la única manera d'obtenir $Ax=\vec 0$ és amb
 $x=\vec 0$, o, el que és el mateix, $\Ker(f_A)=\vec 0$.
 :::
@@ -498,20 +610,36 @@ amb el rang:
 
 :::{.corollary}
 Si $A\in M_{m\times n}(\K)$ i $B\in M_{n\times r}(\K)$, llavors:
-$$\Rang(AB)\leq \min\{\Rang(A),\Rang(B)\}$$
+
+$$
+\Rang(AB)\leq \min\{\Rang(A),\Rang(B)\}
+$$
+
 :::
 
 ::: {.proof}
 Suposem que $C=AB$ té columnes $j_1,\ldots,j_r$ que són
 linealment independents. Aleshores les columnes $j_1,\ldots,j_r$ de $B$
 també ho són: en efecte, si
-$$\lambda_1b_{j_1}+\cdots\lambda_rb_{j_r} = 0,$$ com que $c_j=Ab_j$ per
+
+$$
+\lambda_1b_{j_1}+\cdots\lambda_rb_{j_r} = 0,
+$$
+ com que $c_j=Ab_j$ per
 a tot $j$, es té
-$$\lambda_1 c_{j_1} +\cdots \lambda_r c_{j_r}=\lambda_1 A b_{j_1} + \cdots + \lambda_r A b_{j_r} = A(\lambda_1b_{j_1}+\cdots+\lambda_r b_{j_r})=0,$$
+
+$$
+\lambda_1 c_{j_1} +\cdots \lambda_r c_{j_r}=\lambda_1 A b_{j_1} + \cdots + \lambda_r A b_{j_r} = A(\lambda_1b_{j_1}+\cdots+\lambda_r b_{j_r})=0,
+$$
+
 i per tant tots els escalars $\lambda_j=0$. D'aquí en concloem que
 $\Rang(AB)\leq \Rang(B)$.\
 Si ara transposem les matrius i fem el mateix raonament, tenim que
-$$\Rang(AB)=\Rang((AB)^T)=\Rang(B^TA^T)\leq \Rang(A^T)=\Rang(A)$$ Per
+
+$$
+\Rang(AB)=\Rang((AB)^T)=\Rang(B^TA^T)\leq \Rang(A^T)=\Rang(A)
+$$
+ Per
 tant $\Rang(AB)$ és més petit que el rang d'$A$ i que el rang de $B$.
 :::
 
@@ -575,7 +703,10 @@ $\vec v_1, \dots , \vec v_n, \vec u$ són vectors de $\K^m$, llavors:
 
 2.  Si $\vec u = \lambda_1 \vec v_1 + \cdots + \lambda_n \vec v_n$ i $i$
     és un índex tal que $\lambda_i\neq 0$, llavors:
-    $$\langle \vec v_1,\dots,\vec v_{i-1},\vec v_i , \vec v_{i+1}, \dots , \vec v_n\rangle=\langle \vec v_1, \dots,\vec v_{i-1},\vec u , \vec v_{i+1},\dots,\vec v_n\rangle.$$
+$$
+\langle \vec v_1,\dots,\vec v_{i-1},\vec v_i , \vec v_{i+1}, \dots , \vec v_n\rangle=\langle \vec v_1, \dots,\vec v_{i-1},\vec u , \vec v_{i+1},\dots,\vec v_n\rangle.
+$$
+
 :::
 
 ::: {.proof}
@@ -589,7 +720,11 @@ $\vec w \in \langle\vec u, \vec v_1, \dots , \vec v_n \rangle$, per tant
 existeixen $\mu,\mu_1,\dots \mu_n\in\K$ tals que
 $\vec w=\mu \vec u+\mu_1\vec v_1+\dots \mu_n\vec v_n$. Utilitzant que
 $\vec u=\lambda_1\vec v_1+\dots \lambda_n\vec v_n$, tenim:
-$$\vec w=(\mu\lambda_1+\mu_1)\vec v_1+\dots (\mu\lambda_n+\mu_n)\vec v_n ,$$
+
+$$
+\vec w=(\mu\lambda_1+\mu_1)\vec v_1+\dots (\mu\lambda_n+\mu_n)\vec v_n ,
+$$
+
 per tant $w \in \langle \vec v_1, \dots , \vec v_n \rangle$.
 
 En canvi, si $\vec u\notin \langle \vec v_1, \dots , \vec v_n \rangle$,
@@ -599,14 +734,22 @@ que
 $\langle \vec v_1, \dots , \vec v_n \rangle\neq\langle\vec u, \vec v_1, \dots , \vec v_n \rangle$.
 
 Per demostrar (b) comencem observant que, com que $\lambda_i\neq 0$,
-$$v_i=(1/\lambda_i) \vec u -(\lambda_1/\lambda_i) \vec v_1- \cdots-(\lambda_{i-1}/\lambda_i) \vec v_{i-1} - (\lambda_{i+1}/\lambda_i) \vec v_{i+1} - \cdots -(\lambda_n/\lambda_i) \vec v_n$$
+
+$$
+v_i=(1/\lambda_i) \vec u -(\lambda_1/\lambda_i) \vec v_1- \cdots-(\lambda_{i-1}/\lambda_i) \vec v_{i-1} - (\lambda_{i+1}/\lambda_i) \vec v_{i+1} - \cdots -(\lambda_n/\lambda_i) \vec v_n
+$$
+
 pel que
 $\vec v_1 \in \langle \vec v_1, \dots,\vec v_{i-1},\vec u , \vec v_{i+1},\dots,\vec v_m\rangle$.
 Apliquem ara dos cops (a) per obtenir (l'ordre en que s'escriuen els
 vectors en un sistema de generadors no importa):
-$$\langle \vec v_1, \dots , \vec v_n\rangle=
+
+$$
+\langle \vec v_1, \dots , \vec v_n\rangle=
 	\langle \vec u,\vec v_1, \dots, \vec v_i, \dots , \vec v_n\rangle=
-	\langle \vec v_1, \dots,\vec v_{i-1},\vec u , \vec v_{i+1},\dots,\vec v_n\rangle.$$
+	\langle \vec v_1, \dots,\vec v_{i-1},\vec u , \vec v_{i+1},\dots,\vec v_n\rangle.
+$$
+
 :::
 
 Vegem ara quin és el nombre mínim de vectors generadors de $\K^m$:
@@ -625,7 +768,11 @@ $\langle \vec v_1, \dots, \vec v_n \rangle=\K^m$, tenim que
 $\vec e_j \in \langle \vec v_1, \dots, \vec v_n \rangle$, per tant,
 existeixen $x_{1j}, \dots, x_{nj}$ tals que
 $x_{1j} \vec v_1+ \cdots+x_{nj}\vec v_n=\vec e_j$. Podem escriure
-aquesta igualtat de forma matricial: $$A X = \1_m$$ on
+aquesta igualtat de forma matricial: 
+$$
+A X = \1_m
+$$
+ on
 $A \in M_{m\times n}(\K)$ és la matriu que té per columnes els vectors
 $\vec v_j$, $X\in M_{n\times m}(\K)$ és la matriu que té per coeficients
 $x_{ij}$ i $\1_m$ és la matriu que té per columnes els vectors
@@ -687,7 +834,11 @@ independent. Suposem que tenim un conjunt maximal de vectors linealment
 independents $\vec v_{i_1}, \dots ,\vec v_{i_k}$. Per demostrar que són
 base cal veure que són generadors i ho farem per contraposició lògica.
 Si no fossin generadors, tindríem:
-$$\langle \vec v_{i_1}, \dots ,\vec v_{i_k}\rangle \subsetneqq \langle \vec v_{1}, \dots ,\vec v_{n}\rangle$$
+
+$$
+\langle \vec v_{i_1}, \dots ,\vec v_{i_k}\rangle \subsetneqq \langle \vec v_{1}, \dots ,\vec v_{n}\rangle
+$$
+
 i per tant hi hauria un $\vec v_j$ tal que
 $\vec v_j \not\in \langle \vec v_{i_1}, \dots ,\vec v_{i_k}\rangle$.
 Llavors $\vec v_{i_1}, \dots ,\vec v_{i_k}, \vec v_j$ serien linealment
@@ -711,7 +862,7 @@ El resultat de l'apartat (a) també es pot llegir com que si tenim un
 sistema de generadors de $\K^n$, podem anar eliminant vectors fins a
 quedar-nos amb una base.
 
-::: {.proposition #base=li=gen}
+::: {.proposition #base-li-gen}
  Si
 $\vec v_1, \dots, \vec v_n$ és un conjunt de vectors de $\K^n$, llavors
 són equivalents:
@@ -816,7 +967,7 @@ $V\subset \K^m$, llavors:
 linealment independents a $\K^m$, llavors $n\leq m$.
 
 \(b\) Suposem que $n=m$, per la Proposició
- \@ref(prp:base=li=gen), si śon linealment independents són base
+ \@ref(prp:base-li-gen), si śon linealment independents són base
 de tot $\K^m$, per tant $V=\K^m$. I, si $V=\K^m$, llavors qualsevol base
 ha de tenir $m$ vectors, i $n=m$.
 :::
@@ -838,7 +989,11 @@ vectors linealment independents), existeix $\lambda_i\neq 0$. Si cal,
 reordenem els vectors $\vec v_1,\dots,\vec v_n$ i suposem
 $\lambda_1\neq 0$. Aplicant ara el Lema
  \@ref(lem:generadors), tenim:
-$$V=\langle \vec v_1,\dots,\vec v_n \rangle=\langle \vec u_1,\vec v_2,\dots,\vec v_n \rangle .$$
+
+$$
+V=\langle \vec v_1,\dots,\vec v_n \rangle=\langle \vec u_1,\vec v_2,\dots,\vec v_n \rangle .
+$$
+
 Considerem ara $\vec u_2$: com que
 $\vec u_2\in V=\langle \vec u_1,\vec v_2,\dots,\vec v_n \rangle$,
 existeixen $\mu_1\in\K$ i $\lambda_i\in\K$ $(i\geq 2)$ tals que
@@ -848,11 +1003,19 @@ $\lambda_i$ tal que $\lambda_i\neq 0$ amb $i\geq 2$. Si cal, podem
 reordenar els vectors $\{\vec v_2,\dots,\vec v_n\}$ i suposar que
 $\lambda_2\neq 0$. Tornem a aplicar el Lema
  \@ref(lem:generadors) i obtenim:
-$$V=\langle \vec u_1,\vec v_2,\dots,\vec v_{n} \rangle=\langle \vec u_1,\vec u_2,\vec v_3,\dots,\vec v_{n} \rangle .$$
+
+$$
+V=\langle \vec u_1,\vec v_2,\dots,\vec v_{n} \rangle=\langle \vec u_1,\vec u_2,\vec v_3,\dots,\vec v_{n} \rangle .
+$$
+
 Iterem ara aquest procediment. Si $k>n$, llavors podem iterar el
 procediment amb els $n$ primers vectors de
 $\{\vec u_1,\dots,\vec u_k\}$, obtenint:
-$$V=\langle \vec u_1,\vec u_2,\dots,\vec u_{n} \rangle$$ i per tant
+
+$$
+V=\langle \vec u_1,\vec u_2,\dots,\vec u_{n} \rangle
+$$
+ i per tant
 $\vec u_{n+1} \in V=\langle \vec u_1,\vec u_2,\dots,\vec u_{n} \rangle$,
 que contradiu el fet de que $\{\vec u_1, \dots, \vec u_n,\vec u_{n+1}\}$
 siguin linealment independents.
@@ -950,9 +1113,13 @@ columnes de $B$, per tant, les columnes de $B$ són linealment
 independents, que és el que volíem veure.
 :::
 
-::: {.theorem #ker+ima}
+::: {.theorem #ker-ima}
  Sigui $f\colon \K^n\to \K^m$ una
-aplicació lineal. Llavors: $$n=\dim(\Ker(f))+\dim(\Ima(f)) \,.$$
+aplicació lineal. Llavors: 
+$$
+n=\dim(\Ker(f))+\dim(\Ima(f)) \,.
+$$
+
 :::
 
 ::: {.proof}
@@ -991,7 +1158,7 @@ definir-lo.
     variables). Qualsevol solució es pot escriure d'aquesta manera (per
     tant els $k$ vectors que sortiran generen $V$). Tenim que, per
     l'equació del Teorema
-     \@ref(thm:ker+ima), $k=\dim(\Ker(A))$, obtenint que les
+     \@ref(thm:ker-ima), $k=\dim(\Ker(A))$, obtenint que les
     solucions han de ser una base de $V$.
 
 -   Suposem que
@@ -999,26 +1166,37 @@ definir-lo.
     subespai de dimensió $k$ (per tant, esperem $m-k$ equacions). Una
     manera d'obtenir unes equacions que defineixin $V$ és amb el
     procediment següent: escrivim els vectors $\vec v_j$ en columna
-    obtenint una matriu $A$: $$A=\left(\begin{array}{cccc}
+    obtenint una matriu $A$: 
+$$
+A=\left(\begin{array}{cccc}
         \mid & \mid &\mid & \mid \\
         \vec v_1 & \vec v_2 &\cdots& \vec v_n \\
         \mid & \mid &\mid & \mid \\
-        \end{array}\right)$$ i escrivim ara $\overline A$: una matriu
+        \end{array}\right)
+$$
+ i escrivim ara $\overline A$: una matriu
     nova formada per la matriu $A$ amb una matriu identitat $\1_m$ a la
-    dreta: $$\overline A=
+    dreta: 
+$$
+\overline A=
         \left(\begin{array}{c|c}
         A & \1_m\\
-        \end{array}\right)$$ Esglaonem $\overline A$ per files,
+        \end{array}\right)
+$$
+ Esglaonem $\overline A$ per files,
     obtenint, a les columnes formades per les $\vec v_j$, un total de
     $k$ files no nul·les (on $k=\Rang(A)$ i per tant $k=\dim(V)$), i
     $m-k$ files amb tots els valors zero a les $n$ primeres columnes:
-    $$\overline A \sim
+$$
+\overline A \sim
         \left(
         \begin{array}{c|c}
         T & P_1 \\ \hline
         0 & P_2
         \end{array}
-        \right)$$ Amb $P_2\in M_{(m-k)\times m}(\K)$ complint que
+        \right)
+$$
+ Amb $P_2\in M_{(m-k)\times m}(\K)$ complint que
     $P_2 A=0$, pel que les columnes d'$A$ (els vectors $\vec v_j$) són
     solució del sistema d'equacions homogeni determinat per $P_2$. A
     més, $P_2$ és una submatriu d'una matriu quadrada de rang màxim, per
@@ -1028,50 +1206,86 @@ definir-lo.
 
 :::{.example}
 Suposem que el subespai $V$ està definit per les equacions següents i en
-volem calcular una base: $$\begin{aligned}
+volem calcular una base: 
+$$
+\begin{aligned}
         3 x_1 -5x_2 +x_3 + x_4  & = 0 \\
         x_1 - x_2  - x_3 + x_4 & = 0 \\
         x_1-2x_2+x_3 & =0
-\end{aligned}$$ La matriu associada al sistema és: $$\begin{pmatrix}
+\end{aligned}
+$$
+ La matriu associada al sistema és: 
+$$
+\begin{pmatrix}
     3 & -5 & 1 & 1 \\ 1 & -1 & -1 & 1 \\ 1 & -2 & 1 & 0
-    \end{pmatrix}$$ Que és equivalent a: $$\begin{pmatrix}
+    \end{pmatrix}
+$$
+ Que és equivalent a: 
+$$
+\begin{pmatrix}
     1 & 0 & -3 & 2 \\
     0 & 1 & -2 & 1 \\
     0 & 0 & 0 & 0
-    \end{pmatrix}$$ Amb solució $x_1=3x_3-2x_4$, $x_2=2x_3-x_4$ i
+    \end{pmatrix}
+$$
+ Amb solució $x_1=3x_3-2x_4$, $x_2=2x_3-x_4$ i
 paràmetres lliures $x_3$ i $x_4$. Per tant:
-$$\begin{pmatrix} x_1\\ x_2\\ x_3\\ x_4 \end{pmatrix}=
+
+$$
+\begin{pmatrix} x_1\\ x_2\\ x_3\\ x_4 \end{pmatrix}=
     \begin{pmatrix} 3x_3-2x_4\\ 2x_3-x_4\\ x_3\\ x_4 \end{pmatrix}=
     x_3 \begin{pmatrix} 3\\ 2\\ 1 \\ 0 \end{pmatrix}+
-    x_4\begin{pmatrix}  -2 \\ -1 \\ 0\\ 1 \end{pmatrix}$$ I una base de
-$V$ és: $$\left[\begin{pmatrix} 3\\ 2\\ 1 \\ 0 \end{pmatrix}, 
-    \begin{pmatrix}  -2 \\ -1 \\ 0\\ 1 \end{pmatrix}\right]$$
+    x_4\begin{pmatrix}  -2 \\ -1 \\ 0\\ 1 \end{pmatrix}
+$$
+ I una base de
+$V$ és: 
+$$
+\left[\begin{pmatrix} 3\\ 2\\ 1 \\ 0 \end{pmatrix}, 
+    \begin{pmatrix}  -2 \\ -1 \\ 0\\ 1 \end{pmatrix}\right]
+$$
+
 :::
 
 :::{.example}
-Suposem que $V$ està generat per: $$V=\left\langle
+Suposem que $V$ està generat per: 
+$$
+V=\left\langle
     \begin{pmatrix}1 \\ 1 \\ 1 \\ 1  \end{pmatrix},
     \begin{pmatrix}1 \\ 2 \\ 3 \\ 4  \end{pmatrix},
-    \begin{pmatrix}2 \\ 3 \\ 4 \\ 5  \end{pmatrix}\right\rangle,$$ i
+    \begin{pmatrix}2 \\ 3 \\ 4 \\ 5  \end{pmatrix}\right\rangle,
+$$
+ i
 volem trobar un sistema d'equacions lineals que descrigui $V$.\
-Considerem la matriu: $$\left(
+Considerem la matriu: 
+$$
+\left(
     \begin{array}{ccc|cccc}
     1 & 1 & 2 & 1 & 0 & 0 & 0\\
     1 & 2 & 3 & 0 & 1 & 0 & 0\\
     1 & 3 & 4 & 0 & 0 & 1 & 0\\
     1 & 4 & 5 & 0 & 0 & 0 & 1
     \end{array}
-    \right),$$ i l'esglaonem per files: $$\left(
+    \right),
+$$
+ i l'esglaonem per files: 
+$$
+\left(
     \begin{array}{ccc|rrcc}
     1 & 1 & 2 & 1 & 0 & 0 & 0\\
     0 & 1 & 1 & -1 & 1 & 0 & 0\\ \hline
     0 & 0 & 0 & 1 & -2 & 1 & 0\\
     0 & 0 & 0 & 2 & -3 & 0 & 1
     \end{array}
-    \right).$$ Per tant, $V$ també es pot definir com el subespai que
-correspon a les equacions: $$\begin{aligned}
+    \right).
+$$
+ Per tant, $V$ també es pot definir com el subespai que
+correspon a les equacions: 
+$$
+\begin{aligned}
     x_1-2x_2+x_3&=0\\ 2x_1-3x_2+x_4&=0.
-\end{aligned}$$
+\end{aligned}
+$$
+
 :::
 
 ## Suma i intersecció de subespais vectorials
@@ -1121,7 +1335,11 @@ Per això, definim el concepte de suma:
 :::{.definition}
 Si $U,V\subset \K^m$ són subespais vectorials, definim la suma $U+V$
 com:
-$$U+V=\{\vec u+\vec v \mid \vec u \in U \text{ i } \vec v \in V\} .$$
+
+$$
+U+V=\{\vec u+\vec v \mid \vec u \in U \text{ i } \vec v \in V\} .
+$$
+
 :::
 
 :::{.lemma}
@@ -1166,23 +1384,33 @@ següent observació:
     solucions del sistema d'equacions lineals homogeni que té per matriu
     associada $A$, i $V\subset \K^n$ el que té per matriu associada $B$,
     llavors:
-    $$U \cap V \text{ és solució del sistema que té per matriu associada } \begin{pmatrix}
+$$
+U \cap V \text{ és solució del sistema que té per matriu associada } \begin{pmatrix}
             A \\ B
-            \end{pmatrix}.$$ Dit d'altra manera, si $U = \Ker(f_A)$ i
+            \end{pmatrix}.
+$$
+ Dit d'altra manera, si $U = \Ker(f_A)$ i
     $V=\Ker(f_B)$, aleshores
     $U\cap V = \Ker(f_{\left(\substack{A\\B}\right)})$.
 
 -   Si $U=\langle \vec u_1, \dots, \vec u_k \rangle \subset \K^n$ i
     $V=\langle \vec v_1, \dots, \vec v_l \rangle \subset \K^n$, llavors:
-    $$U+V=\langle \vec u_1, \dots, \vec u_k, \vec v_1, \dots, \vec v_l \rangle .$$
+$$
+U+V=\langle \vec u_1, \dots, \vec u_k, \vec v_1, \dots, \vec v_l \rangle .
+$$
+
     Dit d'altra manera, si $U = \Ima(f_A)$ i $V=\Ima(f_B)$, aleshores
     $U+V = \Ima(f_{(A|B)})$.
 :::
 
 :::{.example}
 Suposem que se'ns donen els següents dos subespais d'$\R^4$:
-$$U = \left\langle \begin{pmatrix}1\\2\\1\\1\end{pmatrix},\begin{pmatrix}1\\2\\4\\-1\end{pmatrix}\right\rangle,\quad
-    V = \left\{\begin{pmatrix}x_1\\x_2\\x_3\\x_4\end{pmatrix}~\colon ~ x_1 + x_2 + 2x_3 + x_4=0\right\}.$$
+
+$$
+U = \left\langle \begin{pmatrix}1\\2\\1\\1\end{pmatrix},\begin{pmatrix}1\\2\\4\\-1\end{pmatrix}\right\rangle,\quad
+    V = \left\{\begin{pmatrix}x_1\\x_2\\x_3\\x_4\end{pmatrix}~\colon ~ x_1 + x_2 + 2x_3 + x_4=0\right\}.
+$$
+
 Se'ns demana que donem una base d'$U\cap V$. Per resoldre aquest
 problema, observem que per calcular la intersecció ens cal tenir
 equacions per $U$ i $V$. Per tant, ens cal realitzar els següents
@@ -1195,7 +1423,9 @@ passos:
 3.  Trobar una base d'$U\cap V$.
 
 Per trobar equacions per $U$, esglaonem la matriu ampliada amb la
-identitat: $$\left(
+identitat: 
+$$
+\left(
     \begin{array}{rr|rrrr}
 1 & 1 & 1&0&0&0\\
 2&2&0&1&0&0\\
@@ -1209,22 +1439,40 @@ identitat: $$\left(
 0&0&-2&1&0&0\\
 0&0&-5&0&2&3
     \end{array}
-    \right).$$ Així, $U$ ve definit per les equacions $$\begin{aligned}
+    \right).
+$$
+ Així, $U$ ve definit per les equacions 
+$$
+\begin{aligned}
     -2x_1+x_2 &= 0\\
     -5x_1 +2x_3+3x_4&=0.
-\end{aligned}$$ Les equacions per $U\cap V$ són, doncs:
-$$\begin{aligned}
+\end{aligned}
+$$
+ Les equacions per $U\cap V$ són, doncs:
+
+$$
+\begin{aligned}
     x_1+x_2+2x_3+x_4&=0\\
     -2x_1+x_2 &= 0\\
     -5x_1 +2x_3+3x_4&=0.
-\end{aligned}$$ Finalment, per trobar una base d'$U\cap V$ hem de
+\end{aligned}
+$$
+ Finalment, per trobar una base d'$U\cap V$ hem de
 resoldre el sistema anterior. Esglaonant la matriu corresponent, obtenim
-la matriu $$\left(\begin{array}{rrrr}
+la matriu 
+$$
+\left(\begin{array}{rrrr}
         1&0&0&\frac{-1}{4}\\
         0&1&0&\frac{-1}{3}\\
         0&0&1&\frac{7}{8}
-        \end{array}\right).$$ Així, una base d'$U\cap V$ ve donada per
-$$\left[\begin{pmatrix}2\\4\\-7\\8\end{pmatrix}\right].$$
+        \end{array}\right).
+$$
+ Així, una base d'$U\cap V$ ve donada per
+
+$$
+\left[\begin{pmatrix}2\\4\\-7\\8\end{pmatrix}\right].
+$$
+
 :::
 
 :::{.remark}
@@ -1248,25 +1496,45 @@ Veiem que:
     generen $U+V$: si $\vec w \in U+V$, existeixen $\vec u\in U$ i
     $\vec v\in V$ tals que $\vec w=\vec u +\vec v$. Com que $\calb_U$ i
     $\calb_V$ són bases d'$U$ i $V$ respectivament, llavors, podem
-    escriure: $$\begin{aligned}
+    escriure: 
+$$
+\begin{aligned}
                 \vec u &=\lambda_1 \vec w_1 + \cdots + \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots + \lambda_k \vec u_k \\
                 \vec v &=\mu_1 \vec w_1 + \cdots + \mu _j \vec w_j + \mu_{j+1} \vec v_{j+1} + \cdots + \mu_k \vec v_k
-\end{aligned}$$ i per tant:
-    $$\vec w=(\lambda_1+\mu_1) \vec w_1 + \cdots +(\lambda _j+\mu_j) \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots \lambda_k \vec u_k+\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k.$$
+\end{aligned}
+$$
+ i per tant:
+$$
+\vec w=(\lambda_1+\mu_1) \vec w_1 + \cdots +(\lambda _j+\mu_j) \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots \lambda_k \vec u_k+\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k.
+$$
+
 
 -   $\{\vec w_1, \dots , \vec w_j,\vec u_{j+1}, \dots, \vec u_k,\vec v_{j+1}, \dots, \vec v_l\}$
-    són linealment independents: si $$\begin{aligned}
+    són linealment independents: si 
+$$
+\begin{aligned}
     (\#eq:UcapV+U+V)
             \vec 0=\lambda_1 \vec w_1 + \cdots \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots + \lambda_k \vec u_k+\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k,
-\end{aligned}$$ llavors:
-    $$\vec w := \lambda_1 \vec w_1 + \cdots \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots +\lambda_k \vec u_k=-(\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k)$$
+\end{aligned}
+$$
+ llavors:
+$$
+\vec w := \lambda_1 \vec w_1 + \cdots \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots +\lambda_k \vec u_k=-(\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k)
+$$
+
     és un vector d'$U$ i $V$, per tant d'$U\cap V$. Llavors, es pot
     escriure de manera única com:
-    $$\vec w= \gamma_1 \vec w_1 + \cdots +\gamma _j \vec w_j,$$ i per
+$$
+\vec w= \gamma_1 \vec w_1 + \cdots +\gamma _j \vec w_j,
+$$
+ i per
     tant $\lambda_i=\gamma_i$ per a $i\leq j$ i
     $\lambda_{j+1}=\cdots \lambda_k=0$. Llavors, de l'Equació
      \@ref(eq:UcapV+U+V) ens queda la igualtat:
-    $$\vec 0=\lambda_1 \vec w_1 + \cdots +\lambda _j \vec w_j +\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k$$
+$$
+\vec 0=\lambda_1 \vec w_1 + \cdots +\lambda _j \vec w_j +\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k
+$$
+
     i tots els coeficients són zero ja que $\calb_V$ és una base de $V$.
 
 Per tant
@@ -1278,7 +1546,11 @@ Si ara comptem quants elements té cadascuna de les bases, tenim:
 
 :::{.theorem}
 Si $U,V \subset \K^n$ són subespais vectorials, llavors:
-$$\dim(U)+\dim(V)=\dim(U+V)+\dim(U\cap V) .$$
+
+$$
+\dim(U)+\dim(V)=\dim(U+V)+\dim(U\cap V) .
+$$
+
 :::
 
 :::{.definition}
@@ -1299,15 +1571,27 @@ $\vec w\in W$, existeixen $\vec u\in U$ i $\vec v \in V$ tals que
 $\vec w=\vec u+\vec v$. Falta veure que $\vec u$ i $\vec v$ són únics:
 suposem que també podem escriure $\vec w=\vec u'+\vec v'$, amb
 $\vec u'\in U$ i $\vec v'\in V$. Tenim:
-$$\vec 0 = \vec w - \vec w = (\vec u-\vec u')+(\vec v-\vec v')$$ i per
-tant: $$\vec u-\vec u'=-(\vec v-\vec v') \in U\cap V$$ però com que $U$
+
+$$
+\vec 0 = \vec w - \vec w = (\vec u-\vec u')+(\vec v-\vec v')
+$$
+ i per
+tant: 
+$$
+\vec u-\vec u'=-(\vec v-\vec v') \in U\cap V
+$$
+ però com que $U$
 i $V$ estan en suma directa, $U\cap V=\{\vec 0\}$, obtenint que
 $\vec u=\vec u'$ i $\vec v=\vec v'$.
 
 Suposem que tot vector $\vec w \in W$ es pot escriure de forma única com
 $\vec w=\vec u+\vec v$, amb $\vec u \in U$ i $\vec v \in V$. Com que es
 pot escriure, tenim $W=U+V$. Sigui $\vec w \in U\cap V$. Podem escriure
-$\vec w$ com: $$\vec w = \vec w + \vec 0 = \vec 0 + \vec w$$ on a cada
+$\vec w$ com: 
+$$
+\vec w = \vec w + \vec 0 = \vec 0 + \vec w
+$$
+ on a cada
 part de la igualtat el primer vector és d'$U$ i el segon de $V$. Per
 unicitat, les dues expressions han de coincidir i per tant
 $\vec w = \vec 0$.
@@ -1317,7 +1601,9 @@ $\vec w = \vec 0$.
 A $\R^3$, considerem el pla $U=\{x=0\}$ i el pla $V=\{y = 0 \}$.
 Aleshores $\R^3 = U + V$, ja que to vector
 $\begin{pmatrix}x\\y\\z\end{pmatrix}$ es pot escriure (per exemple) com
-$$\begin{pmatrix}
+
+$$
+\begin{pmatrix}
     x\\y\\z
     \end{pmatrix}=
     \begin{pmatrix}
@@ -1325,9 +1611,15 @@ $$\begin{pmatrix}
     \end{pmatrix}+
     \begin{pmatrix}
     x\\0\\0
-    \end{pmatrix},$$ on el primer sumand pertany a $U$ i el segon a $V$.
+    \end{pmatrix},
+$$
+ on el primer sumand pertany a $U$ i el segon a $V$.
 La suma, però, no és directa:
-$$U\cap V=\{x=y=0\}=\left\langle \begin{pmatrix}0\\0\\1\end{pmatrix}\right\rangle$$.
+
+$$
+U\cap V=\{x=y=0\}=\left\langle \begin{pmatrix}0\\0\\1\end{pmatrix}\right\rangle
+$$
+.
 
 En canvi, si en comptes de $V$ considerem la recta definida per
 $V'=\{y=z=0\}$, aleshores $\R^3=U\oplus V'$.
@@ -1417,7 +1709,11 @@ Suposem que $V$ és un subespai vectorial de $\K^m$ i
 $\calb =[\vec v_1, \dots, \vec v_n]$ una base de $V$. Si $\vec w \in V$,
 definim les *coordenades de $\vec w$ en la base $\calb$* com el vector
 $(\lambda_1,\dots,\lambda_n)\in\K^n$ tal que
-$$\vec w = \sum_{i=1}^n \lambda_i \vec v_i \,.$$ Si hi pot haver
+
+$$
+\vec w = \sum_{i=1}^n \lambda_i \vec v_i \,.
+$$
+ Si hi pot haver
 confusió, escriurem $[\vec w]_\calb=(\lambda_1,\dots,\lambda_n)$ per
 parlar de les coordenades d'un vector en la base $\calb$.
 :::
@@ -1463,15 +1759,28 @@ associada a $f$ en les bases $\calb$ i $\calc$* (escriurem $[f]_\calb$
 si l'espai de sortida és el mateix d'arribada i utilitzem la mateixa
 base $\calb$) i l'escrivim com $[f]_{\calb,\calc}$ com la matriu $A$ que
 té per coeficients $a_{ij}$ complint:
-$$f(\vec v_j)=\sum_{i=1}^s a_{ij} \vec w_i \,.$$ O sigui,
-$$[f]_{\calb,\calc}=\begin{pmatrix}
+
+$$
+f(\vec v_j)=\sum_{i=1}^s a_{ij} \vec w_i \,.
+$$
+ O sigui,
+
+$$
+[f]_{\calb,\calc}=\begin{pmatrix}
 	\mid & \mid &\mid & \mid\\
 	[f(\vec v_1)]_\calc & [f(\vec v_2)]_\calc &\cdots&[f(\vec v_n)]_\calc\\
 	\mid & \mid &\mid & \mid
-	\end{pmatrix}$$ Del càlcul fet a la Proposició
+	\end{pmatrix}.
+$$
+
+:::
+
+Del càlcul fet a la Proposició
  \@ref(prp:apl-lin-Kn) es dedueix que aquesta matriu compleix que
 si $[\vec v]_\calb=(\lambda_1,\dots,\lambda_n)$, llavors
-$[f(v)]_{\calc}=(\mu_1,\dots,\mu_s)$, on: $$\begin{aligned}
+$[f(v)]_{\calc}=(\mu_1,\dots,\mu_s)$, on: 
+$$
+\begin{aligned}
 (\#eq:matriu-apl-lineal)
 	\begin{pmatrix}
 	\mu_1 \\ \vdots \\ \mu_s
@@ -1479,9 +1788,10 @@ $[f(v)]_{\calc}=(\mu_1,\dots,\mu_s)$, on: $$\begin{aligned}
 	[f]_{\calb,\calc}
 	\begin{pmatrix}
 	\lambda_1 \\ \vdots \\ \lambda_n
-	\end{pmatrix} \,.
-\end{aligned}$$
-:::
+	\end{pmatrix}.
+\end{aligned}
+$$
+
 
 Vegem un cas particular d'aquest argument, quan $V=\K^n$ i $W=\K^m$. De
 la definició de matriu associada i que la composició d'aplicacions es
@@ -1508,11 +1818,15 @@ Llavors:
 
 1.  $[\Id_n]_{\calb}=\1_n$ (per a qualsevol base $\calb$ de $\K^n$),
 
-2.  $$[\Id_n]_{\calb,\cals_n}=	\begin{pmatrix}
+2.  
+$$
+[\Id_n]_{\calb,\cals_n}=	\begin{pmatrix}
             	\mid & \mid &\mid & \mid\\
             	\vec v_1 & \vec v_2 &\cdots&\vec v_n\\
             	\mid & \mid &\mid & \mid
-            	\end{pmatrix},$$ la matriu que té per columnes els vectors
+            	\end{pmatrix},
+$$
+ la matriu que té per columnes els vectors
     de $\calb$.
 
 3.  $[\Id_n]_{\cals_n,\calb}=[\Id_n]_{\calb,\cals_n}^{-1}$.
@@ -1539,11 +1853,19 @@ $[\vec v]_\calb=\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}$,
 llavors, les coordenades en la base $\calb'$ d'$f(\vec v)$
 són=$[f(\vec v)]_\calb = \begin{pmatrix}\mu_1\\\vdots\\\mu_m\end{pmatrix}$,
 on:
-$$\begin{pmatrix}\mu_1\\ \vdots \\ \mu_m \end{pmatrix}=[f]_{\calb,\calb'}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}$$
+
+$$
+\begin{pmatrix}\mu_1\\ \vdots \\ \mu_m \end{pmatrix}=[f]_{\calb,\calb'}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}
+$$
+
 I les coordenades de $g(f(v))$ en la base $\calb''$ són
 $[g(f(v))]_{\calb''}=(\gamma_1,\dots,\gamma_r)$, on:
-$$\begin{pmatrix}\gamma_1\\ \vdots \\ \gamma_r \end{pmatrix}=[g]_{\calb',\calb''}\begin{pmatrix}\mu_1 \\ \vdots \\ \mu_m \end{pmatrix}=
-    [g]_{\calb',\calb''} [f]_{\calb,\calb'}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}$$
+
+$$
+\begin{pmatrix}\gamma_1\\ \vdots \\ \gamma_r \end{pmatrix}=[g]_{\calb',\calb''}\begin{pmatrix}\mu_1 \\ \vdots \\ \mu_m \end{pmatrix}=
+    [g]_{\calb',\calb''} [f]_{\calb,\calb'}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}
+$$
+
 I per tant tenim (d): aquesta propietat caracteritza la matriu
 $[g\circ f]_{\calb,\calb''}$.
 :::
@@ -1551,16 +1873,24 @@ $[g\circ f]_{\calb,\calb''}$.
 Una manera de trobar aquestes igualtats és escriure les aplicacions en
 forma de diagrama, composant-les (posem les bases com a subíndex, amb
 $\cals$ sense especificar la dimensió, que es dedueix de l'espai):
-$$\xymatrix{
+
+$$
+\xymatrix{
 (\K^n)_\cals \ar[r]^{f_A} \ar@{<->}[d]_\Id & (\K^m)_\cals \ar@{<->}[d]^\Id \\
-(\K^n)_\calb \ar[r]^{f_A} & (\K^m)_{\calb'}}$$ Veiem que per anar de
+(\K^n)_\calb \ar[r]^{f_A} & (\K^m)_{\calb'}}
+$$
+ Veiem que per anar de
 $(\K^n)_\calb$ a $(\K^m)_{\calb'}$ podem seguir dos camins, amb el
 mateix resultat (diem que el diagrama és commutatiu). Si ara ho escrivim
 en matrius (de les fletxes verticals tant sols hem deixat la que dóna la
-matriu): $$\xymatrixcolsep{6em}
+matriu): 
+$$
+\xymatrixcolsep{6em}
 \xymatrix{
 (\K^n)_\cals \ar[r]^{A}  &  (\K^m)_\cals  \\
-(\K^n)_\calb \ar[r]^{[f_A]_{\calb,\calb'}} \ar[u]^B & (\K^m)_{\calb'} \ar[u]_{B'}}$$
+(\K^n)_\calb \ar[r]^{[f_A]_{\calb,\calb'}} \ar[u]^B & (\K^m)_{\calb'} \ar[u]_{B'}}
+$$
+
 on $B=[Id_n]_{\calb,\cals_n}$ i $B'=[\Id_m]_{\calb',\cals_m}$ (les
 matrius que tenen per columnes les bases $\calb$ i $\calb'$
 respectivament). Si ara tenim en compte que les un vector en les
@@ -1574,15 +1904,27 @@ sortida amb el d'arribada, i, si considerem $\calb$ una base de $\K^n$,
 la podem considerar com a base de l'espai de sortida i el d'arribada. De
 l'apartat (f) de la Proposició
  \@ref(prp:canvibase), obtenim la igualtat de matrius:
-$$[f]_{\calb,\calb}=[f]_\calb=[\Id_n]_{\calb,\cals_n}^{-1} [f]_{\cals_n,\cals_n} [\Id_n]_{\calb,\cals_n}$$
+
+$$
+[f]_{\calb,\calb}=[f]_\calb=[\Id_n]_{\calb,\cals_n}^{-1} [f]_{\cals_n,\cals_n} [\Id_n]_{\calb,\cals_n}
+$$
+
 Per tant si anomenem $B=[\Id_n]_{\calb,\cals_n}$,
 $A=[f]_{\cals_n,\cals_n}$ i $A'=[f]_{\calb,\calb}$ tenim que:
-$$A'=B^{-1} A B \,.$$ Això ens porta a la definició següent:
+
+$$
+A'=B^{-1} A B \,.
+$$
+ Això ens porta a la definició següent:
 
 :::{.definition}
 Diem que $A$ i $A'$, dues matrius quadrades $n\times n$, són *similars*
 si existeix una matriu invertible $B\in M_{n\times n}(\K)$ tal que
-$$A'=B^{-1}AB \,.$$ O sigui, si corresponen a una mateixa aplicació
+
+$$
+A'=B^{-1}AB \,.
+$$
+ O sigui, si corresponen a una mateixa aplicació
 lineal, però amb bases diferents.
 :::
 
@@ -1605,8 +1947,16 @@ Per demostrar la propietat simètrica, observem que si $A'=B^{-1}AB$,
 llavors $A=BA'B^{-1}$, per tant considerem $B^{-1}$ a la definició.\
 Per demostrar la propietat transitiva: l'enunciat ens diu que existeixen
 matrius invertibles $B$ i $B'$ tals que:
-$$A'=B^{-1}AB \text{ i } A''=(B')^{-1}A'B'$$ llavors tenim:
-$$A''=(B')^{-1}A'B'=(B')^{-1}(B^{-1}AB)B'=(BB')^{-1}A(BB')$$ per tant,
+
+$$
+A'=B^{-1}AB \text{ i } A''=(B')^{-1}A'B'
+$$
+ llavors tenim:
+
+$$
+A''=(B')^{-1}A'B'=(B')^{-1}(B^{-1}AB)B'=(BB')^{-1}A(BB')
+$$
+ per tant,
 $A''$ i $A'$ són similars.
 :::
 
@@ -1619,20 +1969,32 @@ similars?
 Per respondre la pregunta necessitem calcular la $B$ tal que
 $A'=B^{-1}AB$, o bé demostrar que no existeix aquesta $B$. Intentem
 calcular-la:
-$$B=\begin{pmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{pmatrix}$$ i
+
+$$
+B=\begin{pmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{pmatrix}
+$$
+ i
 ha de complir que $BA'=AB$ (així ens estalviem d'escriure la inversa),
-obtenint que: $$\begin{pmatrix}
+obtenint que: 
+$$
+\begin{pmatrix}
     -b_{11} & 2b_{12} \\ -b_{21} & 2b_{22}
     \end{pmatrix}
     =
     \begin{pmatrix}
     -16b_{11}-45b_{21} & -16b_{12}-45b_{22}\\ 6b_{11}+17b_{21} & 6b_{12}+17b_{22}
-    \end{pmatrix}$$ Igualant coeficient a coeficient arribem a un
+    \end{pmatrix}
+$$
+ Igualant coeficient a coeficient arribem a un
 sistema d'equacions lineal amb 4 incògnites i 4 equacions, que si el
 resolem té 2 paràmetres lliures i una possible solució particular és
-$$B=\begin{pmatrix}
+
+$$
+B=\begin{pmatrix}
     3 & -5 \\  -1 & 2 
-    \end{pmatrix}$$ i per tant $A$ i $A'$ són similars.
+    \end{pmatrix}
+$$
+ i per tant $A$ i $A'$ són similars.
 :::
 
 :::{.example}
@@ -1642,19 +2004,31 @@ i $A'=\big(\begin{smallmatrix} 1 & 0 \\ 0 & 2  \end{smallmatrix}\big)$
 similars? (així aprofitem els càlculs d'abans).
 
 Intentem calcular $B$ definida com:
-$$B=\begin{pmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{pmatrix}$$ i
+
+$$
+B=\begin{pmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{pmatrix}
+$$
+ i
 ha de complir que és invertible i $BA'=AB$, obtenint que:
-$$\begin{pmatrix}
+
+$$
+\begin{pmatrix}
     b_{11} & 2b_{12} \\ b_{21} & 2b_{22}
     \end{pmatrix}
     =
     \begin{pmatrix}
     -16b_{11}-45b_{21} & -16b_{12}-45b_{22}\\ 6b_{11}+17b_{21} & 6b_{12}+17b_{22}
-    \end{pmatrix}$$ Igualant coeficient a coeficient arribem a un
+    \end{pmatrix}
+$$
+ Igualant coeficient a coeficient arribem a un
 sistema d'equacions lineal amb 4 incògnites i 4 equacions, que si el
-resolem té 1 paràmetre lliure i les solucions són $$B=\begin{pmatrix}
+resolem té 1 paràmetre lliure i les solucions són 
+$$
+B=\begin{pmatrix}
     0 & -5\lambda \\  0 & 2\lambda 
-    \end{pmatrix}$$ Observem que aquesta matriu mai pot ser invertible
+    \end{pmatrix}
+$$
+ Observem que aquesta matriu mai pot ser invertible
 (té una columna tot zeros) i per tant $A$ i $A'$ no són similars.
 :::
 
@@ -1664,13 +2038,17 @@ similars amb menys càlculs.
 
 :::{.exercise}
 Determineu per a quins valors de $\lambda_1, \lambda_2, \mu_1$ i $\mu_2$
-les matrius $$A=\begin{pmatrix}
+les matrius 
+$$
+A=\begin{pmatrix}
     \lambda_1 & 0 \\ 0 & \lambda_2
     \end{pmatrix}
     \text{ i }
     A'=\begin{pmatrix}
     \mu_1 & 0 \\ 0 & \mu_2
-    \end{pmatrix}$$ són similars.
+    \end{pmatrix}
+$$
+ són similars.
 :::
 
 ## Espais vectorials
@@ -1701,10 +2079,14 @@ aquest conjunt. Observem que a $\K[x]_{\leq2}$ tenim:
 
 Aquestes propietats impliquen que podem fer tot el que fèiem a $\K^n$,
 canviant les coordenades pels coeficients a cada grau. Més concretament,
-si considerem l'aplicació: $$\begin{array}{rcl}
+si considerem l'aplicació: 
+$$
+\begin{array}{rcl}
  f\colon \K[x]_{\leq2} & \longrightarrow & \K^3 \\
      a_0+a_1x+a_2x^2 & \mapsto & (a_0,a_1,a_2)
-    \end{array}$$ compleix que:
+    \end{array}
+$$
+ compleix que:
 
 -   És lineal: $f(p(x)+q(x))=f(p(x))+f(q(x))$ i
     $f(\lambda p(x))=\lambda f(p(x))$ per a tots
@@ -1719,7 +2101,9 @@ es podrà fer a $\K[x]_{\leq2}$.
 
 :::{.definition}
 Un *$\K$-espai vectorial $E$* és un conjunt $E$ amb dues operacions,
-suma i producte per escalar: $$\begin{array}{rrcl}
+suma i producte per escalar: 
+$$
+\begin{array}{rrcl}
     +\colon & E\times E & \longrightarrow & E \\
     & (u,v) & \mapsto & u+v 
     \end{array}
@@ -1727,7 +2111,9 @@ suma i producte per escalar: $$\begin{array}{rrcl}
     \begin{array}{rrcl}
     \cdot\colon & \K\times E & \longrightarrow & E \\
     & (\lambda,v) & \mapsto & \lambda \cdot v 
-    \end{array}$$ tals que:
+    \end{array}
+$$
+ tals que:
 
 1.  La suma és commutativa: $u+v=v+u$ per a tots $u,v\in E$,
 
@@ -1780,7 +2166,10 @@ suma i producte per escalar: $$\begin{array}{rrcl}
     una funció contínua és una funció contínua).
 
 -   L'espai d'equacions lineals amb $n$ incògnites:
-    $$\{a_1x_1+a_2x_2+\cdots+a_nx_n=b ~\colon~ a_i, b \in\K\},$$ amb la
+$$
+\{a_1x_1+a_2x_2+\cdots+a_nx_n=b ~\colon~ a_i, b \in\K\},
+$$
+ amb la
     suma d'equacions variable a variable (i terme independent més terme
     independent), i producte per escalar que multiplica tota l'equació.
     El vector zero seria l'equació $0=0$.
@@ -1829,7 +2218,11 @@ Considerem un subconjunt $F$ d'un $\K$-espai vectorial $V$.
 :::{.remark}
 Hi ha espais vectorials que tenen bases amb infinits elements. Per
 exemple, l'espai vectorial $\K[x]$ format pels polinomis amb coeficients
-a $\K$ té base $$[1,x,x^2,x^3,x^4,\ldots].$$
+a $\K$ té base 
+$$
+[1,x,x^2,x^3,x^4,\ldots].
+$$
+
 :::
 
 :::{.definition}
@@ -1847,7 +2240,11 @@ qualsevol.
 ::: {.example #sincos}
  Considerem l'espai vectorial
 $\calc^\infty(\R)$ format per les funcions diferenciables. Considerem el
-subconjunt: $$V=\{ f \in \calc^\infty(\R) \mid f''+f=0\}.$$ Demostrem
+subconjunt: 
+$$
+V=\{ f \in \calc^\infty(\R) \mid f''+f=0\}.
+$$
+ Demostrem
 primer que $V\subset\calc^\infty(\R)$ és un subespai vectorial:
 
 -   La funció $f=0$ compleix l'equació, ja que $f=f'=f''=0$ i per tant
@@ -1855,12 +2252,18 @@ primer que $V\subset\calc^\infty(\R)$ és un subespai vectorial:
 
 -   Si $f\in V$ i $g\in V$, tenim $f''+f=0$ i $g''+g=0$. Tenim que
     $(f+g)''=f''+g''$, i per tant:
-    $$(f+g)''+(f+g)=f''+g''+f+g=f''+f+g+g''=0+0=0\,,$$ per tant
+$$
+(f+g)''+(f+g)=f''+g''+f+g=f''+f+g+g''=0+0=0\,,
+$$
+ per tant
     $f+g\in V$.
 
 -   Si $f\in V$ i $\lambda\in\R$, tenim $(\lambda f)''=\lambda f''$, per
     tant:
-    $$(\lambda f)''+\lambda f=\lambda f''+\lambda f=\lambda(f''+f)=\lambda 0=0 \, ,$$
+$$
+(\lambda f)''+\lambda f=\lambda f''+\lambda f=\lambda(f''+f)=\lambda 0=0 \, ,
+$$
+
     i per tant $\lambda f \in V$.
 
 Intentem calcular la dimensió de $V$: del curs de càlcul sabem que les
@@ -1868,10 +2271,16 @@ funcions $\sin$ i $\cos$ compleixen aquesta equació, i com que no són
 múltiple una de l'altra, $\dim(V)\geq 2$.
 
 Suposem que tenim tres funcions $f,g,h\in V$ i considerem la matriu (on
-els coeficients són funcions!): $$\begin{pmatrix}
+els coeficients són funcions!): 
+$$
+\begin{pmatrix}
 f & g & h\\ f' & g' & h' \\ f'' & g'' & h''
-\end{pmatrix}$$ I, si apliquem la condició $f''=-f$, $g''=-g$, $h''=-h$
-i en calculem el rang tenim: $$\Rang\begin{pmatrix}
+\end{pmatrix}
+$$
+ I, si apliquem la condició $f''=-f$, $g''=-g$, $h''=-h$
+i en calculem el rang tenim: 
+$$
+\Rang\begin{pmatrix}
 f & g & h\\ f' & g' & h' \\ f'' & g'' & h''
 \end{pmatrix} =
 \Rang\begin{pmatrix}
@@ -1879,7 +2288,9 @@ f & g & h\\ f' & g' & h' \\ -f & -g & -h
 \end{pmatrix}=
 \Rang\begin{pmatrix}
 f & g & h\\ f' & g' & h' \\ 0 & 0 & 0
-\end{pmatrix}\leq 2,$$ on a la segona igualtat hem sumat la primera fila
+\end{pmatrix}\leq 2,
+$$
+ on a la segona igualtat hem sumat la primera fila
 a la tercera.
 
 Per tant hi ha una combinació lineal entre els vectors
@@ -1894,12 +2305,24 @@ $[\sin,\cos]$.
 
 Una demostració més explícita del fet que $\sin$ i $\cos$ generen $V$ és
 la següent: demostrem primer que, si $g\in V$, aleshores
-$$C_g = g^2 + (g')^2$$ és una funció constant. Això es veu calculant la
+
+$$
+C_g = g^2 + (g')^2
+$$
+ és una funció constant. Això es veu calculant la
 derivada, i veient que és zero:
-$$\frac{d}{dx} (g^2+(g')^2) = 2gg' + 2g'g'' = 2gg'-2g'g = 0.$$ Per tant,
+
+$$
+\frac{d}{dx} (g^2+(g')^2) = 2gg' + 2g'g'' = 2gg'-2g'g = 0.
+$$
+ Per tant,
 $C_g = g(0)^2 + g'(0)^2$, per exemple. Donada $f\in V$, apliquem aquest
 resultat a la funció
-$$x\mapsto g(x) = f(x)-f(0)\cos(x) - f'(0)\sin(x),$$ que és de $V$ si
+
+$$
+x\mapsto g(x) = f(x)-f(0)\cos(x) - f'(0)\sin(x),
+$$
+ que és de $V$ si
 assumim que $f$ ho és. Aleshores $C_g = g(0)^2 + g'(0)^2 = 0 + 0 = 0$, i
 per tant $(g(x))^2+(g'(x))^2=0$ per tot $x$, i com que és la suma de dos
 quadrats a $\R$, obtenim que tant $g(x)=0$ com $g'(x)=0$ per tot
@@ -1910,9 +2333,17 @@ $x\in\R$. D'aquí es dedueix que $f(x) = f(0)\cos(x) + f'(0)\sin(x)$.
 Sigui $V$ un $\K$-espai vectorial de dimensió finita $n$, i sigui
 $\calb = [v_1,\ldots ,v_n]$ una base ordenada. Aleshores tot element
 $v\in V$ es pot escriure de manera única com
-$$v= \lambda_1v_1+\cdots +\lambda_n v_n.$$ Definim les *coordenades de
+
+$$
+v= \lambda_1v_1+\cdots +\lambda_n v_n.
+$$
+ Definim les *coordenades de
 $v$ en la base $\calb$* com
-$$[v]_{\calb} = \begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}.$$
+
+$$
+[v]_{\calb} = \begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}.
+$$
+
 :::
 
 A continuació introduirem el concepte d'aplicació lineal entre espais
@@ -1939,8 +2370,16 @@ lineal.
 :::{.definition}
 Si $f\colon V\to W$ és una aplicació lineal entre $\K$-espais vectorials
 $V$ i $W$, definim el *nucli* i la *imatge* com els subespais
-$$\ker(f) = \{v\in V~\colon~ f(v)=\vec 0\}\subset V,$$
-$$\Ima(f) = \{f(v)~\colon~ v\in V\}\subset W.$$
+
+$$
+\ker(f) = \{v\in V~\colon~ f(v)=\vec 0\}\subset V,
+$$
+
+
+$$
+\Ima(f) = \{f(v)~\colon~ v\in V\}\subset W.
+$$
+
 :::
 
 ::: {.example #derivada}
@@ -1948,7 +2387,11 @@ $$\Ima(f) = \{f(v)~\colon~ v\in V\}\subset W.$$
 vectorial $\calc^\infty(\R)$ format per les funcions diferenciables.
 L'aplicació $D\colon \calc^\infty(\R)\to \calc^\infty(\R)$, definida com
 $D(f) = f'$ (la derivada) és una aplicació lineal. El nucli de $D$ és
-$$\ker(D)=\{f~\colon~ f'=0\} = \{\text{funcions constants}\},$$ que és
+
+$$
+\ker(D)=\{f~\colon~ f'=0\} = \{\text{funcions constants}\},
+$$
+ que és
 un subespai de dimensió $1$. Donada una funció $g\in\calc^\infty(\R)$,
 el teorema fonamental del càlcul ens diu que podem trobar una funció $G$
 (una primitiva de $g$) tal que $G'=g$. Per tant
@@ -1993,24 +2436,32 @@ espais vectorials. Sigui $f\colon V\to W$ una aplicació lineal entre els
 $\K$-espais vectorials $V$ i $W$, que suposem de dimensió finita, posem
 $\dim(V)=m$ i $\dim(W)=n$. Escollim bases $\calb=[v_1,\ldots v_m]$ de
 $V$ i $\calc=[w_1,\ldots,w_n]$ de $W$. Aleshores tenim el diagrama
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 (\#eq:diagrama-matriu-bases)
 \xymatrix{
 V\ar[r]^f\ar[d]^{\cong}_{[\cdot]_{\calb}} & W\ar[d]_{\cong}^{[\cdot]_{\calc}}\\
 \K^m\ar@{-->}[r]&\K^n.
 }
-\end{aligned}$$ Fixem-nos que l'aplicació resultant de resseguir el
+\end{aligned}
+$$
+ Fixem-nos que l'aplicació resultant de resseguir el
 diagrama d'esquerra a dreta és una aplicació lineal de $\K^m$ a $\K^n$
 i, per tant, té una matriu associada. La columna $i$-èssima d'aquesta
 matriu és $[f(v_i)]_\calc$.
 
 :::{.definition}
 La *matriu de l'aplicació lineal $f$ en les bases $\calb$ i $\calc$* és
-la matriu $$[f]_{\calb,\calc}=\begin{pmatrix}
+la matriu 
+$$
+[f]_{\calb,\calc}=\begin{pmatrix}
 \mid&\cdots&\mid\\
 [f(v_1)]_\calc&\cdots&[f(v_m)]_\calc\\
 \mid & \cdots &\mid
-\end{pmatrix}$$ Si l'espai de sortida és el mateix que el d'arribada, i
+\end{pmatrix}
+$$
+ Si l'espai de sortida és el mateix que el d'arribada, i
 escrivim la mateixa base tant per la sortida com l'arribada, escrivim
 $[f]_\calb$ enlloc de $[f]_{\calb,\calb}$.
 :::
@@ -2021,61 +2472,109 @@ identitat:
 :::{.definition}
 Siguin $\calb$ i $\calc$ dues bases d'un $\K$-espai vectorial $V$.
 Aleshores la *matriu de canvi de base* de $\calb$ a $\calc$ és la matriu
-$$S_{\calb,\calc} = [\Id]_{\calb,\calc}.$$
+
+$$
+S_{\calb,\calc} = [\Id]_{\calb,\calc}.
+$$
+
 :::
 
 El cas més general que podem considerar és el següent. Siguin $V$ i $W$
 com fins ara, i prenem bases $\calb$ i $\calb'$ de $V$, i bases $\calc$
 i $\calc'$ de $W$. Aleshores enganxant quatre còpies del
 Diagrama \@ref(eq:diagrama-matriu-bases) obtenim el diagrama següent:
-$$\xymatrix@C50pt@R50pt{
+
+$$
+\xymatrix@C50pt@R50pt{
 \K^m\ar[rrr]^{[f]_{\calb,\calc}}\ar[dd]_{S_{\calb,\calb'}}&&& \K^n\ar[dd]^{S_{\calc,\calc'}}\\
 &V\ar[r]^f\ar[ul]_{[\cdot]_\calb}\ar[dl]^{[\cdot]_{\calb'}}&W\ar[ur]^{[\cdot]_{\calc}}\ar[dr]_{[\cdot]_{\calc'}}\\
 \K^m\ar[rrr]^{[f]_{\calb',\calc'}}&&&\K^n.
-}$$ Observem que les quatre fletxes exteriors tenen matrius associades,
+}
+$$
+ Observem que les quatre fletxes exteriors tenen matrius associades,
 però que les cinc fletxes interiors no en tenen pas. En tot cas, les
 fletxes exteriors ens donen la següent fórmula, que ens relaciona la
 matriu de $f$ en les bases $\calb,\calc$ i la matriu de $f$ en les bases
 $\calb',\calc'$.
-$$[f]_{\calb',\calc'} S_{\calb,\calb'} = S_{\calc,\calc'} [f]_{\calb,\calc}.$$
+
+$$
+[f]_{\calb',\calc'} S_{\calb,\calb'} = S_{\calc,\calc'} [f]_{\calb,\calc}.
+$$
+
 
 :::{.example}
 Considerem $\R[x]_{\leq2}$, els polinomis de grau més petit o igual que
 $2$ com a $\R$-espai vectorial amb la base $\calb=[1,x,x^2]$.
 
-Per $a\in \R$, considerem l'aplicació lineal: $$\begin{array}{cccc}
+Per $a\in \R$, considerem l'aplicació lineal: 
+$$
+\begin{array}{cccc}
 f_a\colon & \R[x]_{\leq2} & \longrightarrow & \R^3 \\
  & p(x) & \mapsto & \begin{pmatrix} p(a) \\ p'(a) \\ p''(a) \end{pmatrix}
-\end{array}$$ Considerem les imatges dels elements de $\calb$:
-$$f_a(1)=\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
+\end{array}
+$$
+ Considerem les imatges dels elements de $\calb$:
+
+$$
+f_a(1)=\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
 \text{, }
 f_a(x)=\begin{pmatrix} a \\ 1 \\ 0 \end{pmatrix}
 \text{ i }
-f_a(x^2)=\begin{pmatrix} a^2 \\ 2a \\ 2 \end{pmatrix}.$$ Per tant, si
+f_a(x^2)=\begin{pmatrix} a^2 \\ 2a \\ 2 \end{pmatrix}.
+$$
+ Per tant, si
 $\calc=[\vec e_1, \vec e_2, \vec e_3]$ és la base d'$\R^3$ formada pels
 vectors estàndard, tenim:
-$$[f_a]_{\calb,\calc}=\begin{pmatrix} 1 & a & a^2 \\ 0 & 1 & 2a \\ 0 & 0 & 2\end{pmatrix}.$$
+
+$$
+[f_a]_{\calb,\calc}=\begin{pmatrix} 1 & a & a^2 \\ 0 & 1 & 2a \\ 0 & 0 & 2\end{pmatrix}.
+$$
+
 En particular, deduïm que $f_a$ és un isomorfisme (la matriu
 $[f_a]_{\calb,\calc}$ és invertible).
 
 Considerem ara la base de $\R[x]_{\leq2}$ formada pels vectors
 $\calb'=[1,(x-a),(x-a)^2]$. En aquest cas:
-$$f_a(1)=\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
+
+$$
+f_a(1)=\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
 \text{, }
 f_a(x-a)=\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
 \text{ i }
-f_a((x-a)^2)=\begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}.$$ I per tant:
-$$[f_a]_{\calb',\calc}=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2\end{pmatrix}.$$
-Llavors, el diagrama que tenim és: $$\xymatrix@C50pt@R50pt{
+f_a((x-a)^2)=\begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}.
+$$
+ I per tant:
+
+$$
+[f_a]_{\calb',\calc}=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2\end{pmatrix}.
+$$
+
+Llavors, el diagrama que tenim és: 
+$$
+\xymatrix@C50pt@R50pt{
 \R^3 \ar[rrd]^{[f_a]_{\calb,\calc}} &  & \\
  & \R[x]_{\leq2} \ar[ul]^{[\cdot]_\calb} \ar[r]^{f_a} \ar[dl]_{[\cdot]_{\calb'}} & \R^3 \\
 \R^3 \ar[rru]_{[f_a]_{\calb',\calc}} \ar[uu]^{S_{\calb',\calb}} & &
-}$$ On
-$$S_{\calb',\calb}=\begin{pmatrix} 1 & -a & a^2 \\ 0 & 1 & -2a \\ 0 & 0 & 1\end{pmatrix}.$$
+}
+$$
+ On
+
+$$
+S_{\calb',\calb}=\begin{pmatrix} 1 & -a & a^2 \\ 0 & 1 & -2a \\ 0 & 0 & 1\end{pmatrix}.
+$$
+
 Podem comprovar que es compleix:
-$$[f_a]_{\calb',\calc}=[f_a]_{\calb,\calc} S_{\calb',\calb} \,,$$ és a
+
+$$
+[f_a]_{\calb',\calc}=[f_a]_{\calb,\calc} S_{\calb',\calb} \,,
+$$
+ és a
 dir,
-$$\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2\end{pmatrix} = \begin{pmatrix} 1 & a & a^2 \\ 0 & 1 & 2a \\ 0 & 0 & 2\end{pmatrix} \begin{pmatrix} 1 & -a & a^2 \\ 0 & 1 & -2a \\ 0 & 0 & 1\end{pmatrix}.$$
+
+$$
+\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2\end{pmatrix} = \begin{pmatrix} 1 & a & a^2 \\ 0 & 1 & 2a \\ 0 & 0 & 2\end{pmatrix} \begin{pmatrix} 1 & -a & a^2 \\ 0 & 1 & -2a \\ 0 & 0 & 1\end{pmatrix}.
+$$
+
 :::
 
 ### Exercicis recomanats 

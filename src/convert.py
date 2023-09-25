@@ -20,7 +20,7 @@ substitutions = [\
 
                  (r'\\end{pmatrix\*}', r'\\end{pmatrix}'),
                  (r'\n\s+\\end\{aligned\}', r'\n\\end{aligned}'),\
-                 # (r'\$\$', r'\n$$\n'),\
+                 (r'\$\$', r'\n$$\n'),\
                  (r'(\n[#]* [^\n]*)\n\n\[\][^"]*"([^"]*)"}',r'\1 {#\2}\n'),\
                  (r'(?:^|\\G)\\t',''),\
                  (r'\n[ \t]+\n',r'\n'),\
