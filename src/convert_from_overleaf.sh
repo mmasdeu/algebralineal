@@ -11,10 +11,9 @@ for file in *_*.tex; do
     fname=`basename ${file} .tex`;
 
     # Convert llista-exercicis
-    sed -i 's/\\begin{llista-exercicis}/\\subsection*{Exercicis recomanats}\nEls exercicis que segueixen són útils per practicar el material presentat. La numeració és la de \\cite{Bret}.\n\\begin{description}/g;s/\\end{llista-exercicis}/\\end{description}/g' ${fname}.tex
+    sed -i 's/\\begin{llista-exercicis}/\\section*{Exercicis recomanats}\nEls exercicis que segueixen són útils per practicar el material presentat. La numeració és la de \\cite{Bret}.\n\\begin{description}/g;s/\\end{llista-exercicis}/\\end{description}/g' ${fname}.tex
     # Convert using Pandoc
     pandoc --shift-heading-level-by=1 -p -f latex -t markdown+autolink_bare_uris+tex_math_single_backslash ${fname}.tex -o ${fname}.Rmd ;
-    #  --shift-heading-level-by=1
     # Do extra substitutions
     ./convert.py ${fname}.Rmd | sponge ${fname}.Rmd;
 done;

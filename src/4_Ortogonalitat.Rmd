@@ -34,14 +34,11 @@ sense massa risc de confusió.
 
 -   Diem que els vectors $\vec u_1, \dots, \vec u_k$ de $\R^n$ *són
     ortonormals* si són unitaris i ortogonals dos a dos, o sigui, si
-$$
-\vec u_i\cdot\vec u_j=
+    $$\vec u_i\cdot\vec u_j=
         \begin{cases}
          1 & \text{si $i=j$} \\
          0 & \text{si $i\neq j.$}
-        \end{cases}
-$$
-
+        \end{cases}$$
 :::
 
 :::{.remark}
@@ -68,21 +65,13 @@ $\R^n$ ortonormals, formen una base.
 ::: {.proof}
 Suposem que tenim una combinació lineal dels vectors
 $\vec u_1, \dots, \vec u_k$ que dóna zero:
-
-$$
-0 = \lambda_1 \vec u_1 + \cdots + \lambda_n\vec u_n \,.
-$$
- Si veiem que
+$$0 = \lambda_1 \vec u_1 + \cdots + \lambda_n\vec u_n \,.$$ Si veiem que
 tots els $\lambda_i$ són zero ja estarem. Triem una $i$ i fent el
-producte escalar per $\vec u_i$ tenim: 
-$$
-\begin{aligned}
+producte escalar per $\vec u_i$ tenim: \begin{align}
     0 &  = (\lambda_1 \vec u_1 + \cdots + \lambda_n\vec u_n)\cdot \vec u_i= \\
      & = \lambda_1 (\vec u_1 \cdot \vec u_i) + \cdots + \lambda_n(\vec u_n\cdot \vec u_i)=\\
      & = \lambda_i \|\vec u_i\|^2\quad \text{(tots els altres productes escalars són zero)}
-\end{aligned}
-$$
- Per tant, com que $\vec u_i\neq\vec 0$, $\lambda_i=0$.
+\end{align} Per tant, com que $\vec u_i\neq\vec 0$, $\lambda_i=0$.
 Com que això és cert per cada $i=1,\ldots,n$, els vectors són linealment
 independents.
 
@@ -97,32 +86,20 @@ $\R^n$. Suposem però que tenim $[\vec u_1,\ldots,\vec u_k]$ una base
 ortonormal de $V$, i considerem la *projecció ortogonal*
 $\proj_V\colon \R^n\rightarrow \R^n$, que envia un vector
 $\vec v\in \R^n$ al vector $\proj_V(\vec v) = \vec v^\parallel$, on
-
-$$
-\vec v^\parallel = (\vec v\cdot \vec u_1)\vec u_1 + \cdots + (\vec v\cdot \vec u_k)\vec u_k \in V.
-$$
-
+$$\vec v^\parallel = (\vec v\cdot \vec u_1)\vec u_1 + \cdots + (\vec v\cdot \vec u_k)\vec u_k \in V.$$
 Observem que $\proj_V\colon \R^n\rightarrow \R^n$ és una aplicació
 lineal (per les propietats de linealitat del producte escalar). Com que
 la seva imatge està continguda a $V$ i $\proj_V(\vec u_i) = \vec u_i$,
-en deduïm que $\Ima(\proj_V)=V$. A més, 
-$$
-\begin{aligned}
+en deduïm que $\Ima(\proj_V)=V$. A més, \begin{align}
 \Ker(\proj_V) &= \{\vec w\in\R^n ~|~ \vec w^\parallel = 0\}\\
               &= \{\vec w\in\R^n ~|~ \vec w\cdot \vec u_i = 0, \quad i=1,\ldots k\}\\
               &= \{\vec w\in\R^n ~|~ \vec w\cdot \vec v = 0\quad\text{ per a tot }\vec w \in V\}.
-\end{aligned}
-$$
- La següent definició dona nom al nucli de $\proj_V$.
+\end{align} La següent definició dona nom al nucli de $\proj_V$.
 
 :::{.definition}
 Donat un subespai $V\subseteq \R^n$, el *complement ortogonal* de $V$,
 que escriurem $V^\perp$, és el conjunt
-
-$$
-V^\perp = \{\vec w\in \R^n ~|~ \vec w\cdot \vec v = 0\text{ per a tot } \vec v\in V\}.
-$$
-
+$$V^\perp = \{\vec w\in \R^n ~|~ \vec w\cdot \vec v = 0\text{ per a tot } \vec v\in V\}.$$
 :::
 
 El complement ortogonal satisfà les següents propietats bàsiques.
@@ -150,11 +127,7 @@ $\vec w\cdot\vec w =\| \vec w\|= 0$. Però l'únic vector de longitud $0$
 Seguidament, observem que $V=\Ima(\proj_V)$ i que
 $V^\perp = \Ker(\proj_V)$. Per tant, per la fórmula del nucli--imatge
 (Teorema \@ref(thm:ker-ima)) tenim
-
-$$
-\dim(\Ker\proj_V) + \dim(\Ima\proj_V) = \dim(\R^n)=n,
-$$
- com volíem
+$$\dim(\Ker\proj_V) + \dim(\Ima\proj_V) = \dim(\R^n)=n,$$ com volíem
 veure.
 
 Finalment, per veure que $(V^\perp)^\perp = V$, denotem $W=V^\perp$.
@@ -181,11 +154,7 @@ elements. Per tant, serà base de $\R^n$, que és el que volíem veure.
 
 D'aquest corol·lari es dedueix que, donat $V$ un subespai d'$\R^n$, tot
 vector $\vec w\in\R^n$ es pot escriure de forma única com:
-
-$$
-\vec w = \vec w^\parallel + \vec w^\perp
-$$
- amb
+$$\vec w = \vec w^\parallel + \vec w^\perp$$ amb
 $\vec w^\parallel \in V$ i $\vec w^\perp \in V^\perp$. A més, tenim que
 $\vec w^\perp=\proj_{V^\perp}(\vec w)$.
 
@@ -196,47 +165,27 @@ el teorema té dues implicacions.
 
 :::{.theorem}
 Si $\vec v$ i $\vec w$ són dos vectors d'$\R^n$, aleshores:
-
-$$
-\| \vec v + \vec w \|^2 = \|\vec v\|^2 + \|\vec  w\|^2 \iff \vec v \perp \vec w.
-$$
-
+$$\| \vec v + \vec w \|^2 = \|\vec v\|^2 + \|\vec  w\|^2 \iff \vec v \perp \vec w.$$
 :::
 
 ::: {.proof}
 Calculem:
-
-$$
-\| \vec v + \vec w\|^2 = (\vec v+\vec w)\cdot (\vec v+\vec w) = \vec v\cdot \vec v + \vec v\cdot \vec w + \vec w\cdot \vec v + \vec w\cdot \vec w=\|\vec v\|^2 + \|\vec w\|^2 +2(\vec v\cdot \vec w).
-$$
-
+$$\| \vec v + \vec w\|^2 = (\vec v+\vec w)\cdot (\vec v+\vec w) = \vec v\cdot \vec v + \vec v\cdot \vec w + \vec w\cdot \vec v + \vec w\cdot \vec w=\|\vec v\|^2 + \|\vec w\|^2 +2(\vec v\cdot \vec w).$$
 Per tant, la igualtat es compleix si i només si
 $\vec v\cdot \vec w = 0$.
 :::
 
 :::{.corollary}
 Sigui $V\subseteq \R^n$ un subespai. Aleshores
-
-$$
-\|\proj_V(\vec w)\| \leq \| \vec w\| \text{ per a tot $\vec w\in\R^n$,}
-$$
-
+$$\|\proj_V(\vec w)\| \leq \| \vec w\| \text{ per a tot $\vec w\in\R^n$,}$$
 i la desigualtat és una igualtat si i només si $\vec w\in V$.
 :::
 
 ::: {.proof}
 Apliquem el teorema anterior a $\vec w^\parallel$ i
 $\vec w^\perp$ (notem $\vec w = \vec w^\parallel + \vec w^\perp$).
-
-$$
-\|\vec w\|^2 = \|\vec w^\parallel\|^2 + \|\vec w^\perp\|^2,
-$$
- i per
-tant 
-$$
-\|\proj_V(\vec w)\|^2 \leq \|\vec w\|^2,
-$$
- amb igualtat si i
+$$\|\vec w\|^2 = \|\vec w^\parallel\|^2 + \|\vec w^\perp\|^2,$$ i per
+tant $$\|\proj_V(\vec w)\|^2 \leq \|\vec w\|^2,$$ amb igualtat si i
 només si $\|\vec w^\perp\|^2 = 0$, és a dir si i només si
 $\vec w^\perp = 0$, que és equivalent a $\vec w\in V$.
 :::
@@ -246,11 +195,7 @@ coneguda com la *desigualtat de Cauchy--Schwarz*:
 
 :::{.theorem}
 Si $\vec v$ i $\vec w$ són vectors de $\R^n$, aleshores
-
-$$
-|\vec v\cdot \vec w|\leq \|\vec v\|\|\vec w\|,
-$$
- amb igualtat si i
+$$|\vec v\cdot \vec w|\leq \|\vec v\|\|\vec w\|,$$ amb igualtat si i
 només si $\vec v$ i $\vec w$ són paral·lels.
 :::
 
@@ -259,22 +204,10 @@ Si $\vec v=\vec 0$, aleshores la desigualtat es compleix
 trivialment. En cas contrari, considerem el subespai
 $V=\langle \vec v\rangle$, i apliquem el resultat anterior. Ja havíem
 vist la fórmula
-
-$$
-\proj_V(\vec w) = \frac{\vec w\cdot \vec v}{\|\vec v\|^2} \vec v,
-$$
- i
+$$\proj_V(\vec w) = \frac{\vec w\cdot \vec v}{\|\vec v\|^2} \vec v,$$ i
 per tant
-
-$$
-\|\proj_V(\vec w)\| = \frac{|\vec w\cdot \vec v|}{\|\vec v\|^2} \|\vec v\|,
-$$
-
-i obtenim 
-$$
-\frac{|\vec w\cdot \vec v|}{\|\vec v\|} \leq \|\vec w\|,
-$$
-
+$$\|\proj_V(\vec w)\| = \frac{|\vec w\cdot \vec v|}{\|\vec v\|^2} \|\vec v\|,$$
+i obtenim $$\frac{|\vec w\cdot \vec v|}{\|\vec v\|} \leq \|\vec w\|,$$
 que és la desigualtat que busquem un cop passem $\|\vec v\|$ a l'altra
 banda (i utilitzem que $\vec w\cdot \vec v=\vec v\cdot \vec w$). La
 igualtat es dóna si i només si $\vec w\in V$, que és equivalent a
@@ -283,20 +216,12 @@ $\vec v$ essent paral·lel a $\vec w$.
 
 Observem que si $\vec v$ i $\vec w$ no són zero, aleshores tenim les
 desigualtats
-
-$$
--1 \leq \frac{\vec v\cdot \vec w}{\|\vec v\|\|\vec w\|}\leq 1.
-$$
-
+$$-1 \leq \frac{\vec v\cdot \vec w}{\|\vec v\|\|\vec w\|}\leq 1.$$
 
 :::{.definition}
 Donats dos vectors no-nuls $\vec v$ i $\vec w$ d'$\R^n$, *l'angle entre
 $\vec v$ i $\vec w$* és
-
-$$
-\theta = \arccos\left(\frac{\vec v\cdot \vec w}{\|\vec v\|\|\vec w\|}\right).
-$$
-
+$$\theta = \arccos\left(\frac{\vec v\cdot \vec w}{\|\vec v\|\|\vec w\|}\right).$$
 :::
 
 ## Mètode de Gram-Schmidt
@@ -322,31 +247,18 @@ ortonormal a cada $V_i$:
 
 -   Considerem primer $V_1=\langle \vec v_1 \rangle$, i una base és
     $\calb_1=[\vec v_1]$. En aquest cas, definim
-$$
-\vec u_1=\frac{1}{\|\vec v_1\|} \vec v_1
-$$
- i tenim que
+    $$\vec u_1=\frac{1}{\|\vec v_1\|} \vec v_1$$ i tenim que
     $\calc_1=[\vec u_1]$ és una base ortonormal de $V_1$.
 
 -   Considerem ara
     $V_2=\langle \vec v_1, \vec v_2 \rangle=\langle \vec u_1, \vec v_2 \rangle$.
     Pel Corol·lari  \@ref(cor:V-Vper), $\vec v_2$ es pot escriure de forma única
-    com: 
-$$
-\vec v_2 = \vec v_2^\parallel + \vec v_2^\perp
-$$
- amb
+    com: $$\vec v_2 = \vec v_2^\parallel + \vec v_2^\perp$$ amb
     $\vec v_2^\parallel\in V_1$ i $\vec v_2\perp \in V_1^\perp$. A més,
     sabem com calcular-los:
-$$
-\vec v_2^\parallel = \proj_{V_1}(\vec v_2)=(\vec v_2 \cdot \vec u_1)\vec u_1
-$$
-
+    $$\vec v_2^\parallel = \proj_{V_1}(\vec v_2)=(\vec v_2 \cdot \vec u_1)\vec u_1$$
     i per tant
-$$
-\vec v_2^\perp = \vec v_2 - \vec v_2^\parallel = \vec v_2 - (\vec v_2 \cdot \vec u_1)\vec u_1.
-$$
-
+    $$\vec v_2^\perp = \vec v_2 - \vec v_2^\parallel = \vec v_2 - (\vec v_2 \cdot \vec u_1)\vec u_1.$$
     Definim $\vec u_2=\frac{1}{\|\vec v_2^\perp\|}\vec v_2^\perp$, i
     tenim que $V_2=\langle \vec u_1, \vec u_2\rangle$, amb
     $\calc_2=[\vec u_1,\vec u_2]$ una base ortonormal.
@@ -355,23 +267,13 @@ $$
     $\calc_{i-1}=[\vec u_1, \dots, \vec u_{i-1}]$ una base ortonormal de
     $V_{i-1}$. Considerem
     $V_i=\langle\vec v_1, \dots, \vec v_{i-1},\vec v_i\rangle=\langle\vec u_1, \dots, \vec u_{i-1},\vec v_i\rangle$,
-    i escrivim: 
-$$
-\vec v_i = \vec v_i^\parallel + \vec v_i^\perp
-$$
- amb
+    i escrivim: $$\vec v_i = \vec v_i^\parallel + \vec v_i^\perp$$ amb
     $\vec v_i^\parallel\in V_{i-1}$ i
     $\vec v_i^\perp \in V_{i-1}^\perp$. Com que els vectors $\vec u_i$
     són ortonormals, el càlcul és:
-$$
-\vec v_i^\parallel = \proj_{V_{i-1}}(\vec v_i)=(\vec v_i \cdot \vec u_1)\vec u_1+ \cdots + (\vec v_i \cdot \vec u_{i-1})\vec u_{i-1}
-$$
-
+    $$\vec v_i^\parallel = \proj_{V_{i-1}}(\vec v_i)=(\vec v_i \cdot \vec u_1)\vec u_1+ \cdots + (\vec v_i \cdot \vec u_{i-1})\vec u_{i-1}$$
     i per tant
-$$
-\vec v_i^\perp = \vec v_i - \vec v_i^\parallel = \vec v_i - (\vec v_i \cdot \vec u_1)\vec u_1- \cdots -(\vec v_i \cdot \vec u_{i-1})\vec u_{i-1}.
-$$
-
+    $$\vec v_i^\perp = \vec v_i - \vec v_i^\parallel = \vec v_i - (\vec v_i \cdot \vec u_1)\vec u_1- \cdots -(\vec v_i \cdot \vec u_{i-1})\vec u_{i-1}.$$
     Definim $\vec u_i=\frac{1}{\|\vec v_i^\perp\|}\vec v_i^\perp$, i
     tenim que $V_i=\langle \vec u_1, \dots ,\vec u_i\rangle$, amb
     $\calc_i=[\vec u_1,\dots,\vec u_i]$ una base ortonormal.
@@ -387,11 +289,7 @@ sols hem de fer-lo unitari:$\|\smat{1\\-1\\-1\\1}\|=2$ i per tant
 $V_1=\langle \smat{1\\-1\\-1\\1}\rangle=\langle \smat{1/2\\-1/2\\-1/2\\1/2}\rangle$.
 
 Calculem ara el segon vector:
-
-$$
-\vec v_2^\perp = \smat{0\\1\\1\\0} - (\smat{0\\1\\1\\0}\cdot\smat{1/2\\-1/2\\-1/2\\1/2})\smat{1/2\\-1/2\\-1/2\\1/2}= \smat{0\\1\\1\\0}+\smat{1/2\\-1/2\\-1/2\\1/2}=\smat{1/2\\1/2\\1/2\\1/2}.
-$$
-
+$$\vec v_2^\perp = \smat{0\\1\\1\\0} - (\smat{0\\1\\1\\0}\cdot\smat{1/2\\-1/2\\-1/2\\1/2})\smat{1/2\\-1/2\\-1/2\\1/2}= \smat{0\\1\\1\\0}+\smat{1/2\\-1/2\\-1/2\\1/2}=\smat{1/2\\1/2\\1/2\\1/2}.$$
 Llavors
 $\vec u_2=\frac{1}{\|\vec v_2^\perp\|} \vec v_2^\perp=\smat{1/2\\1/2\\1/2\\1/2}$.
 
@@ -400,11 +298,7 @@ $\calc=[\smat{1/2\\-1/2\\-1/2\\1/2},\smat{1/2\\1/2\\1/2\\1/2}]$ és una
 base ortonormal de $V$.
 
 A més, la matriu del canvi de base és:
-
-$$
-S_{\calb,\calc}=\begin{pmatrix} 2 & -1 \\ 0 & 1\end{pmatrix}
-$$
-
+$$S_{\calb,\calc}=\begin{pmatrix} 2 & -1 \\ 0 & 1\end{pmatrix}$$
 :::
 
 L'algorisme de Gram-Schmidt ens porta a la factorització $QR$ d'una
@@ -430,24 +324,16 @@ La demostració és constructiva: anirem calculant els
 coeficients de les columnes $Q$ i $R$ aplicant el mètode de
 Gram-Schmidt. Fixem abans les notacions següents per a les columnes
 d'$A$, de $Q$ i els coeficients de $R$:
-
-$$
-A=\begin{pmatrix} | & | & & | \\ \vec v_1 & \vec v_2 & \cdots & \vec v_n \\ | & | & & | \end{pmatrix} ,
+$$A=\begin{pmatrix} | & | & & | \\ \vec v_1 & \vec v_2 & \cdots & \vec v_n \\ | & | & & | \end{pmatrix} ,
 Q=\begin{pmatrix} | & | & & | \\ \vec u_1 & \vec u_2 & \cdots & \vec u_n \\ | & | & & | \end{pmatrix} 
 \text{ i }
-R=\begin{pmatrix} r_{11} & r_{12} & \cdots & r_{1n} \\ 0 & r_{22} & \cdots & r_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & r_{nn}\end{pmatrix}.
-$$
-
+R=\begin{pmatrix} r_{11} & r_{12} & \cdots & r_{1n} \\ 0 & r_{22} & \cdots & r_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & r_{nn}\end{pmatrix}.$$
 I les matrius formades per les primeres $j$ columnes d'$A$, $Q$ i la
 submatriu quadrada $j\times j$ d'$R$:
-
-$$
-A_j=\begin{pmatrix} | & | & & | \\ \vec v_1 & \vec v_2 & \cdots & \vec v_j\\ | & | & & | \end{pmatrix} ,
+$$A_j=\begin{pmatrix} | & | & & | \\ \vec v_1 & \vec v_2 & \cdots & \vec v_j\\ | & | & & | \end{pmatrix} ,
 Q_j=\begin{pmatrix} | & | & & | \\ \vec u_1 & \vec u_2 & \cdots & \vec u_j \\ | & | & & | \end{pmatrix} 
 \text{ i }
-R_j=\begin{pmatrix} r_{11} & r_{12} & \cdots & r_{1j} \\ 0 & r_{22} & \cdots & r_{2j} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & r_{jj}\end{pmatrix}.
-$$
-
+R_j=\begin{pmatrix} r_{11} & r_{12} & \cdots & r_{1j} \\ 0 & r_{22} & \cdots & r_{2j} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & r_{jj}\end{pmatrix}.$$
 La construcció comença amb $j=1$, $j=2$ i veurem com es fa el cas $j$ a
 partir del $j-1$:
 
@@ -461,10 +347,7 @@ partir del $j-1$:
     $\vec v_2^\perp=\vec v_2-r_{12}u_1$, $r_{22}=\|\vec v_2^\perp\|$ i
     $\vec u_2=\frac{1}{r_{22}} v_2^\perp$. La primera columna de
     $Q_2R_2$ és la mateixa que la de $Q_1R_1=A_1$. La segona és
-$$
-r_{12}u_1+r_{22}\vec u_2=(u_1\cdot v_2)\vec u_1+\|v_2-(\vec u_1\cdot \vec v_2)\vec u_1\|\frac{1}{\|\vec v_2-(\vec u_1\cdot \vec v_2)\vec u_1\|}(\vec v_2-(\vec u_1\cdot \vec v_2)\vec u_1)=\vec v_2
-$$
-
+    $$r_{12}u_1+r_{22}\vec u_2=(u_1\cdot v_2)\vec u_1+\|v_2-(\vec u_1\cdot \vec v_2)\vec u_1\|\frac{1}{\|\vec v_2-(\vec u_1\cdot \vec v_2)\vec u_1\|}(\vec v_2-(\vec u_1\cdot \vec v_2)\vec u_1)=\vec v_2$$
     i per tant tenim la segona columna de $A$, llavors $A_2=Q_2R_2$.
     També veiem que $Q_2^TQ_2=\1_2$ ($\vec u_2$ és perpendicular a
     $\vec u_1$ i tots dos són unitaris) i $R_2$ és triangular superior i
@@ -479,13 +362,10 @@ $$
     $\vec u_j=\frac{1}{r_{jj}} \vec v_j^\perp$. Si fem $Q_jR_j$, les
     primeres $j-1$ columnes són les de $Q_{j-1}R_{j-1}$, per tant són
     $A_{j-1}$. Si calculem la columna $j$-èssima de $Q_jR_j$:
-$$
-\begin{aligned}
+    \begin{align}
          r_{1j}\vec u_1+\cdots+r_{jj}\vec u_j & =(\vec u_1\cdot \vec v_j)\vec u_1+\cdots+(\vec u_{j-1}\cdot \vec v_j)\vec u_{j-1}+\|\vec v_j^\perp\|\frac{1}{\|\vec v_j^\perp\|} \vec v_j^\perp = \\
          & =(\vec u_1\cdot \vec v_j)\vec u_1+\cdots+(\vec u_{j-1}\cdot \vec v_j)\vec u_{j-1}+ \vec v_j^\perp=\vec v_j .
-\end{aligned}
-$$
- I per tant $A_j=Q_jR_j$. A més, la primera caixa
+\end{align} I per tant $A_j=Q_jR_j$. A més, la primera caixa
     $(j-1)\times(j-1)$ superior esquerra de $Q_j^TQ_j$ és una
     $\1_{j-1}$. L'última columna i fila són és $\vec u_i\cdot \vec u_j$,
     i per tant, com que $\vec u_j$ és perpendicular als altres
@@ -530,9 +410,7 @@ Falta veure la unicitat, també per inducció sobre $j$:
 :::{.example}
 Podem aprofitar els càlculs fets a l'Exemple
  \@ref(exm:GramSchmidt) per trobar la factorització $QR$
-següent: 
-$$
-\begin{pmatrix}
+següent: $$\begin{pmatrix}
 1 & 0 \\ -1 & 1 \\ -1 & 1 \\ 1 & 0
 \end{pmatrix}=
 \begin{pmatrix}
@@ -540,9 +418,7 @@ $$
 \end{pmatrix}
 \begin{pmatrix}
 2 & -1 \\ 0 & 1
-\end{pmatrix}.
-$$
-
+\end{pmatrix}.$$
 :::
 
 ## Aplicacions i matrius ortogonals
@@ -550,11 +426,7 @@ $$
 :::{.definition}
 Diem que una aplicació lineal $f \colon \R^n\to \R^m$ és *ortogonal* si
 conserva la longitud dels vectors, o sigui, si
-
-$$
-\|f(\vec v)\|=\|\vec v\| \text{ per a tot $\vec v\in\R^n$.}
-$$
- Si
+$$\|f(\vec v)\|=\|\vec v\| \text{ per a tot $\vec v\in\R^n$.}$$ Si
 $f=f_A$ amb $A\in M_{m\times n}(\R)$, direm que $A$ és una *matriu
 ortogonal*.
 :::
@@ -563,22 +435,12 @@ ortogonal*.
 Les rotacions definides a la Secció
  \@ref(subsubsec:rotacio) són ortogonals: es pot interpretar
 geomètricament o bé fent els càlculs: un vector $\smat{x\\y}$ té norma
-
-$$
-\|\begin{pmatrix}x \\ y \end{pmatrix}\|=\left(\begin{pmatrix} x & y \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix}\right)^{1/2} = \sqrt{x^2+y^2},
-$$
-
-i va a parar a: 
-$$
-\begin{pmatrix}
+$$\|\begin{pmatrix}x \\ y \end{pmatrix}\|=\left(\begin{pmatrix} x & y \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix}\right)^{1/2} = \sqrt{x^2+y^2},$$
+i va a parar a: $$\begin{pmatrix}
 \cos\theta&-\sin\theta\\
 \sin\theta&\cos\theta
 \end{pmatrix}
-\begin{pmatrix}x \\ y \end{pmatrix} ,
-$$
- que té norma 
-$$
-\begin{aligned}
+\begin{pmatrix}x \\ y \end{pmatrix} ,$$ que té norma \begin{align}
 \|f(\smat{x\\y})\|^2 & =\left( \begin{pmatrix}
 \cos\theta&-\sin\theta\\
 \sin\theta&\cos\theta
@@ -605,9 +467,7 @@ $$
 0&1
 \end{pmatrix}
 \begin{pmatrix}x \\ y \end{pmatrix} = x^2+y^2\\
-\end{aligned}
-$$
- i per tant la rotació és ortogonal.
+\end{align} i per tant la rotació és ortogonal.
 :::
 
 :::{.exercise}
@@ -628,28 +488,16 @@ mòduls:
 ::: {.lemma #prod-esc-modul}
  Si $\vec u, \vec v$
 són vectors d'$\R^n$, llavors:
-
-$$
-\vec u \cdot \vec v = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - \|\vec v\|^2\right).
-$$
-
+$$\vec u \cdot \vec v = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - \|\vec v\|^2\right).$$
 :::
 
 ::: {.proof}
 Considerem $\vec u, \vec v \in \R^n$. Tenim que:
-
-$$
-\begin{aligned}
+\begin{align}
 \|\vec u + \vec v\|^2 & =(\vec u+\vec v)\cdot(\vec u+\vec v) = \vec u \cdot (\vec u+ \vec v) + \vec v \cdot (\vec u+ \vec v) = \\
  & = \vec u \cdot \vec u  + \vec u \cdot \vec v + \vec v \cdot \vec u+\vec v \cdot \vec v = \|\vec u\|^2+2 (\vec u \cdot \vec v) + \|\vec v\|^2
-\end{aligned}
-$$
- I per tant:
-
-$$
-\vec u \cdot \vec v = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - \|\vec v\|^2\right).
-$$
-
+\end{align} I per tant:
+$$\vec u \cdot \vec v = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - \|\vec v\|^2\right).$$
 :::
 
 I d'aquí deduïm:
@@ -663,15 +511,11 @@ $\vec v$ de $\R^n$.
 ::: {.proof}
 Si l'aplicació és ortogonal, es compleix que, per a tot
 $\vec u,\vec v \in \R^n$, $\|f(\vec u)\|=\|\vec u\|$ i
-$\|f(\vec v)\|=\|\vec v\|$. Llavors: 
-$$
-\begin{aligned}
+$\|f(\vec v)\|=\|\vec v\|$. Llavors: \begin{align}
     f(\vec u)\cdot f\vec v) & = \frac{1}{2}\left(\|f(\vec u) +f(\vec v)\|^2 - \|f(\vec u)\|^2 - \|f(\vec v)\|^2\right) \\
     & = \frac{1}{2}\left(\|f(\vec u+\vec v)\|^2 - \|f(\vec u)\|^2 - \|f(\vec v)\|^2\right) \\
      & = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - \|\vec v\|^2\right) = \vec u \cdot \vec v  ,
-\end{aligned}
-$$
- on hem utilitzat el Lema
+\end{align} on hem utilitzat el Lema
  \@ref(lem:prod-esc-modul) dues vegades i que $f$ és lineal.
 
 Si $f(\vec u)\cdot f(\vec v)=\vec u \cdot \vec v$ per a tot $\vec u$ i
@@ -711,11 +555,7 @@ Vegem ara que els $f(\vec e_1)$ són linealment independents: més en
 general, tenim que si $\vec u_1, \dots, \vec u_k$ són vectors
 ortonormals, llavors són linealment independents: del teorema de
 Pitàgores es dedueix que:
-
-$$
-\|\lambda_1\vec u_1 + \cdots + \lambda_k \vec u_k\|^2=\lambda_1^2 + \cdots + \lambda_k^2
-$$
-
+$$\|\lambda_1\vec u_1 + \cdots + \lambda_k \vec u_k\|^2=\lambda_1^2 + \cdots + \lambda_k^2$$
 I per tant si tenim una combinació
 $\vec 0 = \lambda_1\vec u_1 + \cdots + \lambda_k \vec u_k$, tots els
 $\lambda$ han de ser zero. Llavors tenim que, en el nostre cas,
@@ -758,19 +598,13 @@ ortogonal.
 Si $V\subset \R^n$ un subespai vectorial, $[\vec v_1, \dots, \vec v_k]$
 és una base ortonormal de $V$ i $Q$ és la matriu que té per columnes els
 vectors $\vec v_j$, llavors, la matriu de la projecció ortogonal a $V$
-és: 
-$$
-[\proj_V]=Q Q^T.
-$$
-
+és: $$[\proj_V]=Q Q^T.$$
 :::
 
 ::: {.proof}
 Com que $[\vec v_1, \dots, \vec v_k]$ és una base ortonormal de
 $V$, la projecció ortogonal a $V$ del vector $\vec u$ és:
-
-$$
-\proj_V(\vec u)=(\vec u\cdot \vec v_1)\vec v_1 + \cdots + (\vec u\cdot \vec v_k)\vec v_k = Q \begin{pmatrix}
+$$\proj_V(\vec u)=(\vec u\cdot \vec v_1)\vec v_1 + \cdots + (\vec u\cdot \vec v_k)\vec v_k = Q \begin{pmatrix}
  \vec u\cdot \vec v_1 \\ \vdots \\ \vec u\cdot \vec v_k \end{pmatrix}= Q \begin{pmatrix}
  \vec v_1^T \vec u \\ \vdots \\ \vec v_k^T \vec u
  \end{pmatrix} = Q
@@ -779,9 +613,7 @@ $$
  \vdots \\
  \vec v_k^T
  \end{pmatrix} \vec u
- =(QQ^T)\vec u
-$$
- I per tant la matriu associada a la projecció és
+ =(QQ^T)\vec u$$ I per tant la matriu associada a la projecció és
 $QQ^T$.
 :::
 
@@ -791,11 +623,7 @@ la matriu de la projecció a $V=\langle \smat{x\\y}\rangle$. Una base
 ortonormal és $\vec v_1=\frac{1}{\sqrt{x^2+y^2}}\smat{x\\y}$ i per tant
 la matriu és (compareu-ho amb la Proposició
  \@ref(prp:projR2)):
-
-$$
-[\proj_V]=\frac{1}{\sqrt{x^2+y^2}} \begin{pmatrix} x \\ y \end{pmatrix} \frac{1}{\sqrt{x^2+y^2}} \begin{pmatrix} x & y \end{pmatrix} = \frac{1}{x^2+y^2} \begin{pmatrix} x^2 & xy \\ xy & y^2 \end{pmatrix} .
-$$
-
+$$[\proj_V]=\frac{1}{\sqrt{x^2+y^2}} \begin{pmatrix} x \\ y \end{pmatrix} \frac{1}{\sqrt{x^2+y^2}} \begin{pmatrix} x & y \end{pmatrix} = \frac{1}{x^2+y^2} \begin{pmatrix} x^2 & xy \\ xy & y^2 \end{pmatrix} .$$
 :::
 
 :::{.example}
@@ -805,9 +633,7 @@ A l'Exemple
  \@ref(exm:GramSchmidt) ja hem calcular una base ortonormal, i
 era $\calc=[\smat{1/2\\-1/2\\-1/2\\1/2},\smat{1/2\\1/2\\1/2\\1/2}]$, per
 tant la matriu corresponent a la projecció ortogonal és:
-
-$$
-\begin{pmatrix}
+$$\begin{pmatrix}
 1/2 & 1/2 \\ -1/2 & 1/2 \\ -1/2 & 1/2 \\ 1/2 & 1/2
 \end{pmatrix}
 \begin{pmatrix}
@@ -818,9 +644,7 @@ $$
 0 & 1/2 & 1/2 & 0 \\
 0 & 1/2 & 1/2 & 0 \\
 1/2 & 0 & 0 & 1/2
-\end{pmatrix}.
-$$
-
+\end{pmatrix}.$$
 :::
 
 ## Mínims quadrats
@@ -832,11 +656,7 @@ l'aproxima", en el sentit que la norma de l'error que produïm és mínima.
 ::: {.proposition #proj-com-aprox}
  Si $V \subset \R^n$
 és un subespai, llavors, per a tot $\vec w \in \R^n$ i $\vec v\in V$ es
-compleix: 
-$$
-\|\vec w - \vec v\| \geq \|\vec w - \proj_V(\vec w)\|.
-$$
-
+compleix: $$\|\vec w - \vec v\| \geq \|\vec w - \proj_V(\vec w)\|.$$
 :::
 
 ::: {.proof}
@@ -844,11 +664,7 @@ Tenim que
 $\vec w - \vec v = (\vec w - \proj_V(w)) + (\proj_V(w) - \vec v)$ amb el
 primer vector de $\vec V^\perp$ i el segon de $V$. Aplicant el Teorema
 de Pitàgores tenim:
-
-$$
-\|\vec w - \vec v\|^2= \|\vec w - \proj_V(\vec w)\|^2 + \|\proj_V(\vec w) - \vec v\|^2 \geq \|\vec w - \proj_V(\vec w)\|^2 ,
-$$
-
+$$\|\vec w - \vec v\|^2= \|\vec w - \proj_V(\vec w)\|^2 + \|\proj_V(\vec w) - \vec v\|^2 \geq \|\vec w - \proj_V(\vec w)\|^2 ,$$
 i tenim la desigualtat que volem.
 :::
 
@@ -866,20 +682,12 @@ Suposem que els punts estan *aproximadament* alineats i que el que volem
 trobar és la recta $y=a_0+a_1x$ que aproxima millor aquests punts.
 
 Una altra manera de pensar-ho és que volem resoldre el sistema
-d'equacions amb incògnites $a_0$ i $a_1$: 
-$$
-\begin{aligned}
+d'equacions amb incògnites $a_0$ i $a_1$: \begin{align}
 a_ 0 + x_1 a_1 & = y_1 \\ & \vdots  \\ a_0 + x_k a_1 & = y_k 
-\end{aligned}
-$$
- O, en forma matricial:
-
-$$
-\begin{pmatrix} 1 & x_1 \\ \vdots & \vdots \\ 1 & x_k \end{pmatrix}
+\end{align} O, en forma matricial:
+$$\begin{pmatrix} 1 & x_1 \\ \vdots & \vdots \\ 1 & x_k \end{pmatrix}
 \begin{pmatrix} a_0 \\ a_1 \end{pmatrix} =
-\begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix}
-$$
- Com que molt
+\begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix}$$ Com que molt
 probablement els punts no estan alineats, com a sistema d'equacions, és
 un sistema incompatible. Dit d'una altra manera, el vector
 $\vec y=\smat{y_1 \\ \vdots \\ y_k}$ no pertany al subespai
@@ -887,36 +695,22 @@ $V=\langle \smat{1 \\ \vdots \\ 1} , \smat{x_1 \\ \vdots \\ x_k} \rangle$.
 Si apliquem la Proposició
  \@ref(prp:proj-com-aprox), el vector de $V$ que serà més proper a
 $\vec y$ serà $\proj_V(\vec y)$:
-
-$$
-\proj_V(\begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix})= a_0 \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix} + a_1 \begin{pmatrix} x_1 \\ \vdots \\ x_k \end{pmatrix}= \begin{pmatrix} 1 & x_1 \\ \vdots & \vdots \\ 1 & x_k \end{pmatrix}
-\begin{pmatrix} a_0 \\ a_1 \end{pmatrix} .
-$$
- Podríem calcular $a_0$ i
+$$\proj_V(\begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix})= a_0 \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix} + a_1 \begin{pmatrix} x_1 \\ \vdots \\ x_k \end{pmatrix}= \begin{pmatrix} 1 & x_1 \\ \vdots & \vdots \\ 1 & x_k \end{pmatrix}
+\begin{pmatrix} a_0 \\ a_1 \end{pmatrix} .$$ Podríem calcular $a_0$ i
 $a_1$ fent primer Gram-Schmidt per a trobar una base ortonormal de $V$ i
 fent els productes escalars corresponents, o bé fent les consideracions
 següents: el vector
-
-$$
-\begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix} -
+$$\begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix} -
 \begin{pmatrix} 1 & x_1 \\ \vdots & \vdots \\ 1 & x_k \end{pmatrix}
-\begin{pmatrix} a_0 \\ a_1 \end{pmatrix}
-$$
- és perpendicular a $V$, per
-tant ha de complir que: 
-$$
-\begin{pmatrix}
+\begin{pmatrix} a_0 \\ a_1 \end{pmatrix}$$ és perpendicular a $V$, per
+tant ha de complir que: $$\begin{pmatrix}
 1 & \cdots & 1 & \\ x_1 & \cdots & x_k
 \end{pmatrix}
 \left(
 \begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix} -
 \begin{pmatrix} 1 & x_1 \\ \vdots & \vdots \\ 1 & x_k \end{pmatrix}
-\begin{pmatrix} a_0 \\ a_1 \end{pmatrix}\right) = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
-$$
-
-I per tant: 
-$$
-\begin{pmatrix}
+\begin{pmatrix} a_0 \\ a_1 \end{pmatrix}\right) = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$$
+I per tant: $$\begin{pmatrix}
 1 & \cdots & 1 & \\ x_1 & \cdots & x_k
 \end{pmatrix}
 \begin{pmatrix} 1 & x_1 \\ \vdots & \vdots \\ 1 & x_k \end{pmatrix}
@@ -924,47 +718,31 @@ $$
 \begin{pmatrix}
 1 & \dots & 1 & \\ x_1 & \dots & x_k
 \end{pmatrix}
-\begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix}
-$$
- I queda el sistema
-compatible determinat: 
-$$
-\begin{pmatrix}
+\begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix}$$ I queda el sistema
+compatible determinat: $$\begin{pmatrix}
 k & \sum x_i \\ \sum x_i & \sum x_i^2 
 \end{pmatrix}
 \begin{pmatrix} a_0 \\ a_1 \end{pmatrix} = 
-\begin{pmatrix} \sum y_i \\ \sum x_iy_i \end{pmatrix}
-$$
- Que es pot
+\begin{pmatrix} \sum y_i \\ \sum x_iy_i \end{pmatrix}$$ Que es pot
 escriure: si $\overline x = \frac{1}{k} \sum x_i$,
 $\overline y=\frac{1}{k} \sum y_i$,
 $\overline {x^2}= \frac{1}{k} \sum x_i^2$ i
-$\overline {xy}=  \frac{1}{k} \sum x_iy_i$: 
-$$
-\begin{pmatrix}
+$\overline {xy}=  \frac{1}{k} \sum x_iy_i$: $$\begin{pmatrix}
 1 & \overline x \\ \overline x & \overline{x^2} 
 \end{pmatrix}
 \begin{pmatrix} a_0 \\ a_1 \end{pmatrix} = 
-\begin{pmatrix}  \overline y \\ \overline{xy} \end{pmatrix}
-$$
- I la
-solució es pot escriure com: 
-$$
-\begin{aligned}
+\begin{pmatrix}  \overline y \\ \overline{xy} \end{pmatrix}$$ I la
+solució es pot escriure com: \begin{align}
 (\#eq:recta-reg)
 a_1=\frac{\overline{xy} - \overline x \, \overline y}{\overline{x^2} - (\overline x)^2}
 \text{ i } 
 a_0= \overline y - a_1 \overline x .
-\end{aligned}
-$$
-
+\end{align}
 
 :::{.example}
 Considerem les notes següents d'un grup de $21$ alumnes corresponent a
 una avaluació parcial i la nota final que van treure:
-
-$$
-\begin{array}{|c|c||c|c||c|c|}
+$$\begin{array}{|c|c||c|c||c|c|}
 \hline\text{Parcial} & \text{Final} & \text{Parcial} & \text{Final} & \text{Parcial} & \text{Final}  \\ \hline
 8.15 & 8.995 & 6.25 & 7.845 & 2.2 & 4.58 \\
 0.3 & 1.98 & 5.85 & 7.075 & 4.6 &4.95 \\
@@ -973,29 +751,15 @@ $$
 5.4&5.08 & 4.6 & 7.13 & 2.7 &5.33 \\
 0.2 &2.78 & 7.7 & 8.8 & 7.95 &8.595\\
 5.4 & 7.77 & 3.15 &1.245 & 3 &4.95\\ \hline
-\end{array}
-$$
- I volem aproximar la nota final a partir de la del parcial
-amb una recta: 
-$$
-\text{final}= a_0 + a_1 \text{parcial}
-$$
- Per tant,
+\end{array}$$ I volem aproximar la nota final a partir de la del parcial
+amb una recta: $$\text{final}= a_0 + a_1 \text{parcial}$$ Per tant,
 podem aplicar la Fórmula
  \@ref(eq:recta-reg) als valors (aproximem a 3 decimals):
-
-$$
-\overline{x}=\overline{\text{parcial}}= 4.085, \quad
+$$\overline{x}=\overline{\text{parcial}}= 4.085, \quad
 \overline{y}=\overline{\text{final}}= 5.451, \quad
 \overline{x^2}=21,839 \text{ i }
-\overline{xy}= 26,816.
-$$
- I queda (amb 3 decimals):
-
-$$
-\text{final}= 1.843 + 0.883 \text{parcial}.
-$$
- La Figura
+\overline{xy}= 26,816.$$ I queda (amb 3 decimals):
+$$\text{final}= 1.843 + 0.883 \text{parcial}.$$ La Figura
 [1](#fig:recta-reg){reference-type="ref" reference="fig:recta-reg"} té
 una representació gràfica d'aquestes dades i de la recta de regressió. A
 més, l'equació de la recta es pot utilitzar per aproximar una nota final
@@ -1012,21 +776,13 @@ label="fig:recta-reg"></span></figcaption>
 ### Cas general 
 
 En el cas general, suposem que tenim un sistema d'equacions lineals:
-
-$$
-A x = b
-$$
- amb $A\in M_{m\times n}(\R)$ amb $m\geq n$ (més equacions
+$$A x = b$$ amb $A\in M_{m\times n}(\R)$ amb $m\geq n$ (més equacions
 que incògnites) i tal que $\Rang(A)=n$. És molt probable que aquest
 sistema no tingui solució, i per aquests casos ens interessa tenir la
 millor aproximació:
 
 :::{.lemma}
-Amb les hipòtesis anteriors, el sistema 
-$$
-A^T A x = A^T b
-$$
- té solució
+Amb les hipòtesis anteriors, el sistema $$A^T A x = A^T b$$ té solució
 única. Aquesta solució s'anomena *solució per mínim quadrats del sistema
 $Ax=b$*.
 :::
@@ -1050,45 +806,25 @@ Continuem amb les hipòtesis anteriors. De tots els vectors
 $\vec v \in \R^n$, la solució per mínims quadrats del sistema $Ax=b$ és
 la que és més propera a $b$ en el sentit següent: si $x^*$ és la solució
 del sistema $A^TAx^*=A^Tb$ i $\vec v\in \R^n$, llavors
-
-$$
-\|Ax^* - b\|^2 \leq \|A\vec v- b\|^2.
-$$
-
+$$\|Ax^* - b\|^2 \leq \|A\vec v- b\|^2.$$
 :::
 
 ::: {.proof}
 Es dedueix del fet que la solució per mínims quadrats sigui la
 projecció ortogonal de $b$ a l'espai generat per les columnes d'$A$,
 que, com que el rang d'$A$ és $n$, queda caracteritzada per complir:
-
-$$
-A^T(Ax-b)=\vec 0 .
-$$
-
+$$A^T(Ax-b)=\vec 0 .$$
 :::
 
 D'aquí també es dedueix que la projecció del vector $b$ a $V$, el
 subespai generat per les columnes d'$A$ és, en la base de $V$ formada
-per les columnes d'$A$ és: 
-$$
-x=(A^TA)^{-1}A^Tb
-$$
- Per tant, el vector
-d'$\R^n$ és: 
-$$
-Ax=A(A^TA)^{-1}A^Tb
-$$
- I per tant:
+per les columnes d'$A$ és: $$x=(A^TA)^{-1}A^Tb$$ Per tant, el vector
+d'$\R^n$ és: $$Ax=A(A^TA)^{-1}A^Tb$$ I per tant:
 
 :::{.proposition}
 Si $V\subset \R^n$ és un subespai vectorial i
 $[\vec v_1, \dots , \vec v_k]$ és una base de $V$, la projecció de
-$\R^n$ a $V$ ve donada per la matriu: 
-$$
-[\proj_V]=A(A^TA)^{-1}A^T
-$$
- on
+$\R^n$ a $V$ ve donada per la matriu: $$[\proj_V]=A(A^TA)^{-1}A^T$$ on
 $A$ és la matriu que té per columnes els vectors $\vec v_j$.
 :::
 
@@ -1096,9 +832,7 @@ $A$ és la matriu que té per columnes els vectors $\vec v_j$.
 Suposem que tenim un grup de 24 estudiants als que s'ha fet una
 avaluació parcial i un lliurament a mig semestre amb les notes següents.
 La tercera columna diu quina ha sigut la nota final de l'assignatura
-(amb més avaluacions entremig): 
-$$
-\begin{array}{|c|c|c||c|c|c|}
+(amb més avaluacions entremig): $$\begin{array}{|c|c|c||c|c|c|}
 \hline \text{Lliurament} & \text{Parcial} & \text{Final} & 
 \text{Lliurament} & \text{Parcial} & \text{Final}\\ \hline
 9.25 & 9.75 & 8.25 & 
@@ -1125,20 +859,12 @@ $$
 9.75 & 10 & 8.71 \\
 8.5 & 4 & 6.39 &
 9.5 & 7.4 & 8.57 \\ \hline
-\end{array}
-$$
- Volem aproximar la nota final a partir de les dues que se
+\end{array}$$ Volem aproximar la nota final a partir de les dues que se
 saben a mig semestre mitjançant una formula:
-
-$$
-\text{final} = a \times \text{Lliurament} + b \times \text{Parcial} + c
-$$
-
+$$\text{final} = a \times \text{Lliurament} + b \times \text{Parcial} + c$$
 I per tant, fem mínim quadrats per trobar $a,b$ i $c$. En aquest cas, el
 sistema que té moltes més equacions que incògnites seria:
-
-$$
-\begin{pmatrix}
+$$\begin{pmatrix}
 9.25 & 9.75 & 1 \\
 9.5 & 2.4 & 1 \\
 8 & 1.6 & 1 \\
@@ -1146,13 +872,9 @@ $$
 9.5 & 7.4 & 1
 \end{pmatrix}
 \begin{pmatrix} a \\ b \\ c \end{pmatrix}=
-\begin{pmatrix} 8.25 \\ 3.66 \\ 5.65 \\ \vdots \\ 8.57 \end{pmatrix}
-$$
- I
+\begin{pmatrix} 8.25 \\ 3.66 \\ 5.65 \\ \vdots \\ 8.57 \end{pmatrix}$$ I
 per tant hem de resoldre el sistema compatible determinat:
-
-$$
-\begin{pmatrix}
+$$\begin{pmatrix}
 9.25 & 9.5 & 8 & \cdots & 9.5 \\
 9.75 & 2.4 & 1.6 & \cdots & 7.4 \\
 1 & 1 & 1 & \cdots & 1
@@ -1170,12 +892,8 @@ $$
 9.75 & 2.4 & 1.6 & \cdots & 7.4 \\
 1 & 1 & 1 & \cdots & 1
 \end{pmatrix}
-\begin{pmatrix} 8.25 \\ 3.66 \\ 5.65 \\ \vdots \\ 8.57 \end{pmatrix}
-$$
-
-Quedant: 
-$$
-\left(\begin{array}{ccc}
+\begin{pmatrix} 8.25 \\ 3.66 \\ 5.65 \\ \vdots \\ 8.57 \end{pmatrix}$$
+Quedant: $$\left(\begin{array}{ccc}
 1885.375 & 1287.5375 & 211.5 \\
 1287.5375 & 1015.0425 & 142.95 \\
 211.5 & 142.95 & 24
@@ -1183,22 +901,12 @@ $$
 \begin{pmatrix} a \\ b \\ c \end{pmatrix}=
 \begin{pmatrix}
 1568.205 \\ 1108.1755 \\ 176.49
-\end{pmatrix}
-$$
- Que té per solució (amb 3 decimals):
-
-$$
-\begin{pmatrix} a \\ b \\ c \end{pmatrix}=
+\end{pmatrix}$$ Que té per solució (amb 3 decimals):
+$$\begin{pmatrix} a \\ b \\ c \end{pmatrix}=
 \begin{pmatrix} 0.191 \\
 0.316 \\
-3.790 \end{pmatrix}
-$$
- Per tant l'aproximació és:
-
-$$
-\text{final} = 0.191 \times \text{Lliurament} + 0.316 \times \text{Parcial} + 3.79\, .
-$$
-
+3.790 \end{pmatrix}$$ Per tant l'aproximació és:
+$$\text{final} = 0.191 \times \text{Lliurament} + 0.316 \times \text{Parcial} + 3.79\, .$$
 Per exemple, d'un alumne que tregui un $4$ al lliurament i un altre $4$
 al parcial, aquest model prediu que al final trauria un $5.818$
 :::
@@ -1207,11 +915,7 @@ al parcial, aquest model prediu que al final trauria un $5.818$
 
 :::{.definition}
 Donat un espai vectorial $E$ sobre un cos $\K$, una *forma bilineal* és
-una aplicació 
-$$
-\phi \colon E \times E \to \K
-$$
- tal que:
+una aplicació $$\phi \colon E \times E \to \K$$ tal que:
 
 -   $\phi(\vec u_1+\vec u_2,v)=\phi(\vec u_1,\vec v)+\phi(\vec u_2,\vec v)$
     per a tots $\vec u_1$, $\vec u_2$ i $\vec v$ d'$E$,
@@ -1242,16 +946,12 @@ A més diem que una aplicació bilineal $\phi$ és:
 vectorial de dimensió finita i $\calb=[\vec v_1, \ldots, \vec v_n]$ és
 una base d'$E$, i $\phi$ és una aplicació bilineal, *la matriu de
 l'aplicació bilineal en la base $\calb$* és:
-
-$$
-[\phi]_\calb= \begin{pmatrix}
+$$[\phi]_\calb= \begin{pmatrix}
 \phi(\vec v_1,\vec v_1) & \phi(\vec v_1,\vec v_2) & \cdots & \phi(\vec v_1,\vec v_n)\\
 \phi(\vec v_2,\vec v_1) & \phi(\vec v_2,\vec v_2) & \cdots & \phi(\vec v_2,\vec v_n)\\
 \vdots & \vdots & \ddots & \vdots \\
 \phi(\vec v_n,\vec v_1) & \phi(\vec v_n,\vec v_2) & \cdots & \phi(\vec v_n,\vec v_n)
-\end{pmatrix}.
-$$
-
+\end{pmatrix}.$$
 :::
 
 :::{.lemma}
@@ -1259,22 +959,14 @@ Si $\phi$ és una aplicació bilineal definit sobre un $\K$-espai
 vectorial $E$ amb base $\calb=[\vec v_1, \dots, \vec v_n]$ i
 $[\phi]_\calb$ és la matriu de $\phi$ en la base $\calb$, llavors: si
 $\vec u$ i $\vec w$ són vectors d'$E$ amb coordenades en la base
-$\calb$: 
-$$
-[\vec u]_\calb = \begin{pmatrix}
+$\calb$: $$[\vec u]_\calb = \begin{pmatrix}
 \lambda_1 \\ \vdots \\ \lambda_n
 \end{pmatrix}
 \text{ i }
 [\vec w]_\calb = \begin{pmatrix}
 \mu_1 \\ \vdots \\ \mu_n
-\end{pmatrix}.
-$$
- llavors:
-
-$$
-\phi(\vec u,\vec w)=\sum_{i=1}^n \sum_{j=1}^n \lambda_i\mu_j\phi(\vec v_i,\vec v_j) =[\vec u]_\calb^T \, [\phi]_\calb \, [\vec w]_\calb .
-$$
-
+\end{pmatrix}.$$ llavors:
+$$\phi(\vec u,\vec w)=\sum_{i=1}^n \sum_{j=1}^n \lambda_i\mu_j\phi(\vec v_i,\vec v_j) =[\vec u]_\calb^T \, [\phi]_\calb \, [\vec w]_\calb .$$
 :::
 
 ::: {.proof}
@@ -1290,38 +982,22 @@ $[\Id_n]_{\calc,\calb}$ la matriu del canvi de base (la que té per
 columnes les coordenades dels vectors $\vec u_j$ en la base $\calb$), i
 $\phi$ una aplicació bilineal, hi ha la relació següent entre les
 matrius de l'aplicació bilineal en cada base:
-
-$$
-[\phi]_\calc=[\Id_n]_{\calc,\calb}^T \, [\phi]_\calb \, [\Id_n]_{\calc,\calb}
-$$
-
+$$[\phi]_\calc=[\Id_n]_{\calc,\calb}^T \, [\phi]_\calb \, [\Id_n]_{\calc,\calb}$$
 :::
 
 ::: {.proof}
 Les matrius de $[\phi]_\calb$ i $[\phi]_\calc$ han de complir
 que, per a tot $\vec u$ i $\vec v$ de $\K^n$ es compleixi:
-
-$$
-\begin{aligned}
+\begin{align}
 (\#eq:canvi-base-apl-bil)
 [\vec u]_\calc^T \, [\phi]_\calc \, [\vec v]_\calc = \phi(\vec u, \vec v)=  [\vec u]_\calb^T\, [\phi]_\calb\, [\vec v]_\calb .
-\end{aligned}
-$$
- Però, per les propietats de la matriu
+\end{align} Però, per les propietats de la matriu
 $[\Id]_{\calc,\calb}$ tenim:
-
-$$
-[\vec u]_\calb=[\Id]_{\calc,\calb} [\vec u]_\calc ,
-$$
- i si ho
+$$[\vec u]_\calb=[\Id]_{\calc,\calb} [\vec u]_\calc ,$$ i si ho
 substituïm a l'Equació
  \@ref(eq:canvi-base-apl-bil), tenim, que per a tot $\vec u$ i
 $\vec v$ de $\K^n$:
-
-$$
-[\vec u]_\calc^T \, [\phi]_\calc \, [\vec v]_\calc = ([\Id]_{\calc,\calb} [\vec u]_\calc)^T \, [\phi]_\calb \, ([\Id]_{\calc,\calb} [\vec v]_\calc) = [\vec u]_\calc^T \, ([\Id]_{\calc,\calb}^T [\phi]_\calb [\Id]_{\calc,\calb}) \, [\vec v]_\calc ,
-$$
-
+$$[\vec u]_\calc^T \, [\phi]_\calc \, [\vec v]_\calc = ([\Id]_{\calc,\calb} [\vec u]_\calc)^T \, [\phi]_\calb \, ([\Id]_{\calc,\calb} [\vec v]_\calc) = [\vec u]_\calc^T \, ([\Id]_{\calc,\calb}^T [\phi]_\calb [\Id]_{\calc,\calb}) \, [\vec v]_\calc ,$$
 pel que tenim la igualtat de matrius que volem.
 :::
 
@@ -1329,27 +1005,15 @@ pel que tenim la igualtat de matrius que volem.
 Considerem la forma bilineal simètrica
 $\phi\colon \R^2 \times \R^2 \to \R$ donada per la matriu (en la base
 estàndard $\calb=[\vec e_1,\vec e_2]$)
-
-$$
-[\phi]=\begin{pmatrix} 0 & 1/2 \\ 1/2 & 0 \end{pmatrix},
-$$
- i volem
+$$[\phi]=\begin{pmatrix} 0 & 1/2 \\ 1/2 & 0 \end{pmatrix},$$ i volem
 calcular la matriu de $\phi$ en la base
 $\calc=[\smat{1\\1},\smat{1\\-1}]$. Llavors hem de calcular:
-
-$$
-[\Id]_{\calc,\calb}=\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}
-$$
- I
+$$[\Id]_{\calc,\calb}=\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$$ I
 per tant la matriu
-
-$$
-[\phi]_\calc = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}^T
+$$[\phi]_\calc = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}^T
 \begin{pmatrix} 0 & 1/2 \\ 1/2 & 0 \end{pmatrix}
 \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}=
-\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
-$$
- Per tant, les matrius
+\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.$$ Per tant, les matrius
 $\smat{0 & 1/2 \\ 1/2 & 0}$ i $\smat{1 & 0 \\ 0 & -1}$ representen la
 mateixa forma bilineal en bases diferents.
 :::
@@ -1374,11 +1038,7 @@ la matriu identitat $\1_n$.
 
 :::{.example}
 Si $E=C^\infty(\R)$ definim el producte escalar:
-
-$$
-f\cdot g = \int_{-1}^1 f(x)g(x)\mathrm{d}x .
-$$
- Com que a
+$$f\cdot g = \int_{-1}^1 f(x)g(x)\mathrm{d}x .$$ Com que a
 $C^\infty(\R)$ no hi ha una base finita, no té sentit parlar de la
 matriu del producte escalar.
 :::
@@ -1390,9 +1050,7 @@ l'Apèndix \@ref(def:aplicaciolinealKn).
 
 Considerem ara $\C^n$ com a $\C$-espai vectorial de dimensió $n$ (suma
 coordenada a coordenada i multiplicació per un escalar a totes les
-coordenades). Definim la forma bilineal següent: 
-$$
-\text{si }
+coordenades). Definim la forma bilineal següent: $$\text{si }
 \vec v=\begin{pmatrix}
 v_1 \\ \vdots \\ v_n
 \end{pmatrix}
@@ -1404,9 +1062,7 @@ w_1 \\ \vdots \\ w_n
 \vec v\cdot \vec w= \sum_{i=1}^n v_i\overline{w}_i=\vec v^T \overline{\vec w} \text{ on }
 \overline{\vec w}=\begin{pmatrix}
 \overline w_1 \\ \vdots \\ \overline w_n
-\end{pmatrix}.
-$$
- Que compleix, a més de les propietats de ser forma
+\end{pmatrix}.$$ Que compleix, a més de les propietats de ser forma
 bilineal:
 
 -   $\vec v\cdot \vec w$=$\overline{\vec w\cdot \vec v}$ per a tot
@@ -1436,16 +1092,8 @@ $\geq 1$, existeix $z\in \C$ tal que $p(z)=0$.
 ::: {.proof}
 *Demostració del teorema espectral.* Una implicació és directa: si $A$
 diagonalitza en una base ortonormal vol dir que podem escriure:
-
-$$
-A=Q D Q^T
-$$
- amb $D$ una matriu diagonal i $Q$ una matriu ortogonal
-($Q^{-1}=Q^T$). Per tant: 
-$$
-A^T=(QDQ^T)^T=(Q^T)^T D^T Q^T=Q D^T Q^T=A
-$$
-
+$$A=Q D Q^T$$ amb $D$ una matriu diagonal i $Q$ una matriu ortogonal
+($Q^{-1}=Q^T$). Per tant: $$A^T=(QDQ^T)^T=(Q^T)^T D^T Q^T=Q D^T Q^T=A$$
 i $A$ és simètrica.
 
 Per demostrar l'altra implicació, ho farem per inducció sobre $n$:
@@ -1460,15 +1108,9 @@ Per demostrar l'altra implicació, ho farem per inducció sobre $n$:
 
     Considerem ara la forma bilineal hermítica definida a l'Exemple
      \@ref(exm:complexos):
-$$
-A\vec v \cdot \vec v = \lambda \vec v \cdot \vec v= \lambda \|\vec v\|^2 \text{ amb $0\neq \|v\|^2\in R$}.
-$$
-
+    $$A\vec v \cdot \vec v = \lambda \vec v \cdot \vec v= \lambda \|\vec v\|^2 \text{ amb $0\neq \|v\|^2\in R$}.$$
     Però també:
-$$
-A\vec v \cdot\vec  v = (A \vec v)^T \overline{\vec v} = \vec v^T A^T \overline{\vec v} = \vec v^T \overline{(\overline{A^T} \vec v)} = \vec v^T A \overline{\vec v} = \vec v^T (\overline{\lambda \vec v})=\overline{\lambda} \|\vec v\|^2 ,
-$$
-
+    $$A\vec v \cdot\vec  v = (A \vec v)^T \overline{\vec v} = \vec v^T A^T \overline{\vec v} = \vec v^T \overline{(\overline{A^T} \vec v)} = \vec v^T A \overline{\vec v} = \vec v^T (\overline{\lambda \vec v})=\overline{\lambda} \|\vec v\|^2 ,$$
     on hem utilitzat que $A=A^T$ ($A$ és simètrica) i $\overline A=A$
     ($A$ té coeficients reals).
 
@@ -1485,39 +1127,28 @@ $$
     (primer ampliem fins a base, i després apliquem Gram-Schmidt). Si
     considerem $Q$ la matriu que té per columnes els vectors $\vec v$,
     $\vec v_2$, ..., $\vec v_n$, tenim:
-$$
-QAQ^T=\begin{pmatrix} \lambda & b_{12} & \cdots & b_{1n} \\
+    $$QAQ^T=\begin{pmatrix} \lambda & b_{12} & \cdots & b_{1n} \\
         0 & b_{22} & \cdots & b_{2n} \\
         \vdots & \vdots & \ddots & \vdots \\
         0 & b_{n2} & \cdots  & b_{nn}
-        \end{pmatrix}
-$$
- on hem utilitzat que $Q^{-1}=Q^T$. Però com que
+        \end{pmatrix}$$ on hem utilitzat que $Q^{-1}=Q^T$. Però com que
     $A=A^T$, tenim $(QAQ^T)^T=QAQ^T$, i per tant
     $b_{12}=b_{13}=\cdots=b_{1n}=0$ i la matriu
-$$
-B=\begin{pmatrix} b_{22} & \cdots & b_{2n} \\
+    $$B=\begin{pmatrix} b_{22} & \cdots & b_{2n} \\
         \vdots & \ddots & \vdots \\
         b_{n2} & \cdots  & b_{nn}
-        \end{pmatrix}
-$$
- és simètrica.
+        \end{pmatrix}$$ és simètrica.
 
     Ara restringim l'aplicació $f_A$ a l'espai
     $\langle v_2, \dots , v_n\rangle$, que en la base
     $[v_2, \dots , v_n]$ té per matriu
-$$
-B=\begin{pmatrix} b_{22} & \cdots & b_{2n} \\
+    $$B=\begin{pmatrix} b_{22} & \cdots & b_{2n} \\
         \vdots & \ddots & \vdots \\
         b_{n2} & \cdots  & b_{nn}
-        \end{pmatrix} .
-$$
- Per hipòtesis d'inducció, $B$ diagonaliza en
+        \end{pmatrix} .$$ Per hipòtesis d'inducció, $B$ diagonaliza en
     una base ortonormal, pel que existeix $P\in M_{n-1}(\R)$ matriu
     ortogonal i $D\in M_{n-1}(\R)$ matriu diagonal tals que $B=P^TDP$.
-    Amb això tenim: 
-$$
-QAQ^T=\left(\begin{array}{c|c}
+    Amb això tenim: $$QAQ^T=\left(\begin{array}{c|c}
             \lambda & 0 \\ \hline
             0 & P^T D P
         \end{array}\right)=
@@ -1532,20 +1163,15 @@ QAQ^T=\left(\begin{array}{c|c}
         \left(\begin{array}{c|c}
             1 & 0 \\ \hline
             0 &  P
-        \end{array}\right)
-$$
- Per tant, considerem
-$$
-Q'=\left(\begin{array}{c|c}
+        \end{array}\right)$$ Per tant, considerem
+    $$Q'=\left(\begin{array}{c|c}
             1 & 0 \\ \hline
             0 &  P
         \end{array}\right) Q \text{ i }
         D'=\left(\begin{array}{c|c}
             \lambda & 0 \\ \hline
             0 & D 
-        \end{array}\right)
-$$
- i tenim que $Q'$ és una matriu ortogonal i
+        \end{array}\right)$$ i tenim que $Q'$ és una matriu ortogonal i
     $A=Q'^{-1} D' Q'$, amb $D'$ una matriu diagonal, pel que $A$
     diagonalitza a una base ortonormal.
 
@@ -1574,20 +1200,12 @@ matriu tal que $f(\vec v)=A\vec v$. Llavors, la matriu $A^TA\in M_n(\R)$
 és simètrica, i per tant diagonalitza en una base ortonormal, per tant,
 existeix una base ortonormal $\calb=[\vec v_1, \dots, \vec v_n]$ de
 $\R^n$ i escalars $\lambda_1, \dots, \lambda_n\in \R$ tals que
-
-$$
-A^T A \vec v_i=\lambda_i \vec v_i \text{ per a tot $i=1, \dots, n$.}
-$$
-
+$$A^T A \vec v_i=\lambda_i \vec v_i \text{ per a tot $i=1, \dots, n$.}$$
 Volem veure que $f(\vec v_1), \dots, f(\vec v_n)$ són ortogonals, o
-sigui, $f(\vec v_i)\cdot f(\vec v_j)=0$ si $i\neq j$: 
-$$
-\begin{aligned}
+sigui, $f(\vec v_i)\cdot f(\vec v_j)=0$ si $i\neq j$: \begin{align}
 f(\vec v_i)\cdot f(\vec v_j) & =(A\vec v_i)\cdot(A\vec v_j)=(A\vec v_i)^T(A\vec v_j)=(\vec v_i^T A^T)(A \vec v_j)= \\
  &  = \vec v_i^T (A^T A \vec v_j)=\vec v_i^T (\lambda_j \vec v_j)=\lambda_j (\vec v_i \cdot \vec v_j)=0 .
-\end{aligned}
-$$
-
+\end{align}
 :::
 
 :::{.remark}
@@ -1690,62 +1308,36 @@ petit.
 
 :::{.example}
 Considerem l'aplicació lineal $f_A\colon \R^2 \to \R^2$ amb:
-
-$$
-A=\begin{pmatrix}
+$$A=\begin{pmatrix}
 3 & -9/5 \\ -1 & 13/5
-\end{pmatrix}
-$$
- i volem fer-ne una descomposició en valors singulars.
+\end{pmatrix}$$ i volem fer-ne una descomposició en valors singulars.
 
-Calculem primer $A^TA$: 
-$$
-A^T A = \begin{pmatrix}
+Calculem primer $A^TA$: $$A^T A = \begin{pmatrix}
 10 & -8 \\ -8 & 10
-\end{pmatrix}
-$$
- I la diagonalitzem. El polinomi característic és:
-
-$$
-p_{A^TA}(x)=x^2 - 20 x + 36 = (x-18)(x-2)
-$$
- Per tant, els valors
+\end{pmatrix}$$ I la diagonalitzem. El polinomi característic és:
+$$p_{A^TA}(x)=x^2 - 20 x + 36 = (x-18)(x-2)$$ Per tant, els valors
 propis d'$A^TA$ són $\lambda_1=18$ i $\lambda_2=2$ i els corresponents
 vectors propis:
-
-$$
-\Ker(A^TA-18\1_2)=\langle \begin{pmatrix} 1 \\ -1 \end{pmatrix} \rangle \text{ i }
-\Ker(A^TA-2\1_2)=\langle \begin{pmatrix} 1 \\ 1 \end{pmatrix} \rangle
-$$
-
-I com que els hem de considerar unitaris, obtenim: 
-$$
-V^T=\begin{pmatrix}
+$$\Ker(A^TA-18\1_2)=\langle \begin{pmatrix} 1 \\ -1 \end{pmatrix} \rangle \text{ i }
+\Ker(A^TA-2\1_2)=\langle \begin{pmatrix} 1 \\ 1 \end{pmatrix} \rangle$$
+I com que els hem de considerar unitaris, obtenim: $$V^T=\begin{pmatrix}
 1/\sqrt{2} & 1/\sqrt{2} \\ -1/\sqrt{2} & 1/\sqrt{2}
 \end{pmatrix}
 \text{ i per tant }
 V=\begin{pmatrix}
 1/\sqrt{2} & -1/\sqrt{2} \\ 1/\sqrt{2} & 1/\sqrt{2}
-\end{pmatrix}.
-$$
-
+\end{pmatrix}.$$
 
 La matriu diagonal són els valors singulars, que són les arrels
 quadrades dels valors propis d'$A^TA$, per tant són
 $\sigma_1=\sqrt{18}=3\sqrt{2}$ i $\sigma_2=\sqrt{2}$ i tenim:
-
-$$
-D=\begin{pmatrix}
+$$D=\begin{pmatrix}
 3\sqrt{2} & 0 \\ 0 & \sqrt{2}
-\end{pmatrix}.
-$$
-
+\end{pmatrix}.$$
 
 I la matriu $U$ té per columnes les imatges de $\smat{1\\-1}$ i
 $\smat{1\\1}$ per $f_A$ dividides per les seves normes, per tant:
-
-$$
-\begin{pmatrix}
+$$\begin{pmatrix}
 3 & -9/5 \\ -1 & 13/5
 \end{pmatrix} 
 \begin{pmatrix}
@@ -1756,11 +1348,7 @@ $$
 \end{pmatrix}=
 6 \begin{pmatrix}
 4/5 \\ -3/5
-\end{pmatrix}
-$$
- i 
-$$
-\begin{pmatrix}
+\end{pmatrix}$$ i $$\begin{pmatrix}
 3 & -9/5 \\ -1 & 13/5
 \end{pmatrix} 
 \begin{pmatrix}
@@ -1771,18 +1359,10 @@ $$
 \end{pmatrix}=
 2 \begin{pmatrix}
 3/5 \\ 4/5
-\end{pmatrix}
-$$
- Per tant: 
-$$
-U=\begin{pmatrix}
+\end{pmatrix}$$ Per tant: $$U=\begin{pmatrix}
 4/5 & 3/5 \\ -3/5 & 4/5
-\end{pmatrix}
-$$
- I una descomposició d'$A$ en valors singulars és:
-
-$$
-\begin{pmatrix}
+\end{pmatrix}$$ I una descomposició d'$A$ en valors singulars és:
+$$\begin{pmatrix}
 3 & -9/5 \\ -1 & 13/5
 \end{pmatrix} 
 =\begin{pmatrix}
@@ -1793,9 +1373,7 @@ $$
 \end{pmatrix}
 \begin{pmatrix}
 1/\sqrt{2} & -1/\sqrt{2} \\ 1/\sqrt{2} & 1/\sqrt{2}
-\end{pmatrix}.
-$$
- A la Figura [2](#fig:circ-ellipse){reference-type="ref"
+\end{pmatrix}.$$ A la Figura [2](#fig:circ-ellipse){reference-type="ref"
 reference="fig:circ-ellipse"} podem veure com es modifica la
 circumferència unitat quan apliquem la matriu $A$. Veiem que a la
 direcció $\smat{4\\-3}$ hi ha el primer eix principal amb semilongitud
@@ -1820,18 +1398,10 @@ abans què vol dir que siguin equivalents:
 Diem que dues formes bilineals
 $\phi_1,\phi_2\colon \K^n\times\K^n\to \K$ amb matrius corresponents
 $[\phi_1]$ i $[\phi_2]$ *són equivalents* si existeix una base $\calc$
-de $\K^n$ tal que 
-$$
-[\phi_1]=[\phi_2]_\calc .
-$$
- Dit d'una altra manera,
+de $\K^n$ tal que $$[\phi_1]=[\phi_2]_\calc .$$ Dit d'una altra manera,
 si existeix una matriu invertible $\cals\in M_n(\K)$ (la matriu del
 canvi de base, que té per columnes els vectors de $\calc$) tal que
-
-$$
-[\phi_1]=\cals^T [\phi_2] \cals.
-$$
- Escriurem $\phi_1\sim \phi_2$.
+$$[\phi_1]=\cals^T [\phi_2] \cals.$$ Escriurem $\phi_1\sim \phi_2$.
 :::
 
 :::{.lemma}
@@ -1856,29 +1426,16 @@ base:
 
 -   Si $\phi_1\sim \phi_2$ tenim que existeix $\cals$ una matriu de
     canvi de base (i per tant invertible) tal que:
-$$
-[\phi_1]=\cals^T [\phi_2] \cals.
-$$
- Però aquesta igualtat també es
-    pot escriure com: 
-$$
-[\phi_2]=(\cals^{-1})^T [\phi_1] \cals^{-1}
-$$
- i
+    $$[\phi_1]=\cals^T [\phi_2] \cals.$$ Però aquesta igualtat també es
+    pot escriure com: $$[\phi_2]=(\cals^{-1})^T [\phi_1] \cals^{-1}$$ i
     per tant $\phi_2\sim \phi_1$.
 
 -   Per hipòtesis tenim que existeixen $\cals_1$ i $\cals_2$ tals que:
-$$
-[\phi_1]=\cals_1^T [\phi_2] \cals_1
+    $$[\phi_1]=\cals_1^T [\phi_2] \cals_1
         \text{ i }
-        [\phi_2]=\cals_2^T [\phi_3] \cals_2.
-$$
- Llavors:
-$$
-[\phi_1]=\cals_1^T \cals_2^T [\phi_3] \cals_2 \cals_1=
-        (\cals_2 \cals_1)^T [\phi_3] (\cals_2 \cals_1)
-$$
- i tenim
+        [\phi_2]=\cals_2^T [\phi_3] \cals_2.$$ Llavors:
+    $$[\phi_1]=\cals_1^T \cals_2^T [\phi_3] \cals_2 \cals_1=
+        (\cals_2 \cals_1)^T [\phi_3] (\cals_2 \cals_1)$$ i tenim
     $\phi_1\sim \phi_3$.
 
 
@@ -1893,9 +1450,7 @@ simètrica $\phi\colon \R^n\times \R^n\to \R$ és equivalent a una forma
 bilineal que té per matriu una matriu diagonal amb coeficients (a la
 diagonal): $1$ a les $r$ primeres files, $-1$ a les $s$ següents i $0$ a
 les $t$ últimes ($n=r+s+t$). O sigui una matriu de la forma:
-
-$$
-\begin{pmatrix}
+$$\begin{pmatrix}
 1      & \cdots & 0 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
        & \ddots &   &   & \cdots &   &   & \cdots &  \\
 0      & \cdots & 1 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
@@ -1905,9 +1460,7 @@ $$
 0      & \cdots & 0 &  0 & \cdots & 0 & 0 & \cdots & 0 \\
        &        &   &    & \cdots &   &   & \ddots &   \\
 0      & \cdots & 0 &  0 & \cdots & 0 & 0 & \cdots & 0 
-\end{pmatrix}
-$$
- A més, si definim la parella $(r,s)$ com la *signatura
+\end{pmatrix}$$ A més, si definim la parella $(r,s)$ com la *signatura
 de $\phi$* ($\sign(\phi)$), dues formes bilineals bilineals
 $\phi_1,\phi_2\colon \R^n\times \R^n\to \R$ són equivalents si i només
 si $\sign(\phi_1)=\sign(\phi_2)$.
@@ -1917,51 +1470,32 @@ si $\sign(\phi_1)=\sign(\phi_2)$.
 Considerem $[\phi]$ la matriu simètrica $n\times n$ sobre $\R$
 de la forma bilineal $\phi$. Pel Teorema espectral, existeix una matriu
 ortogonal $Q$ i una matriu diagonal $D$ amb valors
-$\lambda_1, \dots, \lambda_n$ tal que: 
-$$
-D=Q^T [\phi] Q \,.
-$$
- Ara fem
+$\lambda_1, \dots, \lambda_n$ tal que: $$D=Q^T [\phi] Q \,.$$ Ara fem
 els canvis següents:
 
 -   Podem reordenar els elements de la diagonal de $D$ reordenant les
     columnes de $Q$: si $Q'$ és la matriu que resulta d'intercanviar les
     columnes $j$ i $k$ de $Q$, llavors, $Q'$ continua sent ortogonal i
-    el producte: 
-$$
-(Q')^T[\phi]Q'
-$$
- també és diagonal, però
+    el producte: $$(Q')^T[\phi]Q'$$ també és diagonal, però
     intercanviant les posicions $i$ i $j$, o sigui, els valors
     $\lambda_i$ i $\lambda_j$.\
     Aprofitem aquesta propietat per reordenar la diagonal de $D$ i posar
     primer els $\lambda_i>0$, llavors els $\lambda_i<0$ i finalment els
     $\lambda_i=0$. Per tant, podem suposar que tenim $Q$ una matriu
-    ortogonal tal que 
-$$
-D=Q^T [\phi] Q \,.
-$$
- amb $D$ una matriu diagonal
+    ortogonal tal que $$D=Q^T [\phi] Q \,.$$ amb $D$ una matriu diagonal
     tal que a la diagonal té els $r$ primers coeficients positius, els
     $s$ següents negatius i els $t$ últims zero.
 
 -   Considerem $A$ la matriu diagonal següent, definida a partir dels
     coeficients de $D$: el coeficient $a_{ii}$ es defineix com:
-$$
-a_{ii}=\begin{cases}
+    $$a_{ii}=\begin{cases}
         1/\sqrt{\lambda_i} & \text{si $1\leq i \leq r$,} \\
         1/\sqrt{-\lambda_i} & \text{si $r < i \leq r+s$,} \\
         1 & \text{si $r+s < i \leq n$.}
-        \end{cases}
-$$
- Tenim que $A^TDA$ és una matriu diagonal amb $r$
+        \end{cases}$$ Tenim que $A^TDA$ és una matriu diagonal amb $r$
     uns a les primeres files, $s$ menys uns a les següents i zero a les
     últimes.\
-    Per tant: 
-$$
-[\phi] \sim A^TQ^T [\phi] QA = (QA)^T [\phi] QA
-$$
- i
+    Per tant: $$[\phi] \sim A^TQ^T [\phi] QA = (QA)^T [\phi] QA$$ i
     $(QA)^T [\phi] QA$ és diagonal i com diu l'enunciat del teorema.
 
 De moment hem vist que, com que "ser equivalent a té la propietat
@@ -1981,11 +1515,7 @@ Per veure que $r\leq r'$, considerem bases ortonormals
 $\mathcal{B}=(u_1,\ldots, u_n)$ i $\mathcal{B'}=(u'_1,\ldots,u'_n)$
 d'$\R^n$, respecte les quals la forma $\phi$ és, respectivament, $D$ i
 $D'$. Considerem els subespais $V$ i $V'$ donats per
-
-$$
-V = \langle u_1,\ldots, u_r\rangle,\quad V'=\rangle u'_1,\ldots, u'_{r'}\rangle,
-$$
-
+$$V = \langle u_1,\ldots, u_r\rangle,\quad V'=\rangle u'_1,\ldots, u'_{r'}\rangle,$$
 i construirem una aplicació lineal injectiva $V\to V'$. Sigui
 $g \colon \R^n\to V'$ la projecció ortogonal al subespai $V'$, i sigui
 $f \colon V \to V'$ la restricció de $g$ a $V$. Vegem doncs que $f$ és
@@ -2001,29 +1531,17 @@ $v=0$, com volíem veure.
 ::: {.example #class-form-bil}
  Considerem la
 forma bilineal $\phi\colon \R^4\times\R^4\to\R$ donada per la matriu:
-
-$$
-[\phi]=\left(\begin{array}{rrrr}
+$$[\phi]=\left(\begin{array}{rrrr}
 1 & 5 & -1 & 3 \\
 5 & 1 & 3 & -1 \\
 -1 & 3 & 1 & 5 \\
 3 & -1 & 5 & 1
-\end{array}\right).
-$$
- Una manera de classificar-la és de calcular el
+\end{array}\right).$$ Una manera de classificar-la és de calcular el
 polinomi característic i estudiar el signe dels valors on s'anul·la:
-
-$$
-p_{[\phi]}(x)=\det(A-x\1_4)=x^{4} - 4 x^{3} - 64 x^{2} + 256 x .
-$$
- I
+$$p_{[\phi]}(x)=\det(A-x\1_4)=x^{4} - 4 x^{3} - 64 x^{2} + 256 x .$$ I
 $p_{[\phi]}(x)$ s'anul·la als valors $\{-8,0,4,8\}$, per tant té
 signatura $(2,1)$ i és equivalent a la forma bilineal que té per matriu:
-
-$$
-\begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} .
-$$
-
+$$\begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} .$$
 :::
 
 Acabem aquesta secció aprofitant aquesta classificació per fer la
@@ -2032,25 +1550,13 @@ corresponent de les formes quadràtiques.
 :::{.definition}
 Una *forma quadràtica* sobre un cos $\K$ és una aplicació
 $q\colon \K^n\to \K$ que es pot expressar com:
-
-$$
-q(x_1, \dots , x_n)=\sum_{1\leq i , j \leq n} \lambda_{ij}x_i x_j
-$$
-
+$$q(x_1, \dots , x_n)=\sum_{1\leq i , j \leq n} \lambda_{ij}x_i x_j$$
 amb $\lambda_{ij}\in \K$.
 
-També es pot escriure com: 
-$$
-q(x_1, \dots , x_n)= \vec x^T A \vec x ,
-$$
-
+També es pot escriure com: $$q(x_1, \dots , x_n)= \vec x^T A \vec x ,$$
 on $\vec x=\smat{x_1 \\ \vdots \\ x_n}$ i $A$ és la matriu (simètrica)
 que té per coeficients
-
-$$
-a_{ij}=\begin{cases} \lambda_{ii} & \text{si $i=j$,} \\ \frac{\lambda_{ij}+\lambda_{ji}}{2} & \text{si $i\neq j$.}\end{cases}
-$$
-
+$$a_{ij}=\begin{cases} \lambda_{ii} & \text{si $i=j$,} \\ \frac{\lambda_{ij}+\lambda_{ji}}{2} & \text{si $i\neq j$.}\end{cases}$$
 :::
 
 :::{.remark}
@@ -2063,66 +1569,38 @@ corresponent a la forma quadràtica $q$.
 :::{.example}
 La forma quadràtica $q\colon \R^2 \to \R$ definida per
 $q(x_1,x_2)=ax_1^2+bx_1x_2+cx_2^2$ correspon a la matriu simètrica
-
-$$
-\begin{pmatrix}
+$$\begin{pmatrix}
 a & b/2 \\ b/2 & c
-\end{pmatrix} .
-$$
- Podem recuperar la forma quadràtica fent:
-
-$$
-q(x_1,x_2)=\begin{pmatrix} x_1 & x_2 \end{pmatrix}\begin{pmatrix}
+\end{pmatrix} .$$ Podem recuperar la forma quadràtica fent:
+$$q(x_1,x_2)=\begin{pmatrix} x_1 & x_2 \end{pmatrix}\begin{pmatrix}
 a & b/2 \\ b/2 & c
-\end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=ax_1^2 + bx_1x_2+cx_2^2 .
-$$
-
+\end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=ax_1^2 + bx_1x_2+cx_2^2 .$$
 :::
 
 :::{.example}
 Considerem les formes quadràtiques $q_1$ i $q_2$ de $\R^2$ a $\R$
 definides com $q_1(x_1,x_2)=x_1x_2$ i $q_2(y_1,y_2)=y_1^2-y_2^2$.
 Observem que si fem el canvi de base:
-
-$$
-\begin{pmatrix} y_1 \\ y_2  \end{pmatrix} =
+$$\begin{pmatrix} y_1 \\ y_2  \end{pmatrix} =
 \begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix}
-\begin{pmatrix} x_1 \\ x_2  \end{pmatrix}
-$$
- es poden escriure:
-
-$$
-y_1=\frac12x_1+\frac12x_2 \text{ i } y_2=\frac12x_1-\frac12x_2
-$$
- i
+\begin{pmatrix} x_1 \\ x_2  \end{pmatrix}$$ es poden escriure:
+$$y_1=\frac12x_1+\frac12x_2 \text{ i } y_2=\frac12x_1-\frac12x_2$$ i
 tenim
-
-$$
-q_2(y_1,y_2)=(\frac12x_1+\frac12x_2)^2 - (\frac12x_1-\frac12x_2)^2=x_1x_2 .
-$$
-
+$$q_2(y_1,y_2)=(\frac12x_1+\frac12x_2)^2 - (\frac12x_1-\frac12x_2)^2=x_1x_2 .$$
 Per tant, tenen la mateixa forma. Aquesta igualtat també es pot veure en
 forma matricial observant que si $\cals$ és la matriu del canvi de base,
 tenim $[q_1]=\cals^T [q_2] \cals$, on $[q_1]$ i $[q_2]$ són les matrius
 simètriques corresponents a les formes bilineals $q_1$ i $q_2$
-respectivament: 
-$$
-\begin{pmatrix} 0 & 1/2 \\ 1/2 & 0 \end{pmatrix}=
+respectivament: $$\begin{pmatrix} 0 & 1/2 \\ 1/2 & 0 \end{pmatrix}=
 \begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix}^T
 \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
-\begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix}
-$$
-
+\begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix}$$
 :::
 
 :::{.definition}
 Diem que dues formes quadràtiques $q_1,q_2\colon \K^n\to \K$ *són
 equivalents*, amb matrius si existeix un canvi de base $\cals$ a $\K^n$
-tal que 
-$$
-[q_1]=\cals^T [q_2] \cals.
-$$
- Escriurem $q_1\sim q_2$.
+tal que $$[q_1]=\cals^T [q_2] \cals.$$ Escriurem $q_1\sim q_2$.
 :::
 
 Com que els canvis de base afecten de la mateixa manera que afectaven a
@@ -2136,11 +1614,7 @@ l'anàleg al Teorema
  Tota forma
 quadràtica $q\colon \R^n\to \R$ és equivalent a una forma bilineal del
 tipus:
-
-$$
-q_1(x_1,\dots, x_n)=x_1^2+ \cdots + x_r^2 - x_{r+1}^2-\cdots -x_{r+s}^2 .
-$$
-
+$$q_1(x_1,\dots, x_n)=x_1^2+ \cdots + x_r^2 - x_{r+1}^2-\cdots -x_{r+s}^2 .$$
 A més, si definim la parella $(r,s)$ com la *signatura de $q$*
 ($\sign(q)$), dues formes quadràtiques $q_1,q_2\colon \R^n\to \R$ són
 equivalents si i només si $\sign(q_1)=\sign(q_2)$.
@@ -2148,30 +1622,18 @@ equivalents si i només si $\sign(q_1)=\sign(q_2)$.
 
 :::{.example}
 Classifiquem la forma quadràtica $q\colon \R^4 \to \R$:
-
-$$
-q(x_1,x_2,x_3,x_4)=x_1^2+10 x_1x_2 -2 x_1x_3+6x_1x_4 + x_2^2 -6x_2x_3-2x_2x_4+x_3^3+10x_3x_4-x_4^2.
-$$
-
-Que té per matriu: 
-$$
-\left(\begin{array}{rrrr}
+$$q(x_1,x_2,x_3,x_4)=x_1^2+10 x_1x_2 -2 x_1x_3+6x_1x_4 + x_2^2 -6x_2x_3-2x_2x_4+x_3^3+10x_3x_4-x_4^2.$$
+Que té per matriu: $$\left(\begin{array}{rrrr}
 1 & 5 & -1 & 3 \\
 5 & 1 & 3 & -1 \\
 -1 & 3 & 1 & 5 \\
 3 & -1 & 5 & 1
-\end{array}\right)
-$$
- Per tant, podem aprofitar els càlculs de l'Exemple
+\end{array}\right)$$ Per tant, podem aprofitar els càlculs de l'Exemple
  \@ref(exm:class-form-bil), i tenim que és equivalent a:
-
-$$
-q(y_1,y_2,y_3,y_4)=y_1^2+y_2^2-y_3^2.
-$$
-
+$$q(y_1,y_2,y_3,y_4)=y_1^2+y_2^2-y_3^2.$$
 :::
 
-### Exercicis recomanats 
+## Exercicis recomanats 
 
 Els exercicis que segueixen són útils per practicar el material
 presentat. La numeració és la de [@Bret].
