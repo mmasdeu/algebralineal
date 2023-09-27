@@ -110,10 +110,10 @@ $\det(\vec v_1, \dots, \vec 0, \dots,\vec v_n)=0$.
 
 ::: {.proof}
 En efecte, com que $\vec 0=0 \cdot \vec 0$, aleshores
-\begin{align}
+\begin{align*}
 \det(\vec v_1, \dots, \vec 0, \dots,\vec v_n) & = \det(\vec v_1, \dots, 0\cdot\vec 0, \dots,\vec v_n) = \\
 & = 0 \det(\vec v_1, \dots, \vec 0, \dots,\vec v_n)=0.
-\end{align}
+\end{align*}
 :::
 
 ::: {.lemma #det-i-trans-elem}
@@ -137,11 +137,11 @@ transformacions **T1**, **T2** i **T3** definides a la Subsecció
 elemental **T1**, obtenint el resultat de l'enunciat.
 
 Estudiem ara el canvi **T2**: sumem a una columna $\mu$ vegades una
-altra: \begin{align}
+altra: \begin{align*}
     \det(\dots, \vec v_j, \dots, \vec v_k+\mu\vec v_j,\dots) & =\det(\dots, \vec v_j, \dots, \vec v_k,\dots) + \det(\dots, \vec v_j, \dots,\mu\vec v_j,\dots)= \\ &
     = \det(\dots, \vec v_j, \dots, \vec v_k,\dots) + \mu\det(\dots, \vec v_j, \dots,\vec v_j,\dots)= \\ &
     = \det(\dots, \vec v_j, \dots, \vec v_k,\dots) + 0
-\end{align} on primer hem aplicat **D2** (separar la suma de
+\end{align*} on primer hem aplicat **D2** (separar la suma de
 vectors), llavors **D1** (treure el $\mu$ fora del determinant) i
 finalment **D3** per veure que un dels determinants és zero.
 
@@ -149,13 +149,13 @@ Mirem com es modifica el determinant per la transformació **T3**: vegem
 que si intercanviem dues columnes $j\neq k$, llavors
 $$\det(\vec v_1,\dots , \vec v_j, \dots, \vec v_k, \dots ,\vec v_n)=-\det(\vec v_1,\dots , \vec v_k, \dots, \vec v_j, \dots ,\vec v_n) .$$
 Per tal de simplificar la notació escrivim
-$\det(\dots , \vec v_j, \dots, \vec v_k, \dots)$: \begin{align}
+$\det(\dots , \vec v_j, \dots, \vec v_k, \dots)$: \begin{align*}
         0  & =  \det(\dots , \vec v_j+\vec v_k, \dots, \vec v_j+\vec v_k, \dots)  = \\
           & =  \det(\dots , \vec v_j+\vec v_k, \dots, \vec v_j, \dots) + \det(\dots , \vec v_j+\vec v_k, \dots, \vec v_k, \dots) = \\
           & =  \det(\dots , \vec v_j, \dots, \vec v_j, \dots) + \det(\dots , \vec v_k, \dots, \vec v_j, \dots) + \\
            &  \quad + \det(\dots , \vec v_j, \dots, \vec v_k, \dots) + \det(\dots , \vec v_k, \dots, \vec v_k, \dots) = \\
            & =  0 + \det(\dots , \vec v_k, \dots, \vec v_j , \dots) + \det(\dots , \vec v_j, \dots, \vec v_k , \dots) + 0
-\end{align}
+\end{align*}
 :::
 
 :::{.theorem}
@@ -190,7 +190,7 @@ amb una columna tot zeros, han de valer el mateix.
 :::{.example}
 Calculem el determinant d'$A$, on:$$A=\begin{pmatrix}
 	1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
-	\end{pmatrix}$$ fent transformacions elementals: \begin{align}
+	\end{pmatrix}$$ fent transformacions elementals: \begin{align*}
 	\begin{vmatrix}
 	1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
 	\end{vmatrix} & =
@@ -206,7 +206,7 @@ Calculem el determinant d'$A$, on:$$A=\begin{pmatrix}
 	-2\begin{vmatrix}
 	1 & 0 & 6 \\ 0 & 1 & 8 \\ 0 & 0 & 1
 	\end{vmatrix}= -2 \det(\1_3)=-2\,.
-\end{align}
+\end{align*}
 :::
 
 Amb tot això, el que no hem demostrat és que existeixi una aplicació
@@ -219,10 +219,10 @@ $a_{i_1j_1} \cdots a_{i_nj_n}$ tals que no hi hagi dos coeficients d'una
 mateixa columna, ni d'una mateixa fila. Dit d'una altra manera, com que
 hi ha $n$ files i $n$ columnes,considerem $n$ parelles
 $\{(i_1,j_1),\dots,(i_n,j_n)\}$ que compleixin la igualtat de conjunts:
-\begin{align}
+\begin{align*}
 (\#eq:patro)
 \{i_1, \dots, i_n\}=\{1, \dots, n\} = \{j_1, \dots, j_n\} \,.
-\end{align}
+\end{align*}
 
 ::: {.definition #patro}
  Anomenem un *patró* d'$n$ elements a un
@@ -334,11 +334,11 @@ patró.
 Calculem el signe de la identitat per demostrar (d):
 $$\sign(\Id)=\prod_{i<j} \frac{\Id(j)-\Id(i)}{j-i}=\prod_{i<j} \frac{j-i}{j-i}=1 .$$
 
-La demostració d'(e) ve de considerar: \begin{align}
+La demostració d'(e) ve de considerar: \begin{align*}
     \sign(\sigma\circ\tau) & =\prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{j-i}  =
     \prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{\tau(j)-\tau(i)}\frac{\tau(j)-\tau(i)}{j-i}=\\
      & =\prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{\tau(j)-\tau(i)}\prod_{i<j}\frac{\tau(j)-\tau(i)}{j-i}= \sign(\sigma)\sign(\tau),
-\end{align} on observem que:
+\end{align*} on observem que:
 $$\prod_{i<j}\frac{\sigma(j)-\sigma(i)}{j-i}=\prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{\tau(j)-\tau(i)}$$
 ja que hi ha els mateixos factors al numerador i denominador, i si un
 factor del numerador ha canviat de signe, el corresponent factor del
@@ -363,10 +363,10 @@ matriu quadrada. Considerem $P_n$ el conjunt de tots els patrons d'$n$
 elements ($P_n$ té $n!$ elements) i per cada $\calp\in P_n$, considerem
 $a_\calp$ com a la Definició
  \@ref(def:patro).
-Definim el *determinant d'$A$* com: \begin{align}
+Definim el *determinant d'$A$* com: \begin{align*}
  (\#eq:def-det)
     \det(A)=\sum_{\calp \in P_n} \sign(\calp) a_\calp \,.
-\end{align}
+\end{align*}
 :::
 
 :::{.theorem}
@@ -509,10 +509,10 @@ comparem amb els de l'Equació
 que fem una iteració anem esborrant la fila i columna corresponent a
 aquell coeficient. Per tant, hi haurà un coeficient de la primera fila,
 un altre de la segona, ..., de tal manera que cada cop agafem una
-columna diferent, i per tant tindrem el sumand: \begin{align}
+columna diferent, i per tant tindrem el sumand: \begin{align*}
 (\#eq:sumanddet)
 	(-1)^\epsilon a_{1j_1} a_{2j_2} \cdots a_{nj_n}
-\end{align} amb $j_k\neq j_l$ si $k\neq l$, i el signe ve determinat
+\end{align*} amb $j_k\neq j_l$ si $k\neq l$, i el signe ve determinat
 per la paritat de $\epsilon$, que es pot veure que és la mateixa que la
 de la permutació, obtenint el mateix que a l'Equació
  \@ref(eq:def-det)
@@ -524,14 +524,14 @@ que el resultat final serà el mateix.
 :::{.example}
 Calculem el determinant d'$A$, on:$$A=\begin{pmatrix}
 	1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
-	\end{pmatrix}$$ desenvolupant per la primera fila: \begin{align}
+	\end{pmatrix}$$ desenvolupant per la primera fila: \begin{align*}
 	\begin{vmatrix}
 	1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
 	\end{vmatrix} & = 1 \begin{vmatrix} -1 & -8 \\ 6 & 0 \end{vmatrix} 
 	-2 \begin{vmatrix} 0 & -8 \\ 5 & 0  \end{vmatrix} +
 	6 \begin{vmatrix} 0 & -1 \\ 5 & 6  \end{vmatrix} = \\
 	 & = (0-(-48))-2(40)+6(5)=48-80+30=-2.
-\end{align}
+\end{align*}
 :::
 
 :::{.exercise}
@@ -621,10 +621,10 @@ x \\ y
 \end{pmatrix} =
 \begin{pmatrix}
 \lambda x \\ \lambda y 
-\end{pmatrix}$$ I queda el sistema homogeni: \begin{align}
+\end{pmatrix}$$ I queda el sistema homogeni: \begin{align*}
     -\lambda x - y =0 \\
     x - \lambda y=0
-\end{align} Com que estem treballant a $\R$, aquest sistema té rang
+\end{align*} Com que estem treballant a $\R$, aquest sistema té rang
 $2$ per qualsevol $\lambda\in\R$, i per tant l'única solució és
 $\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)=\left(\begin{smallmatrix} 0 \\ 0 \end{smallmatrix}\right)$,
 que no pot formar part de cap base.
@@ -852,10 +852,10 @@ Si $A$ i $B\in M_n(\K)$ són matrius similars, llavors $p_A(x)=p_B(x)$.
 
 ::: {.proof}
 Si $A$ i $B$ són matrius similars, existeix $S\in M_n(\K)$ una
-matriu invertible tal que $S^{-1}AS=B$. Llavors: \begin{align}
+matriu invertible tal que $S^{-1}AS=B$. Llavors: \begin{align*}
 p_B(x) & =\det(B-x\1_n)=\det(S^{-1}AS-x\1_n)=\det(S^{-1}AS-S^{-1}(x\1)_nS)=\\ & = \det(S^{-1}(A-x\1_n)S)= \det(S^{-1})\det(A-x\1_n)\det(S)=\\
  & = \det(S)^{-1}\det(S)\det(A-x\1_n) = p_A(x) \, .
-\end{align} On a l'última igualtat hem utilitzat que
+\end{align*} On a l'última igualtat hem utilitzat que
 $\det(S^{-1})=\det(S)^{-1}$.
 :::
 
@@ -906,10 +906,10 @@ els reordenem). Per tant
 $\{\vec v_1, \dots, \vec v_\ell\}\subset\{\vec v_1, \dots, \vec v_k\}$
 amb els $\ell$ primers linealment independents. Volem veure $\ell=k$.
 Suposem que no, llavors $\ell<k$ i existeixen uns únics
-$\mu_1,\dots, \mu_\ell \in \K$ tals que: \begin{align}
+$\mu_1,\dots, \mu_\ell \in \K$ tals que: \begin{align*}
 (\#eq:v-ellp1)
 \vec v_{\ell+1}=\mu_1\vec v_1+ \cdots+ \mu_\ell\vec v_\ell.
-\end{align} També podem considerar que hi ha dues $\mu_i\neq0$: com
+\end{align*} També podem considerar que hi ha dues $\mu_i\neq0$: com
 que $\vec v_{\ell+1}\neq\vec 0$, com a mínim n'hi ha una. Si només n'hi
 hagués una, llavors
 $E_{\lambda_i}\cap E_{\lambda_{\ell+1}}\neq\{\vec 0\}$, contradient el
@@ -923,11 +923,11 @@ $\vec v_{\ell+1}=\mu_1\vec v_1+ \cdots+ \mu_\ell\vec v_\ell$ amb
 $\mu_1\neq0\neq\mu_2$ i $\vec v_1$ i $\vec v_2$ són vectors propis de
 valor propi $\lambda_1$ i $\lambda_2$ respectivament, amb
 $\lambda_1\neq\lambda_2$. Apliquem $A$ a l'Equació
- \@ref(eq:v-ellp1): \begin{align}
+ \@ref(eq:v-ellp1): \begin{align*}
 \lambda_{\ell+1}\vec v_{\ell+1} & =A\vec v_{\ell+1}=A(\mu_1\vec v_1+ \cdots+ \mu_\ell\vec v_\ell)= \\ & = \lambda_1\mu_1\vec v_1+\lambda_2\mu_2\vec v_2+\dots+\lambda_\ell\mu_\ell\vec v_\ell
-\end{align} I també: \begin{align}
+\end{align*} I també: \begin{align*}
 \lambda_{\ell+1}\vec v_{\ell+1} & = \lambda_{\ell+1}\mu_1\vec v_1+\lambda_{\ell+1}\mu_2\vec v_2+\dots+\lambda_{\ell+1}\mu_\ell\vec v_\ell
-\end{align} Per tant, com que $\{\vec v_1, \dots, \vec v_\ell\}$ són
+\end{align*} Per tant, com que $\{\vec v_1, \dots, \vec v_\ell\}$ són
 linealment independents, tenim:
 $$\lambda_{\ell+1} \mu_1=\lambda_1\mu_1 \text{ i } \lambda_{\ell+1}\mu_2=\lambda_2\mu_2$$
 amb $\mu_1\neq0\neq\mu_2$, per tant
@@ -1033,10 +1033,10 @@ Si $A\in M_n(\K)$ i $\lambda$ és un valor propi d'$A$, llavors:
 2.  $A$ diagonalitza si i només si
 
     -   $p_A(x)$ es pot escriure com a producte de polinomis de grau $1$
-        \begin{align}
+        \begin{align*}
         (\#eq:pAfaclineals)
               p_A(x)=(-1)^n (x-\lambda_1)^{\multalg_A(\lambda_1)}\cdots(x-\lambda_k)^{\multalg_A(\lambda_k)} 
-\end{align} amb $\lambda_i$ valors propis diferents i
+\end{align*} amb $\lambda_i$ valors propis diferents i
 
     -   $\multgeom_A(\lambda_i)=\multalg_A(\lambda_i)$ per a tot
         $i=1,\dots, k$.

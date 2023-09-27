@@ -68,12 +68,12 @@ particulars:
 
 :::{.example}
 Considerem un sistema d'equacions amb $m$ equacions i $n$ incògnites:
-\begin{align}
+\begin{align*}
 	a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &= b_1 \\
 	a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &= b_2 \\
 	&\vdots \\
 	a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &= b_m
-\end{align}
+\end{align*}
 
 D'aquí podem treure la matriu associada als coeficients del sistema:
 $$A=
@@ -195,12 +195,12 @@ $$\begin{pmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{pmatrix}
 :::
 
 :::{.example}
-Podem escriure el sistema d'equacions \begin{align}
+Podem escriure el sistema d'equacions \begin{align*}
 	a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &= b_1 \\
 	a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &= b_2 \\
 	&\vdots \\
 	a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &= b_m
-\end{align} com $AX=B$, on $$A=
+\end{align*} com $AX=B$, on $$A=
 	\begin{pmatrix}
 	a_{11} & a_{12} & \cdots & a_{1n} \\
 	a_{21} & a_{22} & \cdots & a_{2n} \\
@@ -618,10 +618,10 @@ $$\left(\begin{array}{c|c}A'& P \end{array}\right) \in M_{n\times 2n}(\K)$$
 amb $A',P\in M_{n\times n}(\K)$ i que compleixen que $PA=A'$.
 
 Com a cas particular tenim que, si $A$ és invertible, podem arribar a la
-situació \begin{align}
+situació \begin{align*}
 (\#eq:inversa)
 \left(\begin{array}{c|c}\1_n & P \end{array}\right) \in M_{n\times 2n}(\K)
-\end{align} i tindrem que $P=A^{-1}$.
+\end{align*} i tindrem que $P=A^{-1}$.
 
 Si la matriu $A$ no fos invertible, el
 Teorema \@ref(thm:critinv) ens diu que no seria possible arribar a la
@@ -695,12 +695,12 @@ columnes) linealment independents que conté $A$.
 
 ## Resolució de sistemes d'equacions lineals
 
-Recordem la notació d'un sistema d'equacions: \begin{align}
+Recordem la notació d'un sistema d'equacions: \begin{align*}
 a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &= b_1 \\
 a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &= b_2 \\
 &\vdots \\
 a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &= b_m
-\end{align} Que també escrivim com $AX=B$, on $$A=
+\end{align*} Que també escrivim com $AX=B$, on $$A=
 \begin{pmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\
 a_{21} & a_{22} & \cdots & a_{2n} \\
@@ -737,12 +737,12 @@ Argumentant amb el rang per columnes, ja tenim un criteri per saber si
 un sistema d'equacions lineals té solució o no:
 
 :::{.proposition}
-El sistema d'equacions: \begin{align}
+El sistema d'equacions: \begin{align*}
 	a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &= b_1 \\
 	a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &= b_2 \\
 	&\vdots \\
 	a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &= b_m
-\end{align} té solució si i només si: $$\Rang \begin{pmatrix}
+\end{align*} té solució si i només si: $$\Rang \begin{pmatrix}
 	a_{11} & a_{12} & \cdots & a_{1n} \\
 	a_{21} & a_{22} & \cdots & a_{2n} \\
 	\vdots & \vdots & \ddots & \vdots \\
@@ -806,12 +806,12 @@ $\overline{A}'$:
 ::: {.example #SCI}
  Considerem el sistema d'equacions:
 
-\begin{align}
+\begin{align*}
 	x - y + 2z + 3t &= 21 \\
 	-x+2y+z+5t &= 26\\
 	3x+y-2z+t &= -9\\
 	3x+2y+z+9t &= 38
-\end{align}
+\end{align*}
 
 Considerem la matriu ampliada i esglaonem: $$\begin{amatrix}{4}
 	1 & -1 & 2 & 3 & 21 \\
@@ -866,12 +866,12 @@ escriure la solució: $$\begin{pmatrix}
 
 :::{.example}
 Per tal d'aprofitar els càlculs del sistema anterior, tant sols fem una
-petita modificació a l'últim terme independent: \begin{align}
+petita modificació a l'últim terme independent: \begin{align*}
 	x - y + 2z + 3t &= 21 \\
 	-x+2y+z+5t&=26\\
 	3x+y-2z+t&=-9\\
 	3x+2y+z+9t&=39
-\end{align} Considerem la matriu ampliada i esglaonem (són els
+\end{align*} Considerem la matriu ampliada i esglaonem (són els
 mateixos passos d'abans, pel que tant sols escrivim la primera i última
 matriu): $$\begin{amatrix}{4}
 	1 & -1 & 2 & 3 & 21 \\
@@ -931,18 +931,18 @@ Tenim els resultats següents:
 :::{.example}
 Considerem el sistema d'equacions de l'Exemple
  \@ref(exm:SCI):
-\begin{align}
+\begin{align*}
 	x + y + 2z + 3t &= 21 \\
 	-x+2y+z+5t&=26\\
 	3x+y-2z+t&=-9\\
 	3x+2y+z+9t&=38
-\end{align} Veiem que el sistema homogeni associat és
-\begin{align}
+\end{align*} Veiem que el sistema homogeni associat és
+\begin{align*}
 	x + y + 2z + 3t &= 0\\
 	-x+2y+z+5t&=0\\
 	3x+y-2z+t&=0\\
 	3x+2y+z+9t&=0
-\end{align} i té per solució $$\begin{pmatrix}
+\end{align*} i té per solució $$\begin{pmatrix}
 	x \\ y \\ z \\ t
 	\end{pmatrix} =
 	t \begin{pmatrix}

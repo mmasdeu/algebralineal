@@ -67,11 +67,11 @@ Suposem que tenim una combinació lineal dels vectors
 $\vec u_1, \dots, \vec u_k$ que dóna zero:
 $$0 = \lambda_1 \vec u_1 + \cdots + \lambda_n\vec u_n \,.$$ Si veiem que
 tots els $\lambda_i$ són zero ja estarem. Triem una $i$ i fent el
-producte escalar per $\vec u_i$ tenim: \begin{align}
+producte escalar per $\vec u_i$ tenim: \begin{align*}
     0 &  = (\lambda_1 \vec u_1 + \cdots + \lambda_n\vec u_n)\cdot \vec u_i= \\
      & = \lambda_1 (\vec u_1 \cdot \vec u_i) + \cdots + \lambda_n(\vec u_n\cdot \vec u_i)=\\
      & = \lambda_i \|\vec u_i\|^2\quad \text{(tots els altres productes escalars són zero)}
-\end{align} Per tant, com que $\vec u_i\neq\vec 0$, $\lambda_i=0$.
+\end{align*} Per tant, com que $\vec u_i\neq\vec 0$, $\lambda_i=0$.
 Com que això és cert per cada $i=1,\ldots,n$, els vectors són linealment
 independents.
 
@@ -90,11 +90,11 @@ $$\vec v^\parallel = (\vec v\cdot \vec u_1)\vec u_1 + \cdots + (\vec v\cdot \vec
 Observem que $\proj_V\colon \R^n\rightarrow \R^n$ és una aplicació
 lineal (per les propietats de linealitat del producte escalar). Com que
 la seva imatge està continguda a $V$ i $\proj_V(\vec u_i) = \vec u_i$,
-en deduïm que $\Ima(\proj_V)=V$. A més, \begin{align}
+en deduïm que $\Ima(\proj_V)=V$. A més, \begin{align*}
 \Ker(\proj_V) &= \{\vec w\in\R^n ~|~ \vec w^\parallel = 0\}\\
               &= \{\vec w\in\R^n ~|~ \vec w\cdot \vec u_i = 0, \quad i=1,\ldots k\}\\
               &= \{\vec w\in\R^n ~|~ \vec w\cdot \vec v = 0\quad\text{ per a tot }\vec w \in V\}.
-\end{align} La següent definició dona nom al nucli de $\proj_V$.
+\end{align*} La següent definició dona nom al nucli de $\proj_V$.
 
 :::{.definition}
 Donat un subespai $V\subseteq \R^n$, el *complement ortogonal* de $V$,
@@ -362,10 +362,10 @@ partir del $j-1$:
     $\vec u_j=\frac{1}{r_{jj}} \vec v_j^\perp$. Si fem $Q_jR_j$, les
     primeres $j-1$ columnes són les de $Q_{j-1}R_{j-1}$, per tant són
     $A_{j-1}$. Si calculem la columna $j$-èssima de $Q_jR_j$:
-    \begin{align}
+    \begin{align*}
          r_{1j}\vec u_1+\cdots+r_{jj}\vec u_j & =(\vec u_1\cdot \vec v_j)\vec u_1+\cdots+(\vec u_{j-1}\cdot \vec v_j)\vec u_{j-1}+\|\vec v_j^\perp\|\frac{1}{\|\vec v_j^\perp\|} \vec v_j^\perp = \\
          & =(\vec u_1\cdot \vec v_j)\vec u_1+\cdots+(\vec u_{j-1}\cdot \vec v_j)\vec u_{j-1}+ \vec v_j^\perp=\vec v_j .
-\end{align} I per tant $A_j=Q_jR_j$. A més, la primera caixa
+\end{align*} I per tant $A_j=Q_jR_j$. A més, la primera caixa
     $(j-1)\times(j-1)$ superior esquerra de $Q_j^TQ_j$ és una
     $\1_{j-1}$. L'última columna i fila són és $\vec u_i\cdot \vec u_j$,
     i per tant, com que $\vec u_j$ és perpendicular als altres
@@ -440,7 +440,7 @@ i va a parar a: $$\begin{pmatrix}
 \cos\theta&-\sin\theta\\
 \sin\theta&\cos\theta
 \end{pmatrix}
-\begin{pmatrix}x \\ y \end{pmatrix} ,$$ que té norma \begin{align}
+\begin{pmatrix}x \\ y \end{pmatrix} ,$$ que té norma \begin{align*}
 \|f(\smat{x\\y})\|^2 & =\left( \begin{pmatrix}
 \cos\theta&-\sin\theta\\
 \sin\theta&\cos\theta
@@ -467,7 +467,7 @@ i va a parar a: $$\begin{pmatrix}
 0&1
 \end{pmatrix}
 \begin{pmatrix}x \\ y \end{pmatrix} = x^2+y^2\\
-\end{align} i per tant la rotació és ortogonal.
+\end{align*} i per tant la rotació és ortogonal.
 :::
 
 :::{.exercise}
@@ -493,10 +493,10 @@ $$\vec u \cdot \vec v = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - 
 
 ::: {.proof}
 Considerem $\vec u, \vec v \in \R^n$. Tenim que:
-\begin{align}
+\begin{align*}
 \|\vec u + \vec v\|^2 & =(\vec u+\vec v)\cdot(\vec u+\vec v) = \vec u \cdot (\vec u+ \vec v) + \vec v \cdot (\vec u+ \vec v) = \\
  & = \vec u \cdot \vec u  + \vec u \cdot \vec v + \vec v \cdot \vec u+\vec v \cdot \vec v = \|\vec u\|^2+2 (\vec u \cdot \vec v) + \|\vec v\|^2
-\end{align} I per tant:
+\end{align*} I per tant:
 $$\vec u \cdot \vec v = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - \|\vec v\|^2\right).$$
 :::
 
@@ -511,11 +511,11 @@ $\vec v$ de $\R^n$.
 ::: {.proof}
 Si l'aplicació és ortogonal, es compleix que, per a tot
 $\vec u,\vec v \in \R^n$, $\|f(\vec u)\|=\|\vec u\|$ i
-$\|f(\vec v)\|=\|\vec v\|$. Llavors: \begin{align}
+$\|f(\vec v)\|=\|\vec v\|$. Llavors: \begin{align*}
     f(\vec u)\cdot f\vec v) & = \frac{1}{2}\left(\|f(\vec u) +f(\vec v)\|^2 - \|f(\vec u)\|^2 - \|f(\vec v)\|^2\right) \\
     & = \frac{1}{2}\left(\|f(\vec u+\vec v)\|^2 - \|f(\vec u)\|^2 - \|f(\vec v)\|^2\right) \\
      & = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - \|\vec v\|^2\right) = \vec u \cdot \vec v  ,
-\end{align} on hem utilitzat el Lema
+\end{align*} on hem utilitzat el Lema
  \@ref(lem:prod-esc-modul) dues vegades i que $f$ és lineal.
 
 Si $f(\vec u)\cdot f(\vec v)=\vec u \cdot \vec v$ per a tot $\vec u$ i
@@ -682,9 +682,9 @@ Suposem que els punts estan *aproximadament* alineats i que el que volem
 trobar és la recta $y=a_0+a_1x$ que aproxima millor aquests punts.
 
 Una altra manera de pensar-ho és que volem resoldre el sistema
-d'equacions amb incògnites $a_0$ i $a_1$: \begin{align}
+d'equacions amb incògnites $a_0$ i $a_1$: \begin{align*}
 a_ 0 + x_1 a_1 & = y_1 \\ & \vdots  \\ a_0 + x_k a_1 & = y_k 
-\end{align} O, en forma matricial:
+\end{align*} O, en forma matricial:
 $$\begin{pmatrix} 1 & x_1 \\ \vdots & \vdots \\ 1 & x_k \end{pmatrix}
 \begin{pmatrix} a_0 \\ a_1 \end{pmatrix} =
 \begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix}$$ Com que molt
@@ -732,12 +732,12 @@ $\overline {xy}=  \frac{1}{k} \sum x_iy_i$: $$\begin{pmatrix}
 \end{pmatrix}
 \begin{pmatrix} a_0 \\ a_1 \end{pmatrix} = 
 \begin{pmatrix}  \overline y \\ \overline{xy} \end{pmatrix}$$ I la
-solució es pot escriure com: \begin{align}
+solució es pot escriure com: \begin{align*}
 (\#eq:recta-reg)
 a_1=\frac{\overline{xy} - \overline x \, \overline y}{\overline{x^2} - (\overline x)^2}
 \text{ i } 
 a_0= \overline y - a_1 \overline x .
-\end{align}
+\end{align*}
 
 :::{.example}
 Considerem les notes següents d'un grup de $21$ alumnes corresponent a
@@ -988,10 +988,10 @@ $$[\phi]_\calc=[\Id_n]_{\calc,\calb}^T \, [\phi]_\calb \, [\Id_n]_{\calc,\calb}$
 ::: {.proof}
 Les matrius de $[\phi]_\calb$ i $[\phi]_\calc$ han de complir
 que, per a tot $\vec u$ i $\vec v$ de $\K^n$ es compleixi:
-\begin{align}
+\begin{align*}
 (\#eq:canvi-base-apl-bil)
 [\vec u]_\calc^T \, [\phi]_\calc \, [\vec v]_\calc = \phi(\vec u, \vec v)=  [\vec u]_\calb^T\, [\phi]_\calb\, [\vec v]_\calb .
-\end{align} Però, per les propietats de la matriu
+\end{align*} Però, per les propietats de la matriu
 $[\Id]_{\calc,\calb}$ tenim:
 $$[\vec u]_\calb=[\Id]_{\calc,\calb} [\vec u]_\calc ,$$ i si ho
 substituïm a l'Equació
@@ -1202,10 +1202,10 @@ existeix una base ortonormal $\calb=[\vec v_1, \dots, \vec v_n]$ de
 $\R^n$ i escalars $\lambda_1, \dots, \lambda_n\in \R$ tals que
 $$A^T A \vec v_i=\lambda_i \vec v_i \text{ per a tot $i=1, \dots, n$.}$$
 Volem veure que $f(\vec v_1), \dots, f(\vec v_n)$ són ortogonals, o
-sigui, $f(\vec v_i)\cdot f(\vec v_j)=0$ si $i\neq j$: \begin{align}
+sigui, $f(\vec v_i)\cdot f(\vec v_j)=0$ si $i\neq j$: \begin{align*}
 f(\vec v_i)\cdot f(\vec v_j) & =(A\vec v_i)\cdot(A\vec v_j)=(A\vec v_i)^T(A\vec v_j)=(\vec v_i^T A^T)(A \vec v_j)= \\
  &  = \vec v_i^T (A^T A \vec v_j)=\vec v_i^T (\lambda_j \vec v_j)=\lambda_j (\vec v_i \cdot \vec v_j)=0 .
-\end{align}
+\end{align*}
 :::
 
 :::{.remark}

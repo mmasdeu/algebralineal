@@ -1028,11 +1028,11 @@ definir-lo.
 
 :::{.example}
 Suposem que el subespai $V$ està definit per les equacions següents i en
-volem calcular una base: \begin{align}
+volem calcular una base: \begin{align*}
         3 x_1 -5x_2 +x_3 + x_4  & = 0 \\
         x_1 - x_2  - x_3 + x_4 & = 0 \\
         x_1-2x_2+x_3 & =0
-\end{align} La matriu associada al sistema és: $$\begin{pmatrix}
+\end{align*} La matriu associada al sistema és: $$\begin{pmatrix}
     3 & -5 & 1 & 1 \\ 1 & -1 & -1 & 1 \\ 1 & -2 & 1 & 0
     \end{pmatrix}$$ Que és equivalent a: $$\begin{pmatrix}
     1 & 0 & -3 & 2 \\
@@ -1069,9 +1069,9 @@ Considerem la matriu: $$\left(
     0 & 0 & 0 & 2 & -3 & 0 & 1
     \end{array}
     \right).$$ Per tant, $V$ també es pot definir com el subespai que
-correspon a les equacions: \begin{align}
+correspon a les equacions: \begin{align*}
     x_1-2x_2+x_3&=0\\ 2x_1-3x_2+x_4&=0.
-\end{align}
+\end{align*}
 :::
 
 ## Suma i intersecció de subespais vectorials
@@ -1209,15 +1209,15 @@ identitat: $$\left(
 0&0&-2&1&0&0\\
 0&0&-5&0&2&3
     \end{array}
-    \right).$$ Així, $U$ ve definit per les equacions \begin{align}
+    \right).$$ Així, $U$ ve definit per les equacions \begin{align*}
     -2x_1+x_2 &= 0\\
     -5x_1 +2x_3+3x_4&=0.
-\end{align} Les equacions per $U\cap V$ són, doncs:
-\begin{align}
+\end{align*} Les equacions per $U\cap V$ són, doncs:
+\begin{align*}
     x_1+x_2+2x_3+x_4&=0\\
     -2x_1+x_2 &= 0\\
     -5x_1 +2x_3+3x_4&=0.
-\end{align} Finalment, per trobar una base d'$U\cap V$ hem de
+\end{align*} Finalment, per trobar una base d'$U\cap V$ hem de
 resoldre el sistema anterior. Esglaonant la matriu corresponent, obtenim
 la matriu $$\left(\begin{array}{rrrr}
         1&0&0&\frac{-1}{4}\\
@@ -1248,17 +1248,17 @@ Veiem que:
     generen $U+V$: si $\vec w \in U+V$, existeixen $\vec u\in U$ i
     $\vec v\in V$ tals que $\vec w=\vec u +\vec v$. Com que $\calb_U$ i
     $\calb_V$ són bases d'$U$ i $V$ respectivament, llavors, podem
-    escriure: \begin{align}
+    escriure: \begin{align*}
                 \vec u &=\lambda_1 \vec w_1 + \cdots + \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots + \lambda_k \vec u_k \\
                 \vec v &=\mu_1 \vec w_1 + \cdots + \mu _j \vec w_j + \mu_{j+1} \vec v_{j+1} + \cdots + \mu_k \vec v_k
-\end{align} i per tant:
+\end{align*} i per tant:
     $$\vec w=(\lambda_1+\mu_1) \vec w_1 + \cdots +(\lambda _j+\mu_j) \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots \lambda_k \vec u_k+\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k.$$
 
 -   $\{\vec w_1, \dots , \vec w_j,\vec u_{j+1}, \dots, \vec u_k,\vec v_{j+1}, \dots, \vec v_l\}$
-    són linealment independents: si \begin{align}
+    són linealment independents: si \begin{align*}
     (\#eq:UcapV+U+V)
             \vec 0=\lambda_1 \vec w_1 + \cdots \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots + \lambda_k \vec u_k+\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k,
-\end{align} llavors:
+\end{align*} llavors:
     $$\vec w := \lambda_1 \vec w_1 + \cdots \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots +\lambda_k \vec u_k=-(\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k)$$
     és un vector d'$U$ i $V$, per tant d'$U\cap V$. Llavors, es pot
     escriure de manera única com:
@@ -1474,7 +1474,7 @@ $$[f]_{\calb,\calc}=\begin{pmatrix}
 Del càlcul fet a la Proposició
  \@ref(prp:apl-lin-Kn) es dedueix que aquesta matriu compleix que
 si $[\vec v]_\calb=(\lambda_1,\dots,\lambda_n)$, llavors
-$[f(v)]_{\calc}=(\mu_1,\dots,\mu_s)$, on: \begin{align}
+$[f(v)]_{\calc}=(\mu_1,\dots,\mu_s)$, on: \begin{align*}
 (\#eq:matriu-apl-lineal)
 	\begin{pmatrix}
 	\mu_1 \\ \vdots \\ \mu_s
@@ -1483,7 +1483,7 @@ $[f(v)]_{\calc}=(\mu_1,\dots,\mu_s)$, on: \begin{align}
 	\begin{pmatrix}
 	\lambda_1 \\ \vdots \\ \lambda_n
 	\end{pmatrix}.
-\end{align}
+\end{align*}
 
 Vegem un cas particular d'aquest argument, quan $V=\K^n$ i $W=\K^m$. De
 la definició de matriu associada i que la composició d'aplicacions es
@@ -1995,13 +1995,13 @@ espais vectorials. Sigui $f\colon V\to W$ una aplicació lineal entre els
 $\K$-espais vectorials $V$ i $W$, que suposem de dimensió finita, posem
 $\dim(V)=m$ i $\dim(W)=n$. Escollim bases $\calb=[v_1,\ldots v_m]$ de
 $V$ i $\calc=[w_1,\ldots,w_n]$ de $W$. Aleshores tenim el diagrama
-\begin{align}
+\begin{align*}
 (\#eq:diagrama-matriu-bases)
 \xymatrix{
 V\ar[r]^f\ar[d]^{\cong}_{[\cdot]_{\calb}} & W\ar[d]_{\cong}^{[\cdot]_{\calc}}\\
 \K^m\ar@{-->}[r]&\K^n.
 }
-\end{align} Fixem-nos que l'aplicació resultant de resseguir el
+\end{align*} Fixem-nos que l'aplicació resultant de resseguir el
 diagrama d'esquerra a dreta és una aplicació lineal de $\K^m$ a $\K^n$
 i, per tant, té una matriu associada. La columna $i$-èssima d'aquesta
 matriu és $[f(v_i)]_\calc$.
