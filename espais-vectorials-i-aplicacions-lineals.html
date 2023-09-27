@@ -23,7 +23,7 @@
 <meta name="author" content="Marc Masdeu, Albert Ruiz" />
 
 
-<meta name="date" content="2023-09-26" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1243,11 +1243,11 @@ de <span class="math inline">\(P_2\)</span> tenen dimensió <span class="math in
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-93" class="example"><strong>Exemple 2.7  </strong></span>Suposem que el subespai <span class="math inline">\(V\)</span> està definit per les equacions següents i en
-volem calcular una base: <span class="math display">\[\begin{align}
+volem calcular una base: <span class="math display">\[\begin{align*}
         3 x_1 -5x_2 +x_3 + x_4  &amp; = 0 \\
         x_1 - x_2  - x_3 + x_4 &amp; = 0 \\
         x_1-2x_2+x_3 &amp; =0
-\end{align}\]</span> La matriu associada al sistema és: <span class="math display">\[\begin{pmatrix}
+\end{align*}\]</span> La matriu associada al sistema és: <span class="math display">\[\begin{pmatrix}
     3 &amp; -5 &amp; 1 &amp; 1 \\ 1 &amp; -1 &amp; -1 &amp; 1 \\ 1 &amp; -2 &amp; 1 &amp; 0
     \end{pmatrix}\]</span> Que és equivalent a: <span class="math display">\[\begin{pmatrix}
     1 &amp; 0 &amp; -3 &amp; 2 \\
@@ -1283,9 +1283,9 @@ Considerem la matriu: <span class="math display">\[\left(
     0 &amp; 0 &amp; 0 &amp; 2 &amp; -3 &amp; 0 &amp; 1
     \end{array}
     \right).\]</span> Per tant, <span class="math inline">\(V\)</span> també es pot definir com el subespai que
-correspon a les equacions: <span class="math display">\[\begin{align}
+correspon a les equacions: <span class="math display">\[\begin{align*}
     x_1-2x_2+x_3&amp;=0\\ 2x_1-3x_2+x_4&amp;=0.
-\end{align}\]</span></p>
+\end{align*}\]</span></p>
 </div>
 </div>
 <div id="suma-i-intersecció-de-subespais-vectorials" class="section level2 hasAnchor" number="2.4">
@@ -1408,15 +1408,15 @@ identitat: <span class="math display">\[\left(
 0&amp;0&amp;-2&amp;1&amp;0&amp;0\\
 0&amp;0&amp;-5&amp;0&amp;2&amp;3
     \end{array}
-    \right).\]</span> Així, <span class="math inline">\(U\)</span> ve definit per les equacions <span class="math display">\[\begin{align}
+    \right).\]</span> Així, <span class="math inline">\(U\)</span> ve definit per les equacions <span class="math display">\[\begin{align*}
     -2x_1+x_2 &amp;= 0\\
     -5x_1 +2x_3+3x_4&amp;=0.
-\end{align}\]</span> Les equacions per <span class="math inline">\(U\cap V\)</span> són, doncs:
-<span class="math display">\[\begin{align}
+\end{align*}\]</span> Les equacions per <span class="math inline">\(U\cap V\)</span> són, doncs:
+<span class="math display">\[\begin{align*}
     x_1+x_2+2x_3+x_4&amp;=0\\
     -2x_1+x_2 &amp;= 0\\
     -5x_1 +2x_3+3x_4&amp;=0.
-\end{align}\]</span> Finalment, per trobar una base d’<span class="math inline">\(U\cap V\)</span> hem de
+\end{align*}\]</span> Finalment, per trobar una base d’<span class="math inline">\(U\cap V\)</span> hem de
 resoldre el sistema anterior. Esglaonant la matriu corresponent, obtenim
 la matriu <span class="math display">\[\left(\begin{array}{rrrr}
         1&amp;0&amp;0&amp;\frac{-1}{4}\\
@@ -1443,16 +1443,16 @@ hem ampliat fins a base d’<span class="math inline">\(U\)</span> i per altra, 
 generen <span class="math inline">\(U+V\)</span>: si <span class="math inline">\(\vec w \in U+V\)</span>, existeixen <span class="math inline">\(\vec u\in U\)</span> i
 <span class="math inline">\(\vec v\in V\)</span> tals que <span class="math inline">\(\vec w=\vec u +\vec v\)</span>. Com que <span class="math inline">\(\calb_U\)</span> i
 <span class="math inline">\(\calb_V\)</span> són bases d’<span class="math inline">\(U\)</span> i <span class="math inline">\(V\)</span> respectivament, llavors, podem
-escriure: <span class="math display">\[\begin{align}
+escriure: <span class="math display">\[\begin{align*}
             \vec u &amp;=\lambda_1 \vec w_1 + \cdots + \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots + \lambda_k \vec u_k \\
             \vec v &amp;=\mu_1 \vec w_1 + \cdots + \mu _j \vec w_j + \mu_{j+1} \vec v_{j+1} + \cdots + \mu_k \vec v_k
-\end{align}\]</span> i per tant:
+\end{align*}\]</span> i per tant:
 <span class="math display">\[\vec w=(\lambda_1+\mu_1) \vec w_1 + \cdots +(\lambda _j+\mu_j) \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots \lambda_k \vec u_k+\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k.\]</span></p></li>
 <li><p><span class="math inline">\(\{\vec w_1, \dots , \vec w_j,\vec u_{j+1}, \dots, \vec u_k,\vec v_{j+1}, \dots, \vec v_l\}\)</span>
-són linealment independents: si <span class="math display">\[\begin{align}
+són linealment independents: si <span class="math display">\[\begin{align*}
 (\#eq:UcapV+U+V)
         \vec 0=\lambda_1 \vec w_1 + \cdots \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots + \lambda_k \vec u_k+\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k,
-\end{align}\]</span> llavors:
+\end{align*}\]</span> llavors:
 <span class="math display">\[\vec w := \lambda_1 \vec w_1 + \cdots \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots +\lambda_k \vec u_k=-(\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k)\]</span>
 és un vector d’<span class="math inline">\(U\)</span> i <span class="math inline">\(V\)</span>, per tant d’<span class="math inline">\(U\cap V\)</span>. Llavors, es pot
 escriure de manera única com:
@@ -1643,7 +1643,7 @@ té per coeficients <span class="math inline">\(a_{ij}\)</span> complint:
 <p>Del càlcul fet a la Proposició
 <a href="espais-vectorials-i-aplicacions-lineals.html#prp:apl-lin-Kn">2.1</a> es dedueix que aquesta matriu compleix que
 si <span class="math inline">\([\vec v]_\calb=(\lambda_1,\dots,\lambda_n)\)</span>, llavors
-<span class="math inline">\([f(v)]_{\calc}=(\mu_1,\dots,\mu_s)\)</span>, on: <span class="math display">\[\begin{align}
+<span class="math inline">\([f(v)]_{\calc}=(\mu_1,\dots,\mu_s)\)</span>, on: <span class="math display">\[\begin{align*}
 (\#eq:matriu-apl-lineal)
     \begin{pmatrix}
     \mu_1 \\ \vdots \\ \mu_s
@@ -1652,7 +1652,7 @@ si <span class="math inline">\([\vec v]_\calb=(\lambda_1,\dots,\lambda_n)\)</spa
     \begin{pmatrix}
     \lambda_1 \\ \vdots \\ \lambda_n
     \end{pmatrix}.
-\end{align}\]</span></p>
+\end{align*}\]</span></p>
 <p>Vegem un cas particular d’aquest argument, quan <span class="math inline">\(V=\K^n\)</span> i <span class="math inline">\(W=\K^m\)</span>. De
 la definició de matriu associada i que la composició d’aplicacions es
 correspon amb la multiplicació de matrius, es dedueixen els resultats
@@ -2099,13 +2099,13 @@ espais vectorials. Sigui <span class="math inline">\(f\colon V\to W\)</span> una
 <span class="math inline">\(\K\)</span>-espais vectorials <span class="math inline">\(V\)</span> i <span class="math inline">\(W\)</span>, que suposem de dimensió finita, posem
 <span class="math inline">\(\dim(V)=m\)</span> i <span class="math inline">\(\dim(W)=n\)</span>. Escollim bases <span class="math inline">\(\calb=[v_1,\ldots v_m]\)</span> de
 <span class="math inline">\(V\)</span> i <span class="math inline">\(\calc=[w_1,\ldots,w_n]\)</span> de <span class="math inline">\(W\)</span>. Aleshores tenim el diagrama
-<span class="math display" id="eq:diagrama-matriu-bases">\[\begin{align}
+<span class="math display" id="eq:diagrama-matriu-bases">\[\begin{align*}
 \tag{2.1}
 \xymatrix{
 V\ar[r]^f\ar[d]^{\cong}_{[\cdot]_{\calb}} &amp; W\ar[d]_{\cong}^{[\cdot]_{\calc}}\\
 \K^m\ar@{--&gt;}[r]&amp;\K^n.
 }
-\end{align}\]</span> Fixem-nos que l’aplicació resultant de resseguir el
+\end{align*}\]</span> Fixem-nos que l’aplicació resultant de resseguir el
 diagrama d’esquerra a dreta és una aplicació lineal de <span class="math inline">\(\K^m\)</span> a <span class="math inline">\(\K^n\)</span>
 i, per tant, té una matriu associada. La columna <span class="math inline">\(i\)</span>-èssima d’aquesta
 matriu és <span class="math inline">\([f(v_i)]_\calc\)</span>.</p>

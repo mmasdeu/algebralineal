@@ -23,7 +23,7 @@
 <meta name="author" content="Marc Masdeu, Albert Ruiz" />
 
 
-<meta name="date" content="2023-09-26" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -377,12 +377,12 @@ simètrica.</p></li>
 </ul>
 <div class="example">
 <p><span id="exm:unlabeled-div-3" class="example"><strong>Exemple 1.2  </strong></span>Considerem un sistema d’equacions amb <span class="math inline">\(m\)</span> equacions i <span class="math inline">\(n\)</span> incògnites:
-<span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align*}
     a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &amp;= b_1 \\
     a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &amp;= b_2 \\
     &amp;\vdots \\
     a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &amp;= b_m
-\end{align}\]</span></p>
+\end{align*}\]</span></p>
 <p>D’aquí podem treure la matriu associada als coeficients del sistema:
 <span class="math display">\[A=
     \begin{pmatrix}
@@ -488,12 +488,12 @@ amb comes per a que quedi més clar): <span class="math display">\[(c_{i1},c_{i2
     =   \begin{pmatrix} 1 &amp; 5 &amp; 2 \\ 1 &amp; 11 &amp; 4 \\ 1 &amp; 17 &amp; 6 \end{pmatrix}\]</span></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-7" class="example"><strong>Exemple 1.6  </strong></span>Podem escriure el sistema d’equacions <span class="math display">\[\begin{align}
+<p><span id="exm:unlabeled-div-7" class="example"><strong>Exemple 1.6  </strong></span>Podem escriure el sistema d’equacions <span class="math display">\[\begin{align*}
     a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &amp;= b_1 \\
     a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &amp;= b_2 \\
     &amp;\vdots \\
     a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &amp;= b_m
-\end{align}\]</span> com <span class="math inline">\(AX=B\)</span>, on <span class="math display">\[A=
+\end{align*}\]</span> com <span class="math inline">\(AX=B\)</span>, on <span class="math display">\[A=
     \begin{pmatrix}
     a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
     a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
@@ -861,10 +861,10 @@ coeficients) obtindrem matrius que podem escriure com:
 <span class="math display">\[\left(\begin{array}{c|c}A&#39;&amp; P \end{array}\right) \in M_{n\times 2n}(\K)\]</span>
 amb <span class="math inline">\(A&#39;,P\in M_{n\times n}(\K)\)</span> i que compleixen que <span class="math inline">\(PA=A&#39;\)</span>.</p>
 <p>Com a cas particular tenim que, si <span class="math inline">\(A\)</span> és invertible, podem arribar a la
-situació <span class="math display">\[\begin{align}
+situació <span class="math display">\[\begin{align*}
 (\#eq:inversa)
 \left(\begin{array}{c|c}\1_n &amp; P \end{array}\right) \in M_{n\times 2n}(\K)
-\end{align}\]</span> i tindrem que <span class="math inline">\(P=A^{-1}\)</span>.</p>
+\end{align*}\]</span> i tindrem que <span class="math inline">\(P=A^{-1}\)</span>.</p>
 <p>Si la matriu <span class="math inline">\(A\)</span> no fos invertible, el
 Teorema <a href="matrius-i-equacions-lineals.html#thm:critinv">1.3</a> ens diu que no seria possible arribar a la
 situació de l’Equació
@@ -934,12 +934,12 @@ columnes) linealment independents que conté <span class="math inline">\(A\)</sp
 </div>
 <div id="resolució-de-sistemes-dequacions-lineals" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Resolució de sistemes d’equacions lineals<a href="matrius-i-equacions-lineals.html#resolució-de-sistemes-dequacions-lineals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Recordem la notació d’un sistema d’equacions: <span class="math display">\[\begin{align}
+<p>Recordem la notació d’un sistema d’equacions: <span class="math display">\[\begin{align*}
 a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &amp;= b_1 \\
 a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &amp;= b_2 \\
 &amp;\vdots \\
 a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &amp;= b_m
-\end{align}\]</span> Que també escrivim com <span class="math inline">\(AX=B\)</span>, on <span class="math display">\[A=
+\end{align*}\]</span> Que també escrivim com <span class="math inline">\(AX=B\)</span>, on <span class="math display">\[A=
 \begin{pmatrix}
 a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
 a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
@@ -973,12 +973,12 @@ combinació lineal de les columnes d’<span class="math inline">\(A\)</span>, t
 <p>Argumentant amb el rang per columnes, ja tenim un criteri per saber si
 un sistema d’equacions lineals té solució o no:</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-41" class="proposition"><strong>Proposició 1.7  </strong></span>El sistema d’equacions: <span class="math display">\[\begin{align}
+<p><span id="prp:unlabeled-div-41" class="proposition"><strong>Proposició 1.7  </strong></span>El sistema d’equacions: <span class="math display">\[\begin{align*}
     a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &amp;= b_1 \\
     a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &amp;= b_2 \\
     &amp;\vdots \\
     a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &amp;= b_m
-\end{align}\]</span> té solució si i només si: <span class="math display">\[\Rang \begin{pmatrix}
+\end{align*}\]</span> té solució si i només si: <span class="math display">\[\Rang \begin{pmatrix}
     a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
     a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
     \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
@@ -1034,12 +1034,12 @@ paràmetres lliures</em>.</p></li>
 </ol>
 <div class="example">
 <p><span id="exm:SCI" class="example"><strong>Exemple 1.10  </strong></span>Considerem el sistema d’equacions:</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[\begin{align*}
     x - y + 2z + 3t &amp;= 21 \\
     -x+2y+z+5t &amp;= 26\\
     3x+y-2z+t &amp;= -9\\
     3x+2y+z+9t &amp;= 38
-\end{align}\]</span></p>
+\end{align*}\]</span></p>
 <p>Considerem la matriu ampliada i esglaonem: <span class="math display">\[\begin{amatrix}{4}
     1 &amp; -1 &amp; 2 &amp; 3 &amp; 21 \\
     -1 &amp; 2 &amp; 1 &amp; 5 &amp; 26 \\
@@ -1092,12 +1092,12 @@ escriure la solució: <span class="math display">\[\begin{pmatrix}
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-43" class="example"><strong>Exemple 1.11  </strong></span>Per tal d’aprofitar els càlculs del sistema anterior, tant sols fem una
-petita modificació a l’últim terme independent: <span class="math display">\[\begin{align}
+petita modificació a l’últim terme independent: <span class="math display">\[\begin{align*}
     x - y + 2z + 3t &amp;= 21 \\
     -x+2y+z+5t&amp;=26\\
     3x+y-2z+t&amp;=-9\\
     3x+2y+z+9t&amp;=39
-\end{align}\]</span> Considerem la matriu ampliada i esglaonem (són els
+\end{align*}\]</span> Considerem la matriu ampliada i esglaonem (són els
 mateixos passos d’abans, pel que tant sols escrivim la primera i última
 matriu): <span class="math display">\[\begin{amatrix}{4}
     1 &amp; -1 &amp; 2 &amp; 3 &amp; 21 \\
@@ -1152,18 +1152,18 @@ Si <span class="math inline">\(X\)</span> és solució del sistema i <span class
 <div class="example">
 <p><span id="exm:unlabeled-div-45" class="example"><strong>Exemple 1.12  </strong></span>Considerem el sistema d’equacions de l’Exemple
 <a href="matrius-i-equacions-lineals.html#exm:SCI">1.10</a>:
-<span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align*}
     x + y + 2z + 3t &amp;= 21 \\
     -x+2y+z+5t&amp;=26\\
     3x+y-2z+t&amp;=-9\\
     3x+2y+z+9t&amp;=38
-\end{align}\]</span> Veiem que el sistema homogeni associat és
-<span class="math display">\[\begin{align}
+\end{align*}\]</span> Veiem que el sistema homogeni associat és
+<span class="math display">\[\begin{align*}
     x + y + 2z + 3t &amp;= 0\\
     -x+2y+z+5t&amp;=0\\
     3x+y-2z+t&amp;=0\\
     3x+2y+z+9t&amp;=0
-\end{align}\]</span> i té per solució <span class="math display">\[\begin{pmatrix}
+\end{align*}\]</span> i té per solució <span class="math display">\[\begin{pmatrix}
     x \\ y \\ z \\ t
     \end{pmatrix} =
     t \begin{pmatrix}

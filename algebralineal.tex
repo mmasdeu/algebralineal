@@ -679,7 +679,7 @@ addtohook={%
 
 \title{Apunts d'Àlgebra Lineal}
 \author{Marc Masdeu, Albert Ruiz}
-\date{2023-09-26}
+\date{2023-09-27}
 
 \begin{document}
 \maketitle
@@ -872,12 +872,12 @@ particulars:
 
 \begin{example}
 Considerem un sistema d'equacions amb \(m\) equacions i \(n\) incògnites:
-\begin{align}
+\begin{align*}
     a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &= b_1 \\
     a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &= b_2 \\
     &\vdots \\
     a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &= b_m
-\end{align}
+\end{align*}
 
 D'aquí podem treure la matriu associada als coeficients del sistema:
 \[A=
@@ -1007,12 +1007,12 @@ amb comes per a que quedi més clar): \[(c_{i1},c_{i2},\cdots,c_{ir})=
 \end{example}
 
 \begin{example}
-Podem escriure el sistema d'equacions \begin{align}
+Podem escriure el sistema d'equacions \begin{align*}
     a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &= b_1 \\
     a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &= b_2 \\
     &\vdots \\
     a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &= b_m
-\end{align} com \(AX=B\), on \[A=
+\end{align*} com \(AX=B\), on \[A=
     \begin{pmatrix}
     a_{11} & a_{12} & \cdots & a_{1n} \\
     a_{21} & a_{22} & \cdots & a_{2n} \\
@@ -1472,10 +1472,10 @@ coeficients) obtindrem matrius que podem escriure com:
 amb \(A',P\in M_{n\times n}(\K)\) i que compleixen que \(PA=A'\).
 
 Com a cas particular tenim que, si \(A\) és invertible, podem arribar a la
-situació \begin{align}
+situació \begin{align*}
 \label{eq:inversa}
 \left(\begin{array}{c|c}\1_n & P \end{array}\right) \in M_{n\times 2n}(\K)
-\end{align} i tindrem que \(P=A^{-1}\).
+\end{align*} i tindrem que \(P=A^{-1}\).
 
 Si la matriu \(A\) no fos invertible, el
 Teorema \ref{thm:critinv} ens diu que no seria possible arribar a la
@@ -1558,12 +1558,12 @@ columnes) linealment independents que conté \(A\).
 \hypertarget{resoluciuxf3-de-sistemes-dequacions-lineals}{%
 \section{Resolució de sistemes d'equacions lineals}\label{resoluciuxf3-de-sistemes-dequacions-lineals}}
 
-Recordem la notació d'un sistema d'equacions: \begin{align}
+Recordem la notació d'un sistema d'equacions: \begin{align*}
 a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &= b_1 \\
 a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &= b_2 \\
 &\vdots \\
 a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &= b_m
-\end{align} Que també escrivim com \(AX=B\), on \[A=
+\end{align*} Que també escrivim com \(AX=B\), on \[A=
 \begin{pmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\
 a_{21} & a_{22} & \cdots & a_{2n} \\
@@ -1600,12 +1600,12 @@ Argumentant amb el rang per columnes, ja tenim un criteri per saber si
 un sistema d'equacions lineals té solució o no:
 
 \begin{proposition}
-El sistema d'equacions: \begin{align}
+El sistema d'equacions: \begin{align*}
     a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &= b_1 \\
     a_{21}x_1+a_{22}x_2+ \cdots + a_{2n}x_n &= b_2 \\
     &\vdots \\
     a_{m1}x_1+a_{m2}x_2+ \cdots + a_{mn}x_n &= b_m
-\end{align} té solució si i només si: \[\Rang \begin{pmatrix}
+\end{align*} té solució si i només si: \[\Rang \begin{pmatrix}
     a_{11} & a_{12} & \cdots & a_{1n} \\
     a_{21} & a_{22} & \cdots & a_{2n} \\
     \vdots & \vdots & \ddots & \vdots \\
@@ -1673,12 +1673,12 @@ matriu inicial del sistema. Llavors, obtenint una matriu reduïda
 \begin{example}
 \protect\hypertarget{exm:SCI}{}\label{exm:SCI}Considerem el sistema d'equacions:
 
-\begin{align}
+\begin{align*}
     x - y + 2z + 3t &= 21 \\
     -x+2y+z+5t &= 26\\
     3x+y-2z+t &= -9\\
     3x+2y+z+9t &= 38
-\end{align}
+\end{align*}
 
 Considerem la matriu ampliada i esglaonem: \[\begin{amatrix}{4}
     1 & -1 & 2 & 3 & 21 \\
@@ -1733,12 +1733,12 @@ escriure la solució: \[\begin{pmatrix}
 
 \begin{example}
 Per tal d'aprofitar els càlculs del sistema anterior, tant sols fem una
-petita modificació a l'últim terme independent: \begin{align}
+petita modificació a l'últim terme independent: \begin{align*}
     x - y + 2z + 3t &= 21 \\
     -x+2y+z+5t&=26\\
     3x+y-2z+t&=-9\\
     3x+2y+z+9t&=39
-\end{align} Considerem la matriu ampliada i esglaonem (són els
+\end{align*} Considerem la matriu ampliada i esglaonem (són els
 mateixos passos d'abans, pel que tant sols escrivim la primera i última
 matriu): \[\begin{amatrix}{4}
     1 & -1 & 2 & 3 & 21 \\
@@ -1809,18 +1809,18 @@ Tenim els resultats següents:
 \begin{example}
 Considerem el sistema d'equacions de l'Exemple
 \ref{exm:SCI}:
-\begin{align}
+\begin{align*}
     x + y + 2z + 3t &= 21 \\
     -x+2y+z+5t&=26\\
     3x+y-2z+t&=-9\\
     3x+2y+z+9t&=38
-\end{align} Veiem que el sistema homogeni associat és
-\begin{align}
+\end{align*} Veiem que el sistema homogeni associat és
+\begin{align*}
     x + y + 2z + 3t &= 0\\
     -x+2y+z+5t&=0\\
     3x+y-2z+t&=0\\
     3x+2y+z+9t&=0
-\end{align} i té per solució \[\begin{pmatrix}
+\end{align*} i té per solució \[\begin{pmatrix}
     x \\ y \\ z \\ t
     \end{pmatrix} =
     t \begin{pmatrix}
@@ -2997,11 +2997,11 @@ definir-lo.
 
 \begin{example}
 Suposem que el subespai \(V\) està definit per les equacions següents i en
-volem calcular una base: \begin{align}
+volem calcular una base: \begin{align*}
         3 x_1 -5x_2 +x_3 + x_4  & = 0 \\
         x_1 - x_2  - x_3 + x_4 & = 0 \\
         x_1-2x_2+x_3 & =0
-\end{align} La matriu associada al sistema és: \[\begin{pmatrix}
+\end{align*} La matriu associada al sistema és: \[\begin{pmatrix}
     3 & -5 & 1 & 1 \\ 1 & -1 & -1 & 1 \\ 1 & -2 & 1 & 0
     \end{pmatrix}\] Que és equivalent a: \[\begin{pmatrix}
     1 & 0 & -3 & 2 \\
@@ -3038,9 +3038,9 @@ Considerem la matriu: \[\left(
     0 & 0 & 0 & 2 & -3 & 0 & 1
     \end{array}
     \right).\] Per tant, \(V\) també es pot definir com el subespai que
-correspon a les equacions: \begin{align}
+correspon a les equacions: \begin{align*}
     x_1-2x_2+x_3&=0\\ 2x_1-3x_2+x_4&=0.
-\end{align}
+\end{align*}
 \end{example}
 
 \hypertarget{suma-i-intersecciuxf3-de-subespais-vectorials}{%
@@ -3194,15 +3194,15 @@ identitat: \[\left(
 0&0&-2&1&0&0\\
 0&0&-5&0&2&3
     \end{array}
-    \right).\] Així, \(U\) ve definit per les equacions \begin{align}
+    \right).\] Així, \(U\) ve definit per les equacions \begin{align*}
     -2x_1+x_2 &= 0\\
     -5x_1 +2x_3+3x_4&=0.
-\end{align} Les equacions per \(U\cap V\) són, doncs:
-\begin{align}
+\end{align*} Les equacions per \(U\cap V\) són, doncs:
+\begin{align*}
     x_1+x_2+2x_3+x_4&=0\\
     -2x_1+x_2 &= 0\\
     -5x_1 +2x_3+3x_4&=0.
-\end{align} Finalment, per trobar una base d'\(U\cap V\) hem de
+\end{align*} Finalment, per trobar una base d'\(U\cap V\) hem de
 resoldre el sistema anterior. Esglaonant la matriu corresponent, obtenim
 la matriu \[\left(\begin{array}{rrrr}
         1&0&0&\frac{-1}{4}\\
@@ -3238,17 +3238,17 @@ Veiem que:
   generen \(U+V\): si \(\vec w \in U+V\), existeixen \(\vec u\in U\) i
   \(\vec v\in V\) tals que \(\vec w=\vec u +\vec v\). Com que \(\calb_U\) i
   \(\calb_V\) són bases d'\(U\) i \(V\) respectivament, llavors, podem
-  escriure: \begin{align}
+  escriure: \begin{align*}
               \vec u &=\lambda_1 \vec w_1 + \cdots + \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots + \lambda_k \vec u_k \\
               \vec v &=\mu_1 \vec w_1 + \cdots + \mu _j \vec w_j + \mu_{j+1} \vec v_{j+1} + \cdots + \mu_k \vec v_k
-  \end{align} i per tant:
+  \end{align*} i per tant:
   \[\vec w=(\lambda_1+\mu_1) \vec w_1 + \cdots +(\lambda _j+\mu_j) \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots \lambda_k \vec u_k+\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k.\]
 \item
   \(\{\vec w_1, \dots , \vec w_j,\vec u_{j+1}, \dots, \vec u_k,\vec v_{j+1}, \dots, \vec v_l\}\)
-  són linealment independents: si \begin{align}
+  són linealment independents: si \begin{align*}
   (\#eq:UcapV+U+V)
           \vec 0=\lambda_1 \vec w_1 + \cdots \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots + \lambda_k \vec u_k+\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k,
-  \end{align} llavors:
+  \end{align*} llavors:
   \[\vec w := \lambda_1 \vec w_1 + \cdots \lambda _j \vec w_j + \lambda_{j+1} \vec u_{j+1} + \cdots +\lambda_k \vec u_k=-(\mu_{j+1}\vec v_{j+1} + \cdots + \mu_k \vec v_k)\]
   és un vector d'\(U\) i \(V\), per tant d'\(U\cap V\). Llavors, es pot
   escriure de manera única com:
@@ -3487,7 +3487,7 @@ té per coeficients \(a_{ij}\) complint:
 Del càlcul fet a la Proposició
 \ref{prp:apl-lin-Kn} es dedueix que aquesta matriu compleix que
 si \([\vec v]_\calb=(\lambda_1,\dots,\lambda_n)\), llavors
-\([f(v)]_{\calc}=(\mu_1,\dots,\mu_s)\), on: \begin{align}
+\([f(v)]_{\calc}=(\mu_1,\dots,\mu_s)\), on: \begin{align*}
 \label{eq:matriu-apl-lineal}
     \begin{pmatrix}
     \mu_1 \\ \vdots \\ \mu_s
@@ -3496,7 +3496,7 @@ si \([\vec v]_\calb=(\lambda_1,\dots,\lambda_n)\), llavors
     \begin{pmatrix}
     \lambda_1 \\ \vdots \\ \lambda_n
     \end{pmatrix}.
-\end{align}
+\end{align*}
 
 Vegem un cas particular d'aquest argument, quan \(V=\K^n\) i \(W=\K^m\). De
 la definició de matriu associada i que la composició d'aplicacions es
@@ -4069,13 +4069,13 @@ espais vectorials. Sigui \(f\colon V\to W\) una aplicació lineal entre els
 \(\K\)-espais vectorials \(V\) i \(W\), que suposem de dimensió finita, posem
 \(\dim(V)=m\) i \(\dim(W)=n\). Escollim bases \(\calb=[v_1,\ldots v_m]\) de
 \(V\) i \(\calc=[w_1,\ldots,w_n]\) de \(W\). Aleshores tenim el diagrama
-\begin{align}
+\begin{align*}
 \label{eq:diagrama-matriu-bases}
 \xymatrix{
 V\ar[r]^f\ar[d]^{\cong}_{[\cdot]_{\calb}} & W\ar[d]_{\cong}^{[\cdot]_{\calc}}\\
 \K^m\ar@{-->}[r]&\K^n.
 }
-\end{align} Fixem-nos que l'aplicació resultant de resseguir el
+\end{align*} Fixem-nos que l'aplicació resultant de resseguir el
 diagrama d'esquerra a dreta és una aplicació lineal de \(\K^m\) a \(\K^n\)
 i, per tant, té una matriu associada. La columna \(i\)-èssima d'aquesta
 matriu és \([f(v_i)]_\calc\).
@@ -4305,10 +4305,10 @@ columna tota zero aleshores el determinant és zero:
 
 \begin{proof}
 En efecte, com que \(\vec 0=0 \cdot \vec 0\), aleshores
-\begin{align}
+\begin{align*}
 \det(\vec v_1, \dots, \vec 0, \dots,\vec v_n) & = \det(\vec v_1, \dots, 0\cdot\vec 0, \dots,\vec v_n) = \\
 & = 0 \det(\vec v_1, \dots, \vec 0, \dots,\vec v_n)=0.
-\end{align}
+\end{align*}
 \end{proof}
 
 \begin{lemma}
@@ -4338,11 +4338,11 @@ transformacions \textbf{T1}, \textbf{T2} i \textbf{T3} definides a la Subsecció
 elemental \textbf{T1}, obtenint el resultat de l'enunciat.
 
 Estudiem ara el canvi \textbf{T2}: sumem a una columna \(\mu\) vegades una
-altra: \begin{align}
+altra: \begin{align*}
     \det(\dots, \vec v_j, \dots, \vec v_k+\mu\vec v_j,\dots) & =\det(\dots, \vec v_j, \dots, \vec v_k,\dots) + \det(\dots, \vec v_j, \dots,\mu\vec v_j,\dots)= \\ &
     = \det(\dots, \vec v_j, \dots, \vec v_k,\dots) + \mu\det(\dots, \vec v_j, \dots,\vec v_j,\dots)= \\ &
     = \det(\dots, \vec v_j, \dots, \vec v_k,\dots) + 0
-\end{align} on primer hem aplicat \textbf{D2} (separar la suma de
+\end{align*} on primer hem aplicat \textbf{D2} (separar la suma de
 vectors), llavors \textbf{D1} (treure el \(\mu\) fora del determinant) i
 finalment \textbf{D3} per veure que un dels determinants és zero.
 
@@ -4350,13 +4350,13 @@ Mirem com es modifica el determinant per la transformació \textbf{T3}: vegem
 que si intercanviem dues columnes \(j\neq k\), llavors
 \[\det(\vec v_1,\dots , \vec v_j, \dots, \vec v_k, \dots ,\vec v_n)=-\det(\vec v_1,\dots , \vec v_k, \dots, \vec v_j, \dots ,\vec v_n) .\]
 Per tal de simplificar la notació escrivim
-\(\det(\dots , \vec v_j, \dots, \vec v_k, \dots)\): \begin{align}
+\(\det(\dots , \vec v_j, \dots, \vec v_k, \dots)\): \begin{align*}
         0  & =  \det(\dots , \vec v_j+\vec v_k, \dots, \vec v_j+\vec v_k, \dots)  = \\
           & =  \det(\dots , \vec v_j+\vec v_k, \dots, \vec v_j, \dots) + \det(\dots , \vec v_j+\vec v_k, \dots, \vec v_k, \dots) = \\
           & =  \det(\dots , \vec v_j, \dots, \vec v_j, \dots) + \det(\dots , \vec v_k, \dots, \vec v_j, \dots) + \\
            &  \quad + \det(\dots , \vec v_j, \dots, \vec v_k, \dots) + \det(\dots , \vec v_k, \dots, \vec v_k, \dots) = \\
            & =  0 + \det(\dots , \vec v_k, \dots, \vec v_j , \dots) + \det(\dots , \vec v_j, \dots, \vec v_k , \dots) + 0
-\end{align}
+\end{align*}
 \end{proof}
 
 \begin{theorem}
@@ -4391,7 +4391,7 @@ amb una columna tot zeros, han de valer el mateix.
 \begin{example}
 Calculem el determinant d'\(A\), on:\[A=\begin{pmatrix}
     1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
-    \end{pmatrix}\] fent transformacions elementals: \begin{align}
+    \end{pmatrix}\] fent transformacions elementals: \begin{align*}
     \begin{vmatrix}
     1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
     \end{vmatrix} & =
@@ -4407,7 +4407,7 @@ Calculem el determinant d'\(A\), on:\[A=\begin{pmatrix}
     -2\begin{vmatrix}
     1 & 0 & 6 \\ 0 & 1 & 8 \\ 0 & 0 & 1
     \end{vmatrix}= -2 \det(\1_3)=-2\,.
-\end{align}
+\end{align*}
 \end{example}
 
 Amb tot això, el que no hem demostrat és que existeixi una aplicació
@@ -4420,10 +4420,10 @@ Considerem \(A\in M_n(\K)\) i el producte de \(n\) coeficients de la matriu
 mateixa columna, ni d'una mateixa fila. Dit d'una altra manera, com que
 hi ha \(n\) files i \(n\) columnes,considerem \(n\) parelles
 \(\{(i_1,j_1),\dots,(i_n,j_n)\}\) que compleixin la igualtat de conjunts:
-\begin{align}
+\begin{align*}
 \label{eq:patro}
 \{i_1, \dots, i_n\}=\{1, \dots, n\} = \{j_1, \dots, j_n\} \,.
-\end{align}
+\end{align*}
 
 \begin{definition}
 \protect\hypertarget{def:patro}{}\label{def:patro}Anomenem un \emph{patró} d'\(n\) elements a un
@@ -4542,11 +4542,11 @@ patró.
 Calculem el signe de la identitat per demostrar (d):
 \[\sign(\Id)=\prod_{i<j} \frac{\Id(j)-\Id(i)}{j-i}=\prod_{i<j} \frac{j-i}{j-i}=1 .\]
 
-La demostració d'(e) ve de considerar: \begin{align}
+La demostració d'(e) ve de considerar: \begin{align*}
     \sign(\sigma\circ\tau) & =\prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{j-i}  =
     \prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{\tau(j)-\tau(i)}\frac{\tau(j)-\tau(i)}{j-i}=\\
      & =\prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{\tau(j)-\tau(i)}\prod_{i<j}\frac{\tau(j)-\tau(i)}{j-i}= \sign(\sigma)\sign(\tau),
-\end{align} on observem que:
+\end{align*} on observem que:
 \[\prod_{i<j}\frac{\sigma(j)-\sigma(i)}{j-i}=\prod_{i<j} \frac{\sigma(\tau(j))-\sigma(\tau(i))}{\tau(j)-\tau(i)}\]
 ja que hi ha els mateixos factors al numerador i denominador, i si un
 factor del numerador ha canviat de signe, el corresponent factor del
@@ -4571,10 +4571,10 @@ matriu quadrada. Considerem \(P_n\) el conjunt de tots els patrons d'\(n\)
 elements (\(P_n\) té \(n!\) elements) i per cada \(\calp\in P_n\), considerem
 \(a_\calp\) com a la Definició
 \ref{def:patro}.
-Definim el \emph{determinant d'\(A\)} com: \begin{align}
+Definim el \emph{determinant d'\(A\)} com: \begin{align*}
  \label{eq:def-det}
     \det(A)=\sum_{\calp \in P_n} \sign(\calp) a_\calp \,.
-\end{align}
+\end{align*}
 \end{definition}
 
 \begin{theorem}
@@ -4724,10 +4724,10 @@ comparem amb els de l'Equació
 que fem una iteració anem esborrant la fila i columna corresponent a
 aquell coeficient. Per tant, hi haurà un coeficient de la primera fila,
 un altre de la segona, \ldots, de tal manera que cada cop agafem una
-columna diferent, i per tant tindrem el sumand: \begin{align}
+columna diferent, i per tant tindrem el sumand: \begin{align*}
 \label{eq:sumanddet}
     (-1)^\epsilon a_{1j_1} a_{2j_2} \cdots a_{nj_n}
-\end{align} amb \(j_k\neq j_l\) si \(k\neq l\), i el signe ve determinat
+\end{align*} amb \(j_k\neq j_l\) si \(k\neq l\), i el signe ve determinat
 per la paritat de \(\epsilon\), que es pot veure que és la mateixa que la
 de la permutació, obtenint el mateix que a l'Equació
 \eqref{eq:def-det}
@@ -4739,14 +4739,14 @@ que el resultat final serà el mateix.
 \begin{example}
 Calculem el determinant d'\(A\), on:\[A=\begin{pmatrix}
     1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
-    \end{pmatrix}\] desenvolupant per la primera fila: \begin{align}
+    \end{pmatrix}\] desenvolupant per la primera fila: \begin{align*}
     \begin{vmatrix}
     1 & 2 & 6 \\ 0 & -1 & -8 \\ 5 & 6 & 0
     \end{vmatrix} & = 1 \begin{vmatrix} -1 & -8 \\ 6 & 0 \end{vmatrix} 
     -2 \begin{vmatrix} 0 & -8 \\ 5 & 0  \end{vmatrix} +
     6 \begin{vmatrix} 0 & -1 \\ 5 & 6  \end{vmatrix} = \\
      & = (0-(-48))-2(40)+6(5)=48-80+30=-2.
-\end{align}
+\end{align*}
 \end{example}
 
 \begin{exercise}
@@ -4839,10 +4839,10 @@ x \\ y
 \end{pmatrix} =
 \begin{pmatrix}
 \lambda x \\ \lambda y 
-\end{pmatrix}\] I queda el sistema homogeni: \begin{align}
+\end{pmatrix}\] I queda el sistema homogeni: \begin{align*}
     -\lambda x - y =0 \\
     x - \lambda y=0
-\end{align} Com que estem treballant a \(\R\), aquest sistema té rang
+\end{align*} Com que estem treballant a \(\R\), aquest sistema té rang
 \(2\) per qualsevol \(\lambda\in\R\), i per tant l'única solució és
 \(\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)=\left(\begin{smallmatrix} 0 \\ 0 \end{smallmatrix}\right)\),
 que no pot formar part de cap base.
@@ -5067,10 +5067,10 @@ Si \(A\) i \(B\in M_n(\K)\) són matrius similars, llavors \(p_A(x)=p_B(x)\).
 
 \begin{proof}
 Si \(A\) i \(B\) són matrius similars, existeix \(S\in M_n(\K)\) una
-matriu invertible tal que \(S^{-1}AS=B\). Llavors: \begin{align}
+matriu invertible tal que \(S^{-1}AS=B\). Llavors: \begin{align*}
 p_B(x) & =\det(B-x\1_n)=\det(S^{-1}AS-x\1_n)=\det(S^{-1}AS-S^{-1}(x\1)_nS)=\\ & = \det(S^{-1}(A-x\1_n)S)= \det(S^{-1})\det(A-x\1_n)\det(S)=\\
  & = \det(S)^{-1}\det(S)\det(A-x\1_n) = p_A(x) \, .
-\end{align} On a l'última igualtat hem utilitzat que
+\end{align*} On a l'última igualtat hem utilitzat que
 \(\det(S^{-1})=\det(S)^{-1}\).
 \end{proof}
 
@@ -5122,10 +5122,10 @@ els reordenem). Per tant
 \(\{\vec v_1, \dots, \vec v_\ell\}\subset\{\vec v_1, \dots, \vec v_k\}\)
 amb els \(\ell\) primers linealment independents. Volem veure \(\ell=k\).
 Suposem que no, llavors \(\ell<k\) i existeixen uns únics
-\(\mu_1,\dots, \mu_\ell \in \K\) tals que: \begin{align}
+\(\mu_1,\dots, \mu_\ell \in \K\) tals que: \begin{align*}
 \label{eq:v-ellp1}
 \vec v_{\ell+1}=\mu_1\vec v_1+ \cdots+ \mu_\ell\vec v_\ell.
-\end{align} També podem considerar que hi ha dues \(\mu_i\neq0\): com
+\end{align*} També podem considerar que hi ha dues \(\mu_i\neq0\): com
 que \(\vec v_{\ell+1}\neq\vec 0\), com a mínim n'hi ha una. Si només n'hi
 hagués una, llavors
 \(E_{\lambda_i}\cap E_{\lambda_{\ell+1}}\neq\{\vec 0\}\), contradient el
@@ -5139,11 +5139,11 @@ que es pot posar com
 \(\mu_1\neq0\neq\mu_2\) i \(\vec v_1\) i \(\vec v_2\) són vectors propis de
 valor propi \(\lambda_1\) i \(\lambda_2\) respectivament, amb
 \(\lambda_1\neq\lambda_2\). Apliquem \(A\) a l'Equació
-\eqref{eq:v-ellp1}: \begin{align}
+\eqref{eq:v-ellp1}: \begin{align*}
 \lambda_{\ell+1}\vec v_{\ell+1} & =A\vec v_{\ell+1}=A(\mu_1\vec v_1+ \cdots+ \mu_\ell\vec v_\ell)= \\ & = \lambda_1\mu_1\vec v_1+\lambda_2\mu_2\vec v_2+\dots+\lambda_\ell\mu_\ell\vec v_\ell
-\end{align} I també: \begin{align}
+\end{align*} I també: \begin{align*}
 \lambda_{\ell+1}\vec v_{\ell+1} & = \lambda_{\ell+1}\mu_1\vec v_1+\lambda_{\ell+1}\mu_2\vec v_2+\dots+\lambda_{\ell+1}\mu_\ell\vec v_\ell
-\end{align} Per tant, com que \(\{\vec v_1, \dots, \vec v_\ell\}\) són
+\end{align*} Per tant, com que \(\{\vec v_1, \dots, \vec v_\ell\}\) són
 linealment independents, tenim:
 \[\lambda_{\ell+1} \mu_1=\lambda_1\mu_1 \text{ i } \lambda_{\ell+1}\mu_2=\lambda_2\mu_2\]
 amb \(\mu_1\neq0\neq\mu_2\), per tant
@@ -5267,10 +5267,10 @@ Si \(A\in M_n(\K)\) i \(\lambda\) és un valor propi d'\(A\), llavors:
   \begin{itemize}
   \item
     \(p_A(x)\) es pot escriure com a producte de polinomis de grau \(1\)
-    \begin{align}
+    \begin{align*}
     \label{eq:pAfaclineals}
           p_A(x)=(-1)^n (x-\lambda_1)^{\multalg_A(\lambda_1)}\cdots(x-\lambda_k)^{\multalg_A(\lambda_k)} 
-    \end{align} amb \(\lambda_i\) valors propis diferents i
+    \end{align*} amb \(\lambda_i\) valors propis diferents i
   \item
     \(\multgeom_A(\lambda_i)=\multalg_A(\lambda_i)\) per a tot
     \(i=1,\dots, k\).
@@ -5691,11 +5691,11 @@ Suposem que tenim una combinació lineal dels vectors
 \(\vec u_1, \dots, \vec u_k\) que dóna zero:
 \[0 = \lambda_1 \vec u_1 + \cdots + \lambda_n\vec u_n \,.\] Si veiem que
 tots els \(\lambda_i\) són zero ja estarem. Triem una \(i\) i fent el
-producte escalar per \(\vec u_i\) tenim: \begin{align}
+producte escalar per \(\vec u_i\) tenim: \begin{align*}
     0 &  = (\lambda_1 \vec u_1 + \cdots + \lambda_n\vec u_n)\cdot \vec u_i= \\
      & = \lambda_1 (\vec u_1 \cdot \vec u_i) + \cdots + \lambda_n(\vec u_n\cdot \vec u_i)=\\
      & = \lambda_i \|\vec u_i\|^2\quad \text{(tots els altres productes escalars són zero)}
-\end{align} Per tant, com que \(\vec u_i\neq\vec 0\), \(\lambda_i=0\).
+\end{align*} Per tant, com que \(\vec u_i\neq\vec 0\), \(\lambda_i=0\).
 Com que això és cert per cada \(i=1,\ldots,n\), els vectors són linealment
 independents.
 
@@ -5714,11 +5714,11 @@ ortonormal de \(V\), i considerem la \emph{projecció ortogonal}
 Observem que \(\proj_V\colon \R^n\rightarrow \R^n\) és una aplicació
 lineal (per les propietats de linealitat del producte escalar). Com que
 la seva imatge està continguda a \(V\) i \(\proj_V(\vec u_i) = \vec u_i\),
-en deduïm que \(\Ima(\proj_V)=V\). A més, \begin{align}
+en deduïm que \(\Ima(\proj_V)=V\). A més, \begin{align*}
 \Ker(\proj_V) &= \{\vec w\in\R^n ~|~ \vec w^\parallel = 0\}\\
               &= \{\vec w\in\R^n ~|~ \vec w\cdot \vec u_i = 0, \quad i=1,\ldots k\}\\
               &= \{\vec w\in\R^n ~|~ \vec w\cdot \vec v = 0\quad\text{ per a tot }\vec w \in V\}.
-\end{align} La següent definició dona nom al nucli de \(\proj_V\).
+\end{align*} La següent definició dona nom al nucli de \(\proj_V\).
 
 \begin{definition}
 Donat un subespai \(V\subseteq \R^n\), el \emph{complement ortogonal} de \(V\),
@@ -6006,10 +6006,10 @@ partir del \(j-1\):
   \(\vec u_j=\frac{1}{r_{jj}} \vec v_j^\perp\). Si fem \(Q_jR_j\), les
   primeres \(j-1\) columnes són les de \(Q_{j-1}R_{j-1}\), per tant són
   \(A_{j-1}\). Si calculem la columna \(j\)-èssima de \(Q_jR_j\):
-  \begin{align}
+  \begin{align*}
        r_{1j}\vec u_1+\cdots+r_{jj}\vec u_j & =(\vec u_1\cdot \vec v_j)\vec u_1+\cdots+(\vec u_{j-1}\cdot \vec v_j)\vec u_{j-1}+\|\vec v_j^\perp\|\frac{1}{\|\vec v_j^\perp\|} \vec v_j^\perp = \\
        & =(\vec u_1\cdot \vec v_j)\vec u_1+\cdots+(\vec u_{j-1}\cdot \vec v_j)\vec u_{j-1}+ \vec v_j^\perp=\vec v_j .
-  \end{align} I per tant \(A_j=Q_jR_j\). A més, la primera caixa
+  \end{align*} I per tant \(A_j=Q_jR_j\). A més, la primera caixa
   \((j-1)\times(j-1)\) superior esquerra de \(Q_j^TQ_j\) és una
   \(\1_{j-1}\). L'última columna i fila són és \(\vec u_i\cdot \vec u_j\),
   i per tant, com que \(\vec u_j\) és perpendicular als altres
@@ -6088,7 +6088,7 @@ i va a parar a: \[\begin{pmatrix}
 \cos\theta&-\sin\theta\\
 \sin\theta&\cos\theta
 \end{pmatrix}
-\begin{pmatrix}x \\ y \end{pmatrix} ,\] que té norma \begin{align}
+\begin{pmatrix}x \\ y \end{pmatrix} ,\] que té norma \begin{align*}
 \|f(\smat{x\\y})\|^2 & =\left( \begin{pmatrix}
 \cos\theta&-\sin\theta\\
 \sin\theta&\cos\theta
@@ -6115,7 +6115,7 @@ i va a parar a: \[\begin{pmatrix}
 0&1
 \end{pmatrix}
 \begin{pmatrix}x \\ y \end{pmatrix} = x^2+y^2\\
-\end{align} i per tant la rotació és ortogonal.
+\end{align*} i per tant la rotació és ortogonal.
 \end{example}
 
 \begin{exercise}
@@ -6141,10 +6141,10 @@ són vectors d'\(\R^n\), llavors:
 
 \begin{proof}
 Considerem \(\vec u, \vec v \in \R^n\). Tenim que:
-\begin{align}
+\begin{align*}
 \|\vec u + \vec v\|^2 & =(\vec u+\vec v)\cdot(\vec u+\vec v) = \vec u \cdot (\vec u+ \vec v) + \vec v \cdot (\vec u+ \vec v) = \\
  & = \vec u \cdot \vec u  + \vec u \cdot \vec v + \vec v \cdot \vec u+\vec v \cdot \vec v = \|\vec u\|^2+2 (\vec u \cdot \vec v) + \|\vec v\|^2
-\end{align} I per tant:
+\end{align*} I per tant:
 \[\vec u \cdot \vec v = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - \|\vec v\|^2\right).\]
 \end{proof}
 
@@ -6159,11 +6159,11 @@ Una aplicació lineal \(f\colon \R^n \to \R^m\) és ortogonal si i només si
 \begin{proof}
 Si l'aplicació és ortogonal, es compleix que, per a tot
 \(\vec u,\vec v \in \R^n\), \(\|f(\vec u)\|=\|\vec u\|\) i
-\(\|f(\vec v)\|=\|\vec v\|\). Llavors: \begin{align}
+\(\|f(\vec v)\|=\|\vec v\|\). Llavors: \begin{align*}
     f(\vec u)\cdot f\vec v) & = \frac{1}{2}\left(\|f(\vec u) +f(\vec v)\|^2 - \|f(\vec u)\|^2 - \|f(\vec v)\|^2\right) \\
     & = \frac{1}{2}\left(\|f(\vec u+\vec v)\|^2 - \|f(\vec u)\|^2 - \|f(\vec v)\|^2\right) \\
      & = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - \|\vec v\|^2\right) = \vec u \cdot \vec v  ,
-\end{align} on hem utilitzat el Lema
+\end{align*} on hem utilitzat el Lema
 \ref{lem:prod-esc-modul} dues vegades i que \(f\) és lineal.
 
 Si \(f(\vec u)\cdot f(\vec v)=\vec u \cdot \vec v\) per a tot \(\vec u\) i
@@ -6345,9 +6345,9 @@ Suposem que els punts estan \emph{aproximadament} alineats i que el que volem
 trobar és la recta \(y=a_0+a_1x\) que aproxima millor aquests punts.
 
 Una altra manera de pensar-ho és que volem resoldre el sistema
-d'equacions amb incògnites \(a_0\) i \(a_1\): \begin{align}
+d'equacions amb incògnites \(a_0\) i \(a_1\): \begin{align*}
 a_ 0 + x_1 a_1 & = y_1 \\ & \vdots  \\ a_0 + x_k a_1 & = y_k 
-\end{align} O, en forma matricial:
+\end{align*} O, en forma matricial:
 \[\begin{pmatrix} 1 & x_1 \\ \vdots & \vdots \\ 1 & x_k \end{pmatrix}
 \begin{pmatrix} a_0 \\ a_1 \end{pmatrix} =
 \begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix}\] Com que molt
@@ -6395,12 +6395,12 @@ escriure: si \(\overline x = \frac{1}{k} \sum x_i\),
 \end{pmatrix}
 \begin{pmatrix} a_0 \\ a_1 \end{pmatrix} = 
 \begin{pmatrix}  \overline y \\ \overline{xy} \end{pmatrix}\] I la
-solució es pot escriure com: \begin{align}
+solució es pot escriure com: \begin{align*}
 \label{eq:recta-reg}
 a_1=\frac{\overline{xy} - \overline x \, \overline y}{\overline{x^2} - (\overline x)^2}
 \text{ i } 
 a_0= \overline y - a_1 \overline x .
-\end{align}
+\end{align*}
 
 \begin{example}
 
@@ -6659,10 +6659,10 @@ matrius de l'aplicació bilineal en cada base:
 \begin{proof}
 Les matrius de \([\phi]_\calb\) i \([\phi]_\calc\) han de complir
 que, per a tot \(\vec u\) i \(\vec v\) de \(\K^n\) es compleixi:
-\begin{align}
+\begin{align*}
 \label{eq:canvi-base-apl-bil}
 [\vec u]_\calc^T \, [\phi]_\calc \, [\vec v]_\calc = \phi(\vec u, \vec v)=  [\vec u]_\calb^T\, [\phi]_\calb\, [\vec v]_\calb .
-\end{align} Però, per les propietats de la matriu
+\end{align*} Però, per les propietats de la matriu
 \([\Id]_{\calc,\calb}\) tenim:
 \[[\vec u]_\calb=[\Id]_{\calc,\calb} [\vec u]_\calc ,\] i si ho
 substituïm a l'Equació
@@ -6884,10 +6884,10 @@ existeix una base ortonormal \(\calb=[\vec v_1, \dots, \vec v_n]\) de
 \(\R^n\) i escalars \(\lambda_1, \dots, \lambda_n\in \R\) tals que
 \[A^T A \vec v_i=\lambda_i \vec v_i \text{ per a tot $i=1, \dots, n$.}\]
 Volem veure que \(f(\vec v_1), \dots, f(\vec v_n)\) són ortogonals, o
-sigui, \(f(\vec v_i)\cdot f(\vec v_j)=0\) si \(i\neq j\): \begin{align}
+sigui, \(f(\vec v_i)\cdot f(\vec v_j)=0\) si \(i\neq j\): \begin{align*}
 f(\vec v_i)\cdot f(\vec v_j) & =(A\vec v_i)\cdot(A\vec v_j)=(A\vec v_i)^T(A\vec v_j)=(\vec v_i^T A^T)(A \vec v_j)= \\
  &  = \vec v_i^T (A^T A \vec v_j)=\vec v_i^T (\lambda_j \vec v_j)=\lambda_j (\vec v_i \cdot \vec v_j)=0 .
-\end{align}
+\end{align*}
 \end{proof}
 
 \begin{remark}

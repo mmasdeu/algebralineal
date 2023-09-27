@@ -23,7 +23,7 @@
 <meta name="author" content="Marc Masdeu, Albert Ruiz" />
 
 
-<meta name="date" content="2023-09-26" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -383,11 +383,11 @@ En particular, si tenim <span class="math inline">\(n\)</span> vectors <span cla
 <span class="math inline">\(\vec u_1, \dots, \vec u_k\)</span> que dóna zero:
 <span class="math display">\[0 = \lambda_1 \vec u_1 + \cdots + \lambda_n\vec u_n \,.\]</span> Si veiem que
 tots els <span class="math inline">\(\lambda_i\)</span> són zero ja estarem. Triem una <span class="math inline">\(i\)</span> i fent el
-producte escalar per <span class="math inline">\(\vec u_i\)</span> tenim: <span class="math display">\[\begin{align}
+producte escalar per <span class="math inline">\(\vec u_i\)</span> tenim: <span class="math display">\[\begin{align*}
     0 &amp;  = (\lambda_1 \vec u_1 + \cdots + \lambda_n\vec u_n)\cdot \vec u_i= \\
      &amp; = \lambda_1 (\vec u_1 \cdot \vec u_i) + \cdots + \lambda_n(\vec u_n\cdot \vec u_i)=\\
      &amp; = \lambda_i \|\vec u_i\|^2\quad \text{(tots els altres productes escalars són zero)}
-\end{align}\]</span> Per tant, com que <span class="math inline">\(\vec u_i\neq\vec 0\)</span>, <span class="math inline">\(\lambda_i=0\)</span>.
+\end{align*}\]</span> Per tant, com que <span class="math inline">\(\vec u_i\neq\vec 0\)</span>, <span class="math inline">\(\lambda_i=0\)</span>.
 Com que això és cert per cada <span class="math inline">\(i=1,\ldots,n\)</span>, els vectors són linealment
 independents.</p>
 <p>En el cas de tenir <span class="math inline">\(n\)</span> vectors ortonormals, són <span class="math inline">\(n\)</span> vectors ortogonals
@@ -404,11 +404,11 @@ ortonormal de <span class="math inline">\(V\)</span>, i considerem la <em>projec
 Observem que <span class="math inline">\(\proj_V\colon \R^n\rightarrow \R^n\)</span> és una aplicació
 lineal (per les propietats de linealitat del producte escalar). Com que
 la seva imatge està continguda a <span class="math inline">\(V\)</span> i <span class="math inline">\(\proj_V(\vec u_i) = \vec u_i\)</span>,
-en deduïm que <span class="math inline">\(\Ima(\proj_V)=V\)</span>. A més, <span class="math display">\[\begin{align}
+en deduïm que <span class="math inline">\(\Ima(\proj_V)=V\)</span>. A més, <span class="math display">\[\begin{align*}
 \Ker(\proj_V) &amp;= \{\vec w\in\R^n ~|~ \vec w^\parallel = 0\}\\
               &amp;= \{\vec w\in\R^n ~|~ \vec w\cdot \vec u_i = 0, \quad i=1,\ldots k\}\\
               &amp;= \{\vec w\in\R^n ~|~ \vec w\cdot \vec v = 0\quad\text{ per a tot }\vec w \in V\}.
-\end{align}\]</span> La següent definició dona nom al nucli de <span class="math inline">\(\proj_V\)</span>.</p>
+\end{align*}\]</span> La següent definició dona nom al nucli de <span class="math inline">\(\proj_V\)</span>.</p>
 <div class="definition">
 <p><span id="def:unlabeled-div-197" class="definition"><strong>Definició 4.2  </strong></span>Donat un subespai <span class="math inline">\(V\subseteq \R^n\)</span>, el <em>complement ortogonal</em> de <span class="math inline">\(V\)</span>,
 que escriurem <span class="math inline">\(V^\perp\)</span>, és el conjunt
@@ -639,10 +639,10 @@ tal que <span class="math inline">\(A_{j-1}=Q_{j-1}R_{j-1}\)</span>, <span class
 <span class="math inline">\(\vec u_j=\frac{1}{r_{jj}} \vec v_j^\perp\)</span>. Si fem <span class="math inline">\(Q_jR_j\)</span>, les
 primeres <span class="math inline">\(j-1\)</span> columnes són les de <span class="math inline">\(Q_{j-1}R_{j-1}\)</span>, per tant són
 <span class="math inline">\(A_{j-1}\)</span>. Si calculem la columna <span class="math inline">\(j\)</span>-èssima de <span class="math inline">\(Q_jR_j\)</span>:
-<span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align*}
      r_{1j}\vec u_1+\cdots+r_{jj}\vec u_j &amp; =(\vec u_1\cdot \vec v_j)\vec u_1+\cdots+(\vec u_{j-1}\cdot \vec v_j)\vec u_{j-1}+\|\vec v_j^\perp\|\frac{1}{\|\vec v_j^\perp\|} \vec v_j^\perp = \\
      &amp; =(\vec u_1\cdot \vec v_j)\vec u_1+\cdots+(\vec u_{j-1}\cdot \vec v_j)\vec u_{j-1}+ \vec v_j^\perp=\vec v_j .
-\end{align}\]</span> I per tant <span class="math inline">\(A_j=Q_jR_j\)</span>. A més, la primera caixa
+\end{align*}\]</span> I per tant <span class="math inline">\(A_j=Q_jR_j\)</span>. A més, la primera caixa
 <span class="math inline">\((j-1)\times(j-1)\)</span> superior esquerra de <span class="math inline">\(Q_j^TQ_j\)</span> és una
 <span class="math inline">\(\1_{j-1}\)</span>. L’última columna i fila són és <span class="math inline">\(\vec u_i\cdot \vec u_j\)</span>,
 i per tant, com que <span class="math inline">\(\vec u_j\)</span> és perpendicular als altres
@@ -713,7 +713,7 @@ i va a parar a: <span class="math display">\[\begin{pmatrix}
 \cos\theta&amp;-\sin\theta\\
 \sin\theta&amp;\cos\theta
 \end{pmatrix}
-\begin{pmatrix}x \\ y \end{pmatrix} ,\]</span> que té norma <span class="math display">\[\begin{align}
+\begin{pmatrix}x \\ y \end{pmatrix} ,\]</span> que té norma <span class="math display">\[\begin{align*}
 \|f(\smat{x\\y})\|^2 &amp; =\left( \begin{pmatrix}
 \cos\theta&amp;-\sin\theta\\
 \sin\theta&amp;\cos\theta
@@ -740,7 +740,7 @@ i va a parar a: <span class="math display">\[\begin{pmatrix}
 0&amp;1
 \end{pmatrix}
 \begin{pmatrix}x \\ y \end{pmatrix} = x^2+y^2\\
-\end{align}\]</span> i per tant la rotació és ortogonal.</p>
+\end{align*}\]</span> i per tant la rotació és ortogonal.</p>
 </div>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-213" class="exercise"><strong>Exercici 4.1  </strong></span>Demostreu que reflexions definides a la Secció
@@ -761,10 +761,10 @@ són vectors d’<span class="math inline">\(\R^n\)</span>, llavors:
 </div>
 <div class="proof">
 <p><span id="unlabeled-div-215" class="proof"><em>Prova</em>. </span>Considerem <span class="math inline">\(\vec u, \vec v \in \R^n\)</span>. Tenim que:
-<span class="math display">\[\begin{align}
+<span class="math display">\[\begin{align*}
 \|\vec u + \vec v\|^2 &amp; =(\vec u+\vec v)\cdot(\vec u+\vec v) = \vec u \cdot (\vec u+ \vec v) + \vec v \cdot (\vec u+ \vec v) = \\
 &amp; = \vec u \cdot \vec u  + \vec u \cdot \vec v + \vec v \cdot \vec u+\vec v \cdot \vec v = \|\vec u\|^2+2 (\vec u \cdot \vec v) + \|\vec v\|^2
-\end{align}\]</span> I per tant:
+\end{align*}\]</span> I per tant:
 <span class="math display">\[\vec u \cdot \vec v = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - \|\vec v\|^2\right).\]</span></p>
 </div>
 <p>I d’aquí deduïm:</p>
@@ -776,11 +776,11 @@ són vectors d’<span class="math inline">\(\R^n\)</span>, llavors:
 <div class="proof">
 <p><span id="unlabeled-div-217" class="proof"><em>Prova</em>. </span>Si l’aplicació és ortogonal, es compleix que, per a tot
 <span class="math inline">\(\vec u,\vec v \in \R^n\)</span>, <span class="math inline">\(\|f(\vec u)\|=\|\vec u\|\)</span> i
-<span class="math inline">\(\|f(\vec v)\|=\|\vec v\|\)</span>. Llavors: <span class="math display">\[\begin{align}
+<span class="math inline">\(\|f(\vec v)\|=\|\vec v\|\)</span>. Llavors: <span class="math display">\[\begin{align*}
     f(\vec u)\cdot f\vec v) &amp; = \frac{1}{2}\left(\|f(\vec u) +f(\vec v)\|^2 - \|f(\vec u)\|^2 - \|f(\vec v)\|^2\right) \\
     &amp; = \frac{1}{2}\left(\|f(\vec u+\vec v)\|^2 - \|f(\vec u)\|^2 - \|f(\vec v)\|^2\right) \\
      &amp; = \frac{1}{2}\left(\|\vec u + \vec v\|^2 - \|\vec u\|^2 - \|\vec v\|^2\right) = \vec u \cdot \vec v  ,
-\end{align}\]</span> on hem utilitzat el Lema
+\end{align*}\]</span> on hem utilitzat el Lema
 <a href="ortogonalitat.html#lem:prod-esc-modul">4.2</a> dues vegades i que <span class="math inline">\(f\)</span> és lineal.</p>
 <p>Si <span class="math inline">\(f(\vec u)\cdot f(\vec v)=\vec u \cdot \vec v\)</span> per a tot <span class="math inline">\(\vec u\)</span> i
 <span class="math inline">\(\vec v\)</span> de <span class="math inline">\(\R^n\)</span>, com que <span class="math inline">\(\|\vec u\|^2=\vec u \cdot \vec u\)</span>, tenim
@@ -928,9 +928,9 @@ problema que hi hagués dos punts amb la mateixa <span class="math inline">\(x\)
 Suposem que els punts estan <em>aproximadament</em> alineats i que el que volem
 trobar és la recta <span class="math inline">\(y=a_0+a_1x\)</span> que aproxima millor aquests punts.</p>
 <p>Una altra manera de pensar-ho és que volem resoldre el sistema
-d’equacions amb incògnites <span class="math inline">\(a_0\)</span> i <span class="math inline">\(a_1\)</span>: <span class="math display">\[\begin{align}
+d’equacions amb incògnites <span class="math inline">\(a_0\)</span> i <span class="math inline">\(a_1\)</span>: <span class="math display">\[\begin{align*}
 a_ 0 + x_1 a_1 &amp; = y_1 \\ &amp; \vdots  \\ a_0 + x_k a_1 &amp; = y_k
-\end{align}\]</span> O, en forma matricial:
+\end{align*}\]</span> O, en forma matricial:
 <span class="math display">\[\begin{pmatrix} 1 &amp; x_1 \\ \vdots &amp; \vdots \\ 1 &amp; x_k \end{pmatrix}
 \begin{pmatrix} a_0 \\ a_1 \end{pmatrix} =
 \begin{pmatrix} y_1 \\ \vdots \\ y_k \end{pmatrix}\]</span> Com que molt
@@ -978,12 +978,12 @@ escriure: si <span class="math inline">\(\overline x = \frac{1}{k} \sum x_i\)</s
 \end{pmatrix}
 \begin{pmatrix} a_0 \\ a_1 \end{pmatrix} =
 \begin{pmatrix}  \overline y \\ \overline{xy} \end{pmatrix}\]</span> I la
-solució es pot escriure com: <span class="math display">\[\begin{align}
+solució es pot escriure com: <span class="math display">\[\begin{align*}
 (\#eq:recta-reg)
 a_1=\frac{\overline{xy} - \overline x \, \overline y}{\overline{x^2} - (\overline x)^2}
 \text{ i }
 a_0= \overline y - a_1 \overline x .
-\end{align}\]</span></p>
+\end{align*}\]</span></p>
 <div class="example">
 <p><span id="exm:unlabeled-div-227" class="example"><strong>Exemple 4.8  </strong></span>Considerem les notes següents d’un grup de <span class="math inline">\(21\)</span> alumnes corresponent a
 una avaluació parcial i la nota final que van treure:
@@ -1216,10 +1216,10 @@ matrius de l’aplicació bilineal en cada base:
 <div class="proof">
 <p><span id="unlabeled-div-237" class="proof"><em>Prova</em>. </span>Les matrius de <span class="math inline">\([\phi]_\calb\)</span> i <span class="math inline">\([\phi]_\calc\)</span> han de complir
 que, per a tot <span class="math inline">\(\vec u\)</span> i <span class="math inline">\(\vec v\)</span> de <span class="math inline">\(\K^n\)</span> es compleixi:
-<span class="math display" id="eq:canvi-base-apl-bil">\[\begin{align}
+<span class="math display" id="eq:canvi-base-apl-bil">\[\begin{align*}
 \tag{4.1}
 [\vec u]_\calc^T \, [\phi]_\calc \, [\vec v]_\calc = \phi(\vec u, \vec v)=  [\vec u]_\calb^T\, [\phi]_\calb\, [\vec v]_\calb .
-\end{align}\]</span> Però, per les propietats de la matriu
+\end{align*}\]</span> Però, per les propietats de la matriu
 <span class="math inline">\([\Id]_{\calc,\calb}\)</span> tenim:
 <span class="math display">\[[\vec u]_\calb=[\Id]_{\calc,\calb} [\vec u]_\calc ,\]</span> i si ho
 substituïm a l’Equació
@@ -1407,10 +1407,10 @@ existeix una base ortonormal <span class="math inline">\(\calb=[\vec v_1, \dots,
 <span class="math inline">\(\R^n\)</span> i escalars <span class="math inline">\(\lambda_1, \dots, \lambda_n\in \R\)</span> tals que
 <span class="math display">\[A^T A \vec v_i=\lambda_i \vec v_i \text{ per a tot $i=1, \dots, n$.}\]</span>
 Volem veure que <span class="math inline">\(f(\vec v_1), \dots, f(\vec v_n)\)</span> són ortogonals, o
-sigui, <span class="math inline">\(f(\vec v_i)\cdot f(\vec v_j)=0\)</span> si <span class="math inline">\(i\neq j\)</span>: <span class="math display">\[\begin{align}
+sigui, <span class="math inline">\(f(\vec v_i)\cdot f(\vec v_j)=0\)</span> si <span class="math inline">\(i\neq j\)</span>: <span class="math display">\[\begin{align*}
 f(\vec v_i)\cdot f(\vec v_j) &amp; =(A\vec v_i)\cdot(A\vec v_j)=(A\vec v_i)^T(A\vec v_j)=(\vec v_i^T A^T)(A \vec v_j)= \\
 &amp;  = \vec v_i^T (A^T A \vec v_j)=\vec v_i^T (\lambda_j \vec v_j)=\lambda_j (\vec v_i \cdot \vec v_j)=0 .
-\end{align}\]</span></p>
+\end{align*}\]</span></p>
 </div>
 <div class="remark">
 <p><span id="unlabeled-div-246" class="remark"><em>Observació</em>. </span>El Teorema <a href="ortogonalitat.html#thm:val-sing">4.8</a> no diu que <span class="math inline">\(\calb\)</span> sigui única, i de fet, en
