@@ -18,6 +18,7 @@ output:
     split_by: chapter
     css: style.css
     includes:
+      before_body: src/hero-image.html
       in_header: src/mathjaxheader.html
     config:
       toolbar:
@@ -25,6 +26,8 @@ output:
       toc:
         before: |
           <li><a href="./">Àlgebra Lineal</a></li>
+          <li class="toc-logo"><a href="./"><img src="logoUAB.png"></a></li>
+
         after: |
           <li><a href="https://github.com/mmasdeu/algebralineal" target="blank">Publicat amb bookdown</a></li>
         collapse: section
