@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Muli:400,400i,700&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Prata&display=swap');
 
 p.caption {
   color: #777;
@@ -145,7 +145,6 @@ div.lemma, div.proposition, div.theorem, div.corollary {
     background-position: 15px center;
     min-height: 80px;
     border: solid 2px #ff5a00;
-    background-color: #FAFAFA;
   }
 
 span.lemma, span.proposition, span.theorem, span.corollary {
