@@ -2030,11 +2030,14 @@ El cas més general que podem considerar és el següent. Siguin $V$ i $W$
 com fins ara, i prenem bases $\calb$ i $\calb'$ de $V$, i bases $\calc$
 i $\calc'$ de $W$. Aleshores enganxant quatre còpies del
 Diagrama \@ref(eq:diagrama-matriu-bases) obtenim el diagrama següent:
-$$\xymatrix@C50pt@R50pt{
+$$
+\xymatrix@C50pt@R50pt{
 \K^m\ar[rrr]^{[f]_{\calb,\calc}}\ar[dd]_{S_{\calb,\calb'}}&&& \K^n\ar[dd]^{S_{\calc,\calc'}}\\
 &V\ar[r]^f\ar[ul]_{[\cdot]_\calb}\ar[dl]^{[\cdot]_{\calb'}}&W\ar[ur]^{[\cdot]_{\calc}}\ar[dr]_{[\cdot]_{\calc'}}\\
 \K^m\ar[rrr]^{[f]_{\calb',\calc'}}&&&\K^n.
-}$$ Observem que les quatre fletxes exteriors tenen matrius associades,
+}
+$$
+Observem que les quatre fletxes exteriors tenen matrius associades,
 però que les cinc fletxes interiors no en tenen pas. En tot cas, les
 fletxes exteriors ens donen la següent fórmula, que ens relaciona la
 matriu de $f$ en les bases $\calb,\calc$ i la matriu de $f$ en les bases
