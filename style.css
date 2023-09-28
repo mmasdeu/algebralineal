@@ -16,12 +16,16 @@ pre code {
   white-space: inherit;
 }
 
+div.book-header h1 {
+    display: none;
+}
+
 /* The next two rules make the horizontal line go straight across in top navbar */
 
 .summary > li:first-child {
     height: 50px;
     padding-top: 10px;
-    border-bottom: 1px solid rgba(0,0,0,.07);
+    border-bottom: 1px solid black;
 }
 
 .book .book-summary ul.summary li.divider {
@@ -33,7 +37,7 @@ pre code {
 .summary > li:first-child {
     height: 50px;
     padding-top: 10px;
-    border-bottom: 1px solid rgba(0,0,0,.07);
+    border-bottom: 1px solid black;
 }
 
 .book .book-summary ul.summary li.divider {
@@ -49,7 +53,7 @@ pre code {
 
 .title, h1, h2, h3, h4 {
   font-family: 'Muli', sans-serif;
-  color: black;
+  color: inherit;
     padding: 1em;
     margin: 1em 0;
     padding-left: 20px;
@@ -58,8 +62,6 @@ pre code {
 
     border: solid 3px #f36619;
     border-radius: 35px;
-
-
 }
 
 .title {
@@ -100,6 +102,15 @@ color: #ff803b; /* darker color when hovering */
 text-decoration: none;
 }
 
+/*-----Images--------*/
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+
 /* HERO IMAGE */
 
 .hero-image-container {
@@ -108,7 +119,6 @@ text-decoration: none;
   left: 0;
   right: 0;
   height: 390px;
-  background-color: #ffd7c2;
 }
 
 .hero-image {
@@ -177,11 +187,11 @@ font-family: 'Muli', sans-serif;
 
 .summary a:hover {
   color: #ff5a00 !important;
-} 
+}
 
 .book .book-summary ul.summary li.active>a { /*active TOC links*/
   color: #ff5a00 !important;
   border-left: solid 4px;
   border-color: black;
   padding-left: 11px !important;
-}  
+}
