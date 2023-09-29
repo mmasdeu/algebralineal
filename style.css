@@ -146,6 +146,17 @@ div.definition {
     min-height: 100px;
 }
 
+div.example {
+    padding: 0em;
+    margin: 1em 0;
+    padding-left: 20px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    border-left: 4px solid  black;
+    min-height: 50px;
+}
+
 div.lemma, div.proposition, div.theorem, div.corollary {
     padding: 1em;
     margin: 1em 0;
