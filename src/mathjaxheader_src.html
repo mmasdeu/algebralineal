@@ -15,6 +15,15 @@ MathJax.Hub.Config({
     noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },}
 });
 </script>
+	<script type="text/x-mathjax-config">
+	(function () {
+	  cookie = MathJax.HTML.Cookie.Get("menu");
+	  if (cookie.renderer && cookie.renderer !== "HTML-CSS") {
+	    cookie.renderer = "HTML-CSS";
+	    MathJax.HTML.Cookie.Set("menu",cookie);
+	  }
+	})();
+	</script>
 <script>
   MathJax = {
     loader: {
