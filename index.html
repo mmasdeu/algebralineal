@@ -23,7 +23,7 @@
 <meta name="author" content="Marc Masdeu, Albert Ruiz" />
 
 
-<meta name="date" content="2023-09-28" />
+<meta name="date" content="2023-09-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -182,6 +182,15 @@ MathJax.Hub.Config({
     noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },}
 });
 </script>
+	<script type="text/x-mathjax-config">
+	(function () {
+	  cookie = MathJax.HTML.Cookie.Get("menu");
+	  if (cookie.renderer && cookie.renderer !== "HTML-CSS") {
+	    cookie.renderer = "HTML-CSS";
+	    MathJax.HTML.Cookie.Set("menu",cookie);
+	  }
+	})();
+	</script>
 <script>
   MathJax = {
     loader: {
@@ -328,7 +337,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Apunts d’Àlgebra Lineal</h1>
 <p class="author"><em>Marc Masdeu, Albert Ruiz</em></p>
-<p class="date"><em>2023-09-28</em></p>
+<p class="date"><em>2023-09-29</em></p>
 </div>
 <div id="introducció" class="section level1 unnumbered hasAnchor">
 <h1>Introducció<a href="index.html#introducció" class="anchor-section" aria-label="Anchor link to header"></a></h1>
