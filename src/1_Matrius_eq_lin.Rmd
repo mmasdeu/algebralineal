@@ -932,13 +932,13 @@ Tenim els resultats següents:
 Considerem el sistema d'equacions de l'Exemple
  \@ref(exm:SCI):
 \begin{align*}
-	x + y + 2z + 3t &= 21 \\
+	x - y + 2z + 3t &= 21 \\
 	-x+2y+z+5t&=26\\
 	3x+y-2z+t&=-9\\
 	3x+2y+z+9t&=38
 \end{align*} Veiem que el sistema homogeni associat és
 \begin{align*}
-	x + y + 2z + 3t &= 0\\
+	x - y + 2z + 3t &= 0\\
 	-x+2y+z+5t&=0\\
 	3x+y-2z+t&=0\\
 	3x+2y+z+9t&=0

@@ -111,10 +111,11 @@ i suposem que $f$ té matriu $A$ i $g$ té matriu $B$. Considerem la
 composició $f\circ g$, que és l'aplicació que envia $\vec x\in \K^n$ a
 $(f\circ g)(\vec x) = f(g(\vec x))$. Per definició, sabem que per a tot
 $\vec x$ tenim
-$$(f\circ g)(\vec x) = f(g(\vec x)) = A(B\vec x) = (AB)\vec x.$$ Per
+$$(f\circ g)(\vec x) = f(g(\vec x)) = A(B\vec x).$$
+Aquest últim terme és igual, per tal i com hem definit el producte $A$, a $(AB)\vec x$. Per
 tant, obtenim que $f\circ g$ és una aplicació lineal, amb matriu
-associada $AB$. Per tant, el producte de matrius "codifica" la
-composició d'aplicacions lineals.
+associada $AB$. Veiem doncs que el producte de matrius "codifica" la
+composició d'aplicacions lineals, i això explica el per què de la definició del producte de matrius tal i com s'ha fet.
 
 :::{.example}
 Donades tres aplicacions lineals
@@ -763,7 +764,7 @@ linealment independents si i només si existeixen
 $\lambda_1, \dots, \lambda_n,\mu_1,\dots, \mu_n\in\K$ tals que
 $\lambda_1\vec v_1+\cdots + \lambda_n\vec v_n=\mu_1\vec v_1+\cdots + \mu_n\vec v_n$
 implica que $\lambda_j=\mu_j$ per a tot $j$, per tant, si i només si la
-solució és única.
+solució és única (en cas d'existir).
 :::
 
 :::{.remark}
@@ -782,7 +783,7 @@ Si són base, necessitem que el sistema $Ax=B$ tingui solució
 [1](#subsec:matriusapl){reference-type="ref"
 reference="subsec:matriusapl"}) i resolent cada un dels sistemes amb
 solucions $X_j\in M_{n\times 1}$, tindrem una matriu $X$ que compleix
-$AX=\1_n$, per ant $A$ és invertible.\
+$AX=\1_n$, per tant $A$ és invertible.\
 Si la matriu $A$ és invertible, $x=A^{-1}B$, per tant el sistema és
 compatible determinat per a tot $B$.
 :::
@@ -898,7 +899,7 @@ $\vec u\not\in\langle \vec v_1,\dots, \vec v_n\rangle$, per tant
 $\{\vec u, \vec v_1,\dots,\vec v_n\}$ és un conjunt de vectors
 linealment independents que té $n+1$ vectors, contradient (a). Si
 $\vec v_1, \dots , \vec v_n$ són generadors i no són linealment
-independents, vol dir que un d'ells es pot escriure com ca combinació
+independents, vol dir que un d'ells es pot escriure com a combinació
 lineal dels altres, i per tant tindríem un conjunt de vectors generadors
 amb $n-1$ vectors, que no pot ser.
 :::
@@ -1079,7 +1080,7 @@ correspon a les equacions: \begin{align*}
 Volem construir subespais vectorials a partir d'altres subespais: si
 $U,V\subset \K^n$ són subespais vectorials, en particular són conjunts,
 pel que té sentit considerar la intersecció $U\cap V$ i la unió
-$V\cup V$.
+$U\cup V$.
 
 Veiem que:
 
@@ -1474,7 +1475,9 @@ $$[f]_{\calb,\calc}=\begin{pmatrix}
 Del càlcul fet a la Proposició
  \@ref(prp:apl-lin-Kn) es dedueix que aquesta matriu compleix que
 si $[\vec v]_\calb=(\lambda_1,\dots,\lambda_n)$, llavors
-$[f(v)]_{\calc}=(\mu_1,\dots,\mu_s)$, on: \begin{align*}
+$[f(v)]_{\calc}=(\mu_1,\dots,\mu_s)$, on:
+
+\begin{align}
 (\#eq:matriu-apl-lineal)
 	\begin{pmatrix}
 	\mu_1 \\ \vdots \\ \mu_s
@@ -1483,7 +1486,7 @@ $[f(v)]_{\calc}=(\mu_1,\dots,\mu_s)$, on: \begin{align*}
 	\begin{pmatrix}
 	\lambda_1 \\ \vdots \\ \lambda_n
 	\end{pmatrix}.
-\end{align*}
+\end{align}
 
 Vegem un cas particular d'aquest argument, quan $V=\K^n$ i $W=\K^m$. De
 la definició de matriu associada i que la composició d'aplicacions es
@@ -1508,24 +1511,24 @@ següents:
 
 Llavors:
 
-1.  $[\Id_n]_{\calb}=\1_n$ (per a qualsevol base $\calb$ de $\K^n$),
+a.  $[\Id_n]_{\calb}=\1_n$ (per a qualsevol base $\calb$ de $\K^n$),
 
-2.  $$[\Id_n]_{\calb,\cals_n}=	\begin{pmatrix}
+b.  $$[\Id_n]_{\calb,\cals_n}=	\begin{pmatrix}
             	\mid & \mid &\mid & \mid\\
             	\vec v_1 & \vec v_2 &\cdots&\vec v_n\\
             	\mid & \mid &\mid & \mid
             	\end{pmatrix},$$ la matriu que té per columnes els vectors
     de $\calb$.
 
-3.  $[\Id_n]_{\cals_n,\calb}=[\Id_n]_{\calb,\cals_n}^{-1}$.
+c.  $[\Id_n]_{\cals_n,\calb}=[\Id_n]_{\calb,\cals_n}^{-1}$.
 
-4.  $[g\circ f]_{\calb,\calb''}=[g]_{\calb',\calb''}\cdot[f]_{\calb,\calb'}$
+d.  $[g\circ f]_{\calb,\calb''}=[g]_{\calb',\calb''}\cdot[f]_{\calb,\calb'}$
     per a totes $f\colon \K^n\to \K^m$ i $g\colon \K^m\to\K^r$
     aplicacions lineals.
 
-5.  $A=[f_A]_{\cals_n,\cals_m}$.
+e.  $A=[f_A]_{\cals_n,\cals_m}$.
 
-6.  $[f_A]_{\calb,\calb'}= [\Id_m]_{\calb',\cals_m}^{-1} \cdot A \cdot [\Id_n]_{\calb,\cals_n}$.
+f.  $[f_A]_{\calb,\calb'}= [\Id_m]_{\calb',\cals_m}^{-1} \cdot A \cdot [\Id_n]_{\calb,\cals_n}$.
 :::
 
 ::: {.proof}
@@ -1539,10 +1542,10 @@ Per demostrar (d) utilitzem directament la Definició
  \@ref(eq:matriu-apl-lineal): si $\vec v\in \K^n$ i
 $[\vec v]_\calb=\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}$,
 llavors, les coordenades en la base $\calb'$ d'$f(\vec v)$
-són=$[f(\vec v)]_\calb = \begin{pmatrix}\mu_1\\\vdots\\\mu_m\end{pmatrix}$,
+són=$[f(\vec v)]_{\calb'} = \begin{pmatrix}\mu_1\\\vdots\\\mu_m\end{pmatrix}$,
 on:
-$$\begin{pmatrix}\mu_1\\ \vdots \\ \mu_m \end{pmatrix}=[f]_{\calb,\calb'}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}$$
-I les coordenades de $g(f(v))$ en la base $\calb''$ són
+$$\begin{pmatrix}\mu_1\\ \vdots \\ \mu_m \end{pmatrix}=[f]_{\calb,\calb'}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix},$$
+i les coordenades de $g(f(v))$ en la base $\calb''$ són
 $[g(f(v))]_{\calb''}=(\gamma_1,\dots,\gamma_r)$, on:
 $$\begin{pmatrix}\gamma_1\\ \vdots \\ \gamma_r \end{pmatrix}=[g]_{\calb',\calb''}\begin{pmatrix}\mu_1 \\ \vdots \\ \mu_m \end{pmatrix}=
     [g]_{\calb',\calb''} [f]_{\calb,\calb'}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}$$
@@ -1559,7 +1562,8 @@ $$\xymatrix{
 $(\K^n)_\calb$ a $(\K^m)_{\calb'}$ podem seguir dos camins, amb el
 mateix resultat (diem que el diagrama és commutatiu). Si ara ho escrivim
 en matrius (de les fletxes verticals tant sols hem deixat la que dóna la
-matriu): $$\xymatrixcolsep{6em}
+matriu):
+$$
 \xymatrix{
 (\K^n)_\cals \ar[r]^{A}  &  (\K^m)_\cals  \\
 (\K^n)_\calb \ar[r]^{[f_A]_{\calb,\calb'}} \ar[u]^B & (\K^m)_{\calb'} \ar[u]_{B'}}$$
@@ -2031,7 +2035,7 @@ com fins ara, i prenem bases $\calb$ i $\calb'$ de $V$, i bases $\calc$
 i $\calc'$ de $W$. Aleshores enganxant quatre còpies del
 Diagrama \@ref(eq:diagrama-matriu-bases) obtenim el diagrama següent:
 $$
-\xymatrix@C50pt@R50pt{
+\xymatrix{
 \K^m\ar[rrr]^{[f]_{\calb,\calc}}\ar[dd]_{S_{\calb,\calb'}}&&& \K^n\ar[dd]^{S_{\calc,\calc'}}\\
 &V\ar[r]^f\ar[ul]_{[\cdot]_\calb}\ar[dl]^{[\cdot]_{\calb'}}&W\ar[ur]^{[\cdot]_{\calc}}\ar[dr]_{[\cdot]_{\calc'}}\\
 \K^m\ar[rrr]^{[f]_{\calb',\calc'}}&&&\K^n.
@@ -2071,7 +2075,7 @@ f_a(x-a)=\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
 \text{ i }
 f_a((x-a)^2)=\begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}.$$ I per tant:
 $$[f_a]_{\calb',\calc}=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2\end{pmatrix}.$$
-Llavors, el diagrama que tenim és: $$\xymatrix@C50pt@R50pt{
+Llavors, el diagrama que tenim és: $$\xymatrix{
 \R^3 \ar[rrd]^{[f_a]_{\calb,\calc}} &  & \\
  & \R[x]_{\leq2} \ar[ul]^{[\cdot]_\calb} \ar[r]^{f_a} \ar[dl]_{[\cdot]_{\calb'}} & \R^3 \\
 \R^3 \ar[rru]_{[f_a]_{\calb',\calc}} \ar[uu]^{S_{\calb',\calb}} & &
