@@ -6,16 +6,19 @@
   11pt,
 ]{book}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -61,28 +64,38 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
 \setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
   % turn on hanging indent if param 1 is 1
   \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
   \fi
   % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
 \usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 \RequirePackage{luatex85}
 \usepackage{textcomp}
@@ -668,9 +681,9 @@ addtohook={%
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={Apunts d'Àlgebra Lineal},
   pdfauthor={Marc Masdeu, Albert Ruiz},
@@ -679,7 +692,7 @@ addtohook={%
 
 \title{Apunts d'Àlgebra Lineal}
 \author{Marc Masdeu, Albert Ruiz}
-\date{2023-09-29}
+\date{2024-05-02}
 
 \begin{document}
 \maketitle
@@ -746,17 +759,16 @@ addtohook={%
 
 \pagestyle{fancy} % Enable headers and footers again
 
-\hypertarget{introducciuxf3}{%
-\chapter*{Introducció}\label{introducciuxf3}}
+\chapter*{Introducció}\label{introducciuxf3}
 \addcontentsline{toc}{chapter}{Introducció}
 
 Aquests apunts corresponen a l'assignatura d'Àlgebra Lineal que s'ha fet
 als cursos 2018/2019 i 2019/2020 del Grau en Matemàtica Computacional i
 Analítica de Dades a la UAB. És un curs de 52 hores docents on es
 barregen les classes teòriques i pràctiques. Per a les classes teòriques
-(i aquests apunts) s'han utilitzat les referències {[}\protect\hyperlink{ref-Bret}{1}{]} i {[}\protect\hyperlink{ref-NaXa}{2}{]}.
+(i aquests apunts) s'han utilitzat les referències {[}\citeproc{ref-Bret}{1}{]} i {[}\citeproc{ref-NaXa}{2}{]}.
 Cada capítol acaba amb una selecció d'exercicis proposats, agafant la
-numeració de {[}\protect\hyperlink{ref-Bret}{1}{]}. A més a més, aquest curs s'ha complementat amb
+numeració de {[}\citeproc{ref-Bret}{1}{]}. A més a més, aquest curs s'ha complementat amb
 tres sessions de \textbf{Sage} que mostren aplicacions d'aquests resultats.
 
 Encara que aquests apunts intenten ser força autocontinguts, es
@@ -800,14 +812,12 @@ d'\(A\). També escriurem \(A\setminus B=\{a \in A \mid a \not\in B\}\) i
 llegirem els \(a\) que pertanyen a \(A\) i que no pertanyen a \(B\) (o bé el
 complementari de \(B\) en \(A\)).
 
-\hypertarget{matrius-i-equacions-lineals}{%
-\chapter{Matrius i equacions lineals}\label{matrius-i-equacions-lineals}}
+\chapter{Matrius i equacions lineals}\label{matrius-i-equacions-lineals}
 
-El contingut d'aquesta secció el podem trobar a {[}\protect\hyperlink{ref-Bret}{1} Tema 1{]} i a
-{[}\protect\hyperlink{ref-NaXa}{2} Tema 2{]}.
+El contingut d'aquesta secció el podem trobar a {[}\citeproc{ref-Bret}{1} Tema 1{]} i a
+{[}\citeproc{ref-NaXa}{2} Tema 2{]}.
 
-\hypertarget{matrius}{%
-\section{Matrius}\label{matrius}}
+\section{Matrius}\label{matrius}
 
 \begin{definition}
 Si \(m\) i \(n\) són dos nombres naturals, una \emph{matriu \(m\times n\) amb
@@ -824,7 +834,9 @@ fer referència al coeficient de la posició \((i,j)\) després de fer el
 producte.
 
 \begin{example}
-Si \(A=\big(\begin{smallmatrix}  1 & 3 & 0 \\ 0 & -1 & 1  \end{smallmatrix}\big) \in M_{2\times3}(\Q)\), llavors \(a_{11}=1\),
+Si \(A=\big(\begin{smallmatrix}
+    1 & 3 & 0 \\ 0 & -1 & 1
+    \end{smallmatrix}\big) \in M_{2\times3}(\Q)\), llavors \(a_{11}=1\),
 \(a_{12}=3\), \(a_{13}=0\), \(a_{21}=0\), \(a_{22}=-1\) i \(a_{23}=1\).
 \end{example}
 
@@ -899,8 +911,7 @@ ampliada), on habitualment separem els termes independents:
     \end{amatrix}\]
 \end{example}
 
-\hypertarget{subsec:opmat}{%
-\section{Operacions amb matrius. Matriu invertible}\label{subsec:opmat}}
+\section{Operacions amb matrius. Matriu invertible}\label{subsec:opmat}
 
 Considerem \(\lambda \in \K\) i
 \(A,B \in M_{m\times n}(\K)\). Les primeres operacions que podem fer són
@@ -1154,8 +1165,7 @@ invertibles, el seu producte també ho és i
 \((A_1\cdots A_r)^{-1}=A_r^{-1}\cdots A_1^{-1}\).
 \end{remark}
 
-\hypertarget{subsec:trans-el}{%
-\section{Transformacions elementals en matrius}\label{subsec:trans-el}}
+\section{Transformacions elementals en matrius}\label{subsec:trans-el}
 
 Considerem una matriu organitzada per files (encara que tot el que farem
 aquí també es pot fer per columnes) i definim les \emph{transformacions
@@ -1344,8 +1354,7 @@ multiplicada per \(4\): \[\begin{pmatrix}
     \end{pmatrix}\]
 \end{example}
 
-\hypertarget{criteri-dinvertibilitat.-rang-duna-matriu}{%
-\section{Criteri d'invertibilitat. Rang d'una matriu}\label{criteri-dinvertibilitat.-rang-duna-matriu}}
+\section{Criteri d'invertibilitat. Rang d'una matriu}\label{criteri-dinvertibilitat.-rang-duna-matriu}
 
 Considerem primer el resultat següent:
 
@@ -1555,8 +1564,7 @@ Demostreu que el rang d'una matriu \(A\) és el nombre màxim de files (o
 columnes) linealment independents que conté \(A\).
 \end{exercise}
 
-\hypertarget{resoluciuxf3-de-sistemes-dequacions-lineals}{%
-\section{Resolució de sistemes d'equacions lineals}\label{resoluciuxf3-de-sistemes-dequacions-lineals}}
+\section{Resolució de sistemes d'equacions lineals}\label{resoluciuxf3-de-sistemes-dequacions-lineals}
 
 Recordem la notació d'un sistema d'equacions: \begin{align*}
 a_{11}x_1+a_{12}x_2+ \cdots + a_{1n}x_n &= b_1 \\
@@ -1810,13 +1818,13 @@ Tenim els resultats següents:
 Considerem el sistema d'equacions de l'Exemple
 \ref{exm:SCI}:
 \begin{align*}
-    x + y + 2z + 3t &= 21 \\
+    x - y + 2z + 3t &= 21 \\
     -x+2y+z+5t&=26\\
     3x+y-2z+t&=-9\\
     3x+2y+z+9t&=38
 \end{align*} Veiem que el sistema homogeni associat és
 \begin{align*}
-    x + y + 2z + 3t &= 0\\
+    x - y + 2z + 3t &= 0\\
     -x+2y+z+5t&=0\\
     3x+y-2z+t&=0\\
     3x+2y+z+9t&=0
@@ -1837,11 +1845,10 @@ particular és \((x,y,z)=(3,8,13)\), podem escriure: \[\begin{pmatrix}
     \end{pmatrix} \text{ amb $t\in\K$.}\]
 \end{example}
 
-\hypertarget{exercicis-recomanats}{%
-\section{Exercicis recomanats}\label{exercicis-recomanats}}
+\section{Exercicis recomanats}\label{exercicis-recomanats}
 
 Els exercicis que segueixen són útils per practicar el material
-presentat. La numeració és la de {[}\protect\hyperlink{ref-Bret}{1}{]}.
+presentat. La numeració és la de {[}\citeproc{ref-Bret}{1}{]}.
 
 \begin{description}
 \item[Secció 1.1:]
@@ -1852,14 +1859,12 @@ presentat. La numeració és la de {[}\protect\hyperlink{ref-Bret}{1}{]}.
 6, 8, 18, 20, 24, 28.
 \end{description}
 
-\hypertarget{espais-vectorials-i-aplicacions-lineals}{%
-\chapter{Espais vectorials i aplicacions lineals}\label{espais-vectorials-i-aplicacions-lineals}}
+\chapter{Espais vectorials i aplicacions lineals}\label{espais-vectorials-i-aplicacions-lineals}
 
-El contingut d'aquesta secció també es pot trobar a {[}\protect\hyperlink{ref-Bret}{1} Secció 2.2{]} i
-{[}\protect\hyperlink{ref-NaXa}{2} Temes 2, 3, 4{]}.
+El contingut d'aquesta secció també es pot trobar a {[}\citeproc{ref-Bret}{1} Secció 2.2{]} i
+{[}\citeproc{ref-NaXa}{2} Temes 2, 3, 4{]}.
 
-\hypertarget{subsec:matriusapl}{%
-\section{Matrius com a aplicacions lineals}\label{subsec:matriusapl}}
+\section{Matrius com a aplicacions lineals}\label{subsec:matriusapl}
 
 En aquest capítol considerarem funcions de l'espai \(\K^n\) a l'espai
 \(\K^m\). Recordem que aquests espais els hem definit com
@@ -1982,10 +1987,11 @@ i suposem que \(f\) té matriu \(A\) i \(g\) té matriu \(B\). Considerem la
 composició \(f\circ g\), que és l'aplicació que envia \(\vec x\in \K^n\) a
 \((f\circ g)(\vec x) = f(g(\vec x))\). Per definició, sabem que per a tot
 \(\vec x\) tenim
-\[(f\circ g)(\vec x) = f(g(\vec x)) = A(B\vec x) = (AB)\vec x.\] Per
+\[(f\circ g)(\vec x) = f(g(\vec x)) = A(B\vec x).\]
+Aquest últim terme és igual, per tal i com hem definit el producte \(A\), a \((AB)\vec x\). Per
 tant, obtenim que \(f\circ g\) és una aplicació lineal, amb matriu
-associada \(AB\). Per tant, el producte de matrius ``codifica'' la
-composició d'aplicacions lineals.
+associada \(AB\). Veiem doncs que el producte de matrius ``codifica'' la
+composició d'aplicacions lineals, i això explica el per què de la definició del producte de matrius tal i com s'ha fet.
 
 \begin{example}
 Donades tres aplicacions lineals
@@ -1997,16 +2003,14 @@ la matriu de la composició \(f\circ g \circ h\) és \(A(BC)\) i \((AB)C\) a la
 vegada, i per tant han de coincidir.
 \end{example}
 
-\hypertarget{subsec:linealgeom}{%
-\section{Aplicacions lineals i geometria}\label{subsec:linealgeom}}
+\section{Aplicacions lineals i geometria}\label{subsec:linealgeom}
 
 En aquesta § veurem algunes aplicacions lineals del pla \(\R^2\) i
 aprendrem a reconèixer com actuen a partir de la forma de la seva
 matriu. Podem visualitzar aquestes transformacions per exemple a
 \url{https://shadanan.github.io/MatVis/}.
 
-\hypertarget{homotuxe8cies}{%
-\subsection{Homotècies}\label{homotuxe8cies}}
+\subsection{Homotècies}\label{homotuxe8cies}
 
 Considerem una matriu
 \[\begin{pmatrix} k & 0\\0 & k\end{pmatrix}, k\in \R.\] Aquesta matriu
@@ -2017,15 +2021,12 @@ signe (es fa primer una simetria respecte l'origen). En general,
 aquestes transformacions s'anomenen homotècies.
 
 \begin{figure}
-\hypertarget{fig:homotecia}{%
 \centering
 \includegraphics[width=\textwidth,height=4cm]{escalat.png}
 \caption{Una homotècia de factor 1.7.}\label{fig:homotecia}
-}
 \end{figure}
 
-\hypertarget{projeccions-ortogonals}{%
-\subsection{Projeccions ortogonals}\label{projeccions-ortogonals}}
+\subsection{Projeccions ortogonals}\label{projeccions-ortogonals}
 
 Considerem la matriu \(\begin{pmatrix}1&0\\0&0\end{pmatrix}\). Aquesta
 matriu envia el vector \(\vec x = \begin{pmatrix}x\\y\end{pmatrix}\) a
@@ -2061,8 +2062,7 @@ recta \(\ell\). Aleshores la matriu de \(\operatorname{proj}_\ell\) és
 \[\frac{1}{v_1^2 + v_2^2}\begin{pmatrix}v_1^2&v_1v_2\\v_1v_2&v_2^2\end{pmatrix}\]
 \end{proposition}
 
-\hypertarget{subsubsec:reflexio}{%
-\subsection{Reflexions}\label{subsubsec:reflexio}}
+\subsection{Reflexions}\label{subsubsec:reflexio}
 
 Considerem com abans
 una recta \(\ell\) que passi per l'origen. Volem definir la reflexió
@@ -2088,16 +2088,13 @@ satisfan \(a^2 + b^2 = 1\). De fet, es pot veure que qualsevol matriu
 d'aquesta forma és la matriu d'una reflexió.
 
 \begin{figure}
-\hypertarget{fig:reflexio}{%
 \centering
 \includegraphics[width=\textwidth,height=5cm]{reflexio.png}
 \caption{Una reflexió respecte una recta. També hi podem observar la projecció
 a la mateixa recta.}\label{fig:reflexio}
-}
 \end{figure}
 
-\hypertarget{subsubsec:rotacio}{%
-\subsection{Rotacions}\label{subsubsec:rotacio}}
+\subsection{Rotacions}\label{subsubsec:rotacio}
 
 Les matrius de la forma
 \[\begin{pmatrix}
@@ -2110,11 +2107,9 @@ a&-b\\b&a
 rotacions.
 
 \begin{figure}
-\hypertarget{fig:rotacio}{%
 \centering
 \includegraphics[width=\textwidth,height=4cm]{rotacio.png}
 \caption{Una rotació de \(30^\circ\).}\label{fig:rotacio}
-}
 \end{figure}
 
 \begin{exercise}
@@ -2131,8 +2126,7 @@ rotació d'angle \(\arctan(b/a)\) (si \(a\) és positius) o
 \(\arctan(b/a) + \pi\) (si \(a\) és negatiu).
 \end{proposition}
 
-\hypertarget{lliscaments}{%
-\subsection{Lliscaments}\label{lliscaments}}
+\subsection{Lliscaments}\label{lliscaments}
 
 Per últim estudiarem les matrius de la forma
 \(\begin{pmatrix} 1&k\\0&1\end{pmatrix}\), on \(k\in \R\). Aquestes matrius
@@ -2152,8 +2146,7 @@ corresponents a homotècies, projeccions ortogonals, reflexions i
 lliscaments.
 \end{exercise}
 
-\hypertarget{subespais-generadors-i-bases}{%
-\section{Subespais, generadors i bases}\label{subespais-generadors-i-bases}}
+\section{Subespais, generadors i bases}\label{subespais-generadors-i-bases}
 
 Tornem ara a considerar \(\K^n\) i les aplicacions lineals
 \(f\colon \K^n\to\K^m\).
@@ -2290,7 +2283,7 @@ tant existeix \(\vec u\in \K^n\) tal que \(f(\vec u)=\vec v\)) i
 
 Suposem que l'aplicació \(f=f_A\) està associada a una matriu
 \(A\in M_{m\times n}(\K)\) com a la Subsecció
-\protect\hyperlink{subsec:matriusapl}{1}. En aquest cas tenim que:
+\hyperref[subsec:matriusapl]{1}. En aquest cas tenim que:
 
 \begin{itemize}
 \item
@@ -2542,7 +2535,7 @@ generadors, llavors \(n\geq m\).
 
 \begin{proof}
 Considerem els vectors estàndard \(\vec e_j\in\K^m\) definits a
-la Subsecció \protect\hyperlink{subsec:matriusapl}{1}. Com que
+la Subsecció \hyperref[subsec:matriusapl]{1}. Com que
 \(\langle \vec v_1, \dots, \vec v_n \rangle=\K^m\), tenim que
 \(\vec e_j \in \langle \vec v_1, \dots, \vec v_n \rangle\), per tant,
 existeixen \(x_{1j}, \dots, x_{nj}\) tals que
@@ -2559,15 +2552,15 @@ mínim \(m\) columnes i \(n\geq m\).
 
 \begin{definition}
 \protect\hypertarget{def:base}{}\label{def:base}Diem que un conjunt ordenat de vectors
-\(\calb=[\vec v_1, \dots, \vec v_n]\) amb \(\vec v_j\in \K^m\), és \emph{una
+\(\calb=[\vec  v_1, \dots, \vec v_n]\) amb \(\vec v_j\in \K^m\), és \emph{una
 base de \(\K^m\)} si \(\{\vec v_1,\dots,\vec v_n\}\), són linealment
 independents i generadors de \(\K^m\).
 \end{definition}
 
 \begin{remark}
 L'ordre dels vectors d'una base és important: de la definició es dedueix
-que si \([\vec v_1, \vec v_2, \vec v_3,\dots, \vec v_n]\) és una base de
-\(\K^m\), llavors \([\vec v_2, \vec v_1, \vec v_3,\dots, \vec v_n]\) també
+que si \([\vec  v_1, \vec v_2, \vec v_3,\dots, \vec v_n]\) és una base de
+\(\K^m\), llavors \([\vec  v_2, \vec v_1, \vec v_3,\dots, \vec v_n]\) també
 ho és, però considerarem que són bases diferents.
 \end{remark}
 
@@ -2705,7 +2698,7 @@ linealment independents si i només si existeixen
 \(\lambda_1, \dots, \lambda_n,\mu_1,\dots, \mu_n\in\K\) tals que
 \(\lambda_1\vec v_1+\cdots + \lambda_n\vec v_n=\mu_1\vec v_1+\cdots + \mu_n\vec v_n\)
 implica que \(\lambda_j=\mu_j\) per a tot \(j\), per tant, si i només si la
-solució és única.
+solució és única (en cas d'existir).
 \end{proof}
 
 \begin{remark}
@@ -2721,9 +2714,9 @@ les columnes és invertible (en particular, ha de ser quadrada i per tant
 Si són base, necessitem que el sistema \(Ax=B\) tingui solució
 única per a tot \(B\in M_{n\times 1}\). Anem considerant \(B_j=\vec e_j\)
 (els vectors estàndard definits a la Secció
-\protect\hyperlink{subsec:matriusapl}{1}) i resolent cada un dels sistemes amb
+\hyperref[subsec:matriusapl]{1}) i resolent cada un dels sistemes amb
 solucions \(X_j\in M_{n\times 1}\), tindrem una matriu \(X\) que compleix
-\(AX=\1_n\), per ant \(A\) és invertible.\\
+\(AX=\1_n\), per tant \(A\) és invertible.\\
 Si la matriu \(A\) és invertible, \(x=A^{-1}B\), per tant el sistema és
 compatible determinat per a tot \(B\).
 \end{proof}
@@ -2859,7 +2852,7 @@ independents, i no generen \(V\), podem trobar un vector
 \(\{\vec u, \vec v_1,\dots,\vec v_n\}\) és un conjunt de vectors
 linealment independents que té \(n+1\) vectors, contradient (a). Si
 \(\vec v_1, \dots , \vec v_n\) són generadors i no són linealment
-independents, vol dir que un d'ells es pot escriure com ca combinació
+independents, vol dir que un d'ells es pot escriure com a combinació
 lineal dels altres, i per tant tindríem un conjunt de vectors generadors
 amb \(n-1\) vectors, que no pot ser.
 \end{proof}
@@ -3043,13 +3036,12 @@ correspon a les equacions: \begin{align*}
 \end{align*}
 \end{example}
 
-\hypertarget{suma-i-intersecciuxf3-de-subespais-vectorials}{%
-\section{Suma i intersecció de subespais vectorials}\label{suma-i-intersecciuxf3-de-subespais-vectorials}}
+\section{Suma i intersecció de subespais vectorials}\label{suma-i-intersecciuxf3-de-subespais-vectorials}
 
 Volem construir subespais vectorials a partir d'altres subespais: si
 \(U,V\subset \K^n\) són subespais vectorials, en particular són conjunts,
 pel que té sentit considerar la intersecció \(U\cap V\) i la unió
-\(V\cup V\).
+\(U\cup V\).
 
 Veiem que:
 
@@ -3324,8 +3316,7 @@ En canvi, si en comptes de \(V\) considerem la recta definida per
 \(V'=\{y=z=0\}\), aleshores \(\R^3=U\oplus V'\).
 \end{example}
 
-\hypertarget{aplicacions-injectives-exhaustives-i-bijectives}{%
-\section{Aplicacions injectives, exhaustives i bijectives}\label{aplicacions-injectives-exhaustives-i-bijectives}}
+\section{Aplicacions injectives, exhaustives i bijectives}\label{aplicacions-injectives-exhaustives-i-bijectives}
 
 Recordem unes definicions que tenen sentit per qualssevol aplicacions
 entre conjunts: si \(A\) i \(B\) són conjunts i \(f\colon A \to B\) és una
@@ -3417,8 +3408,7 @@ Considerem \(A \in M_{m\times n}(\K)\) i l'aplicació lineal
 
 \end{exercise}
 
-\hypertarget{coordenades-de-vectors}{%
-\section{Coordenades de vectors}\label{coordenades-de-vectors}}
+\section{Coordenades de vectors}\label{coordenades-de-vectors}
 
 \begin{definition}
 Suposem que \(V\) és un subespai vectorial de \(\K^m\) i
@@ -3487,7 +3477,9 @@ té per coeficients \(a_{ij}\) complint:
 Del càlcul fet a la Proposició
 \ref{prp:apl-lin-Kn} es dedueix que aquesta matriu compleix que
 si \([\vec v]_\calb=(\lambda_1,\dots,\lambda_n)\), llavors
-\([f(v)]_{\calc}=(\mu_1,\dots,\mu_s)\), on: \begin{align*}
+\([f(v)]_{\calc}=(\mu_1,\dots,\mu_s)\), on:
+
+\begin{align}
 \label{eq:matriu-apl-lineal}
     \begin{pmatrix}
     \mu_1 \\ \vdots \\ \mu_s
@@ -3496,7 +3488,7 @@ si \([\vec v]_\calb=(\lambda_1,\dots,\lambda_n)\), llavors
     \begin{pmatrix}
     \lambda_1 \\ \vdots \\ \lambda_n
     \end{pmatrix}.
-\end{align*}
+\end{align}
 
 Vegem un cas particular d'aquest argument, quan \(V=\K^n\) i \(W=\K^m\). De
 la definició de matriu associada i que la composició d'aplicacions es
@@ -3527,7 +3519,7 @@ Fixem les notacions següents:
 Llavors:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\def\labelenumi{\alph{enumi}.}
 \item
   \([\Id_n]_{\calb}=\1_n\) (per a qualsevol base \(\calb\) de \(\K^n\)),
 \item
@@ -3562,10 +3554,10 @@ Per demostrar (d) utilitzem directament la Definició
 \eqref{eq:matriu-apl-lineal}: si \(\vec v\in \K^n\) i
 \([\vec v]_\calb=\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}\),
 llavors, les coordenades en la base \(\calb'\) d'\(f(\vec v)\)
-són=\([f(\vec v)]_\calb = \begin{pmatrix}\mu_1\\\vdots\\\mu_m\end{pmatrix}\),
+són=\([f(\vec v)]_{\calb'} = \begin{pmatrix}\mu_1\\\vdots\\\mu_m\end{pmatrix}\),
 on:
-\[\begin{pmatrix}\mu_1\\ \vdots \\ \mu_m \end{pmatrix}=[f]_{\calb,\calb'}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}\]
-I les coordenades de \(g(f(v))\) en la base \(\calb''\) són
+\[\begin{pmatrix}\mu_1\\ \vdots \\ \mu_m \end{pmatrix}=[f]_{\calb,\calb'}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix},\]
+i les coordenades de \(g(f(v))\) en la base \(\calb''\) són
 \([g(f(v))]_{\calb''}=(\gamma_1,\dots,\gamma_r)\), on:
 \[\begin{pmatrix}\gamma_1\\ \vdots \\ \gamma_r \end{pmatrix}=[g]_{\calb',\calb''}\begin{pmatrix}\mu_1 \\ \vdots \\ \mu_m \end{pmatrix}=
     [g]_{\calb',\calb''} [f]_{\calb,\calb'}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}\]
@@ -3582,7 +3574,8 @@ forma de diagrama, composant-les (posem les bases com a subíndex, amb
 \((\K^n)_\calb\) a \((\K^m)_{\calb'}\) podem seguir dos camins, amb el
 mateix resultat (diem que el diagrama és commutatiu). Si ara ho escrivim
 en matrius (de les fletxes verticals tant sols hem deixat la que dóna la
-matriu): \[\xymatrixcolsep{6em}
+matriu):
+\[
 \xymatrix{
 (\K^n)_\cals \ar[r]^{A}  &  (\K^m)_\cals  \\
 (\K^n)_\calb \ar[r]^{[f_A]_{\calb,\calb'}} \ar[u]^B & (\K^m)_{\calb'} \ar[u]_{B'}}\]
@@ -3642,8 +3635,8 @@ matrius invertibles \(B\) i \(B'\) tals que:
 
 \begin{example}
 Són les matrius
-\(A=\big(\begin{smallmatrix} -16 & -45 \\ 6 & 17\end{smallmatrix}\big)\)
-i \(A'=\big(\begin{smallmatrix} -1 & 0 \\ 0 & 2 \end{smallmatrix}\big)\)
+\(A=\big(\begin{smallmatrix}  -16 & -45 \\ 6 & 17\end{smallmatrix}\big)\)
+i \(A'=\big(\begin{smallmatrix} -1 & 0 \\ 0 & 2  \end{smallmatrix}\big)\)
 similars?
 
 Per respondre la pregunta necessitem calcular la \(B\) tal que
@@ -3667,8 +3660,8 @@ resolem té 2 paràmetres lliures i una possible solució particular és
 
 \begin{example}
 Són les matrius
-\(A=\big(\begin{smallmatrix} -16 & -45 \\ 6 & 17\end{smallmatrix}\big)\)
-i \(A'=\big(\begin{smallmatrix} 1 & 0 \\ 0 & 2 \end{smallmatrix}\big)\)
+\(A=\big(\begin{smallmatrix}  -16 & -45 \\ 6 & 17\end{smallmatrix}\big)\)
+i \(A'=\big(\begin{smallmatrix} 1 & 0 \\ 0 & 2  \end{smallmatrix}\big)\)
 similars? (així aprofitem els càlculs d'abans).
 
 Intentem calcular \(B\) definida com:
@@ -3703,8 +3696,7 @@ les matrius \[A=\begin{pmatrix}
     \end{pmatrix}\] són similars.
 \end{exercise}
 
-\hypertarget{espais-vectorials}{%
-\section{Espais vectorials}\label{espais-vectorials}}
+\section{Espais vectorials}\label{espais-vectorials}
 
 Fins ara hem estat treballant amb \(\K^n\), però tan sols estàvem
 utilitzant algunes de les propietats que té \(\K^n\). Quan un té uns
@@ -4105,7 +4097,7 @@ com fins ara, i prenem bases \(\calb\) i \(\calb'\) de \(V\), i bases \(\calc\)
 i \(\calc'\) de \(W\). Aleshores enganxant quatre còpies del
 Diagrama \eqref{eq:diagrama-matriu-bases} obtenim el diagrama següent:
 \[
-\xymatrix@C50pt@R50pt{
+\xymatrix{
 \K^m\ar[rrr]^{[f]_{\calb,\calc}}\ar[dd]_{S_{\calb,\calb'}}&&& \K^n\ar[dd]^{S_{\calc,\calc'}}\\
 &V\ar[r]^f\ar[ul]_{[\cdot]_\calb}\ar[dl]^{[\cdot]_{\calb'}}&W\ar[ur]^{[\cdot]_{\calc}}\ar[dr]_{[\cdot]_{\calc'}}\\
 \K^m\ar[rrr]^{[f]_{\calb',\calc'}}&&&\K^n.
@@ -4145,7 +4137,7 @@ f_a(x-a)=\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
 \text{ i }
 f_a((x-a)^2)=\begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}.\] I per tant:
 \[[f_a]_{\calb',\calc}=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2\end{pmatrix}.\]
-Llavors, el diagrama que tenim és: \[\xymatrix@C50pt@R50pt{
+Llavors, el diagrama que tenim és: \[\xymatrix{
 \R^3 \ar[rrd]^{[f_a]_{\calb,\calc}} &  & \\
  & \R[x]_{\leq2} \ar[ul]^{[\cdot]_\calb} \ar[r]^{f_a} \ar[dl]_{[\cdot]_{\calb'}} & \R^3 \\
 \R^3 \ar[rru]_{[f_a]_{\calb',\calc}} \ar[uu]^{S_{\calb',\calb}} & &
@@ -4157,11 +4149,10 @@ dir,
 \[\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2\end{pmatrix} = \begin{pmatrix} 1 & a & a^2 \\ 0 & 1 & 2a \\ 0 & 0 & 2\end{pmatrix} \begin{pmatrix} 1 & -a & a^2 \\ 0 & 1 & -2a \\ 0 & 0 & 1\end{pmatrix}.\]
 \end{example}
 
-\hypertarget{exercicis-recomanats-1}{%
-\section{Exercicis recomanats}\label{exercicis-recomanats-1}}
+\section{Exercicis recomanats}\label{exercicis-recomanats-1}
 
 Els exercicis que segueixen són útils per practicar el material
-presentat. La numeració és la de {[}\protect\hyperlink{ref-Bret}{1}{]}.
+presentat. La numeració és la de {[}\citeproc{ref-Bret}{1}{]}.
 
 \begin{description}
 \item[Secció 2.1:]
@@ -4188,14 +4179,12 @@ presentat. La numeració és la de {[}\protect\hyperlink{ref-Bret}{1}{]}.
 4, 14, 52, 54, 60.
 \end{description}
 
-\hypertarget{diagonalitzaciuxf3}{%
-\chapter{Diagonalització}\label{diagonalitzaciuxf3}}
+\chapter{Diagonalització}\label{diagonalitzaciuxf3}
 
-El contingut d'aquesta secció és pot trobar a {[}\protect\hyperlink{ref-Bret}{1} Temes 6, 7{]} i a
-{[}\protect\hyperlink{ref-NaXa}{2} Tema 4{]}.
+El contingut d'aquesta secció és pot trobar a {[}\citeproc{ref-Bret}{1} Temes 6, 7{]} i a
+{[}\citeproc{ref-NaXa}{2} Tema 4{]}.
 
-\hypertarget{subsec:motiv-diag}{%
-\section{Motivació}\label{subsec:motiv-diag}}
+\section{Motivació}\label{subsec:motiv-diag}
 
 Considerem les matrius següents: \[A=\begin{pmatrix}
 -1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 0
@@ -4236,8 +4225,7 @@ l'objectiu principal és: donada una aplicació lineal \(f\colon E \to E\)
 d'\(E\) tal que \([f]_\calb\) sigui una matriu diagonal. També veurem que, a
 vegades, no existeix cap base amb aquesta propietat.
 
-\hypertarget{determinants}{%
-\section{Determinants}\label{determinants}}
+\section{Determinants}\label{determinants}
 
 Probablement ja coneixem el determinant de matrius \(2\times 2\) i
 \(3\times 3\) definits directament com: \begin{align}
@@ -4763,11 +4751,10 @@ Si \(A\in M_n(\K)\) és una matriu triangular superior (o inferior),
 llavors \(\det(A)\) és el producte d'elements de la diagonal.
 \end{exercise}
 
-\hypertarget{polinomi-caracteruxedstic.-valors-i-vectors-propis}{%
-\section{Polinomi característic. Valors i vectors propis}\label{polinomi-caracteruxedstic.-valors-i-vectors-propis}}
+\section{Polinomi característic. Valors i vectors propis}\label{polinomi-caracteruxedstic.-valors-i-vectors-propis}
 
 A la motivació d'aquest capítol
-(§\protect\hyperlink{subsec:motiv-diag}{1}) hem vist una aplicació lineal
+(§\hyperref[subsec:motiv-diag]{1}) hem vist una aplicació lineal
 \(f\colon \R^3\to \R^3\) que escrita en una base \(\calb\) o en una altra
 \(\calc\) tenia les expressions següents: \[[f]_\calb=\begin{pmatrix}
 -1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 0
@@ -4808,8 +4795,10 @@ condicions equivalents següents:
 \end{definition}
 
 \begin{example}
-La matriu \(B=\left(\begin{smallmatrix} 5 & -15 & -21 \\ -3 & 9 & 13 \\ 3 & -9 & -13 \end{smallmatrix}\right)\) és diagonalitzable (veure apartat
-\protect\hyperlink{subsec:motiv-diag}{1}).
+La matriu \(B=\left(\begin{smallmatrix}
+5 & -15 & -21 \\ -3 & 9 & 13 \\ 3 & -9 & -13
+\end{smallmatrix}\right)\) és diagonalitzable (veure apartat
+\hyperref[subsec:motiv-diag]{1}).
 \end{example}
 
 \begin{remark}
@@ -4935,12 +4924,14 @@ El que hem vist al Teorema
 on \(p_A(x)\) és el polinomi característic d'\(A\) en la variable \(x\).
 
 \begin{example}
-Calculem els valors propis de la matriu \(B=\left(\begin{smallmatrix} 5 & -15 & -21 \\ -3 & 9 & 13 \\ 3 & -9 & -13 \end{smallmatrix}\right)\): hem de fer el determinant: \[0=
+Calculem els valors propis de la matriu \(B=\left(\begin{smallmatrix}
+5 & -15 & -21 \\ -3 & 9 & 13 \\ 3 & -9 & -13
+\end{smallmatrix}\right)\): hem de fer el determinant: \[0=
 \begin{vmatrix}
 5-x & -15 & -21 \\ -3 & 9-x & 13 \\ 3 & -9 & -13-x
 \end{vmatrix} = -x^3 +x^2+2x=-x(x+1)(x-2)\] i per tant els valors propis
 són \(\{0,-1,2\}\) (tal i com hem vist a l'apartat
-\protect\hyperlink{subsec:motiv-diag}{1}).
+\hyperref[subsec:motiv-diag]{1}).
 \end{example}
 
 \begin{remark}
@@ -4987,7 +4978,7 @@ que: \[\begin{pmatrix}
 \end{pmatrix}
 \begin{pmatrix} x \\ y \end{pmatrix} =
 \begin{pmatrix} 2x \\ 2y \end{pmatrix}\] I per tant queda només
-l'equació \(y = 0\). Per tant la solució és
+l'equació \(y  = 0\). Per tant la solució és
 \(\vec v= x\left(\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right)\).
 
 Un vector propi de valor propi \(1\) és un vector
@@ -5082,8 +5073,7 @@ Demostreu que el recíproc no és cert: trobeu dues matrius \(A\) i \(B\) amb
 \(p_A(x)=p_B(x)\) però tals que \(A\) i \(B\) no siguin similars.
 \end{exercise}
 
-\hypertarget{vectors-propis-associats-a-un-valor-propi}{%
-\section{Vectors propis associats a un valor propi}\label{vectors-propis-associats-a-un-valor-propi}}
+\section{Vectors propis associats a un valor propi}\label{vectors-propis-associats-a-un-valor-propi}
 
 L'objectiu d'aquesta secció és estudiar els vectors propis d'un valor
 propi donat. Aquestes tenen un nom:
@@ -5500,8 +5490,7 @@ A^{n-2} \begin{pmatrix} 1 \\ 1 \end{pmatrix}=
 %\left(\frac{1+\sqrt{5}}{2}\right)^{n-2}-\left(\frac{1-\sqrt{5}}{2}\right)^{n-2}\right)
 \]
 
-\hypertarget{sec:complexos}{%
-\section{Interludi: els nombres complexos}\label{sec:complexos}}
+\section{Interludi: els nombres complexos}\label{sec:complexos}
 
 Introduïm aquí el cos dels nombres complexos, que ens seran útils a la
 secció següent, quan estudiem matrius sobre els nombres reals.
@@ -5545,8 +5534,7 @@ Tot polinomi \(f(x)\in \C[x]\) de grau \(n\geq 0\) es pot escriure com
 repetits).
 \end{theorem}
 
-\hypertarget{matrius-sobre-r}{%
-\section{\texorpdfstring{Matrius sobre \(\R\)}{Matrius sobre \textbackslash R}}\label{matrius-sobre-r}}
+\section{\texorpdfstring{Matrius sobre \(\R\)}{Matrius sobre \textbackslash R}}\label{matrius-sobre-r}
 
 En aquest apartat suposarem donada una matriu \(A\in M_n(\R)\). Una
 conseqüència del teorema fonamental de l'àlgebra és que \(p_A(x)\)
@@ -5585,8 +5573,10 @@ a+bi&0\\0&a-bi
 a&-b\\b&a
 \end{pmatrix},\] la matriu \(A\) és similar a \(R_{a,b}\). De fet, tenim:
 \[D = S^{-1} A S,\] on \(S\) té per columnes \(\vec u\) i \(\bar \vec u\), on
-\(\vec u = \vec v + i \vec w\), amb \(\vec v,\vec w\in \R^2\). Substituint
-\(D = T^{-1} R_{a,b} T\) amb \(T = \begin{pmatrix} i & -i\\1 & 1 \end{pmatrix}\), tenim
+\(\vec u = \vec v  + i \vec w\), amb \(\vec v,\vec w\in \R^2\). Substituint
+\(D = T^{-1} R_{a,b} T\) amb \(T = \begin{pmatrix}
+i & -i\\1 & 1
+\end{pmatrix}\), tenim
 \[T^{-1} R_{a,b} T = S^{-1} A S\Longrightarrow R_{a,b} = TS^{-1} A ST^{-1}.\]
 Calculem directament que \[ST^{-1} = \begin{pmatrix}
 \vert&\vert\\
@@ -5595,11 +5585,10 @@ Calculem directament que \[ST^{-1} = \begin{pmatrix}
 \end{pmatrix}.\]
 \end{example}
 
-\hypertarget{exercicis-recomanats-2}{%
-\section{Exercicis recomanats}\label{exercicis-recomanats-2}}
+\section{Exercicis recomanats}\label{exercicis-recomanats-2}
 
 Els exercicis que segueixen són útils per practicar el material
-presentat. La numeració és la de {[}\protect\hyperlink{ref-Bret}{1}{]}.
+presentat. La numeració és la de {[}\citeproc{ref-Bret}{1}{]}.
 
 \begin{description}
 \item[Secció 6.2:]
@@ -5616,14 +5605,12 @@ presentat. La numeració és la de {[}\protect\hyperlink{ref-Bret}{1}{]}.
 14, 24, 26.
 \end{description}
 
-\hypertarget{ortogonalitat}{%
-\chapter{Ortogonalitat}\label{ortogonalitat}}
+\chapter{Ortogonalitat}\label{ortogonalitat}
 
-Podeu trobar el contingut de la part d'ortogonalitat a {[}\protect\hyperlink{ref-Bret}{1} Tema 5{]}, i
-de la part de formes quadràtiques a ({[}\protect\hyperlink{ref-Bret}{1}{]},{[}\protect\hyperlink{ref-NaXa}{2}{]}).
+Podeu trobar el contingut de la part d'ortogonalitat a {[}\citeproc{ref-Bret}{1} Tema 5{]}, i
+de la part de formes quadràtiques a ({[}\citeproc{ref-Bret}{1}{]},{[}\citeproc{ref-NaXa}{2}{]}).
 
-\hypertarget{ortogonalitat-a-rn}{%
-\section{\texorpdfstring{Ortogonalitat a \(\R^n\)}{Ortogonalitat a \textbackslash R\^{}n}}\label{ortogonalitat-a-rn}}
+\section{\texorpdfstring{Ortogonalitat a \(\R^n\)}{Ortogonalitat a \textbackslash R\^{}n}}\label{ortogonalitat-a-rn}
 
 Considerem l'espai vectorial \(\R^n\) i recordem el producte escalar
 definit com: si \(\vec u=\smat{u_1\\u_2\\ \vdots\\u_n}\) i
@@ -5791,8 +5778,7 @@ vector \(\vec w\in\R^n\) es pot escriure de forma única com:
 \(\vec w^\parallel \in V\) i \(\vec w^\perp \in V^\perp\). A més, tenim que
 \(\vec w^\perp=\proj_{V^\perp}(\vec w)\).
 
-\hypertarget{el-teorema-de-pituxe0gores}{%
-\section{El teorema de Pitàgores}\label{el-teorema-de-pituxe0gores}}
+\section{El teorema de Pitàgores}\label{el-teorema-de-pituxe0gores}
 
 El conegut teorema de Pitàgores es pot formular a \(\R^n\). Fixem-nos que
 el teorema té dues implicacions.
@@ -5858,8 +5844,7 @@ Donats dos vectors no-nuls \(\vec v\) i \(\vec w\) d'\(\R^n\), \emph{l'angle ent
 \[\theta = \arccos\left(\frac{\vec v\cdot \vec w}{\|\vec v\|\|\vec w\|}\right).\]
 \end{definition}
 
-\hypertarget{muxe8tode-de-gram-schmidt}{%
-\section{Mètode de Gram-Schmidt}\label{muxe8tode-de-gram-schmidt}}
+\section{Mètode de Gram-Schmidt}\label{muxe8tode-de-gram-schmidt}
 
 Aquest mètode permet calcular una base ortonormal d'un subespai de
 \(\R^n\) a partir de projeccions ortogonals. Fixem les notacions següents:
@@ -6071,8 +6056,7 @@ següent: \[\begin{pmatrix}
 \end{pmatrix}.\]
 \end{example}
 
-\hypertarget{aplicacions-i-matrius-ortogonals}{%
-\section{Aplicacions i matrius ortogonals}\label{aplicacions-i-matrius-ortogonals}}
+\section{Aplicacions i matrius ortogonals}\label{aplicacions-i-matrius-ortogonals}
 
 \begin{definition}
 Diem que una aplicació lineal \(f \colon \R^n\to \R^m\) és \emph{ortogonal} si
@@ -6255,8 +6239,7 @@ Per a veure (b): si \(\vec v = f_{A^{-1}}(\vec w))\), llavors
 ortogonal.
 \end{proof}
 
-\hypertarget{matriu-duna-projecciuxf3-ortogonal-en-una-base-ortonormal}{%
-\section{Matriu d'una projecció ortogonal en una base ortonormal}\label{matriu-duna-projecciuxf3-ortogonal-en-una-base-ortonormal}}
+\section{Matriu d'una projecció ortogonal en una base ortonormal}\label{matriu-duna-projecciuxf3-ortogonal-en-una-base-ortonormal}
 
 \begin{proposition}
 Si \(V\subset \R^n\) un subespai vectorial, \([\vec v_1, \dots, \vec v_k]\)
@@ -6311,8 +6294,7 @@ tant la matriu corresponent a la projecció ortogonal és:
 \end{pmatrix}.\]
 \end{example}
 
-\hypertarget{muxednims-quadrats}{%
-\section{Mínims quadrats}\label{muxednims-quadrats}}
+\section{Mínims quadrats}\label{muxednims-quadrats}
 
 En aquesta secció suposarem que tenim un subespai \(V\subset\R^n\) fixat.
 A cada element d'\(\R^n\), volem assignar-li un element de \(V\) que ``millor
@@ -6337,8 +6319,7 @@ Per tant la millor aproximació d'un vector \(\vec w\) és la projecció
 ortogonal de \(\vec w\), si entenem per ``millor'' aquell vector de \(V\) que
 està a menor distància del vector \(\vec w\).
 
-\hypertarget{recta-de-regressiuxf3}{%
-\subsection{Recta de regressió}\label{recta-de-regressiuxf3}}
+\subsection{Recta de regressió}\label{recta-de-regressiuxf3}
 
 Suposem que tenim un núvol de punts \((x_1,y_1), \dots , (x_k,y_k)\) de
 \(\R^2\) que, en principi, no estan alineats. Suposem, a més, que hi ha
@@ -6393,7 +6374,7 @@ k & \sum x_i \\ \sum x_i & \sum x_i^2
 escriure: si \(\overline x = \frac{1}{k} \sum x_i\),
 \(\overline y=\frac{1}{k} \sum y_i\),
 \(\overline {x^2}= \frac{1}{k} \sum x_i^2\) i
-\(\overline {xy}= \frac{1}{k} \sum x_iy_i\): \[\begin{pmatrix}
+\(\overline {xy}=  \frac{1}{k} \sum x_iy_i\): \[\begin{pmatrix}
 1 & \overline x \\ \overline x & \overline{x^2} 
 \end{pmatrix}
 \begin{pmatrix} a_0 \\ a_1 \end{pmatrix} = 
@@ -6427,18 +6408,17 @@ podem aplicar la Fórmula
 \overline{x^2}=21,839 \text{ i }
 \overline{xy}= 26,816.\] I queda (amb 3 decimals):
 \[\text{final}= 1.843 + 0.883 \text{parcial}.\] La Figura
-\protect\hyperlink{fig:recta-reg}{1} té
+\hyperref[fig:recta-reg]{1} té
 una representació gràfica d'aquestes dades i de la recta de regressió. A
 més, l'equació de la recta es pot utilitzar per aproximar una nota final
 a partir d'una parcial: per exemple, un alumne que hagi tret un \(4\) al
 parcial, la predicció diria que trauria un \(5,376\) a la nota final.
 
-Recta de regressió\protect\hypertarget{fig:recta-reg}{}{}
+Recta de regressió\phantomsection\label{fig:recta-reg}{}
 
 \end{example}
 
-\hypertarget{cas-general}{%
-\subsection{Cas general}\label{cas-general}}
+\subsection{Cas general}\label{cas-general}
 
 En el cas general, suposem que tenim un sistema d'equacions lineals:
 \[A x = b\] amb \(A\in M_{m\times n}(\R)\) amb \(m\geq n\) (més equacions
@@ -6576,8 +6556,7 @@ Per exemple, d'un alumne que tregui un \(4\) al lliurament i un altre \(4\)
 al parcial, aquest model prediu que al final trauria un \(5.818\)
 \end{example}
 
-\hypertarget{formes-bilineals-i-productes-escalars}{%
-\section{Formes bilineals i productes escalars}\label{formes-bilineals-i-productes-escalars}}
+\section{Formes bilineals i productes escalars}\label{formes-bilineals-i-productes-escalars}
 
 \begin{definition}
 
@@ -6751,8 +6730,7 @@ bilineal:
 
 \end{example}
 
-\hypertarget{tota-matriu-simuxe8trica-sobre-mathbbr-diagonalitza}{%
-\section{\texorpdfstring{Tota matriu simètrica sobre \(\mathbb{R}\) diagonalitza}{Tota matriu simètrica sobre \textbackslash mathbb\{R\} diagonalitza}}\label{tota-matriu-simuxe8trica-sobre-mathbbr-diagonalitza}}
+\section{\texorpdfstring{Tota matriu simètrica sobre \(\mathbb{R}\) diagonalitza}{Tota matriu simètrica sobre \textbackslash mathbb\{R\} diagonalitza}}\label{tota-matriu-simuxe8trica-sobre-mathbbr-diagonalitza}
 
 El resultat que volem demostrar a aquest apartat és:
 
@@ -6862,8 +6840,7 @@ Per demostrar l'altra implicació, ho farem per inducció sobre \(n\):
 
 \end{proof}
 
-\hypertarget{descomposiciuxf3-en-valors-singulars}{%
-\section{Descomposició en valors singulars}\label{descomposiciuxf3-en-valors-singulars}}
+\section{Descomposició en valors singulars}\label{descomposiciuxf3-en-valors-singulars}
 
 A aquest apartat resoldrem la pregunta següent amb les eines que hem
 vist: si \(f=f_A\colon \R^n \to \R^m\) és una aplicació lineal, existeix
@@ -7064,19 +7041,18 @@ I la matriu \(U\) té per columnes les imatges de \(\smat{1\\-1}\) i
 \end{pmatrix}
 \begin{pmatrix}
 1/\sqrt{2} & -1/\sqrt{2} \\ 1/\sqrt{2} & 1/\sqrt{2}
-\end{pmatrix}.\] A la Figura \protect\hyperlink{fig:circ-ellipse}{2} podem veure com es modifica la
+\end{pmatrix}.\] A la Figura \hyperref[fig:circ-ellipse]{2} podem veure com es modifica la
 circumferència unitat quan apliquem la matriu \(A\). Veiem que a la
 direcció \(\smat{4\\-3}\) hi ha el primer eix principal amb semilongitud
 \(3\sqrt{2}\) i a la direcció \(\smat{3\\4}\) l'altre eix, amb semilongitud
 \(\sqrt{2}\).
 
 Deformació de la circumferència unitat per l'aplicació
-lineal {fA}.\protect\hypertarget{fig:circ-ellipse}{}{}
+lineal {fA}.\phantomsection\label{fig:circ-ellipse}{}
 
 \end{example}
 
-\hypertarget{classificaciuxf3-de-formes-bilineals-simuxe8triques-sobre-mathbbrn}{%
-\section{\texorpdfstring{Classificació de formes bilineals simètriques sobre \(\mathbb{R}^n\)}{Classificació de formes bilineals simètriques sobre \textbackslash mathbb\{R\}\^{}n}}\label{classificaciuxf3-de-formes-bilineals-simuxe8triques-sobre-mathbbrn}}
+\section{\texorpdfstring{Classificació de formes bilineals simètriques sobre \(\mathbb{R}^n\)}{Classificació de formes bilineals simètriques sobre \textbackslash mathbb\{R\}\^{}n}}\label{classificaciuxf3-de-formes-bilineals-simuxe8triques-sobre-mathbbrn}
 
 A aquesta secció l'objectiu és classificar les formes bilineals. Definim
 abans què vol dir que siguin equivalents:
@@ -7331,11 +7307,10 @@ Que té per matriu: \[\left(\begin{array}{rrrr}
 \[q(y_1,y_2,y_3,y_4)=y_1^2+y_2^2-y_3^2.\]
 \end{example}
 
-\hypertarget{exercicis-recomanats-3}{%
-\section{Exercicis recomanats}\label{exercicis-recomanats-3}}
+\section{Exercicis recomanats}\label{exercicis-recomanats-3}
 
 Els exercicis que segueixen són útils per practicar el material
-presentat. La numeració és la de {[}\protect\hyperlink{ref-Bret}{1}{]}.
+presentat. La numeració és la de {[}\citeproc{ref-Bret}{1}{]}.
 
 \begin{description}
 \item[Secció 5.1:]
@@ -7358,17 +7333,16 @@ presentat. La numeració és la de {[}\protect\hyperlink{ref-Bret}{1}{]}.
 
 \nocite{*}
 
-\hypertarget{bibliografia}{%
-\chapter*{Bibliografia}\label{bibliografia}}
+\chapter*{Bibliografia}\label{bibliografia}
 \addcontentsline{toc}{chapter}{Bibliografia}
 
-\hypertarget{refs}{}
-\begin{CSLReferences}{0}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-Bret}{}}%
+\phantomsection\label{refs}
+\begin{CSLReferences}{0}{1}
+\bibitem[\citeproctext]{ref-Bret}
 \CSLLeftMargin{1. }%
 \CSLRightInline{Bretscher O (1997) Linear algebra with applications. Prentice Hall Eaglewood Cliffs, NJ}
 
-\leavevmode\vadjust pre{\hypertarget{ref-NaXa}{}}%
+\bibitem[\citeproctext]{ref-NaXa}
 \CSLLeftMargin{2. }%
 \CSLRightInline{Nart E, Xarles X (2016) Apunts d'{à}lgebra linial. Servei de Publicacions de la Universitat Aut{ò}noma de Barcelona}
 

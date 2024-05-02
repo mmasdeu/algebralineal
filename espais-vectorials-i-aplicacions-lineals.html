@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítol 2. Espais vectorials i aplicacions lineals | Apunts d’Àlgebra Lineal</title>
   <meta name="description" content="Apunts d’un curs d’Àlgebra Lineal a la UAB" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítol 2. Espais vectorials i aplicacions lineals | Apunts d’Àlgebra Lineal" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Marc Masdeu, Albert Ruiz" />
 
 
-<meta name="date" content="2023-09-29" />
+<meta name="date" content="2024-05-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -336,8 +336,8 @@ div.csl-indent {
 </div>
 <div id="espais-vectorials-i-aplicacions-lineals" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Capítol 2. </span> Espais vectorials i aplicacions lineals<a href="espais-vectorials-i-aplicacions-lineals.html#espais-vectorials-i-aplicacions-lineals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>El contingut d’aquesta secció també es pot trobar a <span class="citation">[<a href="#ref-Bret" role="doc-biblioref">1</a> Secció 2.2]</span> i
-<span class="citation">[<a href="#ref-NaXa" role="doc-biblioref">2</a> Temes 2, 3, 4]</span>.</p>
+<p>El contingut d’aquesta secció també es pot trobar a <span class="citation">[<a href="#ref-Bret">1</a> Secció 2.2]</span> i
+<span class="citation">[<a href="#ref-NaXa">2</a> Temes 2, 3, 4]</span>.</p>
 <div id="subsec:matriusapl" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Matrius com a aplicacions lineals<a href="espais-vectorials-i-aplicacions-lineals.html#subsec:matriusapl" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En aquest capítol considerarem funcions de l’espai <span class="math inline">\(\K^n\)</span> a l’espai
@@ -439,10 +439,11 @@ i suposem que <span class="math inline">\(f\)</span> té matriu <span class="mat
 composició <span class="math inline">\(f\circ g\)</span>, que és l’aplicació que envia <span class="math inline">\(\vec x\in \K^n\)</span> a
 <span class="math inline">\((f\circ g)(\vec x) = f(g(\vec x))\)</span>. Per definició, sabem que per a tot
 <span class="math inline">\(\vec x\)</span> tenim
-<span class="math display">\[(f\circ g)(\vec x) = f(g(\vec x)) = A(B\vec x) = (AB)\vec x.\]</span> Per
+<span class="math display">\[(f\circ g)(\vec x) = f(g(\vec x)) = A(B\vec x).\]</span>
+Aquest últim terme és igual, per tal i com hem definit el producte <span class="math inline">\(A\)</span>, a <span class="math inline">\((AB)\vec x\)</span>. Per
 tant, obtenim que <span class="math inline">\(f\circ g\)</span> és una aplicació lineal, amb matriu
-associada <span class="math inline">\(AB\)</span>. Per tant, el producte de matrius “codifica” la
-composició d’aplicacions lineals.</p>
+associada <span class="math inline">\(AB\)</span>. Veiem doncs que el producte de matrius “codifica” la
+composició d’aplicacions lineals, i això explica el per què de la definició del producte de matrius tal i com s’ha fet.</p>
 <div class="example">
 <p><span id="exm:unlabeled-div-47" class="example"><strong>Exemple 2.2  </strong></span>Donades tres aplicacions lineals
 <span class="math display">\[\K^t\stackrel{h}{\rightarrow}\K^n \stackrel{g}{\rightarrow} \K^r \stackrel{f}{\rightarrow} \K^m\]</span>
@@ -468,9 +469,9 @@ per un escalar. Si <span class="math inline">\(|k|&gt;1\)</span>, es tracta d’
 tracta d’una contracció. Si <span class="math inline">\(k\)</span> és negatiu, aleshores també canvia el
 signe (es fa primer una simetria respecte l’origen). En general,
 aquestes transformacions s’anomenen homotècies.</p>
-<div class="figure">
-<img src="escalat.png" id="fig:homotecia" style="height:4cm" alt="" />
-<p class="caption">Una homotècia de factor 1.7.</p>
+<div class="float" id="fig:homotecia">
+<img src="escalat.png" style="height:4cm" alt="Una homotècia de factor 1.7." />
+<div class="figcaption">Una homotècia de factor 1.7.</div>
 </div>
 </div>
 <div id="projeccions-ortogonals" class="section level3 hasAnchor" number="2.2.2">
@@ -524,10 +525,10 @@ recta <span class="math inline">\(\ell\)</span>. Aleshores la matriu de <span cl
 <span class="math inline">\(\begin{pmatrix}a&amp;b\\b&amp;-a\end{pmatrix}\)</span>, i que a més les entrades
 satisfan <span class="math inline">\(a^2 + b^2 = 1\)</span>. De fet, es pot veure que qualsevol matriu
 d’aquesta forma és la matriu d’una reflexió.</p>
-<div class="figure">
-<img src="reflexio.png" id="fig:reflexio" style="height:5cm" alt="" />
-<p class="caption">Una reflexió respecte una recta. També hi podem observar la projecció
-a la mateixa recta.</p>
+<div class="float" id="fig:reflexio">
+<img src="reflexio.png" style="height:5cm" alt="Una reflexió respecte una recta. També hi podem observar la projecció a la mateixa recta." />
+<div class="figcaption">Una reflexió respecte una recta. També hi podem observar la projecció
+a la mateixa recta.</div>
 </div>
 </div>
 <div id="subsubsec:rotacio" class="section level3 hasAnchor" number="2.2.4">
@@ -541,9 +542,9 @@ que aquesta matriu és de la forma <span class="math display">\[\begin{pmatrix}
 a&amp;-b\\b&amp;a
 \end{pmatrix},\quad a^2+b^2=1\]</span> i totes les matrius d’aquesta forma són
 rotacions.</p>
-<div class="figure">
-<img src="rotacio.png" id="fig:rotacio" style="height:4cm" alt="" />
-<p class="caption">Una rotació de <span class="math inline">\(30^\circ\)</span>.</p>
+<div class="float" id="fig:rotacio">
+<img src="rotacio.png" style="height:4cm" alt="Una rotació de 30^\circ." />
+<div class="figcaption">Una rotació de <span class="math inline">\(30^\circ\)</span>.</div>
 </div>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-50" class="exercise"><strong>Exercici 2.1  </strong></span>Considereu la matriu de rotació d’angle <span class="math inline">\(\theta_1\)</span> i la de rotació
@@ -909,14 +910,14 @@ mínim <span class="math inline">\(m\)</span> columnes i <span class="math inlin
 </div>
 <div class="definition">
 <p><span id="def:base" class="definition"><strong>Definició 2.8  </strong></span>Diem que un conjunt ordenat de vectors
-<span class="math inline">\(\calb=[\vec v_1, \dots, \vec v_n]\)</span> amb <span class="math inline">\(\vec v_j\in \K^m\)</span>, és <em>una
+<span class="math inline">\(\calb=[\vec  v_1, \dots, \vec v_n]\)</span> amb <span class="math inline">\(\vec v_j\in \K^m\)</span>, és <em>una
 base de <span class="math inline">\(\K^m\)</span></em> si <span class="math inline">\(\{\vec v_1,\dots,\vec v_n\}\)</span>, són linealment
 independents i generadors de <span class="math inline">\(\K^m\)</span>.</p>
 </div>
 <div class="remark">
 <p><span id="unlabeled-div-71" class="remark"><em>Observació</em>. </span>L’ordre dels vectors d’una base és important: de la definició es dedueix
-que si <span class="math inline">\([\vec v_1, \vec v_2, \vec v_3,\dots, \vec v_n]\)</span> és una base de
-<span class="math inline">\(\K^m\)</span>, llavors <span class="math inline">\([\vec v_2, \vec v_1, \vec v_3,\dots, \vec v_n]\)</span> també
+que si <span class="math inline">\([\vec  v_1, \vec v_2, \vec v_3,\dots, \vec v_n]\)</span> és una base de
+<span class="math inline">\(\K^m\)</span>, llavors <span class="math inline">\([\vec  v_2, \vec v_1, \vec v_3,\dots, \vec v_n]\)</span> també
 ho és, però considerarem que són bases diferents.</p>
 </div>
 <div class="theorem">
@@ -1021,7 +1022,7 @@ linealment independents si i només si existeixen
 <span class="math inline">\(\lambda_1, \dots, \lambda_n,\mu_1,\dots, \mu_n\in\K\)</span> tals que
 <span class="math inline">\(\lambda_1\vec v_1+\cdots + \lambda_n\vec v_n=\mu_1\vec v_1+\cdots + \mu_n\vec v_n\)</span>
 implica que <span class="math inline">\(\lambda_j=\mu_j\)</span> per a tot <span class="math inline">\(j\)</span>, per tant, si i només si la
-solució és única.</p>
+solució és única (en cas d’existir).</p>
 </div>
 <div class="remark">
 <p><span id="unlabeled-div-79" class="remark"><em>Observació</em>. </span>Equivalentment al Teorema
@@ -1037,7 +1038,7 @@ les columnes és invertible (en particular, ha de ser quadrada i per tant
 (els vectors estàndard definits a la Secció
 <a href="espais-vectorials-i-aplicacions-lineals.html#subsec:matriusapl" reference-type="ref" reference="subsec:matriusapl">1</a>) i resolent cada un dels sistemes amb
 solucions <span class="math inline">\(X_j\in M_{n\times 1}\)</span>, tindrem una matriu <span class="math inline">\(X\)</span> que compleix
-<span class="math inline">\(AX=\1_n\)</span>, per ant <span class="math inline">\(A\)</span> és invertible.<br />
+<span class="math inline">\(AX=\1_n\)</span>, per tant <span class="math inline">\(A\)</span> és invertible.<br />
 Si la matriu <span class="math inline">\(A\)</span> és invertible, <span class="math inline">\(x=A^{-1}B\)</span>, per tant el sistema és
 compatible determinat per a tot <span class="math inline">\(B\)</span>.</p>
 </div>
@@ -1141,7 +1142,7 @@ independents, i no generen <span class="math inline">\(V\)</span>, podem trobar 
 <span class="math inline">\(\{\vec u, \vec v_1,\dots,\vec v_n\}\)</span> és un conjunt de vectors
 linealment independents que té <span class="math inline">\(n+1\)</span> vectors, contradient (a). Si
 <span class="math inline">\(\vec v_1, \dots , \vec v_n\)</span> són generadors i no són linealment
-independents, vol dir que un d’ells es pot escriure com ca combinació
+independents, vol dir que un d’ells es pot escriure com a combinació
 lineal dels altres, i per tant tindríem un conjunt de vectors generadors
 amb <span class="math inline">\(n-1\)</span> vectors, que no pot ser.</p>
 </div>
@@ -1307,7 +1308,7 @@ correspon a les equacions: <span class="math display">\[\begin{align*}
 <p>Volem construir subespais vectorials a partir d’altres subespais: si
 <span class="math inline">\(U,V\subset \K^n\)</span> són subespais vectorials, en particular són conjunts,
 pel que té sentit considerar la intersecció <span class="math inline">\(U\cap V\)</span> i la unió
-<span class="math inline">\(V\cup V\)</span>.</p>
+<span class="math inline">\(U\cup V\)</span>.</p>
 <p>Veiem que:</p>
 <ul>
 <li><p><span class="math inline">\(\vec 0\in U\)</span> i <span class="math inline">\(\vec 0\in V\)</span> (ja que són subespai), per tant,
@@ -1657,8 +1658,9 @@ té per coeficients <span class="math inline">\(a_{ij}\)</span> complint:
 <p>Del càlcul fet a la Proposició
 <a href="espais-vectorials-i-aplicacions-lineals.html#prp:apl-lin-Kn">2.1</a> es dedueix que aquesta matriu compleix que
 si <span class="math inline">\([\vec v]_\calb=(\lambda_1,\dots,\lambda_n)\)</span>, llavors
-<span class="math inline">\([f(v)]_{\calc}=(\mu_1,\dots,\mu_s)\)</span>, on: <span class="math display">\[\begin{align*}
-(\#eq:matriu-apl-lineal)
+<span class="math inline">\([f(v)]_{\calc}=(\mu_1,\dots,\mu_s)\)</span>, on:</p>
+<p><span class="math display" id="eq:matriu-apl-lineal">\[\begin{align}
+\tag{2.1}
     \begin{pmatrix}
     \mu_1 \\ \vdots \\ \mu_s
     \end{pmatrix}=
@@ -1666,7 +1668,7 @@ si <span class="math inline">\([\vec v]_\calb=(\lambda_1,\dots,\lambda_n)\)</spa
     \begin{pmatrix}
     \lambda_1 \\ \vdots \\ \lambda_n
     \end{pmatrix}.
-\end{align*}\]</span></p>
+\end{align}\]</span></p>
 <p>Vegem un cas particular d’aquest argument, quan <span class="math inline">\(V=\K^n\)</span> i <span class="math inline">\(W=\K^m\)</span>. De
 la definició de matriu associada i que la composició d’aplicacions es
 correspon amb la multiplicació de matrius, es dedueixen els resultats
@@ -1685,7 +1687,7 @@ lineal induïda per <span class="math inline">\(A\)</span> tal i com hem definit
 <span class="math inline">\(\Id(\vec v)=\vec v\)</span> (que també es pot pensar com <span class="math inline">\(f_{\1_n}\)</span>)</p></li>
 </ul>
 <p>Llavors:</p>
-<ol style="list-style-type: decimal">
+<ol style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\([\Id_n]_{\calb}=\1_n\)</span> (per a qualsevol base <span class="math inline">\(\calb\)</span> de <span class="math inline">\(\K^n\)</span>),</p></li>
 <li><p><span class="math display">\[[\Id_n]_{\calb,\cals_n}=  \begin{pmatrix}
             \mid &amp; \mid &amp;\mid &amp; \mid\\
@@ -1708,13 +1710,13 @@ composició d’aplicacions lineals i el producte de matrius en les bases
 corresponents.</p>
 <p>Per demostrar (d) utilitzem directament la Definició
 <a href="espais-vectorials-i-aplicacions-lineals.html#def:matriu-apl-lineal">2.13</a> amb l’expressió de l’Equació
-<a href="#eq:matriu-apl-lineal">(<strong>??</strong>)</a>: si <span class="math inline">\(\vec v\in \K^n\)</span> i
+<a href="espais-vectorials-i-aplicacions-lineals.html#eq:matriu-apl-lineal">(2.1)</a>: si <span class="math inline">\(\vec v\in \K^n\)</span> i
 <span class="math inline">\([\vec v]_\calb=\begin{pmatrix}\lambda_1\\\vdots\\\lambda_n\end{pmatrix}\)</span>,
 llavors, les coordenades en la base <span class="math inline">\(\calb&#39;\)</span> d’<span class="math inline">\(f(\vec v)\)</span>
-són=<span class="math inline">\([f(\vec v)]_\calb = \begin{pmatrix}\mu_1\\\vdots\\\mu_m\end{pmatrix}\)</span>,
+són=<span class="math inline">\([f(\vec v)]_{\calb&#39;} = \begin{pmatrix}\mu_1\\\vdots\\\mu_m\end{pmatrix}\)</span>,
 on:
-<span class="math display">\[\begin{pmatrix}\mu_1\\ \vdots \\ \mu_m \end{pmatrix}=[f]_{\calb,\calb&#39;}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}\]</span>
-I les coordenades de <span class="math inline">\(g(f(v))\)</span> en la base <span class="math inline">\(\calb&#39;&#39;\)</span> són
+<span class="math display">\[\begin{pmatrix}\mu_1\\ \vdots \\ \mu_m \end{pmatrix}=[f]_{\calb,\calb&#39;}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix},\]</span>
+i les coordenades de <span class="math inline">\(g(f(v))\)</span> en la base <span class="math inline">\(\calb&#39;&#39;\)</span> són
 <span class="math inline">\([g(f(v))]_{\calb&#39;&#39;}=(\gamma_1,\dots,\gamma_r)\)</span>, on:
 <span class="math display">\[\begin{pmatrix}\gamma_1\\ \vdots \\ \gamma_r \end{pmatrix}=[g]_{\calb&#39;,\calb&#39;&#39;}\begin{pmatrix}\mu_1 \\ \vdots \\ \mu_m \end{pmatrix}=
     [g]_{\calb&#39;,\calb&#39;&#39;} [f]_{\calb,\calb&#39;}\begin{pmatrix}\lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}\]</span>
@@ -1730,7 +1732,8 @@ forma de diagrama, composant-les (posem les bases com a subíndex, amb
 <span class="math inline">\((\K^n)_\calb\)</span> a <span class="math inline">\((\K^m)_{\calb&#39;}\)</span> podem seguir dos camins, amb el
 mateix resultat (diem que el diagrama és commutatiu). Si ara ho escrivim
 en matrius (de les fletxes verticals tant sols hem deixat la que dóna la
-matriu): <span class="math display">\[\xymatrixcolsep{6em}
+matriu):
+<span class="math display">\[
 \xymatrix{
 (\K^n)_\cals \ar[r]^{A}  &amp;  (\K^m)_\cals  \\
 (\K^n)_\calb \ar[r]^{[f_A]_{\calb,\calb&#39;}} \ar[u]^B &amp; (\K^m)_{\calb&#39;} \ar[u]_{B&#39;}}\]</span>
@@ -1779,8 +1782,8 @@ matrius invertibles <span class="math inline">\(B\)</span> i <span class="math i
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-119" class="example"><strong>Exemple 2.12  </strong></span>Són les matrius
-<span class="math inline">\(A=\big(\begin{smallmatrix} -16 &amp; -45 \\ 6 &amp; 17\end{smallmatrix}\big)\)</span>
-i <span class="math inline">\(A&#39;=\big(\begin{smallmatrix} -1 &amp; 0 \\ 0 &amp; 2 \end{smallmatrix}\big)\)</span>
+<span class="math inline">\(A=\big(\begin{smallmatrix}  -16 &amp; -45 \\ 6 &amp; 17\end{smallmatrix}\big)\)</span>
+i <span class="math inline">\(A&#39;=\big(\begin{smallmatrix} -1 &amp; 0 \\ 0 &amp; 2  \end{smallmatrix}\big)\)</span>
 similars?</p>
 <p>Per respondre la pregunta necessitem calcular la <span class="math inline">\(B\)</span> tal que
 <span class="math inline">\(A&#39;=B^{-1}AB\)</span>, o bé demostrar que no existeix aquesta <span class="math inline">\(B\)</span>. Intentem
@@ -1802,8 +1805,8 @@ resolem té 2 paràmetres lliures i una possible solució particular és
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-120" class="example"><strong>Exemple 2.13  </strong></span>Són les matrius
-<span class="math inline">\(A=\big(\begin{smallmatrix} -16 &amp; -45 \\ 6 &amp; 17\end{smallmatrix}\big)\)</span>
-i <span class="math inline">\(A&#39;=\big(\begin{smallmatrix} 1 &amp; 0 \\ 0 &amp; 2 \end{smallmatrix}\big)\)</span>
+<span class="math inline">\(A=\big(\begin{smallmatrix}  -16 &amp; -45 \\ 6 &amp; 17\end{smallmatrix}\big)\)</span>
+i <span class="math inline">\(A&#39;=\big(\begin{smallmatrix} 1 &amp; 0 \\ 0 &amp; 2  \end{smallmatrix}\big)\)</span>
 similars? (així aprofitem els càlculs d’abans).</p>
 <p>Intentem calcular <span class="math inline">\(B\)</span> definida com:
 <span class="math display">\[B=\begin{pmatrix} b_{11} &amp; b_{12} \\ b_{21} &amp; b_{22} \end{pmatrix}\]</span> i
@@ -2114,7 +2117,7 @@ espais vectorials. Sigui <span class="math inline">\(f\colon V\to W\)</span> una
 <span class="math inline">\(\dim(V)=m\)</span> i <span class="math inline">\(\dim(W)=n\)</span>. Escollim bases <span class="math inline">\(\calb=[v_1,\ldots v_m]\)</span> de
 <span class="math inline">\(V\)</span> i <span class="math inline">\(\calc=[w_1,\ldots,w_n]\)</span> de <span class="math inline">\(W\)</span>. Aleshores tenim el diagrama
 <span class="math display" id="eq:diagrama-matriu-bases">\[\begin{align*}
-\tag{2.1}
+\tag{2.2}
 \xymatrix{
 V\ar[r]^f\ar[d]^{\cong}_{[\cdot]_{\calb}} &amp; W\ar[d]_{\cong}^{[\cdot]_{\calc}}\\
 \K^m\ar@{--&gt;}[r]&amp;\K^n.
@@ -2143,9 +2146,9 @@ Aleshores la <em>matriu de canvi de base</em> de <span class="math inline">\(\ca
 <p>El cas més general que podem considerar és el següent. Siguin <span class="math inline">\(V\)</span> i <span class="math inline">\(W\)</span>
 com fins ara, i prenem bases <span class="math inline">\(\calb\)</span> i <span class="math inline">\(\calb&#39;\)</span> de <span class="math inline">\(V\)</span>, i bases <span class="math inline">\(\calc\)</span>
 i <span class="math inline">\(\calc&#39;\)</span> de <span class="math inline">\(W\)</span>. Aleshores enganxant quatre còpies del
-Diagrama <a href="espais-vectorials-i-aplicacions-lineals.html#eq:diagrama-matriu-bases">(2.1)</a> obtenim el diagrama següent:
+Diagrama <a href="espais-vectorials-i-aplicacions-lineals.html#eq:diagrama-matriu-bases">(2.2)</a> obtenim el diagrama següent:
 <span class="math display">\[
-\xymatrix@C50pt@R50pt{
+\xymatrix{
 \K^m\ar[rrr]^{[f]_{\calb,\calc}}\ar[dd]_{S_{\calb,\calb&#39;}}&amp;&amp;&amp; \K^n\ar[dd]^{S_{\calc,\calc&#39;}}\\
 &amp;V\ar[r]^f\ar[ul]_{[\cdot]_\calb}\ar[dl]^{[\cdot]_{\calb&#39;}}&amp;W\ar[ur]^{[\cdot]_{\calc}}\ar[dr]_{[\cdot]_{\calc&#39;}}\\
 \K^m\ar[rrr]^{[f]_{\calb&#39;,\calc&#39;}}&amp;&amp;&amp;\K^n.
@@ -2182,7 +2185,7 @@ f_a(x-a)=\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
 \text{ i }
 f_a((x-a)^2)=\begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}.\]</span> I per tant:
 <span class="math display">\[[f_a]_{\calb&#39;,\calc}=\begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 2\end{pmatrix}.\]</span>
-Llavors, el diagrama que tenim és: <span class="math display">\[\xymatrix@C50pt@R50pt{
+Llavors, el diagrama que tenim és: <span class="math display">\[\xymatrix{
 \R^3 \ar[rrd]^{[f_a]_{\calb,\calc}} &amp;  &amp; \\
 &amp; \R[x]_{\leq2} \ar[ul]^{[\cdot]_\calb} \ar[r]^{f_a} \ar[dl]_{[\cdot]_{\calb&#39;}} &amp; \R^3 \\
 \R^3 \ar[rru]_{[f_a]_{\calb&#39;,\calc}} \ar[uu]^{S_{\calb&#39;,\calb}} &amp; &amp;
@@ -2197,7 +2200,7 @@ dir,
 <div id="exercicis-recomanats-1" class="section level2 hasAnchor" number="2.8">
 <h2><span class="header-section-number">2.8</span> Exercicis recomanats<a href="espais-vectorials-i-aplicacions-lineals.html#exercicis-recomanats-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Els exercicis que segueixen són útils per practicar el material
-presentat. La numeració és la de <span class="citation">[<a href="#ref-Bret" role="doc-biblioref">1</a>]</span>.</p>
+presentat. La numeració és la de <span class="citation">[<a href="#ref-Bret">1</a>]</span>.</p>
 <dl>
 <dt>Secció 2.1:</dt>
 <dd>

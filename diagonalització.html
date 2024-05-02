@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítol 3. Diagonalització | Apunts d’Àlgebra Lineal</title>
   <meta name="description" content="Apunts d’un curs d’Àlgebra Lineal a la UAB" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítol 3. Diagonalització | Apunts d’Àlgebra Lineal" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Marc Masdeu, Albert Ruiz" />
 
 
-<meta name="date" content="2023-09-29" />
+<meta name="date" content="2024-05-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -336,8 +336,8 @@ div.csl-indent {
 </div>
 <div id="diagonalització" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Capítol 3. </span> Diagonalització<a href="diagonalització.html#diagonalització" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>El contingut d’aquesta secció és pot trobar a <span class="citation">[<a href="#ref-Bret" role="doc-biblioref">1</a> Temes 6, 7]</span> i a
-<span class="citation">[<a href="#ref-NaXa" role="doc-biblioref">2</a> Tema 4]</span>.</p>
+<p>El contingut d’aquesta secció és pot trobar a <span class="citation">[<a href="#ref-Bret">1</a> Temes 6, 7]</span> i a
+<span class="citation">[<a href="#ref-NaXa">2</a> Tema 4]</span>.</p>
 <div id="subsec:motiv-diag" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Motivació<a href="diagonalització.html#subsec:motiv-diag" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Considerem les matrius següents: <span class="math display">\[A=\begin{pmatrix}
@@ -844,7 +844,9 @@ diagonal.</p></li>
 </ol>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-159" class="example"><strong>Exemple 3.5  </strong></span>La matriu <span class="math inline">\(B=\left(\begin{smallmatrix} 5 &amp; -15 &amp; -21 \\ -3 &amp; 9 &amp; 13 \\ 3 &amp; -9 &amp; -13 \end{smallmatrix}\right)\)</span> és diagonalitzable (veure apartat
+<p><span id="exm:unlabeled-div-159" class="example"><strong>Exemple 3.5  </strong></span>La matriu <span class="math inline">\(B=\left(\begin{smallmatrix}
+5 &amp; -15 &amp; -21 \\ -3 &amp; 9 &amp; 13 \\ 3 &amp; -9 &amp; -13
+\end{smallmatrix}\right)\)</span> és diagonalitzable (veure apartat
 <a href="diagonalització.html#subsec:motiv-diag" reference-type="ref" reference="subsec:motiv-diag">1</a>).</p>
 </div>
 <div class="remark">
@@ -954,7 +956,9 @@ equivalent a que <span class="math inline">\(\det(A-\lambda\1_n)=0\)</span>.</p>
 és que <span class="math inline">\(\lambda\)</span> és un valor propi d’<span class="math inline">\(A\)</span> si i només si <span class="math inline">\(p_A(\lambda)=0\)</span>,
 on <span class="math inline">\(p_A(x)\)</span> és el polinomi característic d’<span class="math inline">\(A\)</span> en la variable <span class="math inline">\(x\)</span>.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-165" class="example"><strong>Exemple 3.10  </strong></span>Calculem els valors propis de la matriu <span class="math inline">\(B=\left(\begin{smallmatrix} 5 &amp; -15 &amp; -21 \\ -3 &amp; 9 &amp; 13 \\ 3 &amp; -9 &amp; -13 \end{smallmatrix}\right)\)</span>: hem de fer el determinant: <span class="math display">\[0=
+<p><span id="exm:unlabeled-div-165" class="example"><strong>Exemple 3.10  </strong></span>Calculem els valors propis de la matriu <span class="math inline">\(B=\left(\begin{smallmatrix}
+5 &amp; -15 &amp; -21 \\ -3 &amp; 9 &amp; 13 \\ 3 &amp; -9 &amp; -13
+\end{smallmatrix}\right)\)</span>: hem de fer el determinant: <span class="math display">\[0=
 \begin{vmatrix}
 5-x &amp; -15 &amp; -21 \\ -3 &amp; 9-x &amp; 13 \\ 3 &amp; -9 &amp; -13-x
 \end{vmatrix} = -x^3 +x^2+2x=-x(x+1)(x-2)\]</span> i per tant els valors propis
@@ -999,7 +1003,7 @@ que: <span class="math display">\[\begin{pmatrix}
 \end{pmatrix}
 \begin{pmatrix} x \\ y \end{pmatrix} =
 \begin{pmatrix} 2x \\ 2y \end{pmatrix}\]</span> I per tant queda només
-l’equació <span class="math inline">\(y = 0\)</span>. Per tant la solució és
+l’equació <span class="math inline">\(y  = 0\)</span>. Per tant la solució és
 <span class="math inline">\(\vec v= x\left(\begin{smallmatrix} 1 \\ 0 \end{smallmatrix}\right)\)</span>.</p>
 <p>Un vector propi de valor propi <span class="math inline">\(1\)</span> és un vector
 <span class="math inline">\(\vec v=\left(\begin{smallmatrix} x \\ y \end{smallmatrix}\right)\)</span> tal
@@ -1519,8 +1523,10 @@ a+bi&amp;0\\0&amp;a-bi
 a&amp;-b\\b&amp;a
 \end{pmatrix},\]</span> la matriu <span class="math inline">\(A\)</span> és similar a <span class="math inline">\(R_{a,b}\)</span>. De fet, tenim:
 <span class="math display">\[D = S^{-1} A S,\]</span> on <span class="math inline">\(S\)</span> té per columnes <span class="math inline">\(\vec u\)</span> i <span class="math inline">\(\bar \vec u\)</span>, on
-<span class="math inline">\(\vec u = \vec v + i \vec w\)</span>, amb <span class="math inline">\(\vec v,\vec w\in \R^2\)</span>. Substituint
-<span class="math inline">\(D = T^{-1} R_{a,b} T\)</span> amb <span class="math inline">\(T = \begin{pmatrix} i &amp; -i\\1 &amp; 1 \end{pmatrix}\)</span>, tenim
+<span class="math inline">\(\vec u = \vec v  + i \vec w\)</span>, amb <span class="math inline">\(\vec v,\vec w\in \R^2\)</span>. Substituint
+<span class="math inline">\(D = T^{-1} R_{a,b} T\)</span> amb <span class="math inline">\(T = \begin{pmatrix}
+i &amp; -i\\1 &amp; 1
+\end{pmatrix}\)</span>, tenim
 <span class="math display">\[T^{-1} R_{a,b} T = S^{-1} A S\Longrightarrow R_{a,b} = TS^{-1} A ST^{-1}.\]</span>
 Calculem directament que <span class="math display">\[ST^{-1} = \begin{pmatrix}
 \vert&amp;\vert\\
@@ -1532,7 +1538,7 @@ Calculem directament que <span class="math display">\[ST^{-1} = \begin{pmatrix}
 <div id="exercicis-recomanats-2" class="section level2 hasAnchor" number="3.7">
 <h2><span class="header-section-number">3.7</span> Exercicis recomanats<a href="diagonalització.html#exercicis-recomanats-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Els exercicis que segueixen són útils per practicar el material
-presentat. La numeració és la de <span class="citation">[<a href="#ref-Bret" role="doc-biblioref">1</a>]</span>.</p>
+presentat. La numeració és la de <span class="citation">[<a href="#ref-Bret">1</a>]</span>.</p>
 <dl>
 <dt>Secció 6.2:</dt>
 <dd>
