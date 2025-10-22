@@ -488,7 +488,7 @@ fila, i restar-la a la tercera: $$\begin{pmatrix}
 	1 & 0 & 1 & 4\\0 & 1 & 3 & 0 \\   0 & 0 & 0 & -1
 	\end{pmatrix}$$ Les dues primeres files ja estan en forma reduïda, pel
 que podem considerar la tercera fila, i multiplicar-la per $-1$ per a
-que l'única posició no nua sigui un pivot: $$\begin{pmatrix}
+que l'única posició no nul·la sigui un pivot: $$\begin{pmatrix}
 	1 & 0 & 1 & 4\\0 & 1 & 3 & 0 \\   0 & 0 & 0 & 1
 	\end{pmatrix}$$ Finalment restem la tercera fila a la primera
 multiplicada per $4$: $$\begin{pmatrix}
