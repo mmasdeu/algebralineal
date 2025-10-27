@@ -367,7 +367,7 @@ matriu amb $m$ files:
     $k\neq i$ tindrem una matriu $P$ tal que $PA$ té a la fila $i$ la
     fila $i$ d'$A$ més $\mu$ vegades la fila $k$ d'$A$. En aquest cas,
     $P^{-1}$ és una matriu amb $1$ a la diagonal, $0$ fora, excepte la
-    posició $(k,i)$, que val $-\mu$.
+    posició $(i,k)$, que val $-\mu$.
 
 3.  si intercanviem les files $i$ i $k$ de la matriu $\1_n$ ($i\neq k$)
     obtenim una matriu $P$ tal que $PA$ és el resultat d'intercanviar
